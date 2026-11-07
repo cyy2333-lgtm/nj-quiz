@@ -342,7 +342,7 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
       <button class="mode m-hf" data-start="hf"><div class="t">高频必考</div><div class="e">HIGH FREQUENCY</div><div class="c"><b id="cHf">0</b>题 · 历年反复出现的考点</div></button>
       <button class="mode m-tr" data-start="tricky"><div class="t">易错陷阱</div><div class="e">ERROR-PRONE</div><div class="c"><b id="cTr">0</b>题 · 易混数字、例外、新旧变化</div></button>
       <button class="mode m-ex wide" data-start="exam"><div class="t">模拟考试</div><div class="e">MOCK TEST · 50 QUESTIONS · PASS 40</div><div class="c">按真实考试：随机 50 题，答对 40 题（80%）及格</div></button>
-      <button class="mode m-wr" data-start="wrong"><div class="t">错题本</div><div class="e">WRONG ANSWERS</div><div class="c"><b id="cWr">0</b>题 · 在错题本中答对即移出</div></button>
+      <button class="mode m-wr" data-start="wrong"><div class="t">错题本</div><div class="e">WRONG ANSWERS</div><div class="c"><b id="cWr">0</b>题 · <span id="cWrRule">在错题本中连续答对 2 次自动移出</span></div></button>
       <button class="mode m-fv" data-start="fav"><div class="t">收藏夹</div><div class="e">FAVORITES</div><div class="c"><b id="cFv">0</b>题 · 点题目旁的星标收藏</div></button>
     </div>
     <div class="qnav">
@@ -364,6 +364,7 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
       <div class="opt-row"><label for="oShuffleOpt">选项乱序<small>Shuffle answer choices (“以上皆是”类题目除外)</small></label><input type="checkbox" class="sw" id="oShuffleOpt" checked></div>
       <div class="opt-row"><label for="oAuto">答对自动下一题<small>Auto-advance after a correct answer</small></label><input type="checkbox" class="sw" id="oAuto" checked></div>
       <div class="opt-row"><label for="oSound">音效<small>Sound effects</small></label><input type="checkbox" class="sw" id="oSound" checked></div>
+      <div class="opt-row"><label for="oAutoRemove">错题本答对 2 次自动移出<small>Auto-remove from wrong answers after 2 correct tries. 关闭后只能在错题列表里手动移出 · Off = remove manually</small></label><input type="checkbox" class="sw" id="oAutoRemove" checked></div>
       <div class="opt-row"><label>清空全部记录<small>Clear progress, wrong answers and favorites</small></label><button class="linkbtn" id="resetBtn">清空 Reset</button></div>
     </div>
     <p class="note">题目依据新泽西州机动车委员会（MVC）2026 版《New Jersey Driver Manual》编写，出题形式参考历年真题。旧题库中已过时的答案（如酒驾处罚、地址变更期限）均已按 2026 手册更新，并标为“易错”。本站为练习工具，与 MVC 无关；法规以官方手册和法律条文为准。 · <a href="privacy.html" style="color:inherit">隐私政策 Privacy Policy</a></p>
@@ -12969,14 +12970,23 @@ function gloss(text,inOption){
 
 /* ---------- state & storage ---------- */
 const LS_KEY="njquiz.v1";
-const blank=()=>({wrong:{},fav:{},done:{},best:null,prefs:{lang:"both",shuffle:true,shuffleOpt:true,auto:true,sound:true}});
+const blank=()=>({wrong:{},fav:{},done:{},best:null,prefs:{lang:"both",shuffle:true,shuffleOpt:true,auto:true,sound:true,autoRemove:true}});
+const REMOVE_AFTER=2; // correct answers inside the wrong-answer list before an item leaves it
 let S=blank();
 try{const raw=localStorage.getItem(LS_KEY); if(raw){const o=JSON.parse(raw); S=Object.assign(blank(),o); S.prefs=Object.assign(blank().prefs,o.prefs||{});}}catch(e){}
 function saveLocal(){try{localStorage.setItem(LS_KEY,JSON.stringify(S))}catch(e){}}
 // wrong[id]={n:count,t:time,on:bool}; fav[id]={t,on}; done[id]={c,w}
 const isWrong=id=>!!(S.wrong[id]&&S.wrong[id].on);
 const isFav=id=>!!(S.fav[id]&&S.fav[id].on);
-function markWrong(id){const w=S.wrong[id]||{n:0}; S.wrong[id]={n:(w.n||0)+1,t:Date.now(),on:true}; changed();}
+function markWrong(id){const w=S.wrong[id]||{n:0}; S.wrong[id]={n:(w.n||0)+1,t:Date.now(),on:true,ok:0}; changed();}
+// a correct answer while practicing the wrong-answer list; returns how many more are needed (0 = removed)
+function wrongCorrect(id){
+  const w=S.wrong[id]; if(!w||!w.on) return -1;
+  const ok=(w.ok||0)+1;
+  if(S.prefs.autoRemove!==false && ok>=REMOVE_AFTER){ S.wrong[id]=Object.assign({},w,{on:false,ok:0,t:Date.now()}); changed(); return 0; }
+  S.wrong[id]=Object.assign({},w,{ok,t:Date.now()}); changed();
+  return S.prefs.autoRemove!==false ? REMOVE_AFTER-ok : -1;
+}
 function unWrong(id){if(S.wrong[id]){S.wrong[id]=Object.assign({},S.wrong[id],{on:false,t:Date.now()}); changed();}}
 function toggleFav(id){const on=!isFav(id); S.fav[id]={t:Date.now(),on}; changed(); return on;}
 function record(id,ok){const d=S.done[id]||{c:0,w:0}; ok?d.c++:d.w++; S.done[id]=d; changed();}
@@ -13351,6 +13361,7 @@ function refreshHome(){
   $('cHf').textContent=ALL.filter(q=>q.hf).length;
   $('cTr').textContent=ALL.filter(q=>q.tricky).length;
   $('cWr').textContent=ALL.filter(q=>isWrong(q.id)).length;
+  $('cWrRule').textContent = S.prefs.autoRemove!==false ? `在错题本中连续答对 ${REMOVE_AFTER} 次自动移出` : "自动移出已关闭，可在错题列表手动移出";
   $('cFv').textContent=ALL.filter(q=>isFav(q.id)).length;
   const tc=$('topicChips'); tc.innerHTML="";
   Object.keys(TOPICS).forEach(k=>{
@@ -13457,7 +13468,11 @@ function choose(oi,btn,ev){
     const r=(Array.from(document.querySelectorAll('#qChoices .choice')).find(b=>+b.dataset.oi===oi)||btn).getBoundingClientRect();
     const x=ev&&ev.clientX?ev.clientX:r.left+r.width-30, y=ev&&ev.clientY?ev.clientY:r.top+r.height/2;
     burst(x,y,Q.combo); sndRight(Q.combo); buzz(12);
-    if(Q.mode==="wrong"&&isWrong(q.id)){ unWrong(q.id); toast("已掌握，移出错题本 ✓"); }
+    if(Q.mode==="wrong"&&isWrong(q.id)){
+      const left=wrongCorrect(q.id);
+      if(left===0) toast(`已连续答对 ${REMOVE_AFTER} 次，移出错题本 ✓ · Mastered, removed`);
+      else if(left>0) toast(`答对了！再答对 ${left} 次就移出错题本 · ${left} more to remove`);
+    }
     else if(Q.combo>0&&Q.combo%5===0) toast(`太强了！连续答对 ${Q.combo} 题 🔥`);
   }else{
     Q.combo=0; markWrong(q.id); sndWrong(); buzz([30,40,30]);
@@ -13504,7 +13519,7 @@ function itemHTML(q){
     <div class="a">✓ ${bi(q.options[q.answer])}</div>
     ${q.explain?`<div style="font-size:13px;color:var(--muted);margin-top:4px">${bi(q.explain)}</div>`:""}
     ${sourceHTML(q)}
-    <div class="meta">${isWrong(q.id)?`<span style="color:var(--bad)">错 ${S.wrong[q.id].n} 次</span>`:""}<span>${esc(TOPICS[q.topic].zh)}</span><span class="sp"></span>
+    <div class="meta">${isWrong(q.id)?`<span style="color:var(--bad)">错 ${S.wrong[q.id].n} 次</span>${(S.prefs.autoRemove!==false&&S.wrong[q.id].ok)?`<span style="color:var(--good)">已答对 ${S.wrong[q.id].ok}/${REMOVE_AFTER}</span>`:""}`:""}<span>${esc(TOPICS[q.topic].zh)}</span><span class="sp"></span>
     <button class="mini" data-act="fav">${isFav(q.id)?"★ 已收藏":"☆ 收藏"}</button>
     ${isWrong(q.id)?'<button class="mini" data-act="unwrong">移出错题本</button>':""}</div></div>`;
 }
@@ -13734,7 +13749,8 @@ $('backBtn').addEventListener('click',()=>{ if(Q&&Q.answers.filter(a=>a!=null).l
 $('nextBtn').addEventListener('click',next);
 $('prevBtn').addEventListener('click',prev);
 $('favBtn').addEventListener('click',()=>{ if(!Q) return; const id=Q.list[Q.i].q.id; const on=toggleFav(id); $('favBtn').setAttribute('aria-pressed',String(on)); toast(on?"已收藏 ★":"已取消收藏"); if(on) tone([880],0.12,"sine",0.1); });
-[["oShuffle","shuffle"],["oShuffleOpt","shuffleOpt"],["oAuto","auto"],["oSound","sound"]].forEach(([id,k])=>{
+$('oAutoRemove').addEventListener('change',()=>setTimeout(refreshHome));
+[["oShuffle","shuffle"],["oShuffleOpt","shuffleOpt"],["oAuto","auto"],["oSound","sound"],["oAutoRemove","autoRemove"]].forEach(([id,k])=>{
   const el=$(id); el.checked=!!S.prefs[k]; el.addEventListener('change',()=>{S.prefs[k]=el.checked; saveLocal();});
 });
 let resetArm=0;
