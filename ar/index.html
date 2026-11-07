@@ -146,8 +146,6 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 .asub span{color:var(--muted)}
 .areason{margin:0 0 12px;background:var(--accent);color:var(--accent-ink);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700}
 .lbtn{position:relative}
-.signed-out .mode[data-start="wrong"]::after,.signed-out .mode[data-start="fav"]::after,.signed-out .lbtn[data-list="wrong"]::after,.signed-out .lbtn[data-list="fav"]::after{content:"";position:absolute;top:10px;right:12px;width:16px;height:16px;background:var(--muted);-webkit-mask:var(--lock) center/contain no-repeat;mask:var(--lock) center/contain no-repeat}
-[dir="rtl"] .signed-out .mode::after,[dir="rtl"] .signed-out .lbtn::after{right:auto;left:12px}
 .aclose{position:absolute;top:10px;right:12px;border:0;background:none;font-size:24px;line-height:1;cursor:pointer;color:var(--muted)}
 .gbtn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;padding:11px;font-weight:700;cursor:pointer}
 .gbtn svg{width:20px;height:20px}
@@ -523,14 +521,14 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
   <div class="hbar">
     <button class="brand" id="homeBtn" aria-label="الصفحة الرئيسية Home">
       <svg class="shield" viewBox="0 0 34 38" aria-hidden="true"><path d="M2 3h30v15c0 9-7 15-15 18C9 33 2 27 2 18z" fill="#f4a6c1" stroke="#111" stroke-width="2"/><text x="17" y="22" text-anchor="middle" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="14" fill="#111">NJ</text></svg>
-      <span><b>أسئلة اختبار رخصة القيادة في نيوجيرسي <i class="new26">2026 الأحدث</i></b><small>Latest 2026 Driver Manual · عربي–English</small></span>
+      <span><b>أسئلة اختبار رخصة القيادة في نيوجيرسي <i class="new26">2026 الأحدث</i></b><small>Latest 2026 Driver Manual / عربي–English</small></span>
     </button>
     <div class="seg" role="group" aria-label="اللغة Language" id="langSeg">
       <button data-lang="both" aria-pressed="true">AR+EN</button>
       <button data-lang="zh" aria-pressed="false">العربية</button>
       <button data-lang="en" aria-pressed="false">EN</button>
     </div>
-    <button class="themebtn" id="themeBtn" aria-label="الوضع الداكن / الفاتح · Dark / light mode"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button>
+    <button class="themebtn" id="themeBtn" aria-label="الوضع الداكن / الفاتح Dark / light mode"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button>
     <button class="acct" id="acctBtn" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span id="acctLabel">تسجيل الدخول Log in</span></button>
   </div>
   <nav class="sitelangs" aria-label="Language versions">
@@ -550,7 +548,7 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
           <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/drivermanual.pdf" target="_blank" rel="noopener">الدليل بالإنجليزية English PDF ↗</a>
           <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/2026%20Driver%20Manual_Arabic%209-21-26.pdf" target="_blank" rel="noopener">الدليل بالعربية Arabic PDF ↗</a>
         </div>
-        <small>الأدلة الرسمية من موقع هيئة المركبات الآلية في نيوجيرسي (حوالي 40 ميغابايت) · Official PDFs from nj.gov</small>
+        <small>الأدلة الرسمية من موقع هيئة المركبات الآلية في نيوجيرسي (حوالي 40 ميغابايت) / Official PDFs from nj.gov</small>
       </div>
     </div>
     <details class="trnotes"><summary>&#9888; ملاحظات حول الترجمة العربية الرسمية</summary><ul><li>يتبع هذا الموقع مصطلحات الدليل العربي الرسمي الصادر عن هيئة المركبات الآلية. عندما تخالف الترجمة النص الإنجليزي الأصلي (وهو النص المعتمد)، نتبع الأصل ونشير إلى ذلك في شرح السؤال تحت عنوان &#171;ملاحظة عن الدليل&#187;.</li><li>يرد اسم MVC في الدليل بصيغتين: &#171;هيئة المركبات الآلية&#187; و&#171;إدارة المركبات الآلية&#187;. نستخدم هنا &#171;هيئة المركبات الآلية&#187;.</li><li>ترد الرخصة التجريبية (probationary license) بصيغتين: &#171;رخصة القيادة تحت الاختبار&#187; و&#171;رخصة قيادة تجريبية&#187;. نستخدم هنا &#171;رخصة القيادة تحت الاختبار&#187;.</li><li>في قائمة اللافتات تُترجم لافتة DO NOT PASS إلى &#171;ممنوع المرور&#187;، وهذا غير دقيق؛ معناها &#171;ممنوع التجاوز&#187;.</li><li>تُترجم إشارة المشاة بطريقتين مختلفتين: &#171;لا تعبر&#187; في الصفحة 66 و&#171;امشِ / لا تمشِ&#187; في الصفحة 144، وكلاهما يقابل &#171;Walk / Don&#39;t Walk&#187; في الأصل.</li></ul></details>
@@ -560,15 +558,15 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
       <div class="stat"><div class="n" id="sAcc">–</div><div class="l">نسبة الإجابات الصحيحة Accuracy</div></div>
       <div class="stat"><div class="n" id="sBest">–</div><div class="l">أعلى نتيجة تجريبية Best mock</div></div>
     </div>
-    <div class="sync" id="syncNote">يُحفظ السجل في متصفح هذا الجهاز · Saved on this device</div>
+    <div class="sync" id="syncNote">يُحفظ السجل في متصفح هذا الجهاز Saved on this device</div>
 
     <h2 class="sec">وضع التدريب Practice</h2>
     <div class="modes">
-      <button class="mode m-hf" data-start="hf"><div class="t">الأكثر تكرارًا</div><div class="e">HIGH FREQUENCY</div><div class="c"><b id="cHf">0</b>سؤال · نقاط تتكرر في الاختبار عامًا بعد عام</div></button>
-      <button class="mode m-tr" data-start="tricky"><div class="t">أسئلة صعبة</div><div class="e">ERROR-PRONE</div><div class="c"><b id="cTr">0</b>سؤال · أرقام متشابهة واستثناءات وتغييرات بين القديم والجديد</div></button>
-      <button class="mode m-ex wide" data-start="exam"><div class="t">اختبار تجريبي</div><div class="e">MOCK TEST · 50 QUESTIONS · PASS 40</div><div class="c">كما في الاختبار الحقيقي: 50 سؤالًا عشوائيًا، والنجاح بالإجابة الصحيحة عن 40 سؤالًا (80%)</div></button>
-      <button class="mode m-wr" data-start="wrong"><div class="t">قائمة الأخطاء</div><div class="e">WRONG ANSWERS</div><div class="c"><b id="cWr">0</b>سؤال · <span id="cWrRule">يُزال تلقائيًا بعد إجابتين صحيحتين متتاليتين في قائمة الأخطاء</span></div></button>
-      <button class="mode m-fv" data-start="fav"><div class="t">المفضلة</div><div class="e">FAVORITES</div><div class="c"><b id="cFv">0</b>سؤال · اضغط على النجمة بجوار السؤال لحفظه</div></button>
+      <button class="mode m-hf" data-start="hf"><div class="t">الأكثر تكرارًا</div><div class="e">HIGH FREQUENCY</div><div class="c"><b id="cHf">0</b>سؤال، نقاط تتكرر في الاختبار عامًا بعد عام</div></button>
+      <button class="mode m-tr" data-start="tricky"><div class="t">أسئلة صعبة</div><div class="e">ERROR-PRONE</div><div class="c"><b id="cTr">0</b>سؤال، أرقام متشابهة واستثناءات وتغييرات بين القديم والجديد</div></button>
+      <button class="mode m-ex wide" data-start="exam"><div class="t">اختبار تجريبي</div><div class="e">MOCK TEST / 50 QUESTIONS / PASS 40</div><div class="c">كما في الاختبار الحقيقي: 50 سؤالًا عشوائيًا، والنجاح بالإجابة الصحيحة عن 40 سؤالًا (80%)</div></button>
+      <button class="mode m-wr" data-start="wrong"><div class="t">قائمة الأخطاء</div><div class="e">WRONG ANSWERS</div><div class="c"><b id="cWr">0</b>سؤال،<span id="cWrRule">يُزال تلقائيًا بعد إجابتين صحيحتين متتاليتين في قائمة الأخطاء</span></div></button>
+      <button class="mode m-fv" data-start="fav"><div class="t">المفضلة</div><div class="e">FAVORITES</div><div class="c"><b id="cFv">0</b>سؤال، اضغط على النجمة بجوار السؤال لحفظه</div></button>
     </div>
     <div class="lists">
       <button class="lbtn" data-list="wrong"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg></i><b>قائمة الأخطاء</b><small>Wrong answers</small></button>
@@ -585,30 +583,30 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
       <div class="glossary" id="glossList"></div>
     </details>
 
-    <h2 class="sec">لوحة المجتمع · Community board</h2>
+    <h2 class="sec">لوحة المجتمع Community board</h2>
     <p class="note" style="margin:0 2px 8px">شاركنا اقتراحاتك، أو تجربتك في الاختبار النظري أو اختبار القيادة في كل مركز. Share suggestions, or how your knowledge or road test went at each test center.</p>
     <div class="board" id="board">
-      <div class="bchips"><button class="chip" data-bt="tip" aria-pressed="true">الاقتراحات · Suggestions</button><button class="chip" data-bt="ctr" aria-pressed="false">مراكز الاختبار · Test centers</button></div>
+      <div class="bchips"><button class="chip" data-bt="tip" aria-pressed="true">الاقتراحات Suggestions</button><button class="chip" data-bt="ctr" aria-pressed="false">مراكز الاختبار Test centers</button></div>
       <div id="bCenters" class="hide">
-        <div class="bchips"><button class="chip" data-ctr="" aria-pressed="true">كل المراكز · All centers</button></div>
-        <div class="bgl">مواقع اختبار القيادة · Road test sites</div><div class="bchips" id="bRoad"></div>
-        <div class="bgl">الاختبار النظري واختبار النظر (Licensing Centers) · Knowledge &amp; vision test</div><div class="bchips" id="bLic"></div>
+        <div class="bchips"><button class="chip" data-ctr="" aria-pressed="true">كل المراكز All centers</button></div>
+        <div class="bgl">مواقع اختبار القيادة Road test sites</div><div class="bchips" id="bRoad"></div>
+        <div class="bgl">الاختبار النظري واختبار النظر (Licensing Centers) / Knowledge &amp; vision test</div><div class="bchips" id="bLic"></div>
       </div>
-      <div class="cm"><div class="cmh"><span id="bTitle">الاقتراحات · Suggestions</span> <span class="cmn" id="bN"></span></div><div class="cmlist" id="bList"><p class="cmempty">جارٍ التحميل… Loading…</p></div><div id="bForm"></div></div>
+      <div class="cm"><div class="cmh"><span id="bTitle">الاقتراحات Suggestions</span> <span class="cmn" id="bN"></span></div><div class="cmlist" id="bList"><p class="cmempty">جارٍ التحميل… Loading…</p></div><div id="bForm"></div></div>
     </div>
 
     <h2 class="sec">الإعدادات Settings</h2>
     <div class="opts">
-      <div class="opt-row"><label for="oDark">الوضع الداكن<small>Dark mode · خلفية سوداء مع وردي فاتح</small></label><input type="checkbox" class="sw" id="oDark"></div>
-      <div class="opt-row"><label for="oEn">إظهار النص الإنجليزي الأصلي<small>يعرض السؤال الأصلي بالإنجليزية. عند الإيقاف تظهر العربية فقط · Off = Arabic only</small></label><input type="checkbox" class="sw entsw" id="oEn" checked></div>
+      <div class="opt-row"><label for="oDark">الوضع الداكن<small>Dark mode / خلفية سوداء مع وردي فاتح</small></label><input type="checkbox" class="sw" id="oDark"></div>
+      <div class="opt-row"><label for="oEn">إظهار النص الإنجليزي الأصلي<small>يعرض السؤال الأصلي بالإنجليزية. عند الإيقاف تظهر العربية فقط Off = Arabic only</small></label><input type="checkbox" class="sw entsw" id="oEn" checked></div>
       <div class="opt-row"><label for="oShuffle">ترتيب عشوائي للأسئلة<small>Shuffle question order</small></label><input type="checkbox" class="sw" id="oShuffle" checked></div>
       <div class="opt-row"><label for="oShuffleOpt">ترتيب عشوائي للخيارات<small>Shuffle answer choices (باستثناء أسئلة «جميع ما سبق»)</small></label><input type="checkbox" class="sw" id="oShuffleOpt" checked></div>
       <div class="opt-row"><label for="oAuto">الانتقال تلقائيًا إلى السؤال التالي بعد الإجابة الصحيحة<small>Auto-advance after a correct answer</small></label><input type="checkbox" class="sw" id="oAuto" checked></div>
       <div class="opt-row"><label for="oSound">المؤثرات الصوتية<small>Sound effects</small></label><input type="checkbox" class="sw" id="oSound" checked></div>
-      <div class="opt-row"><label for="oAutoRemove">الإزالة التلقائية من قائمة الأخطاء بعد إجابتين صحيحتين<small>Auto-remove from wrong answers after 2 correct tries. عند إيقافه لا يمكن الإزالة إلا يدويًا من قائمة الأخطاء · Off = remove manually</small></label><input type="checkbox" class="sw" id="oAutoRemove" checked></div>
+      <div class="opt-row"><label for="oAutoRemove">الإزالة التلقائية من قائمة الأخطاء بعد إجابتين صحيحتين<small>Auto-remove from wrong answers after 2 correct tries. عند إيقافه لا يمكن الإزالة إلا يدويًا من قائمة الأخطاء Off = remove manually</small></label><input type="checkbox" class="sw" id="oAutoRemove" checked></div>
       <div class="opt-row"><label>مسح جميع السجلات<small>Clear progress, wrong answers and favorites</small></label><button class="linkbtn" id="resetBtn">مسح Reset</button></div>
     </div>
-    <p class="note">الأسئلة مكتوبة وفق «New Jersey Driver Manual» إصدار 2026 الصادر عن هيئة المركبات الآلية في نيوجيرسي (MVC)، وصيغتها مستوحاة من أسئلة الاختبارات السابقة. تم تحديث الإجابات القديمة في بنوك الأسئلة السابقة (مثل عقوبات القيادة تحت تأثير الكحول ومهلة الإبلاغ عن تغيير العنوان) وفق دليل 2026، ووُسمت بأنها «صعبة». هذا الموقع أداة للتدريب ولا علاقة له بهيئة MVC؛ والمرجع في القواعد هو الدليل الرسمي ونصوص القانون. · <a href="../privacy.html" style="color:inherit">سياسة الخصوصية Privacy Policy</a></p>
+    <p class="note">الأسئلة مكتوبة وفق «New Jersey Driver Manual» إصدار 2026 الصادر عن هيئة المركبات الآلية في نيوجيرسي (MVC)، وصيغتها مستوحاة من أسئلة الاختبارات السابقة. تم تحديث الإجابات القديمة في بنوك الأسئلة السابقة (مثل عقوبات القيادة تحت تأثير الكحول ومهلة الإبلاغ عن تغيير العنوان) وفق دليل 2026، ووُسمت بأنها «صعبة». هذا الموقع أداة للتدريب ولا علاقة له بهيئة MVC؛ والمرجع في القواعد هو الدليل الرسمي ونصوص القانون. <a href="../privacy.html" style="color:inherit">سياسة الخصوصية Privacy Policy</a></p>
   </section>
 
   <!-- QUIZ -->
@@ -623,7 +621,7 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
     <div class="qtools">
       <button class="qtool" id="qHome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>الصفحة الرئيسية Home</button>
       <button class="qtool" id="qReview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h10"/></svg>مراجعة الأخطاء Review<span class="qbadge" id="qWrongN">0</span></button>
-      <label class="qtool entog"><input type="checkbox" class="sw entsw" id="qEn" checked>إظهار الإنجليزية · Show English</label>
+      <label class="qtool entog"><input type="checkbox" class="sw entsw" id="qEn" checked>إظهار الإنجليزية Show English</label>
     </div>
     <div class="card" id="qCard">
       <div class="tags" id="qTags"></div>
@@ -641,7 +639,7 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
       <button class="btn ghost" id="prevBtn">السؤال السابق</button>
       <button class="btn grow" id="nextBtn" disabled>السؤال التالي Next</button>
     </div>
-    <div class="kbd">لوحة المفاتيح: 1–4 / A–D للإجابة · Enter للسؤال التالي · F للحفظ في المفضلة</div>
+    <div class="kbd">لوحة المفاتيح: 1–4 / A–D للإجابة Enter للسؤال التالي F للحفظ في المفضلة</div>
   </section>
 
   <!-- RESULT -->
@@ -654,9 +652,9 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
 <div class="welcome hide" id="welcome" role="dialog" aria-modal="true" aria-labelledby="wTitle">
   <div class="wbox">
     <svg class="wshield" viewBox="0 0 34 38" aria-hidden="true"><path d="M2 3h30v15c0 9-7 15-15 18C9 33 2 27 2 18z" fill="#f4a6c1" stroke="#111" stroke-width="2"/><text x="17" y="22" text-anchor="middle" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="14" fill="#111">NJ</text></svg>
-    <div><span class="new26 big">2026 أحدث إصدار · LATEST</span></div>
+    <div><span class="new26 big">2026 أحدث إصدار LATEST</span></div>
     <h1 id="wTitle">أسئلة اختبار رخصة القيادة في نيوجيرسي<small>Free NJ Permit Test Practice 2026</small></h1>
-    <p class="wsub">اختر لغة الأسئلة · Choose your language</p>
+    <p class="wsub">اختر لغة الأسئلة Choose your language</p>
     <!-- every bilingual version is the same size; the page's own version is moved to the top by script.
          Chinese here is written as entities so the language builds leave it alone -->
     <div class="wopts">
@@ -667,18 +665,18 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
       <a class="sitelang wopt" data-site="ar" href="/ar/" lang="ar" dir="rtl"><b>العربية + English</b><span>ثنائي اللغة: العربية والإنجليزية</span></a>
       <button class="wopt wen" data-wlang="en" lang="en"><b>English only</b><span>Questions in English only</span></button>
     </div>
-    <p class="wnote">يمكنك إخفاء النص الإنجليزي الأصلي أو إظهاره في أي وقت بمفتاح «إظهار الإنجليزية» · Turn the English original on or off anytime with the “Show English” switch.</p>
+    <p class="wnote">يمكنك إخفاء النص الإنجليزي الأصلي أو إظهاره في أي وقت بمفتاح «إظهار الإنجليزية» Turn the English original on or off anytime with the “Show English” switch.</p>
   </div>
 </div>
 
 <div class="welcome hide" id="authDlg" role="dialog" aria-modal="true" aria-labelledby="authTitle">
   <div class="wbox abox">
     <button class="aclose" id="authClose" aria-label="إغلاق Close">×</button>
-    <h2 id="authTitle">تسجيل الدخول / إنشاء حساب · Log in / Sign up</h2>
+    <h2 id="authTitle">تسجيل الدخول / إنشاء حساب Log in / Sign up</h2>
     <p class="areason hide" id="aReason"></p>
     <p class="asub">بعد تسجيل الدخول يمكنك التعليق على الأسئلة، وتتم مزامنة قائمة الأخطاء والمفضلة بين الهاتف والكمبيوتر. لا يلزم تسجيل الدخول للتدريب نفسه.<br><span>Log in to comment and sync your progress across devices. Practice never requires an account.</span></p>
-    <button class="gbtn" id="authGoogle"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.8 6C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.6c0-1.6-.1-3.1-.4-4.6H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.4 5.8c4.3-4 6.9-9.9 6.9-17.1z"/><path fill="#FBBC05" d="M10.5 28.7c-.5-1.4-.8-3-.8-4.7s.3-3.3.8-4.7l-7.8-6C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.8c-2.1 1.4-4.8 2.2-8.5 2.2-6.3 0-11.6-4.1-13.5-9.8l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>المتابعة باستخدام حساب Google · Continue with Google</button>
-    <div class="aor"><span>أو باستخدام البريد الإلكتروني · or with email</span></div>
+    <button class="gbtn" id="authGoogle"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.8 6C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.6c0-1.6-.1-3.1-.4-4.6H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.4 5.8c4.3-4 6.9-9.9 6.9-17.1z"/><path fill="#FBBC05" d="M10.5 28.7c-.5-1.4-.8-3-.8-4.7s.3-3.3.8-4.7l-7.8-6C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.8c-2.1 1.4-4.8 2.2-8.5 2.2-6.3 0-11.6-4.1-13.5-9.8l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>المتابعة باستخدام حساب Google / Continue with Google</button>
+    <div class="aor"><span>أو باستخدام البريد الإلكتروني or with email</span></div>
     <div class="atabs" role="tablist">
       <button role="tab" id="tabLogin" aria-selected="true">تسجيل الدخول Log in</button>
       <button role="tab" id="tabSignup" aria-selected="false">إنشاء حساب Sign up</button>
@@ -13185,7 +13183,7 @@ const MANUAL_ZH="https://www.nj.gov/mvc/pdf/license/2026%20Driver%20Manual_Arabi
 function sourceHTML(q){
   const s=source(q); if(!s) return "";
   const p=parseInt(s.page,10), href=MANUAL_EN+(p?`#page=${p+2}`:"");
-  return `<div class="src"><b>المصدر Source</b><span class="zh">«دليل القيادة في نيوجيرسي 2026»، الفصل ${s.ch} «${esc(s.zh)}»، الصفحة ${esc(s.page)} من الدليل</span><span class="en">2026 New Jersey Driver Manual, Ch. ${s.ch} “${esc(s.en)}”, p. ${esc(s.page)}</span><a class="srclink" href="${href}" target="_blank" rel="noopener">افتح الدليل الرسمي على الصفحة ${esc(s.page)} · Open manual at p. ${esc(s.page)} ↗</a>${q.scene?`<span class="note">الرسم التوضيحي مرسوم وفق نص الدليل · Diagram drawn from the manual's rules</span>`:""}</div>`;
+  return `<div class="src"><b>المصدر Source</b><span class="zh">«دليل القيادة في نيوجيرسي 2026»، الفصل ${s.ch} «${esc(s.zh)}»، الصفحة ${esc(s.page)} من الدليل</span><span class="en">2026 New Jersey Driver Manual, Ch. ${s.ch} “${esc(s.en)}”, p. ${esc(s.page)}</span><a class="srclink" href="${href}" target="_blank" rel="noopener">افتح الدليل الرسمي على الصفحة ${esc(s.page)} · Open manual at p. ${esc(s.page)} ↗</a>${q.scene?`<span class="note">الرسم التوضيحي مرسوم وفق نص الدليل Diagram drawn from the manual's rules</span>`:""}</div>`;
 }
 
 /* ---------- glossary ---------- */
@@ -13273,9 +13271,9 @@ function mergeMap(a,b){const out=Object.assign({},a); for(const k in b){ if(!out
 function mergeDone(a,b){const out=Object.assign({},a); for(const k in b){const x=out[k]||{c:0,w:0},y=b[k]; out[k]={c:Math.max(x.c||0,y.c||0),w:Math.max(x.w||0,y.w||0)};} return out;}
 function setSync(mode){
   const el=document.getElementById('syncNote');
-  el.textContent = (mode==="cloud"||mode==="account") ? "تم تسجيل الدخول؛ تتم مزامنة قائمة الأخطاء والمفضلة مع حسابك على الهاتف والكمبيوتر · Synced to your account" :
-                   mode==="loading" ? "جارٍ الاتصال بالخادم… · Connecting…" :
-                   "يُحفظ السجل في متصفح هذا الجهاز · Saved on this device";
+  el.textContent = (mode==="cloud"||mode==="account") ? "تم تسجيل الدخول؛ تتم مزامنة قائمة الأخطاء والمفضلة مع حسابك على الهاتف والكمبيوتر Synced to your account" :
+                   mode==="loading" ? "جارٍ الاتصال بالخادم… Connecting…" :
+                   "يُحفظ السجل في متصفح هذا الجهاز Saved on this device";
 }
 (async function initCloud(){
   if(!window.claude||typeof window.claude.use!=="function") return;
@@ -13380,7 +13378,7 @@ const hand=(kind)=>{
   <rect x="150" y="96" width="36" height="12" rx="2" fill="#f4f4f4"/><rect x="118" y="114" width="22" height="20" rx="4" fill="#222"/><rect x="196" y="114" width="22" height="20" rx="4" fill="#222"/>
   <circle cx="148" cy="44" r="7" fill="#e8b48a"/>
   <path d="${path}" stroke="#e8b48a" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${end[0]}" cy="${end[1]}" r="7" fill="#e8b48a"/>
-  <text x="168" y="16" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">منظر خلفي rear view · يد السائق اليسرى</text></svg>`;
+  <text x="168" y="16" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">منظر خلفي rear view / يد السائق اليسرى</text></svg>`;
 };
 const SIGNS={
   stop:`<svg viewBox="0 0 120 120"><polygon points="36,4 84,4 116,36 116,84 84,116 36,116 4,84 4,36" fill="#d0021b"/><polygon points="38,9 82,9 111,38 111,82 82,111 38,111 9,82 9,38" fill="none" stroke="#fff" stroke-width="3"/><text x="60" y="72" text-anchor="middle" font-family="Arial Narrow,Arial,sans-serif" font-weight="700" font-size="34" fill="#fff">STOP</text></svg>`,
@@ -13590,7 +13588,7 @@ const SCN=(function(){
     const ang=Math.atan2(90,300)*180/Math.PI;
     const carSide=`<g><path d="M-38 0v-14q0-6 6-7l14-3 10-12h28l12 12 10 2q6 2 6 8V0z" fill="#2b6cb0"/><path d="M-12 -24 -3 -34h13v10zM14 -24v-10h12l9 10z" fill="#cfe3ff"/><circle cx="-22" cy="0" r="8" fill="#222"/><circle cx="22" cy="0" r="8" fill="#222"/></g>`;
     g+=`<g transform="translate(150 ${115-8}) rotate(${ang}) ${down?"":"scale(-1 1)"}">${carSide}</g>`;
-    g+=txt(150,190,down?"متجهة نحو أسفل التل · facing DOWNHILL":"متجهة صعودًا · facing UPHILL",{fs:12,c:"#fff"});
+    g+=txt(150,190,down?"متجهة نحو أسفل التل facing DOWNHILL":"متجهة صعودًا facing UPHILL",{fs:12,c:"#fff"});
     g+=txt(150,24,"رصيف على اليمين Curb on the right",{fs:12,c:"#1b3a4f"});
     g+=`<path d="${down?"M200 60 L250 75":"M100 75 L50 60"}" stroke="#1b3a4f" stroke-width="3" marker-end="url(#sa)"/>`;
     return wrap(200,g);
@@ -13640,14 +13638,14 @@ function refreshHome(){
   Object.keys(TOPICS).forEach(k=>{
     const n=ALL.filter(q=>q.topic===k).length; if(!n) return;
     const b=document.createElement('button'); b.className='chip';
-    b.innerHTML=`${esc(TOPICS[k].zh)} <span>${esc(TOPICS[k].en)} · ${n}</span>`;
+    b.innerHTML=`${esc(TOPICS[k].zh)} <span>${esc(TOPICS[k].en)} ${n}</span>`;
     b.addEventListener('click',()=>start('topic',k)); tc.appendChild(b);
   });
 }
 
 /* ---------- quiz engine ---------- */
 let Q=null; // {mode,title,list:[{q,order}],i,answers:[],combo,best,right}
-const MODE_TITLE={hf:"الأكثر تكرارًا High frequency",tricky:"أسئلة صعبة Error-prone",exam:"اختبار تجريبي Mock test",wrong:"قائمة الأخطاء Wrong answers",fav:"المفضلة Favorites",notes:"ملاحظاتي · My notes",all:"جميع الأسئلة All"};
+const MODE_TITLE={hf:"الأكثر تكرارًا High frequency",tricky:"أسئلة صعبة Error-prone",exam:"اختبار تجريبي Mock test",wrong:"قائمة الأخطاء Wrong answers",fav:"المفضلة Favorites",notes:"ملاحظاتي My notes",all:"جميع الأسئلة All"};
 const hasAbove=q=>q.options.some(o=>/above|\u4ee5\u4e0a|both|all of these|none of these/i.test((o.en||"")+(o.zh||"")));
 function buildOrder(q){ const idx=[0,1,2,3]; return (S.prefs.shuffleOpt&&!hasAbove(q))?shuffle(idx):idx; }
 function start(mode,arg,customList){
@@ -13729,7 +13727,7 @@ function paintAnswered(chosen,animate){
   const ex=q.explain||{};
   const showEx = !ok || !(S.prefs.auto&&animate);
   if(showEx||!ok){
-    $('qExplain').innerHTML=`<div class="explain ${ok?"":"bad"}"><div class="h">${ok?"✓ إجابة صحيحة Correct":"✗ الإجابة الصحيحة هي "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]+" · Correct answer: "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]}</div>${ex.en?`<div class="en">${gloss(ex.en)}</div>`:""}${ex.zh?`<div class="zh">${gloss(ex.zh)}</div>`:""}${q.trNote?`<div class="trnote">⚠ ${esc(q.trNote)}</div>`:""}${sourceHTML(q)}</div>`;
+    $('qExplain').innerHTML=`<div class="explain ${ok?"":"bad"}"><div class="h">${ok?"✓ إجابة صحيحة Correct":"✗ الإجابة الصحيحة هي "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]+" Correct answer: "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]}</div>${ex.en?`<div class="en">${gloss(ex.en)}</div>`:""}${ex.zh?`<div class="zh">${gloss(ex.zh)}</div>`:""}${q.trNote?`<div class="trnote">⚠ ${esc(q.trNote)}</div>`:""}${sourceHTML(q)}</div>`;
   }
 }
 let autoT=null;
@@ -13745,8 +13743,8 @@ function choose(oi,btn,ev){
     burst(x,y,Q.combo); sndRight(Q.combo); buzz(12);
     if(Q.mode==="wrong"&&isWrong(q.id)){
       const left=wrongCorrect(q.id);
-      if(left===0) toast(`أجبت إجابة صحيحة ${REMOVE_AFTER} مرات متتالية، وأُزيل من قائمة الأخطاء ✓ · Mastered, removed`);
-      else if(left>0) toast(`إجابة صحيحة! أجب إجابة صحيحة ${left} مرة أخرى لإزالته من قائمة الأخطاء · ${left} more to remove`);
+      if(left===0) toast(`أجبت إجابة صحيحة ${REMOVE_AFTER} مرات متتالية، وأُزيل من قائمة الأخطاء ✓ Mastered, removed`);
+      else if(left>0) toast(`إجابة صحيحة! أجب إجابة صحيحة ${left} مرة أخرى لإزالته من قائمة الأخطاء ${left} more to remove`);
     }
     else if(Q.combo>0&&Q.combo%5===0) toast(`رائع! إجابات صحيحة متتالية: ${Q.combo} 🔥`);
   }else{
@@ -13773,7 +13771,7 @@ function finish(){
     <circle cx="75" cy="75" r="${R}" fill="none" stroke="${pass?'var(--good)':'var(--bad)'}" stroke-width="12" stroke-linecap="round" stroke-dasharray="${C*pct} ${C}" transform="rotate(-90 75 75)"/>
     <text x="75" y="82" text-anchor="middle" font-size="36" font-weight="700" fill="var(--ink)">${right}/${total}</text></svg>
     <div class="verdict ${pass?'pass':'fail'}">${isExam?(pass?"نجحت PASS":"لم تنجح FAIL"):(pass?"رائع GREAT":"واصل التقدم KEEP GOING")}</div>
-    <div style="color:var(--muted);margin-top:4px">${isExam?"النجاح بـ 40 إجابة صحيحة · Need 40 of 50":"نسبة الإجابات الصحيحة "+Math.round(pct*100)+"%"} · أطول سلسلة إجابات صحيحة ${Q.best}</div>
+    <div style="color:var(--muted);margin-top:4px">${isExam?"النجاح بـ 40 إجابة صحيحة Need 40 of 50":"نسبة الإجابات الصحيحة "+Math.round(pct*100)+"%"}، أطول سلسلة إجابات صحيحة ${Q.best}</div>
     <div class="rbtns">
       ${wrongs.length?'<button class="btn" id="rRetry">أعد أخطاء هذه الجولة ('+wrongs.length+')</button>':''}
       <button class="btn ghost" id="rAgain">جولة أخرى</button>
@@ -13794,7 +13792,7 @@ function itemHTML(q){
     <div class="a">✓ ${bi(q.options[q.answer])}</div>
     ${q.explain?`<div style="font-size:13px;color:var(--muted);margin-top:4px">${bi(q.explain)}</div>`:""}
     ${q.trNote?`<div class="trnote">⚠ ${esc(q.trNote)}</div>`:""}
-    ${noteOf(q.id).trim()?`<div class="mynote"><b>✎ ملاحظتي · My note</b>${esc(noteOf(q.id))}</div>`:""}
+    ${noteOf(q.id).trim()?`<div class="mynote"><b>✎ ملاحظتي My note</b>${esc(noteOf(q.id))}</div>`:""}
     ${sourceHTML(q)}
     <div class="meta">${isWrong(q.id)?`<span style="color:var(--bad)">أخطأت ${S.wrong[q.id].n} مرة</span>${(S.prefs.autoRemove!==false&&S.wrong[q.id].ok)?`<span style="color:var(--good)">إجابات صحيحة ${S.wrong[q.id].ok}/${REMOVE_AFTER}</span>`:""}`:""}<span>${esc(TOPICS[q.topic].zh)}</span><span class="sp"></span>
     <button class="mini" data-act="fav">${isFav(q.id)?"★ محفوظ":"☆ حفظ"}</button>
@@ -13814,7 +13812,7 @@ function showList(kind,fromQuiz){
   const resume = fromQuiz && Q;
   const v=$('vList');
   v.innerHTML=`<div class="qtop"><button class="iconbtn" id="lBack" aria-label="${resume?"متابعة الأسئلة Back to quiz":"رجوع Back"}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
-    <div class="title">${kind==="wrong"?"قائمة الأخطاء Wrong answers":kind==="notes"?"ملاحظاتي · My notes":"المفضلة Favorites"}</div><div class="count">${qs.length}</div></div>
+    <div class="title">${kind==="wrong"?"قائمة الأخطاء Wrong answers":kind==="notes"?"ملاحظاتي My notes":"المفضلة Favorites"}</div><div class="count">${qs.length}</div></div>
     ${resume?`<div class="qtools"><button class="qtool" id="lResume">تابع التدريب السابق Resume (${Q.i+1}/${Q.list.length})</button><button class="qtool" id="lHome">الصفحة الرئيسية Home</button></div>`:""}
     ${qs.length?`<div class="qnav"><button class="btn grow" id="lStart">تدرّب على ${qs.length} سؤال</button></div><div class="list">${qs.map(itemHTML).join("")}</div>`
       :`<div class="empty">${kind==="wrong"?"لا توجد أخطاء بعد. ستُضاف الأسئلة التي تخطئ فيها إلى هنا تلقائيًا.":kind==="notes"?"لا توجد ملاحظات بعد. أثناء التدريب، اضغط «اكتب ملاحظة» أسفل السؤال لتدوّن ما تريد تذكّره.":"لا توجد عناصر في المفضلة بعد. اضغط على النجمة في أسفل الشاشة أثناء الإجابة لحفظ السؤال."}</div>`}`;
@@ -13886,8 +13884,8 @@ async function fbOnLogin(u){
 let fbAuthKnown=false;
 function gate(){
   if(fbUser||fbFailed) return true;
-  if(!fb||!fbAuthKnown){ toast("جارٍ الاتصال بخدمة الحسابات، يُرجى الانتظار · Connecting…"); return false; }
-  openAuth("login","سجّل الدخول لاستخدام قائمة الأخطاء والمفضلة · Log in to use wrong answers and favorites");
+  if(!fb||!fbAuthKnown){ toast("جارٍ الاتصال بخدمة الحسابات، يُرجى الانتظار Connecting…"); return false; }
+  openAuth("login","سجّل الدخول لاستخدام قائمة الأخطاء والمفضلة Log in to use wrong answers and favorites");
   return false;
 }
 function updateAcct(){
@@ -13911,8 +13909,8 @@ window.addEventListener('njfb-ready',()=>{
 },{once:true});
 window.addEventListener('njfb-failed',()=>{ fbFailed=true; },{once:true});
 
-const AUTH_ERR={"auth/email-already-in-use":"هذا البريد الإلكتروني مسجل بالفعل، يُرجى تسجيل الدخول مباشرة · Email already registered","auth/invalid-credential":"البريد الإلكتروني أو كلمة المرور غير صحيحة · Wrong email or password","auth/wrong-password":"البريد الإلكتروني أو كلمة المرور غير صحيحة · Wrong email or password","auth/user-not-found":"البريد الإلكتروني أو كلمة المرور غير صحيحة · Wrong email or password","auth/weak-password":"يجب ألا تقل كلمة المرور عن 6 أحرف · Password must be at least 6 characters","auth/invalid-email":"صيغة البريد الإلكتروني غير صحيحة · Invalid email","auth/too-many-requests":"محاولات كثيرة جدًا، يُرجى المحاولة لاحقًا · Too many attempts, try later","auth/popup-closed-by-user":"تم إغلاق نافذة تسجيل الدخول · Login window closed","auth/popup-blocked":"حظر المتصفح نافذة تسجيل الدخول المنبثقة؛ يُرجى السماح بالنوافذ المنبثقة والمحاولة مرة أخرى · Allow pop-ups and retry","auth/network-request-failed":"فشل الاتصال بالشبكة · Network error"};
-const authMsg=e=>AUTH_ERR[e&&e.code]||("حدث خطأ، يُرجى المحاولة مرة أخرى · Something went wrong"+(e&&e.code?` (${e.code})`:""));
+const AUTH_ERR={"auth/email-already-in-use":"هذا البريد الإلكتروني مسجل بالفعل، يُرجى تسجيل الدخول مباشرة Email already registered","auth/invalid-credential":"البريد الإلكتروني أو كلمة المرور غير صحيحة Wrong email or password","auth/wrong-password":"البريد الإلكتروني أو كلمة المرور غير صحيحة Wrong email or password","auth/user-not-found":"البريد الإلكتروني أو كلمة المرور غير صحيحة Wrong email or password","auth/weak-password":"يجب ألا تقل كلمة المرور عن 6 أحرف Password must be at least 6 characters","auth/invalid-email":"صيغة البريد الإلكتروني غير صحيحة Invalid email","auth/too-many-requests":"محاولات كثيرة جدًا، يُرجى المحاولة لاحقًا Too many attempts, try later","auth/popup-closed-by-user":"تم إغلاق نافذة تسجيل الدخول Login window closed","auth/popup-blocked":"حظر المتصفح نافذة تسجيل الدخول المنبثقة؛ يُرجى السماح بالنوافذ المنبثقة والمحاولة مرة أخرى Allow pop-ups and retry","auth/network-request-failed":"فشل الاتصال بالشبكة Network error"};
+const authMsg=e=>AUTH_ERR[e&&e.code]||("حدث خطأ، يُرجى المحاولة مرة أخرى Something went wrong"+(e&&e.code?` (${e.code})`:""));
 let authMode="login";
 function setAuthMode(m){
   authMode=m;
@@ -13924,7 +13922,7 @@ function setAuthMode(m){
   $('aErr').textContent="";
 }
 function openAuth(mode,reason){
-  if(fbFailed){ toast("خدمة الحسابات غير متاحة مؤقتًا، يُرجى المحاولة لاحقًا · Accounts unavailable"); return; }
+  if(fbFailed){ toast("خدمة الحسابات غير متاحة مؤقتًا، يُرجى المحاولة لاحقًا Accounts unavailable"); return; }
   const rs=$('aReason'); rs.textContent=reason||""; rs.classList.toggle('hide',!reason);
   setAuthMode(mode||"login"); $('authDlg').classList.remove('hide'); setTimeout(()=>$('aEmail').focus(),50);
 }
@@ -13934,23 +13932,23 @@ $('tabSignup').addEventListener('click',()=>setAuthMode("signup"));
 $('authClose').addEventListener('click',closeAuth);
 $('authDlg').addEventListener('click',e=>{ if(e.target.id==="authDlg") closeAuth(); });
 $('authGoogle').addEventListener('click',async()=>{
-  if(!fb){ $('aErr').textContent="جارٍ التحميل، يُرجى الانتظار · Loading…"; return; }
-  try{ await fb.google(); closeAuth(); toast("تم تسجيل الدخول · Logged in"); }catch(e){ $('aErr').textContent=authMsg(e); }
+  if(!fb){ $('aErr').textContent="جارٍ التحميل، يُرجى الانتظار Loading…"; return; }
+  try{ await fb.google(); closeAuth(); toast("تم تسجيل الدخول Logged in"); }catch(e){ $('aErr').textContent=authMsg(e); }
 });
 $('authForm').addEventListener('submit',async e=>{
-  e.preventDefault(); if(!fb){ $('aErr').textContent="جارٍ التحميل، يُرجى الانتظار · Loading…"; return; }
+  e.preventDefault(); if(!fb){ $('aErr').textContent="جارٍ التحميل، يُرجى الانتظار Loading…"; return; }
   const email=$('aEmail').value.trim(), pw=$('aPass').value, name=$('aName').value.trim();
-  if(authMode==="signup"&&!name){ $('aErr').textContent="يُرجى إدخال اسم مستعار · Please enter a nickname"; return; }
+  if(authMode==="signup"&&!name){ $('aErr').textContent="يُرجى إدخال اسم مستعار Please enter a nickname"; return; }
   $('aSubmit').disabled=true;
   try{
-    if(authMode==="signup"){ await fb.register(email,pw,name.slice(0,30)); closeAuth(); toast("تم التسجيل بنجاح! تحقق من بريدك الإلكتروني لرسالة التحقق، وبعد التحقق يمكنك التعليق · Check your inbox to verify"); }
-    else { await fb.login(email,pw); closeAuth(); toast("تم تسجيل الدخول · Logged in"); }
+    if(authMode==="signup"){ await fb.register(email,pw,name.slice(0,30)); closeAuth(); toast("تم التسجيل بنجاح! تحقق من بريدك الإلكتروني لرسالة التحقق، وبعد التحقق يمكنك التعليق Check your inbox to verify"); }
+    else { await fb.login(email,pw); closeAuth(); toast("تم تسجيل الدخول Logged in"); }
   }catch(err){ $('aErr').textContent=authMsg(err); }
   $('aSubmit').disabled=false;
 });
 $('aForgot').addEventListener('click',async()=>{
-  const email=$('aEmail').value.trim(); if(!email){ $('aErr').textContent="يُرجى إدخال بريدك الإلكتروني أولًا · Enter your email first"; return; }
-  try{ await fb.reset(email); $('aErr').textContent="تم إرسال رسالة إعادة تعيين كلمة المرور · Password reset email sent"; }catch(err){ $('aErr').textContent=authMsg(err); }
+  const email=$('aEmail').value.trim(); if(!email){ $('aErr').textContent="يُرجى إدخال بريدك الإلكتروني أولًا Enter your email first"; return; }
+  try{ await fb.reset(email); $('aErr').textContent="تم إرسال رسالة إعادة تعيين كلمة المرور Password reset email sent"; }catch(err){ $('aErr').textContent=authMsg(err); }
 });
 function closeMenu(){ $('acctMenu').classList.add('hide'); }
 $('acctBtn').addEventListener('click',e=>{
@@ -13958,33 +13956,33 @@ $('acctBtn').addEventListener('click',e=>{
   if(!fbUser){ openAuth("login"); return; }
   const m=$('acctMenu');
   if(!m.classList.contains('hide')){ closeMenu(); return; }
-  const verifiedLine = canPost(fbUser) ? "" : `<p class="mwarn">لم يتم التحقق من بريدك الإلكتروني بعد؛ يمكنك التعليق بعد التحقق · Verify your email to comment</p><button class="mitem" id="mResend">إعادة إرسال رسالة التحقق Resend email</button><button class="mitem" id="mRefresh">لقد تحققت · I've verified</button>`;
-  m.innerHTML=`<p class="mname">${esc(displayName(fbUser))}${isAdmin?' <i class="new26">مسؤول</i>':""}</p><p class="mmail">${esc(fbUser.email||"")}</p><p class="msync">تمت مزامنة قائمة الأخطاء والمفضلة مع حسابك · Progress synced</p>${verifiedLine}<button class="mitem" id="mLogout">تسجيل الخروج Log out</button>`;
+  const verifiedLine = canPost(fbUser) ? "" : `<p class="mwarn">لم يتم التحقق من بريدك الإلكتروني بعد؛ يمكنك التعليق بعد التحقق Verify your email to comment</p><button class="mitem" id="mResend">إعادة إرسال رسالة التحقق Resend email</button><button class="mitem" id="mRefresh">لقد تحققت I've verified</button>`;
+  m.innerHTML=`<p class="mname">${esc(displayName(fbUser))}${isAdmin?' <i class="new26">مسؤول</i>':""}</p><p class="mmail">${esc(fbUser.email||"")}</p><p class="msync">تمت مزامنة قائمة الأخطاء والمفضلة مع حسابك Progress synced</p>${verifiedLine}<button class="mitem" id="mLogout">تسجيل الخروج Log out</button>`;
   const r=$('acctBtn').getBoundingClientRect(); m.style.top=(r.bottom+6)+"px"; m.style.right=Math.max(16,innerWidth-r.right)+"px";
   m.classList.remove('hide');
-  $('mLogout').addEventListener('click',async()=>{ closeMenu(); await fb.logout(); toast("تم تسجيل الخروج · Logged out"); });
-  const rs=$('mResend'); if(rs) rs.addEventListener('click',async()=>{ try{ await fb.resend(); toast("تم إرسال رسالة التحقق · Verification email sent"); }catch(err){ toast(authMsg(err)); } });
-  const rf=$('mRefresh'); if(rf) rf.addEventListener('click',async()=>{ const u=await fb.refresh(); fbUser=u; closeMenu(); toast(u.emailVerified?"تم التحقق من البريد الإلكتروني، يمكنك التعليق الآن · Verified":"لم يتم رصد التحقق بعد، يُرجى الضغط على الرابط في الرسالة · Not verified yet"); });
+  $('mLogout').addEventListener('click',async()=>{ closeMenu(); await fb.logout(); toast("تم تسجيل الخروج Logged out"); });
+  const rs=$('mResend'); if(rs) rs.addEventListener('click',async()=>{ try{ await fb.resend(); toast("تم إرسال رسالة التحقق Verification email sent"); }catch(err){ toast(authMsg(err)); } });
+  const rf=$('mRefresh'); if(rf) rf.addEventListener('click',async()=>{ const u=await fb.refresh(); fbUser=u; closeMenu(); toast(u.emailVerified?"تم التحقق من البريد الإلكتروني، يمكنك التعليق الآن Verified":"لم يتم رصد التحقق بعد، يُرجى الضغط على الرابط في الرسالة Not verified yet"); });
 });
 document.addEventListener('click',e=>{ if(!e.target.closest('#acctMenu')&&!e.target.closest('#acctBtn')) closeMenu(); });
 
 /* "I got this on my test" button: anyone can see the count, logging in is needed to add yourself */
 async function renderSeen(q){
   const id=q.id, box=$('qSeen');
-  box.innerHTML=`<button class="seenbtn" id="seenBtn" aria-pressed="false" title="اضغط إذا ظهر هذا السؤال في اختبارك الحقيقي · Tap if this question was on your real test"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg><span>ظهر في اختباري · I got this on my test</span><b id="seenN"></b></button>`;
+  box.innerHTML=`<button class="seenbtn" id="seenBtn" aria-pressed="false" title="اضغط إذا ظهر هذا السؤال في اختبارك الحقيقي Tap if this question was on your real test"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg><span>ظهر في اختباري I got this on my test</span><b id="seenN"></b></button>`;
   const btn=$('seenBtn'), cur=()=>Q&&Q.list[Q.i]&&Q.list[Q.i].q.id===id;
   btn.addEventListener('click',async()=>{
-    if(fbFailed){ toast("خدمة الحسابات غير متاحة مؤقتًا، يُرجى المحاولة لاحقًا · Accounts unavailable"); return; }
-    if(!fb||!fbAuthKnown){ toast("جارٍ الاتصال بخدمة الحسابات، يُرجى الانتظار · Connecting…"); return; }
-    if(!fbUser){ openAuth("login","سجّل الدخول لتحديد الأسئلة التي ظهرت في اختبارك · Log in to mark questions from your test"); return; }
-    if(!canPost(fbUser)){ toast("أكّد بريدك الإلكتروني أولاً (اضغط على حسابك في الأعلى لإعادة إرسال الرسالة) · Verify your email first"); return; }
+    if(fbFailed){ toast("خدمة الحسابات غير متاحة مؤقتًا، يُرجى المحاولة لاحقًا Accounts unavailable"); return; }
+    if(!fb||!fbAuthKnown){ toast("جارٍ الاتصال بخدمة الحسابات، يُرجى الانتظار Connecting…"); return; }
+    if(!fbUser){ openAuth("login","سجّل الدخول لتحديد الأسئلة التي ظهرت في اختبارك Log in to mark questions from your test"); return; }
+    if(!canPost(fbUser)){ toast("أكّد بريدك الإلكتروني أولاً (اضغط على حسابك في الأعلى لإعادة إرسال الرسالة) / Verify your email first"); return; }
     const on=btn.getAttribute('aria-pressed')!=="true"; btn.disabled=true;
     try{
       await fb.seenSet(id,on);
       btn.setAttribute('aria-pressed',String(on));
       const n=Math.max(0,(parseInt($('seenN').textContent)||0)+(on?1:-1)); $('seenN').textContent=n||"";
-      if(on){ toast("تم التسجيل، شكراً لمشاركتك! · Thanks for sharing!"); tone([660,880],0.1,"sine",0.08); }
-    }catch(e){ console.warn(e); toast("تعذّر الحفظ، حاول لاحقاً · Could not save"); }
+      if(on){ toast("تم التسجيل، شكراً لمشاركتك! / Thanks for sharing!"); tone([660,880],0.1,"sine",0.08); }
+    }catch(e){ console.warn(e); toast("تعذّر الحفظ، حاول لاحقاً Could not save"); }
     btn.disabled=false;
   });
   if(!fb){ if(!fbFailed) window.addEventListener('njfb-ready',()=>{ if(cur()) renderSeen(q); },{once:true}); return; }
@@ -14000,13 +13998,13 @@ function fitNote(ta){ ta.style.height="auto"; ta.style.height=Math.max(ta.scroll
 function renderNote(q,open){
   const box=$('qNote');
   if(!open && !noteOf(q.id).trim()){
-    box.innerHTML=`<button class="qtool noteadd" id="noteAdd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg>اكتب ملاحظة · Add a note</button>`;
+    box.innerHTML=`<button class="qtool noteadd" id="noteAdd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg>اكتب ملاحظة Add a note</button>`;
     $('noteAdd').addEventListener('click',()=>{ renderNote(q,true); $('noteText').focus(); });
     return;
   }
-  box.innerHTML=`<div class="notebox"><div class="nh"><b>✎ ملاحظتي · My note</b><span id="noteSt">تُحفظ تلقائياً ولا يراها غيرك · Saved automatically, only you can see it</span></div><textarea id="noteText" maxlength="2000" placeholder="اكتب ما فهمته أو طرق الحفظ أو ما يربكك عادةً · Your own notes or memory tricks"></textarea></div>`;
+  box.innerHTML=`<div class="notebox"><div class="nh"><b>✎ ملاحظتي My note</b><span id="noteSt">تُحفظ تلقائياً ولا يراها غيرك Saved automatically, only you can see it</span></div><textarea id="noteText" maxlength="2000" placeholder="اكتب ما فهمته أو طرق الحفظ أو ما يربكك عادةً Your own notes or memory tricks"></textarea></div>`;
   const ta=$('noteText'); ta.value=noteOf(q.id); fitNote(ta);
-  ta.addEventListener('input',()=>{ fitNote(ta); setNote(q.id, ta.value.trim()?ta.value:""); $('noteSt').textContent="تم الحفظ · Saved"; });
+  ta.addEventListener('input',()=>{ fitNote(ta); setNote(q.id, ta.value.trim()?ta.value:""); $('noteSt').textContent="تم الحفظ Saved"; });
   ta.addEventListener('keydown',e=>e.stopPropagation());
 }
 
@@ -14017,7 +14015,7 @@ function cmItemHTML(c,tag){
 function bindDel(list,reload){
   list.querySelectorAll('.cmdel').forEach(b=>b.addEventListener('click',async()=>{
     if(b.dataset.armed!=="1"){ b.dataset.armed="1"; b.textContent="اضغط مرة أخرى للتأكيد Confirm"; setTimeout(()=>{ b.dataset.armed=""; b.textContent="حذف Delete"; },3000); return; }
-    try{ await fb.delComment(b.dataset.id); toast("تم الحذف · Deleted"); reload(); }catch(err){ toast("تعذّر الحذف · Could not delete"); }
+    try{ await fb.delComment(b.dataset.id); toast("تم الحذف Deleted"); reload(); }catch(err){ toast("تعذّر الحذف Could not delete"); }
   }));
 }
 function cmFormHTML(id,ph){
@@ -14030,8 +14028,8 @@ function bindCmForm(id,qid,reload){
   send.addEventListener('click',async()=>{
     const t=ta.value.trim(); if(!t) return;
     send.disabled=true;
-    try{ await fb.addComment(qid(),t.slice(0,500),displayName(fbUser).slice(0,30)); toast("تم النشر · Posted"); reload(); }
-    catch(err){ console.warn(err); toast("تعذّر النشر، يُرجى التأكد من التحقق من بريدك الإلكتروني · Could not post"); send.disabled=false; }
+    try{ await fb.addComment(qid(),t.slice(0,500),displayName(fbUser).slice(0,30)); toast("تم النشر Posted"); reload(); }
+    catch(err){ console.warn(err); toast("تعذّر النشر، يُرجى التأكد من التحقق من بريدك الإلكتروني Could not post"); send.disabled=false; }
   });
 }
 // comments sit under every question; before answering they stay folded so they can't give the answer away
@@ -14039,27 +14037,27 @@ function unlockComments(){ const c=document.querySelector('#qComments .cm'); if(
 async function loadComments(q){
   const box=$('qComments');
   const locked = !(Q && Q.list[Q.i] && Q.list[Q.i].q.id===q.id && Q.answers[Q.i]!=null);
-  box.innerHTML=`<div class="cm${locked?" locked":""}"><div class="cmh">التعليقات Comments <span class="cmn" id="cmN"></span></div><p class="cmlock">أجب أولاً لرؤية التعليقات (حتى لا تنكشف الإجابة) · Answer first to see comments</p><div class="cmlist" id="cmList"><p class="cmempty">جارٍ التحميل… Loading…</p></div><div id="cmForm"></div></div>`;
+  box.innerHTML=`<div class="cm${locked?" locked":""}"><div class="cmh">التعليقات Comments <span class="cmn" id="cmN"></span></div><p class="cmlock">أجب أولاً لرؤية التعليقات (حتى لا تنكشف الإجابة) / Answer first to see comments</p><div class="cmlist" id="cmList"><p class="cmempty">جارٍ التحميل… Loading…</p></div><div id="cmForm"></div></div>`;
   renderCmForm(q);
-  if(!fb){ $('cmList').innerHTML=`<p class="cmempty">${fbFailed?"خدمة التعليقات غير متاحة مؤقتًا · Comments unavailable":"جارٍ الاتصال… Connecting…"}</p>`; if(!fbFailed) window.addEventListener('njfb-ready',()=>{ if(Q&&Q.list[Q.i].q.id===q.id) loadComments(q); },{once:true}); return; }
+  if(!fb){ $('cmList').innerHTML=`<p class="cmempty">${fbFailed?"خدمة التعليقات غير متاحة مؤقتًا Comments unavailable":"جارٍ الاتصال… Connecting…"}</p>`; if(!fbFailed) window.addEventListener('njfb-ready',()=>{ if(Q&&Q.list[Q.i].q.id===q.id) loadComments(q); },{once:true}); return; }
   try{
     const list=(await fb.listComments(q.id)).sort((a,b)=>b.t-a.t);
     if(!Q||Q.list[Q.i].q.id!==q.id) return;
     $('cmN').textContent=list.length;
     $('cmList').innerHTML = list.length ? list.map(c=>cmItemHTML(c)).join("")
-      : `<p class="cmempty">لا توجد تعليقات بعد، كن أول من يعلّق · No comments yet</p>`;
+      : `<p class="cmempty">لا توجد تعليقات بعد، كن أول من يعلّق No comments yet</p>`;
     bindDel($('cmList'),()=>loadComments(q));
-  }catch(err){ console.warn(err); $('cmList').innerHTML=`<p class="cmempty">تعذّر تحميل التعليقات · Could not load comments</p>`; }
+  }catch(err){ console.warn(err); $('cmList').innerHTML=`<p class="cmempty">تعذّر تحميل التعليقات Could not load comments</p>`; }
 }
 // login / verify prompt shared by both comment areas; returns true when the person can post
 function cmGate(f,id){
-  if(!fbUser){ f.innerHTML=`<button class="btn ghost grow cmlogin" id="${id}Login">سجّل الدخول للتعليق · Log in to comment</button>`; $(id+'Login').addEventListener('click',()=>openAuth("login")); return false; }
-  if(!canPost(fbUser)){ f.innerHTML=`<p class="cmempty">يُرجى التحقق من بريدك الإلكتروني قبل التعليق (اضغط على الحساب في أعلى الصفحة لإعادة إرسال رسالة التحقق) · Verify your email to comment</p>`; return false; }
+  if(!fbUser){ f.innerHTML=`<button class="btn ghost grow cmlogin" id="${id}Login">سجّل الدخول للتعليق Log in to comment</button>`; $(id+'Login').addEventListener('click',()=>openAuth("login")); return false; }
+  if(!canPost(fbUser)){ f.innerHTML=`<p class="cmempty">يُرجى التحقق من بريدك الإلكتروني قبل التعليق (اضغط على الحساب في أعلى الصفحة لإعادة إرسال رسالة التحقق) / Verify your email to comment</p>`; return false; }
   return true;
 }
 function renderCmForm(q){
   const f=$('cmForm'); if(!cmGate(f,'cm')) return;
-  f.innerHTML=cmFormHTML('cm',"شارك فهمك أو طريقتك في التذكر (500 حرف كحد أقصى) · Share a tip (max 500)");
+  f.innerHTML=cmFormHTML('cm',"شارك فهمك أو طريقتك في التذكر (500 حرف كحد أقصى) / Share a tip (max 500)");
   bindCmForm('cm',()=>q.id,()=>loadComments(q));
 }
 
@@ -14069,8 +14067,8 @@ const ROAD_SITES=["Bakers Basin","Cape May","Cherry Hill","Delanco","Eatontown",
 const LIC_SITES=["Bakers Basin","Bayonne","Camden","Cardiff","Delanco","Eatontown","Edison","Elizabeth","Flemington","Freehold","Lodi","Manahawkin","Newark","Newton","North Bergen","Oakland","Paterson","Rahway","Randolph","Rio Grande","Runnemede","Salem","South Plainfield","Toms River","Vineland","Washington","Wayne","West Deptford"];
 const siteSlug=s=>s.toLowerCase().replace(/\s*\(.*\)/,"").replace(/[^a-z]/g,"").slice(0,15);
 const BQ={}; // qid -> label; qids stay within the 20-character limit in the database rules
-ROAD_SITES.forEach(n=>BQ["c:r:"+siteSlug(n)]="اختبار القيادة · "+n);
-LIC_SITES.forEach(n=>BQ["c:k:"+siteSlug(n)]="الاختبار النظري · "+n);
+ROAD_SITES.forEach(n=>BQ["c:r:"+siteSlug(n)]="اختبار القيادة: "+n);
+LIC_SITES.forEach(n=>BQ["c:k:"+siteSlug(n)]="الاختبار النظري: "+n);
 const B={tab:"tip",ctr:"",loaded:false,seq:0};
 const siteChips=(arr,p)=>arr.map(n=>`<button class="chip" data-ctr="${p}${siteSlug(n)}" aria-pressed="false">${esc(n)}</button>`).join("");
 $('bRoad').innerHTML=siteChips(ROAD_SITES,"c:r:");
@@ -14088,10 +14086,10 @@ $('board').addEventListener('click',e=>{
 const boardQid=()=>B.tab==="tip"?"b:tip":B.ctr; // "" = every center
 async function loadBoard(){
   B.loaded=true; const seq=++B.seq, L=$('bList');
-  $('bTitle').textContent = B.tab==="tip" ? "الاقتراحات · Suggestions" : (B.ctr ? BQ[B.ctr] : "كل المراكز · All centers");
+  $('bTitle').textContent = B.tab==="tip" ? "الاقتراحات Suggestions" : (B.ctr ? BQ[B.ctr] : "كل المراكز All centers");
   $('bN').textContent="";
   renderBoardForm();
-  if(!fb){ L.innerHTML=`<p class="cmempty">${fbFailed?"خدمة التعليقات غير متاحة مؤقتًا · Comments unavailable":"جارٍ الاتصال… Connecting…"}</p>`; return; }
+  if(!fb){ L.innerHTML=`<p class="cmempty">${fbFailed?"خدمة التعليقات غير متاحة مؤقتًا Comments unavailable":"جارٍ الاتصال… Connecting…"}</p>`; return; }
   L.innerHTML=`<p class="cmempty">جارٍ التحميل… Loading…</p>`;
   try{
     const qid=boardQid();
@@ -14099,16 +14097,16 @@ async function loadBoard(){
     if(seq!==B.seq) return;
     $('bN').textContent=list.length;
     L.innerHTML = list.length ? list.map(c=>cmItemHTML(c, qid?"":BQ[c.qid])).join("")
-      : `<p class="cmempty">${B.tab==="tip"?"لا توجد اقتراحات بعد. كن أول من يكتب · No suggestions yet":"لا توجد تجارب هنا بعد. اكتب أول تجربة · No posts yet"}</p>`;
+      : `<p class="cmempty">${B.tab==="tip"?"لا توجد اقتراحات بعد. كن أول من يكتب No suggestions yet":"لا توجد تجارب هنا بعد. اكتب أول تجربة No posts yet"}</p>`;
     bindDel(L,loadBoard);
-  }catch(err){ console.warn(err); if(seq===B.seq) L.innerHTML=`<p class="cmempty">تعذّر تحميل التعليقات · Could not load comments</p>`; }
+  }catch(err){ console.warn(err); if(seq===B.seq) L.innerHTML=`<p class="cmempty">تعذّر تحميل التعليقات Could not load comments</p>`; }
 }
 function renderBoardForm(){
   const f=$('bForm'); if(!cmGate(f,'b')) return;
-  if(B.tab==="ctr"&&!B.ctr){ f.innerHTML=`<p class="cmempty">اختر مركزاً من الأعلى للنشر · Pick a test center above to post</p>`; return; }
+  if(B.tab==="ctr"&&!B.ctr){ f.innerHTML=`<p class="cmempty">اختر مركزاً من الأعلى للنشر Pick a test center above to post</p>`; return; }
   f.innerHTML=cmFormHTML('b', B.tab==="tip"
-    ? "هل لديك اقتراح للموقع أو للأسئلة؟ يمكنك أيضاً إبلاغنا عن إجابة خاطئة (500 حرف كحد أقصى) · Suggestions (max 500)"
-    : "الممتحن، المسار، وقت الانتظار، نصائح… (500 حرف كحد أقصى) · Examiner, route, wait time, tips…");
+    ? "هل لديك اقتراح للموقع أو للأسئلة؟ يمكنك أيضاً إبلاغنا عن إجابة خاطئة (500 حرف كحد أقصى) / Suggestions (max 500)"
+    : "الممتحن، المسار، وقت الانتظار، نصائح… (500 حرف كحد أقصى) / Examiner, route, wait time, tips…");
   bindCmForm('b',boardQid,loadBoard);
 }
 // load the board only when it scrolls into view, to keep database reads low

@@ -146,8 +146,6 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 .asub span{color:var(--muted)}
 .areason{margin:0 0 12px;background:var(--accent);color:var(--accent-ink);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700}
 .lbtn{position:relative}
-.signed-out .mode[data-start="wrong"]::after,.signed-out .mode[data-start="fav"]::after,.signed-out .lbtn[data-list="wrong"]::after,.signed-out .lbtn[data-list="fav"]::after{content:"";position:absolute;top:10px;right:12px;width:16px;height:16px;background:var(--muted);-webkit-mask:var(--lock) center/contain no-repeat;mask:var(--lock) center/contain no-repeat}
-[dir="rtl"] .signed-out .mode::after,[dir="rtl"] .signed-out .lbtn::after{right:auto;left:12px}
 .aclose{position:absolute;top:10px;right:12px;border:0;background:none;font-size:24px;line-height:1;cursor:pointer;color:var(--muted)}
 .gbtn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;padding:11px;font-weight:700;cursor:pointer}
 .gbtn svg{width:20px;height:20px}
@@ -523,7 +521,7 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
   <div class="hbar">
     <button class="brand" id="homeBtn" aria-label="返回首页 Home">
       <svg class="shield" viewBox="0 0 34 38" aria-hidden="true"><path d="M2 3h30v15c0 9-7 15-15 18C9 33 2 27 2 18z" fill="#f4a6c1" stroke="#111" stroke-width="2"/><text x="17" y="22" text-anchor="middle" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="14" fill="#111">NJ</text></svg>
-      <span><b>新泽西州驾照笔试题库 <i class="new26">2026 最新</i></b><small>Latest 2026 Driver Manual · 中英对照</small></span>
+      <span><b>新泽西州驾照笔试题库 <i class="new26">2026 最新</i></b><small>Latest 2026 Driver Manual 中英对照</small></span>
     </button>
     <div class="seg" role="group" aria-label="语言 Language" id="langSeg">
       <button data-lang="both" aria-pressed="true">中英</button>
@@ -550,7 +548,7 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
           <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/drivermanual.pdf" target="_blank" rel="noopener">英文手册 English PDF ↗</a>
           <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/chinesemanual.pdf" target="_blank" rel="noopener">中文手册 Chinese PDF ↗</a>
         </div>
-        <small>官方手册来自新泽西州 MVC 官网（约 40 MB）· Official PDFs from nj.gov</small>
+        <small>官方手册来自新泽西州 MVC 官网（约 40 MB） Official PDFs from nj.gov</small>
       </div>
     </div>
     <!--__TRNOTES__-->
@@ -560,15 +558,15 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
       <div class="stat"><div class="n" id="sAcc">–</div><div class="l">正确率 Accuracy</div></div>
       <div class="stat"><div class="n" id="sBest">–</div><div class="l">模考最高 Best mock</div></div>
     </div>
-    <div class="sync" id="syncNote">记录保存在本机浏览器 · Saved on this device</div>
+    <div class="sync" id="syncNote">记录保存在本机浏览器 Saved on this device</div>
 
     <h2 class="sec">练习模式 Practice</h2>
     <div class="modes">
-      <button class="mode m-hf" data-start="hf"><div class="t">高频必考</div><div class="e">HIGH FREQUENCY</div><div class="c"><b id="cHf">0</b>题 · 历年反复出现的考点</div></button>
-      <button class="mode m-tr" data-start="tricky"><div class="t">易错陷阱</div><div class="e">ERROR-PRONE</div><div class="c"><b id="cTr">0</b>题 · 易混数字、例外、新旧变化</div></button>
-      <button class="mode m-ex wide" data-start="exam"><div class="t">模拟考试</div><div class="e">MOCK TEST · 50 QUESTIONS · PASS 40</div><div class="c">按真实考试：随机 50 题，答对 40 题（80%）及格</div></button>
-      <button class="mode m-wr" data-start="wrong"><div class="t">错题本</div><div class="e">WRONG ANSWERS</div><div class="c"><b id="cWr">0</b>题 · <span id="cWrRule">在错题本中连续答对 2 次自动移出</span></div></button>
-      <button class="mode m-fv" data-start="fav"><div class="t">收藏夹</div><div class="e">FAVORITES</div><div class="c"><b id="cFv">0</b>题 · 点题目旁的星标收藏</div></button>
+      <button class="mode m-hf" data-start="hf"><div class="t">高频必考</div><div class="e">HIGH FREQUENCY</div><div class="c"><b id="cHf">0</b>题，历年反复出现的考点</div></button>
+      <button class="mode m-tr" data-start="tricky"><div class="t">易错陷阱</div><div class="e">ERROR-PRONE</div><div class="c"><b id="cTr">0</b>题，易混数字、例外、新旧变化</div></button>
+      <button class="mode m-ex wide" data-start="exam"><div class="t">模拟考试</div><div class="e">MOCK TEST / 50 QUESTIONS / PASS 40</div><div class="c">按真实考试：随机 50 题，答对 40 题（80%）及格</div></button>
+      <button class="mode m-wr" data-start="wrong"><div class="t">错题本</div><div class="e">WRONG ANSWERS</div><div class="c"><b id="cWr">0</b>题，<span id="cWrRule">在错题本中连续答对 2 次自动移出</span></div></button>
+      <button class="mode m-fv" data-start="fav"><div class="t">收藏夹</div><div class="e">FAVORITES</div><div class="c"><b id="cFv">0</b>题，点题目旁的星标收藏</div></button>
     </div>
     <div class="lists">
       <button class="lbtn" data-list="wrong"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg></i><b>错题列表</b><small>Wrong answers</small></button>
@@ -592,23 +590,23 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
       <div id="bCenters" class="hide">
         <div class="bchips"><button class="chip" data-ctr="" aria-pressed="true">全部考场 All centers</button></div>
         <div class="bgl">路考场 Road test sites</div><div class="bchips" id="bRoad"></div>
-        <div class="bgl">笔试、视力考场（驾照中心）Knowledge &amp; vision test · Licensing Centers</div><div class="bchips" id="bLic"></div>
+        <div class="bgl">笔试、视力考场（驾照中心）Knowledge &amp; vision test / Licensing Centers</div><div class="bchips" id="bLic"></div>
       </div>
       <div class="cm"><div class="cmh"><span id="bTitle">建议与反馈 Suggestions</span> <span class="cmn" id="bN"></span></div><div class="cmlist" id="bList"><p class="cmempty">加载中… Loading…</p></div><div id="bForm"></div></div>
     </div>
 
     <h2 class="sec">设置 Settings</h2>
     <div class="opts">
-      <div class="opt-row"><label for="oDark">深色模式<small>Dark mode · 黑底淡粉色</small></label><input type="checkbox" class="sw" id="oDark"></div>
-      <div class="opt-row"><label for="oEn">显示英文原题<small>Show the English original. 关闭后只显示中文 · Off = Chinese only</small></label><input type="checkbox" class="sw entsw" id="oEn" checked></div>
+      <div class="opt-row"><label for="oDark">深色模式<small>Dark mode 黑底淡粉色</small></label><input type="checkbox" class="sw" id="oDark"></div>
+      <div class="opt-row"><label for="oEn">显示英文原题<small>Show the English original. 关闭后只显示中文 Off = Chinese only</small></label><input type="checkbox" class="sw entsw" id="oEn" checked></div>
       <div class="opt-row"><label for="oShuffle">题目乱序<small>Shuffle question order</small></label><input type="checkbox" class="sw" id="oShuffle" checked></div>
       <div class="opt-row"><label for="oShuffleOpt">选项乱序<small>Shuffle answer choices (“以上皆是”类题目除外)</small></label><input type="checkbox" class="sw" id="oShuffleOpt" checked></div>
       <div class="opt-row"><label for="oAuto">答对自动下一题<small>Auto-advance after a correct answer</small></label><input type="checkbox" class="sw" id="oAuto" checked></div>
       <div class="opt-row"><label for="oSound">音效<small>Sound effects</small></label><input type="checkbox" class="sw" id="oSound" checked></div>
-      <div class="opt-row"><label for="oAutoRemove">错题本答对 2 次自动移出<small>Auto-remove from wrong answers after 2 correct tries. 关闭后只能在错题列表里手动移出 · Off = remove manually</small></label><input type="checkbox" class="sw" id="oAutoRemove" checked></div>
+      <div class="opt-row"><label for="oAutoRemove">错题本答对 2 次自动移出<small>Auto-remove from wrong answers after 2 correct tries. 关闭后只能在错题列表里手动移出 Off = remove manually</small></label><input type="checkbox" class="sw" id="oAutoRemove" checked></div>
       <div class="opt-row"><label>清空全部记录<small>Clear progress, wrong answers and favorites</small></label><button class="linkbtn" id="resetBtn">清空 Reset</button></div>
     </div>
-    <p class="note">题目依据新泽西州机动车委员会（MVC）2026 版《New Jersey Driver Manual》编写，出题形式参考历年真题。旧题库中已过时的答案（如酒驾处罚、地址变更期限）均已按 2026 手册更新，并标为“易错”。本站为练习工具，与 MVC 无关；法规以官方手册和法律条文为准。 · <a href="privacy.html" style="color:inherit">隐私政策 Privacy Policy</a></p>
+    <p class="note">题目依据新泽西州机动车委员会（MVC）2026 版《New Jersey Driver Manual》编写，出题形式参考历年真题。旧题库中已过时的答案（如酒驾处罚、地址变更期限）均已按 2026 手册更新，并标为“易错”。本站为练习工具，与 MVC 无关；法规以官方手册和法律条文为准。 <a href="privacy.html" style="color:inherit">隐私政策 Privacy Policy</a></p>
   </section>
 
   <!-- QUIZ -->
@@ -641,7 +639,7 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
       <button class="btn ghost" id="prevBtn">上一题</button>
       <button class="btn grow" id="nextBtn" disabled>下一题 Next</button>
     </div>
-    <div class="kbd">键盘：1–4 / A–D 作答 · Enter 下一题 · F 收藏</div>
+    <div class="kbd">键盘：1–4 / A–D 作答 Enter 下一题 F 收藏</div>
   </section>
 
   <!-- RESULT -->
@@ -654,9 +652,9 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
 <div class="welcome hide" id="welcome" role="dialog" aria-modal="true" aria-labelledby="wTitle">
   <div class="wbox">
     <svg class="wshield" viewBox="0 0 34 38" aria-hidden="true"><path d="M2 3h30v15c0 9-7 15-15 18C9 33 2 27 2 18z" fill="#f4a6c1" stroke="#111" stroke-width="2"/><text x="17" y="22" text-anchor="middle" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="14" fill="#111">NJ</text></svg>
-    <div><span class="new26 big">2026 最新版 · LATEST</span></div>
+    <div><span class="new26 big">2026 最新版 LATEST</span></div>
     <h1 id="wTitle">新泽西州驾照笔试题库<small>Free NJ Permit Test Practice 2026</small></h1>
-    <p class="wsub">请选择题目语言 · Choose your language</p>
+    <p class="wsub">请选择题目语言 Choose your language</p>
     <!-- every bilingual version is the same size; the page's own version is moved to the top by script.
          Chinese here is written as entities so the language builds leave it alone -->
     <div class="wopts">
@@ -667,18 +665,18 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
       <a class="sitelang wopt" data-site="ar" href="/ar/" lang="ar" dir="rtl"><b>العربية + English</b><span>ثنائي اللغة: العربية والإنجليزية</span></a>
       <button class="wopt wen" data-wlang="en" lang="en"><b>English only</b><span>Questions in English only</span></button>
     </div>
-    <p class="wnote">进入后可用“显示英文原题”开关随时关掉或打开英文 · Turn the English original on or off anytime with the “Show English” switch.</p>
+    <p class="wnote">进入后可用“显示英文原题”开关随时关掉或打开英文 Turn the English original on or off anytime with the “Show English” switch.</p>
   </div>
 </div>
 
 <div class="welcome hide" id="authDlg" role="dialog" aria-modal="true" aria-labelledby="authTitle">
   <div class="wbox abox">
     <button class="aclose" id="authClose" aria-label="关闭 Close">×</button>
-    <h2 id="authTitle">登录 / 注册 · Log in / Sign up</h2>
+    <h2 id="authTitle">登录 / 注册 Log in / Sign up</h2>
     <p class="areason hide" id="aReason"></p>
     <p class="asub">登录后可以发表题目评论，错题本和收藏会在手机、电脑之间同步。练习本身不需要登录。<br><span>Log in to comment and sync your progress across devices. Practice never requires an account.</span></p>
-    <button class="gbtn" id="authGoogle"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.8 6C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.6c0-1.6-.1-3.1-.4-4.6H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.4 5.8c4.3-4 6.9-9.9 6.9-17.1z"/><path fill="#FBBC05" d="M10.5 28.7c-.5-1.4-.8-3-.8-4.7s.3-3.3.8-4.7l-7.8-6C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.8c-2.1 1.4-4.8 2.2-8.5 2.2-6.3 0-11.6-4.1-13.5-9.8l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>使用 Google 账号继续 · Continue with Google</button>
-    <div class="aor"><span>或用邮箱 · or with email</span></div>
+    <button class="gbtn" id="authGoogle"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.8 6C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.6c0-1.6-.1-3.1-.4-4.6H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.4 5.8c4.3-4 6.9-9.9 6.9-17.1z"/><path fill="#FBBC05" d="M10.5 28.7c-.5-1.4-.8-3-.8-4.7s.3-3.3.8-4.7l-7.8-6C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.8c-2.1 1.4-4.8 2.2-8.5 2.2-6.3 0-11.6-4.1-13.5-9.8l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>使用 Google 账号继续 Continue with Google</button>
+    <div class="aor"><span>或用邮箱 or with email</span></div>
     <div class="atabs" role="tablist">
       <button role="tab" id="tabLogin" aria-selected="true">登录 Log in</button>
       <button role="tab" id="tabSignup" aria-selected="false">注册 Sign up</button>
@@ -13125,16 +13123,16 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
 /* ---------- data ---------- */
 const TOPICS = {
   license:{zh:"驾照与考试",en:"Licensing & GDL"},
-  vehicle:{zh:"车辆·保险·年检",en:"Vehicle & insurance"},
+  vehicle:{zh:"车辆、保险、年检",en:"Vehicle & insurance"},
   rules:{zh:"基本规则",en:"Basic rules"},
   speed:{zh:"限速",en:"Speed"},
   rightofway:{zh:"路权与让行",en:"Right-of-way"},
-  turning:{zh:"转弯·超车·停车",en:"Turns, passing, parking"},
+  turning:{zh:"转弯、超车、停车",en:"Turns, passing, parking"},
   defensive:{zh:"防御性驾驶",en:"Defensive driving"},
   alcohol:{zh:"酒精与药物",en:"Alcohol & drugs"},
   penalties:{zh:"处罚与记点",en:"Penalties & points"},
   sharing:{zh:"共享道路",en:"Sharing the road"},
-  signs:{zh:"标志·信号·标线",en:"Signs, signals, markings"}
+  signs:{zh:"标志、信号、标线",en:"Signs, signals, markings"}
 };
 const ALL = [];
 // near-duplicates of questions kept from another chapter
@@ -13170,7 +13168,7 @@ const CHAPTERS=[
   [88,5,"防御性驾驶","Defensive Driving"],[112,6,"饮酒、药物与健康","Drinking, Drugs, and Health"],
   [120,7,"驾驶权利与处罚","Driver Privileges and Penalties"],[142,8,"与他人共享道路","Sharing the Road with Others"],
   [156,9,"车辆信息","Vehicle Information"],[162,10,"摩托车手册","Motorcycle Manual"],
-  [210,11,"附录：驾驶安全（标志·信号·标线）","Appendix: Driver Safety"]
+  [210,11,"附录：驾驶安全（标志、信号、标线）","Appendix: Driver Safety"]
 ];
 function source(q){
   const m=/(\d+)/.exec(q.ref||""); if(!m) return null;
@@ -13183,7 +13181,7 @@ const MANUAL_ZH="https://www.nj.gov/mvc/pdf/license/chinesemanual.pdf";
 function sourceHTML(q){
   const s=source(q); if(!s) return "";
   const p=parseInt(s.page,10), href=MANUAL_EN+(p?`#page=${p+2}`:"");
-  return `<div class="src"><b>出处 Source</b><span class="zh">《2026 新泽西驾驶手册》第 ${s.ch} 章「${esc(s.zh)}」第 ${esc(s.page)} 页</span><span class="en">2026 New Jersey Driver Manual, Ch. ${s.ch} “${esc(s.en)}”, p. ${esc(s.page)}</span><a class="srclink" href="${href}" target="_blank" rel="noopener">打开官方手册第 ${esc(s.page)} 页 · Open manual at p. ${esc(s.page)} ↗</a>${q.scene?`<span class="note">情景图是依据手册条文绘制的示意图 · Diagram drawn from the manual's rules</span>`:""}</div>`;
+  return `<div class="src"><b>出处 Source</b><span class="zh">《2026 新泽西驾驶手册》第 ${s.ch} 章「${esc(s.zh)}」第 ${esc(s.page)} 页</span><span class="en">2026 New Jersey Driver Manual, Ch. ${s.ch} “${esc(s.en)}”, p. ${esc(s.page)}</span><a class="srclink" href="${href}" target="_blank" rel="noopener">打开官方手册第 ${esc(s.page)} 页 Open manual at p. ${esc(s.page)} ↗</a>${q.scene?`<span class="note">情景图是依据手册条文绘制的示意图 Diagram drawn from the manual's rules</span>`:""}</div>`;
 }
 
 /* ---------- glossary ---------- */
@@ -13271,9 +13269,9 @@ function mergeMap(a,b){const out=Object.assign({},a); for(const k in b){ if(!out
 function mergeDone(a,b){const out=Object.assign({},a); for(const k in b){const x=out[k]||{c:0,w:0},y=b[k]; out[k]={c:Math.max(x.c||0,y.c||0),w:Math.max(x.w||0,y.w||0)};} return out;}
 function setSync(mode){
   const el=document.getElementById('syncNote');
-  el.textContent = (mode==="cloud"||mode==="account") ? "已登录，错题本和收藏同步到账号，手机电脑通用 · Synced to your account" :
-                   mode==="loading" ? "正在连接云端… · Connecting…" :
-                   "记录保存在本机浏览器 · Saved on this device";
+  el.textContent = (mode==="cloud"||mode==="account") ? "已登录，错题本和收藏同步到账号，手机电脑通用 Synced to your account" :
+                   mode==="loading" ? "正在连接云端… Connecting…" :
+                   "记录保存在本机浏览器 Saved on this device";
 }
 (async function initCloud(){
   if(!window.claude||typeof window.claude.use!=="function") return;
@@ -13378,7 +13376,7 @@ const hand=(kind)=>{
   <rect x="150" y="96" width="36" height="12" rx="2" fill="#f4f4f4"/><rect x="118" y="114" width="22" height="20" rx="4" fill="#222"/><rect x="196" y="114" width="22" height="20" rx="4" fill="#222"/>
   <circle cx="148" cy="44" r="7" fill="#e8b48a"/>
   <path d="${path}" stroke="#e8b48a" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${end[0]}" cy="${end[1]}" r="7" fill="#e8b48a"/>
-  <text x="168" y="16" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">后视 rear view · 驾驶员左手</text></svg>`;
+  <text x="168" y="16" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">后视 rear view 驾驶员左手</text></svg>`;
 };
 const SIGNS={
   stop:`<svg viewBox="0 0 120 120"><polygon points="36,4 84,4 116,36 116,84 84,116 36,116 4,84 4,36" fill="#d0021b"/><polygon points="38,9 82,9 111,38 111,82 82,111 38,111 9,82 9,38" fill="none" stroke="#fff" stroke-width="3"/><text x="60" y="72" text-anchor="middle" font-family="Arial Narrow,Arial,sans-serif" font-weight="700" font-size="34" fill="#fff">STOP</text></svg>`,
@@ -13588,7 +13586,7 @@ const SCN=(function(){
     const ang=Math.atan2(90,300)*180/Math.PI;
     const carSide=`<g><path d="M-38 0v-14q0-6 6-7l14-3 10-12h28l12 12 10 2q6 2 6 8V0z" fill="#2b6cb0"/><path d="M-12 -24 -3 -34h13v10zM14 -24v-10h12l9 10z" fill="#cfe3ff"/><circle cx="-22" cy="0" r="8" fill="#222"/><circle cx="22" cy="0" r="8" fill="#222"/></g>`;
     g+=`<g transform="translate(150 ${115-8}) rotate(${ang}) ${down?"":"scale(-1 1)"}">${carSide}</g>`;
-    g+=txt(150,190,down?"车头朝下坡 · facing DOWNHILL":"车头朝上坡 · facing UPHILL",{fs:12,c:"#fff"});
+    g+=txt(150,190,down?"车头朝下坡 facing DOWNHILL":"车头朝上坡 facing UPHILL",{fs:12,c:"#fff"});
     g+=txt(150,24,"右侧有路缘 Curb on the right",{fs:12,c:"#1b3a4f"});
     g+=`<path d="${down?"M200 60 L250 75":"M100 75 L50 60"}" stroke="#1b3a4f" stroke-width="3" marker-end="url(#sa)"/>`;
     return wrap(200,g);
@@ -13638,7 +13636,7 @@ function refreshHome(){
   Object.keys(TOPICS).forEach(k=>{
     const n=ALL.filter(q=>q.topic===k).length; if(!n) return;
     const b=document.createElement('button'); b.className='chip';
-    b.innerHTML=`${esc(TOPICS[k].zh)} <span>${esc(TOPICS[k].en)} · ${n}</span>`;
+    b.innerHTML=`${esc(TOPICS[k].zh)} <span>${esc(TOPICS[k].en)} ${n}</span>`;
     b.addEventListener('click',()=>start('topic',k)); tc.appendChild(b);
   });
 }
@@ -13727,7 +13725,7 @@ function paintAnswered(chosen,animate){
   const ex=q.explain||{};
   const showEx = !ok || !(S.prefs.auto&&animate);
   if(showEx||!ok){
-    $('qExplain').innerHTML=`<div class="explain ${ok?"":"bad"}"><div class="h">${ok?"✓ 回答正确 Correct":"✗ 正确答案是 "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]+" · Correct answer: "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]}</div>${ex.en?`<div class="en">${gloss(ex.en)}</div>`:""}${ex.zh?`<div class="zh">${gloss(ex.zh)}</div>`:""}${q.trNote?`<div class="trnote">⚠ ${esc(q.trNote)}</div>`:""}${sourceHTML(q)}</div>`;
+    $('qExplain').innerHTML=`<div class="explain ${ok?"":"bad"}"><div class="h">${ok?"✓ 回答正确 Correct":"✗ 正确答案是 "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]+" Correct answer: "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]}</div>${ex.en?`<div class="en">${gloss(ex.en)}</div>`:""}${ex.zh?`<div class="zh">${gloss(ex.zh)}</div>`:""}${q.trNote?`<div class="trnote">⚠ ${esc(q.trNote)}</div>`:""}${sourceHTML(q)}</div>`;
   }
 }
 let autoT=null;
@@ -13743,8 +13741,8 @@ function choose(oi,btn,ev){
     burst(x,y,Q.combo); sndRight(Q.combo); buzz(12);
     if(Q.mode==="wrong"&&isWrong(q.id)){
       const left=wrongCorrect(q.id);
-      if(left===0) toast(`已连续答对 ${REMOVE_AFTER} 次，移出错题本 ✓ · Mastered, removed`);
-      else if(left>0) toast(`答对了！再答对 ${left} 次就移出错题本 · ${left} more to remove`);
+      if(left===0) toast(`已连续答对 ${REMOVE_AFTER} 次，移出错题本 ✓ Mastered, removed`);
+      else if(left>0) toast(`答对了！再答对 ${left} 次就移出错题本 ${left} more to remove`);
     }
     else if(Q.combo>0&&Q.combo%5===0) toast(`太强了！连续答对 ${Q.combo} 题 🔥`);
   }else{
@@ -13771,7 +13769,7 @@ function finish(){
     <circle cx="75" cy="75" r="${R}" fill="none" stroke="${pass?'var(--good)':'var(--bad)'}" stroke-width="12" stroke-linecap="round" stroke-dasharray="${C*pct} ${C}" transform="rotate(-90 75 75)"/>
     <text x="75" y="82" text-anchor="middle" font-size="36" font-weight="700" fill="var(--ink)">${right}/${total}</text></svg>
     <div class="verdict ${pass?'pass':'fail'}">${isExam?(pass?"通过 PASS":"未通过 FAIL"):(pass?"很棒 GREAT":"继续加油 KEEP GOING")}</div>
-    <div style="color:var(--muted);margin-top:4px">${isExam?"答对 40 题及格 · Need 40 of 50":"正确率 "+Math.round(pct*100)+"%"} · 最高连对 ${Q.best}</div>
+    <div style="color:var(--muted);margin-top:4px">${isExam?"答对 40 题及格 Need 40 of 50":"正确率 "+Math.round(pct*100)+"%"}，最高连对 ${Q.best}</div>
     <div class="rbtns">
       ${wrongs.length?'<button class="btn" id="rRetry">重做本轮错题 ('+wrongs.length+')</button>':''}
       <button class="btn ghost" id="rAgain">再来一轮</button>
@@ -13884,8 +13882,8 @@ async function fbOnLogin(u){
 let fbAuthKnown=false;
 function gate(){
   if(fbUser||fbFailed) return true;
-  if(!fb||!fbAuthKnown){ toast("正在连接账号服务，请稍候 · Connecting…"); return false; }
-  openAuth("login","登录后才能使用错题本和收藏 · Log in to use wrong answers and favorites");
+  if(!fb||!fbAuthKnown){ toast("正在连接账号服务，请稍候 Connecting…"); return false; }
+  openAuth("login","登录后才能使用错题本和收藏 Log in to use wrong answers and favorites");
   return false;
 }
 function updateAcct(){
@@ -13909,8 +13907,8 @@ window.addEventListener('njfb-ready',()=>{
 },{once:true});
 window.addEventListener('njfb-failed',()=>{ fbFailed=true; },{once:true});
 
-const AUTH_ERR={"auth/email-already-in-use":"这个邮箱已经注册过了，请直接登录 · Email already registered","auth/invalid-credential":"邮箱或密码不正确 · Wrong email or password","auth/wrong-password":"邮箱或密码不正确 · Wrong email or password","auth/user-not-found":"邮箱或密码不正确 · Wrong email or password","auth/weak-password":"密码至少 6 位 · Password must be at least 6 characters","auth/invalid-email":"邮箱格式不正确 · Invalid email","auth/too-many-requests":"尝试次数太多，请稍后再试 · Too many attempts, try later","auth/popup-closed-by-user":"登录窗口被关闭了 · Login window closed","auth/popup-blocked":"浏览器拦截了登录弹窗，请允许弹窗后重试 · Allow pop-ups and retry","auth/network-request-failed":"网络连接失败 · Network error"};
-const authMsg=e=>AUTH_ERR[e&&e.code]||("出错了，请重试 · Something went wrong"+(e&&e.code?` (${e.code})`:""));
+const AUTH_ERR={"auth/email-already-in-use":"这个邮箱已经注册过了，请直接登录 Email already registered","auth/invalid-credential":"邮箱或密码不正确 Wrong email or password","auth/wrong-password":"邮箱或密码不正确 Wrong email or password","auth/user-not-found":"邮箱或密码不正确 Wrong email or password","auth/weak-password":"密码至少 6 位 Password must be at least 6 characters","auth/invalid-email":"邮箱格式不正确 Invalid email","auth/too-many-requests":"尝试次数太多，请稍后再试 Too many attempts, try later","auth/popup-closed-by-user":"登录窗口被关闭了 Login window closed","auth/popup-blocked":"浏览器拦截了登录弹窗，请允许弹窗后重试 Allow pop-ups and retry","auth/network-request-failed":"网络连接失败 Network error"};
+const authMsg=e=>AUTH_ERR[e&&e.code]||("出错了，请重试 Something went wrong"+(e&&e.code?` (${e.code})`:""));
 let authMode="login";
 function setAuthMode(m){
   authMode=m;
@@ -13922,7 +13920,7 @@ function setAuthMode(m){
   $('aErr').textContent="";
 }
 function openAuth(mode,reason){
-  if(fbFailed){ toast("账号服务暂时无法连接，请稍后再试 · Accounts unavailable"); return; }
+  if(fbFailed){ toast("账号服务暂时无法连接，请稍后再试 Accounts unavailable"); return; }
   const rs=$('aReason'); rs.textContent=reason||""; rs.classList.toggle('hide',!reason);
   setAuthMode(mode||"login"); $('authDlg').classList.remove('hide'); setTimeout(()=>$('aEmail').focus(),50);
 }
@@ -13932,23 +13930,23 @@ $('tabSignup').addEventListener('click',()=>setAuthMode("signup"));
 $('authClose').addEventListener('click',closeAuth);
 $('authDlg').addEventListener('click',e=>{ if(e.target.id==="authDlg") closeAuth(); });
 $('authGoogle').addEventListener('click',async()=>{
-  if(!fb){ $('aErr').textContent="正在加载，请稍候 · Loading…"; return; }
-  try{ await fb.google(); closeAuth(); toast("登录成功 · Logged in"); }catch(e){ $('aErr').textContent=authMsg(e); }
+  if(!fb){ $('aErr').textContent="正在加载，请稍候 Loading…"; return; }
+  try{ await fb.google(); closeAuth(); toast("登录成功 Logged in"); }catch(e){ $('aErr').textContent=authMsg(e); }
 });
 $('authForm').addEventListener('submit',async e=>{
-  e.preventDefault(); if(!fb){ $('aErr').textContent="正在加载，请稍候 · Loading…"; return; }
+  e.preventDefault(); if(!fb){ $('aErr').textContent="正在加载，请稍候 Loading…"; return; }
   const email=$('aEmail').value.trim(), pw=$('aPass').value, name=$('aName').value.trim();
-  if(authMode==="signup"&&!name){ $('aErr').textContent="请填写昵称 · Please enter a nickname"; return; }
+  if(authMode==="signup"&&!name){ $('aErr').textContent="请填写昵称 Please enter a nickname"; return; }
   $('aSubmit').disabled=true;
   try{
-    if(authMode==="signup"){ await fb.register(email,pw,name.slice(0,30)); closeAuth(); toast("注册成功！请查收验证邮件，验证后即可评论 · Check your inbox to verify"); }
-    else { await fb.login(email,pw); closeAuth(); toast("登录成功 · Logged in"); }
+    if(authMode==="signup"){ await fb.register(email,pw,name.slice(0,30)); closeAuth(); toast("注册成功！请查收验证邮件，验证后即可评论 Check your inbox to verify"); }
+    else { await fb.login(email,pw); closeAuth(); toast("登录成功 Logged in"); }
   }catch(err){ $('aErr').textContent=authMsg(err); }
   $('aSubmit').disabled=false;
 });
 $('aForgot').addEventListener('click',async()=>{
-  const email=$('aEmail').value.trim(); if(!email){ $('aErr').textContent="请先填写邮箱 · Enter your email first"; return; }
-  try{ await fb.reset(email); $('aErr').textContent="已发送重置密码邮件 · Password reset email sent"; }catch(err){ $('aErr').textContent=authMsg(err); }
+  const email=$('aEmail').value.trim(); if(!email){ $('aErr').textContent="请先填写邮箱 Enter your email first"; return; }
+  try{ await fb.reset(email); $('aErr').textContent="已发送重置密码邮件 Password reset email sent"; }catch(err){ $('aErr').textContent=authMsg(err); }
 });
 function closeMenu(){ $('acctMenu').classList.add('hide'); }
 $('acctBtn').addEventListener('click',e=>{
@@ -13956,33 +13954,33 @@ $('acctBtn').addEventListener('click',e=>{
   if(!fbUser){ openAuth("login"); return; }
   const m=$('acctMenu');
   if(!m.classList.contains('hide')){ closeMenu(); return; }
-  const verifiedLine = canPost(fbUser) ? "" : `<p class="mwarn">邮箱还没验证，验证后才能发表评论 · Verify your email to comment</p><button class="mitem" id="mResend">重新发送验证邮件 Resend email</button><button class="mitem" id="mRefresh">我已验证 I've verified</button>`;
-  m.innerHTML=`<p class="mname">${esc(displayName(fbUser))}${isAdmin?' <i class="new26">管理员</i>':""}</p><p class="mmail">${esc(fbUser.email||"")}</p><p class="msync">错题本和收藏已同步到账号 · Progress synced</p>${verifiedLine}<button class="mitem" id="mLogout">退出登录 Log out</button>`;
+  const verifiedLine = canPost(fbUser) ? "" : `<p class="mwarn">邮箱还没验证，验证后才能发表评论 Verify your email to comment</p><button class="mitem" id="mResend">重新发送验证邮件 Resend email</button><button class="mitem" id="mRefresh">我已验证 I've verified</button>`;
+  m.innerHTML=`<p class="mname">${esc(displayName(fbUser))}${isAdmin?' <i class="new26">管理员</i>':""}</p><p class="mmail">${esc(fbUser.email||"")}</p><p class="msync">错题本和收藏已同步到账号 Progress synced</p>${verifiedLine}<button class="mitem" id="mLogout">退出登录 Log out</button>`;
   const r=$('acctBtn').getBoundingClientRect(); m.style.top=(r.bottom+6)+"px"; m.style.right=Math.max(16,innerWidth-r.right)+"px";
   m.classList.remove('hide');
-  $('mLogout').addEventListener('click',async()=>{ closeMenu(); await fb.logout(); toast("已退出登录 · Logged out"); });
-  const rs=$('mResend'); if(rs) rs.addEventListener('click',async()=>{ try{ await fb.resend(); toast("验证邮件已发送 · Verification email sent"); }catch(err){ toast(authMsg(err)); } });
-  const rf=$('mRefresh'); if(rf) rf.addEventListener('click',async()=>{ const u=await fb.refresh(); fbUser=u; closeMenu(); toast(u.emailVerified?"邮箱已验证，可以评论了 · Verified":"还没检测到验证，请点邮件里的链接 · Not verified yet"); });
+  $('mLogout').addEventListener('click',async()=>{ closeMenu(); await fb.logout(); toast("已退出登录 Logged out"); });
+  const rs=$('mResend'); if(rs) rs.addEventListener('click',async()=>{ try{ await fb.resend(); toast("验证邮件已发送 Verification email sent"); }catch(err){ toast(authMsg(err)); } });
+  const rf=$('mRefresh'); if(rf) rf.addEventListener('click',async()=>{ const u=await fb.refresh(); fbUser=u; closeMenu(); toast(u.emailVerified?"邮箱已验证，可以评论了 Verified":"还没检测到验证，请点邮件里的链接 Not verified yet"); });
 });
 document.addEventListener('click',e=>{ if(!e.target.closest('#acctMenu')&&!e.target.closest('#acctBtn')) closeMenu(); });
 
 /* "I got this on my test" button: anyone can see the count, logging in is needed to add yourself */
 async function renderSeen(q){
   const id=q.id, box=$('qSeen');
-  box.innerHTML=`<button class="seenbtn" id="seenBtn" aria-pressed="false" title="真实笔试中考到过这道题就点一下 · Tap if this question was on your real test"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg><span>我考到过这题 · I got this on my test</span><b id="seenN"></b></button>`;
+  box.innerHTML=`<button class="seenbtn" id="seenBtn" aria-pressed="false" title="真实笔试中考到过这道题就点一下 Tap if this question was on your real test"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg><span>我考到过这题 I got this on my test</span><b id="seenN"></b></button>`;
   const btn=$('seenBtn'), cur=()=>Q&&Q.list[Q.i]&&Q.list[Q.i].q.id===id;
   btn.addEventListener('click',async()=>{
-    if(fbFailed){ toast("账号服务暂时无法连接，请稍后再试 · Accounts unavailable"); return; }
-    if(!fb||!fbAuthKnown){ toast("正在连接账号服务，请稍候 · Connecting…"); return; }
-    if(!fbUser){ openAuth("login","登录后才能标记考到过的题 · Log in to mark questions from your test"); return; }
-    if(!canPost(fbUser)){ toast("请先验证邮箱（点右上角账号可重发验证邮件）· Verify your email first"); return; }
+    if(fbFailed){ toast("账号服务暂时无法连接，请稍后再试 Accounts unavailable"); return; }
+    if(!fb||!fbAuthKnown){ toast("正在连接账号服务，请稍候 Connecting…"); return; }
+    if(!fbUser){ openAuth("login","登录后才能标记考到过的题 Log in to mark questions from your test"); return; }
+    if(!canPost(fbUser)){ toast("请先验证邮箱（点右上角账号可重发验证邮件） Verify your email first"); return; }
     const on=btn.getAttribute('aria-pressed')!=="true"; btn.disabled=true;
     try{
       await fb.seenSet(id,on);
       btn.setAttribute('aria-pressed',String(on));
       const n=Math.max(0,(parseInt($('seenN').textContent)||0)+(on?1:-1)); $('seenN').textContent=n||"";
-      if(on){ toast("已记录，谢谢分享！· Thanks for sharing!"); tone([660,880],0.1,"sine",0.08); }
-    }catch(e){ console.warn(e); toast("没有保存成功，请稍后再试 · Could not save"); }
+      if(on){ toast("已记录，谢谢分享！ Thanks for sharing!"); tone([660,880],0.1,"sine",0.08); }
+    }catch(e){ console.warn(e); toast("没有保存成功，请稍后再试 Could not save"); }
     btn.disabled=false;
   });
   if(!fb){ if(!fbFailed) window.addEventListener('njfb-ready',()=>{ if(cur()) renderSeen(q); },{once:true}); return; }
@@ -14002,9 +14000,9 @@ function renderNote(q,open){
     $('noteAdd').addEventListener('click',()=>{ renderNote(q,true); $('noteText').focus(); });
     return;
   }
-  box.innerHTML=`<div class="notebox"><div class="nh"><b>✎ 我的笔记 My note</b><span id="noteSt">自动保存，仅自己可见 · Saved automatically, only you can see it</span></div><textarea id="noteText" maxlength="2000" placeholder="写下你的理解、记忆口诀或容易混淆的地方 · Your own notes or memory tricks"></textarea></div>`;
+  box.innerHTML=`<div class="notebox"><div class="nh"><b>✎ 我的笔记 My note</b><span id="noteSt">自动保存，仅自己可见 Saved automatically, only you can see it</span></div><textarea id="noteText" maxlength="2000" placeholder="写下你的理解、记忆口诀或容易混淆的地方 Your own notes or memory tricks"></textarea></div>`;
   const ta=$('noteText'); ta.value=noteOf(q.id); fitNote(ta);
-  ta.addEventListener('input',()=>{ fitNote(ta); setNote(q.id, ta.value.trim()?ta.value:""); $('noteSt').textContent="已保存 · Saved"; });
+  ta.addEventListener('input',()=>{ fitNote(ta); setNote(q.id, ta.value.trim()?ta.value:""); $('noteSt').textContent="已保存 Saved"; });
   ta.addEventListener('keydown',e=>e.stopPropagation());
 }
 
@@ -14015,11 +14013,11 @@ function cmItemHTML(c,tag){
 function bindDel(list,reload){
   list.querySelectorAll('.cmdel').forEach(b=>b.addEventListener('click',async()=>{
     if(b.dataset.armed!=="1"){ b.dataset.armed="1"; b.textContent="再点一次确认 Confirm"; setTimeout(()=>{ b.dataset.armed=""; b.textContent="删除 Delete"; },3000); return; }
-    try{ await fb.delComment(b.dataset.id); toast("已删除 · Deleted"); reload(); }catch(err){ toast("删除失败 · Could not delete"); }
+    try{ await fb.delComment(b.dataset.id); toast("已删除 Deleted"); reload(); }catch(err){ toast("删除失败 Could not delete"); }
   }));
 }
 function cmFormHTML(id,ph){
-  return `<label class="cmlabel" for="${id}Text">以 ${esc(displayName(fbUser))} 的身份评论 · Comment as ${esc(displayName(fbUser))}</label><textarea id="${id}Text" maxlength="500" rows="3" placeholder="${ph}"></textarea><div class="cmrow"><span id="${id}Count">0/500</span><button class="btn" id="${id}Send">发表 Post</button></div>`;
+  return `<label class="cmlabel" for="${id}Text">以 ${esc(displayName(fbUser))} 的身份评论 Comment as ${esc(displayName(fbUser))}</label><textarea id="${id}Text" maxlength="500" rows="3" placeholder="${ph}"></textarea><div class="cmrow"><span id="${id}Count">0/500</span><button class="btn" id="${id}Send">发表 Post</button></div>`;
 }
 function bindCmForm(id,qid,reload){
   const ta=$(id+'Text'), send=$(id+'Send');
@@ -14028,8 +14026,8 @@ function bindCmForm(id,qid,reload){
   send.addEventListener('click',async()=>{
     const t=ta.value.trim(); if(!t) return;
     send.disabled=true;
-    try{ await fb.addComment(qid(),t.slice(0,500),displayName(fbUser).slice(0,30)); toast("已发表 · Posted"); reload(); }
-    catch(err){ console.warn(err); toast("发表失败，请确认邮箱已验证 · Could not post"); send.disabled=false; }
+    try{ await fb.addComment(qid(),t.slice(0,500),displayName(fbUser).slice(0,30)); toast("已发表 Posted"); reload(); }
+    catch(err){ console.warn(err); toast("发表失败，请确认邮箱已验证 Could not post"); send.disabled=false; }
   });
 }
 // comments sit under every question; before answering they stay folded so they can't give the answer away
@@ -14037,27 +14035,27 @@ function unlockComments(){ const c=document.querySelector('#qComments .cm'); if(
 async function loadComments(q){
   const box=$('qComments');
   const locked = !(Q && Q.list[Q.i] && Q.list[Q.i].q.id===q.id && Q.answers[Q.i]!=null);
-  box.innerHTML=`<div class="cm${locked?" locked":""}"><div class="cmh">讨论 Comments <span class="cmn" id="cmN"></span></div><p class="cmlock">答题后显示评论，避免提前看到答案 · Answer first to see comments (no spoilers)</p><div class="cmlist" id="cmList"><p class="cmempty">加载中… Loading…</p></div><div id="cmForm"></div></div>`;
+  box.innerHTML=`<div class="cm${locked?" locked":""}"><div class="cmh">讨论 Comments <span class="cmn" id="cmN"></span></div><p class="cmlock">答题后显示评论，避免提前看到答案 Answer first to see comments (no spoilers)</p><div class="cmlist" id="cmList"><p class="cmempty">加载中… Loading…</p></div><div id="cmForm"></div></div>`;
   renderCmForm(q);
-  if(!fb){ $('cmList').innerHTML=`<p class="cmempty">${fbFailed?"评论服务暂时无法连接 · Comments unavailable":"正在连接… Connecting…"}</p>`; if(!fbFailed) window.addEventListener('njfb-ready',()=>{ if(Q&&Q.list[Q.i].q.id===q.id) loadComments(q); },{once:true}); return; }
+  if(!fb){ $('cmList').innerHTML=`<p class="cmempty">${fbFailed?"评论服务暂时无法连接 Comments unavailable":"正在连接… Connecting…"}</p>`; if(!fbFailed) window.addEventListener('njfb-ready',()=>{ if(Q&&Q.list[Q.i].q.id===q.id) loadComments(q); },{once:true}); return; }
   try{
     const list=(await fb.listComments(q.id)).sort((a,b)=>b.t-a.t);
     if(!Q||Q.list[Q.i].q.id!==q.id) return;
     $('cmN').textContent=list.length;
     $('cmList').innerHTML = list.length ? list.map(c=>cmItemHTML(c)).join("")
-      : `<p class="cmempty">还没有评论，来说第一句吧 · No comments yet</p>`;
+      : `<p class="cmempty">还没有评论，来说第一句吧 No comments yet</p>`;
     bindDel($('cmList'),()=>loadComments(q));
-  }catch(err){ console.warn(err); $('cmList').innerHTML=`<p class="cmempty">评论加载失败 · Could not load comments</p>`; }
+  }catch(err){ console.warn(err); $('cmList').innerHTML=`<p class="cmempty">评论加载失败 Could not load comments</p>`; }
 }
 // login / verify prompt shared by both comment areas; returns true when the person can post
 function cmGate(f,id){
-  if(!fbUser){ f.innerHTML=`<button class="btn ghost grow cmlogin" id="${id}Login">登录后发表评论 · Log in to comment</button>`; $(id+'Login').addEventListener('click',()=>openAuth("login")); return false; }
-  if(!canPost(fbUser)){ f.innerHTML=`<p class="cmempty">请先验证邮箱再发表评论（点右上角账号可重发验证邮件）· Verify your email to comment</p>`; return false; }
+  if(!fbUser){ f.innerHTML=`<button class="btn ghost grow cmlogin" id="${id}Login">登录后发表评论 Log in to comment</button>`; $(id+'Login').addEventListener('click',()=>openAuth("login")); return false; }
+  if(!canPost(fbUser)){ f.innerHTML=`<p class="cmempty">请先验证邮箱再发表评论（点右上角账号可重发验证邮件） Verify your email to comment</p>`; return false; }
   return true;
 }
 function renderCmForm(q){
   const f=$('cmForm'); if(!cmGate(f,'cm')) return;
-  f.innerHTML=cmFormHTML('cm',"分享你的理解或记忆方法（最多 500 字）· Share a tip (max 500)");
+  f.innerHTML=cmFormHTML('cm',"分享你的理解或记忆方法（最多 500 字） Share a tip (max 500)");
   bindCmForm('cm',()=>q.id,()=>loadComments(q));
 }
 
@@ -14067,8 +14065,8 @@ const ROAD_SITES=["Bakers Basin","Cape May","Cherry Hill","Delanco","Eatontown",
 const LIC_SITES=["Bakers Basin","Bayonne","Camden","Cardiff","Delanco","Eatontown","Edison","Elizabeth","Flemington","Freehold","Lodi","Manahawkin","Newark","Newton","North Bergen","Oakland","Paterson","Rahway","Randolph","Rio Grande","Runnemede","Salem","South Plainfield","Toms River","Vineland","Washington","Wayne","West Deptford"];
 const siteSlug=s=>s.toLowerCase().replace(/\s*\(.*\)/,"").replace(/[^a-z]/g,"").slice(0,15);
 const BQ={}; // qid -> label; qids stay within the 20-character limit in the database rules
-ROAD_SITES.forEach(n=>BQ["c:r:"+siteSlug(n)]="路考 Road · "+n);
-LIC_SITES.forEach(n=>BQ["c:k:"+siteSlug(n)]="笔试 Knowledge · "+n);
+ROAD_SITES.forEach(n=>BQ["c:r:"+siteSlug(n)]="路考 Road: "+n);
+LIC_SITES.forEach(n=>BQ["c:k:"+siteSlug(n)]="笔试 Knowledge: "+n);
 const B={tab:"tip",ctr:"",loaded:false,seq:0};
 const siteChips=(arr,p)=>arr.map(n=>`<button class="chip" data-ctr="${p}${siteSlug(n)}" aria-pressed="false">${esc(n)}</button>`).join("");
 $('bRoad').innerHTML=siteChips(ROAD_SITES,"c:r:");
@@ -14089,7 +14087,7 @@ async function loadBoard(){
   $('bTitle').textContent = B.tab==="tip" ? "建议与反馈 Suggestions" : (B.ctr ? BQ[B.ctr] : "全部考场 All centers");
   $('bN').textContent="";
   renderBoardForm();
-  if(!fb){ L.innerHTML=`<p class="cmempty">${fbFailed?"评论服务暂时无法连接 · Comments unavailable":"正在连接… Connecting…"}</p>`; return; }
+  if(!fb){ L.innerHTML=`<p class="cmempty">${fbFailed?"评论服务暂时无法连接 Comments unavailable":"正在连接… Connecting…"}</p>`; return; }
   L.innerHTML=`<p class="cmempty">加载中… Loading…</p>`;
   try{
     const qid=boardQid();
@@ -14097,16 +14095,16 @@ async function loadBoard(){
     if(seq!==B.seq) return;
     $('bN').textContent=list.length;
     L.innerHTML = list.length ? list.map(c=>cmItemHTML(c, qid?"":BQ[c.qid])).join("")
-      : `<p class="cmempty">${B.tab==="tip"?"还没有建议，欢迎第一个留言 · No suggestions yet":"这里还没有体验分享，来写第一条吧 · No posts yet"}</p>`;
+      : `<p class="cmempty">${B.tab==="tip"?"还没有建议，欢迎第一个留言 No suggestions yet":"这里还没有体验分享，来写第一条吧 No posts yet"}</p>`;
     bindDel(L,loadBoard);
-  }catch(err){ console.warn(err); if(seq===B.seq) L.innerHTML=`<p class="cmempty">评论加载失败 · Could not load comments</p>`; }
+  }catch(err){ console.warn(err); if(seq===B.seq) L.innerHTML=`<p class="cmempty">评论加载失败 Could not load comments</p>`; }
 }
 function renderBoardForm(){
   const f=$('bForm'); if(!cmGate(f,'b')) return;
-  if(B.tab==="ctr"&&!B.ctr){ f.innerHTML=`<p class="cmempty">先在上面点选一个考场再发表 · Pick a test center above to post</p>`; return; }
+  if(B.tab==="ctr"&&!B.ctr){ f.innerHTML=`<p class="cmempty">先在上面点选一个考场再发表 Pick a test center above to post</p>`; return; }
   f.innerHTML=cmFormHTML('b', B.tab==="tip"
-    ? "对网站或题库有什么建议？发现错题也可以告诉我们（最多 500 字）· Suggestions, or a wrong answer you spotted (max 500)"
-    : "考官、路线、排队时间、注意事项…（最多 500 字）· Examiner, route, wait time, tips… (max 500)");
+    ? "对网站或题库有什么建议？发现错题也可以告诉我们（最多 500 字） Suggestions, or a wrong answer you spotted (max 500)"
+    : "考官、路线、排队时间、注意事项…（最多 500 字） Examiner, route, wait time, tips… (max 500)");
   bindCmForm('b',boardQid,loadBoard);
 }
 // load the board only when it scrolls into view, to keep database reads low

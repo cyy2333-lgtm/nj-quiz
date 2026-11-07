@@ -146,8 +146,6 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 .asub span{color:var(--muted)}
 .areason{margin:0 0 12px;background:var(--accent);color:var(--accent-ink);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700}
 .lbtn{position:relative}
-.signed-out .mode[data-start="wrong"]::after,.signed-out .mode[data-start="fav"]::after,.signed-out .lbtn[data-list="wrong"]::after,.signed-out .lbtn[data-list="fav"]::after{content:"";position:absolute;top:10px;right:12px;width:16px;height:16px;background:var(--muted);-webkit-mask:var(--lock) center/contain no-repeat;mask:var(--lock) center/contain no-repeat}
-[dir="rtl"] .signed-out .mode::after,[dir="rtl"] .signed-out .lbtn::after{right:auto;left:12px}
 .aclose{position:absolute;top:10px;right:12px;border:0;background:none;font-size:24px;line-height:1;cursor:pointer;color:var(--muted)}
 .gbtn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;padding:11px;font-weight:700;cursor:pointer}
 .gbtn svg{width:20px;height:20px}
@@ -521,17 +519,17 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
 <body class="lang-both">
 <header>
   <div class="hbar">
-    <button class="brand" id="homeBtn" aria-label="Volver al inicio · Home">
+    <button class="brand" id="homeBtn" aria-label="Volver al inicio / Home">
       <svg class="shield" viewBox="0 0 34 38" aria-hidden="true"><path d="M2 3h30v15c0 9-7 15-15 18C9 33 2 27 2 18z" fill="#f4a6c1" stroke="#111" stroke-width="2"/><text x="17" y="22" text-anchor="middle" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="14" fill="#111">NJ</text></svg>
-      <span><b>Examen de manejo de Nueva Jersey <i class="new26">Versión 2026</i></b><small>Latest 2026 Driver Manual · Español–English</small></span>
+      <span><b>Examen de manejo de Nueva Jersey <i class="new26">Versión 2026</i></b><small>Latest 2026 Driver Manual / Español–English</small></span>
     </button>
-    <div class="seg" role="group" aria-label="Idioma · Language" id="langSeg">
+    <div class="seg" role="group" aria-label="Idioma / Language" id="langSeg">
       <button data-lang="both" aria-pressed="true">ES+EN</button>
       <button data-lang="zh" aria-pressed="false">Español</button>
       <button data-lang="en" aria-pressed="false">EN</button>
     </div>
-    <button class="themebtn" id="themeBtn" aria-label="Modo oscuro / claro · Dark / light mode"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button>
-    <button class="acct" id="acctBtn" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span id="acctLabel">Iniciar sesión · Log in</span></button>
+    <button class="themebtn" id="themeBtn" aria-label="Modo oscuro / claro / Dark / light mode"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button>
+    <button class="acct" id="acctBtn" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span id="acctLabel">Iniciar sesión / Log in</span></button>
   </div>
   <nav class="sitelangs" aria-label="Language versions">
     <a class="sitelang hl" data-site="zh" href="/" lang="zh">&#20013;&#25991;</a><a class="sitelang hl" data-site="es" href="/es/" lang="es">Español</a><a class="sitelang hl" data-site="pt" href="/pt/" lang="pt">Português</a><a class="sitelang hl" data-site="ko" href="/ko/" lang="ko">한국어</a><a class="sitelang hl" data-site="ar" href="/ar/" lang="ar" dir="rtl">العربية</a>
@@ -550,25 +548,25 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
           <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/drivermanual.pdf" target="_blank" rel="noopener">Manual en inglés English PDF ↗</a>
           <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/drivermanuals.pdf" target="_blank" rel="noopener">Manual en español PDF ↗</a>
         </div>
-        <small>Manuales oficiales del sitio web de la MVC de Nueva Jersey (aprox. 40 MB) · Official PDFs from nj.gov</small>
+        <small>Manuales oficiales del sitio web de la MVC de Nueva Jersey (aprox. 40 MB) / Official PDFs from nj.gov</small>
       </div>
     </div>
     <details class="trnotes"><summary>&#9888; Notas sobre la traducci&#243;n oficial al espa&#241;ol</summary><ul><li>Este sitio sigue el manual oficial en espa&#241;ol de la MVC. Cuando la traducci&#243;n contradice el original en ingl&#233;s (el texto que prevalece), seguimos el original y lo se&#241;alamos en la explicaci&#243;n de la pregunta con &#171;Nota sobre el manual&#187;.</li><li>La licencia probatoria aparece en el manual como &#171;licencia de prueba&#187; y tambi&#233;n como &#171;licencia de principiante&#187;. Aqu&#237; usamos siempre &#171;licencia de prueba&#187; (probationary license).</li><li>La ley &#171;Move Over&#187; aparece con dos nombres: el t&#237;tulo dice &#171;Hacerse a un lado&#187; y el texto dice &#171;Ceda el Paso&#187;.</li><li>La &#171;Safe Passing Law&#187; aparece como &#171;Ley de Adelantamiento Seguro&#187; y como &#171;Ley de Paso Seguro&#187;.</li><li>El manual traduce &#171;primary offense&#187; como &#171;delito grave&#187;, lo cual es un error: es una infracci&#243;n primaria (la polic&#237;a puede detenerlo solo por eso), no un delito grave.</li></ul></details>
     <div class="stats">
-      <div class="stat"><div class="n" id="sTotal">0</div><div class="l">Total de preguntas · Questions</div></div>
-      <div class="stat"><div class="n" id="sDone">0</div><div class="l">Practicadas · Practiced</div></div>
-      <div class="stat"><div class="n" id="sAcc">–</div><div class="l">Aciertos · Accuracy</div></div>
-      <div class="stat"><div class="n" id="sBest">–</div><div class="l">Mejor simulacro · Best mock</div></div>
+      <div class="stat"><div class="n" id="sTotal">0</div><div class="l">Total de preguntas / Questions</div></div>
+      <div class="stat"><div class="n" id="sDone">0</div><div class="l">Practicadas / Practiced</div></div>
+      <div class="stat"><div class="n" id="sAcc">–</div><div class="l">Aciertos / Accuracy</div></div>
+      <div class="stat"><div class="n" id="sBest">–</div><div class="l">Mejor simulacro / Best mock</div></div>
     </div>
-    <div class="sync" id="syncNote">El progreso se guarda en este navegador · Saved on this device</div>
+    <div class="sync" id="syncNote">El progreso se guarda en este navegador / Saved on this device</div>
 
-    <h2 class="sec">Modos de práctica · Practice</h2>
+    <h2 class="sec">Modos de práctica / Practice</h2>
     <div class="modes">
-      <button class="mode m-hf" data-start="hf"><div class="t">Preguntas frecuentes</div><div class="e">HIGH FREQUENCY</div><div class="c"><b id="cHf">0</b>preguntas · temas que aparecen una y otra vez en el examen</div></button>
-      <button class="mode m-tr" data-start="tricky"><div class="t">Preguntas engañosas</div><div class="e">ERROR-PRONE</div><div class="c"><b id="cTr">0</b>preguntas · números que se confunden, excepciones y cambios de normas</div></button>
-      <button class="mode m-ex wide" data-start="exam"><div class="t">Examen simulado</div><div class="e">MOCK TEST · 50 QUESTIONS · PASS 40</div><div class="c">Como el examen real: 50 preguntas al azar; se aprueba con 40 correctas (80%)</div></button>
-      <button class="mode m-wr" data-start="wrong"><div class="t">Mis errores</div><div class="e">WRONG ANSWERS</div><div class="c"><b id="cWr">0</b>preguntas · <span id="cWrRule">Se quitan de Mis errores al acertarlas 2 veces seguidas</span></div></button>
-      <button class="mode m-fv" data-start="fav"><div class="t">Favoritos</div><div class="e">FAVORITES</div><div class="c"><b id="cFv">0</b>preguntas · toque la estrella junto a una pregunta para guardarla</div></button>
+      <button class="mode m-hf" data-start="hf"><div class="t">Preguntas frecuentes</div><div class="e">HIGH FREQUENCY</div><div class="c"><b id="cHf">0</b>preguntas, temas que aparecen una y otra vez en el examen</div></button>
+      <button class="mode m-tr" data-start="tricky"><div class="t">Preguntas engañosas</div><div class="e">ERROR-PRONE</div><div class="c"><b id="cTr">0</b>preguntas, números que se confunden, excepciones y cambios de normas</div></button>
+      <button class="mode m-ex wide" data-start="exam"><div class="t">Examen simulado</div><div class="e">MOCK TEST / 50 QUESTIONS / PASS 40</div><div class="c">Como el examen real: 50 preguntas al azar; se aprueba con 40 correctas (80%)</div></button>
+      <button class="mode m-wr" data-start="wrong"><div class="t">Mis errores</div><div class="e">WRONG ANSWERS</div><div class="c"><b id="cWr">0</b>preguntas,<span id="cWrRule">Se quitan de Mis errores al acertarlas 2 veces seguidas</span></div></button>
+      <button class="mode m-fv" data-start="fav"><div class="t">Favoritos</div><div class="e">FAVORITES</div><div class="c"><b id="cFv">0</b>preguntas, toque la estrella junto a una pregunta para guardarla</div></button>
     </div>
     <div class="lists">
       <button class="lbtn" data-list="wrong"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg></i><b>Mis errores</b><small>Wrong answers</small></button>
@@ -576,54 +574,54 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
       <button class="lbtn" data-list="notes"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg></i><b>Mis notas</b><small>My notes</small></button>
     </div>
 
-    <h2 class="sec">Por tema · By topic</h2>
+    <h2 class="sec">Por tema / By topic</h2>
     <div class="topics" id="topicChips"></div>
-    <div class="qnav"><button class="btn ghost grow" data-start="all">Todas las preguntas en orden · All questions</button></div>
+    <div class="qnav"><button class="btn ghost grow" data-start="all">Todas las preguntas en orden / All questions</button></div>
 
     <details class="glossbox">
-      <summary><span class="gt">Glosario · Glossary</span><span class="gn" id="glossN"></span></summary>
+      <summary><span class="gt">Glosario / Glossary</span><span class="gn" id="glossN"></span></summary>
       <div class="glossary" id="glossList"></div>
     </details>
 
-    <h2 class="sec">Tablón de la comunidad · Community board</h2>
+    <h2 class="sec">Tablón de la comunidad / Community board</h2>
     <p class="note" style="margin:0 2px 8px">Deja sugerencias o cuenta cómo te fue en el examen de conocimientos o de manejo en cada centro. Share suggestions, or how your knowledge or road test went at each test center.</p>
     <div class="board" id="board">
-      <div class="bchips"><button class="chip" data-bt="tip" aria-pressed="true">Sugerencias · Suggestions</button><button class="chip" data-bt="ctr" aria-pressed="false">Centros de examen · Test centers</button></div>
+      <div class="bchips"><button class="chip" data-bt="tip" aria-pressed="true">Sugerencias / Suggestions</button><button class="chip" data-bt="ctr" aria-pressed="false">Centros de examen / Test centers</button></div>
       <div id="bCenters" class="hide">
-        <div class="bchips"><button class="chip" data-ctr="" aria-pressed="true">Todos los centros · All centers</button></div>
-        <div class="bgl">Lugares del examen de manejo · Road test sites</div><div class="bchips" id="bRoad"></div>
-        <div class="bgl">Examen de conocimientos y de la vista (Licensing Centers) · Knowledge &amp; vision test</div><div class="bchips" id="bLic"></div>
+        <div class="bchips"><button class="chip" data-ctr="" aria-pressed="true">Todos los centros / All centers</button></div>
+        <div class="bgl">Lugares del examen de manejo / Road test sites</div><div class="bchips" id="bRoad"></div>
+        <div class="bgl">Examen de conocimientos y de la vista (Licensing Centers) / Knowledge &amp; vision test</div><div class="bchips" id="bLic"></div>
       </div>
-      <div class="cm"><div class="cmh"><span id="bTitle">Sugerencias · Suggestions</span> <span class="cmn" id="bN"></span></div><div class="cmlist" id="bList"><p class="cmempty">Cargando… Loading…</p></div><div id="bForm"></div></div>
+      <div class="cm"><div class="cmh"><span id="bTitle">Sugerencias / Suggestions</span> <span class="cmn" id="bN"></span></div><div class="cmlist" id="bList"><p class="cmempty">Cargando… Loading…</p></div><div id="bForm"></div></div>
     </div>
 
-    <h2 class="sec">Ajustes · Settings</h2>
+    <h2 class="sec">Ajustes / Settings</h2>
     <div class="opts">
-      <div class="opt-row"><label for="oDark">Modo oscuro<small>Dark mode · fondo negro con rosa claro</small></label><input type="checkbox" class="sw" id="oDark"></div>
-      <div class="opt-row"><label for="oEn">Mostrar el original en inglés<small>Muestra la pregunta original en inglés. Desactivado = solo español · Off = Spanish only</small></label><input type="checkbox" class="sw entsw" id="oEn" checked></div>
+      <div class="opt-row"><label for="oDark">Modo oscuro<small>Dark mode / fondo negro con rosa claro</small></label><input type="checkbox" class="sw" id="oDark"></div>
+      <div class="opt-row"><label for="oEn">Mostrar el original en inglés<small>Muestra la pregunta original en inglés. Desactivado = solo español / Off = Spanish only</small></label><input type="checkbox" class="sw entsw" id="oEn" checked></div>
       <div class="opt-row"><label for="oShuffle">Preguntas en orden aleatorio<small>Shuffle question order</small></label><input type="checkbox" class="sw" id="oShuffle" checked></div>
       <div class="opt-row"><label for="oShuffleOpt">Opciones en orden aleatorio<small>Shuffle answer choices (excepto preguntas tipo «Todas las anteriores»)</small></label><input type="checkbox" class="sw" id="oShuffleOpt" checked></div>
       <div class="opt-row"><label for="oAuto">Pasar a la siguiente al acertar<small>Auto-advance after a correct answer</small></label><input type="checkbox" class="sw" id="oAuto" checked></div>
       <div class="opt-row"><label for="oSound">Efectos de sonido<small>Sound effects</small></label><input type="checkbox" class="sw" id="oSound" checked></div>
-      <div class="opt-row"><label for="oAutoRemove">Quitar de Mis errores tras 2 aciertos<small>Auto-remove from wrong answers after 2 correct tries. Si lo desactiva, solo podrá quitarlas a mano desde la lista de errores · Off = remove manually</small></label><input type="checkbox" class="sw" id="oAutoRemove" checked></div>
-      <div class="opt-row"><label>Borrar todo el progreso<small>Clear progress, wrong answers and favorites</small></label><button class="linkbtn" id="resetBtn">Borrar · Reset</button></div>
+      <div class="opt-row"><label for="oAutoRemove">Quitar de Mis errores tras 2 aciertos<small>Auto-remove from wrong answers after 2 correct tries. Si lo desactiva, solo podrá quitarlas a mano desde la lista de errores / Off = remove manually</small></label><input type="checkbox" class="sw" id="oAutoRemove" checked></div>
+      <div class="opt-row"><label>Borrar todo el progreso<small>Clear progress, wrong answers and favorites</small></label><button class="linkbtn" id="resetBtn">Borrar / Reset</button></div>
     </div>
-    <p class="note">Las preguntas se basan en el Manual del conductor de Nueva Jersey 2026 (New Jersey Driver Manual) de la Comisión de Vehículos Motorizados (MVC) de Nueva Jersey, con el formato de preguntas de exámenes anteriores. Las respuestas que habían quedado obsoletas en bancos de preguntas antiguos (como las sanciones por DUI o el plazo para informar un cambio de dirección) se actualizaron según el manual 2026 y se marcaron como «Engañosa». Este sitio es una herramienta de práctica y no está afiliado a la MVC; prevalecen el manual oficial y las leyes. · <a href="../privacy.html" style="color:inherit">Política de privacidad · Privacy Policy</a></p>
+    <p class="note">Las preguntas se basan en el Manual del conductor de Nueva Jersey 2026 (New Jersey Driver Manual) de la Comisión de Vehículos Motorizados (MVC) de Nueva Jersey, con el formato de preguntas de exámenes anteriores. Las respuestas que habían quedado obsoletas en bancos de preguntas antiguos (como las sanciones por DUI o el plazo para informar un cambio de dirección) se actualizaron según el manual 2026 y se marcaron como «Engañosa». Este sitio es una herramienta de práctica y no está afiliado a la MVC; prevalecen el manual oficial y las leyes. <a href="../privacy.html" style="color:inherit">Política de privacidad / Privacy Policy</a></p>
   </section>
 
   <!-- QUIZ -->
   <section id="vQuiz" class="hide">
     <div class="qtop">
-      <button class="iconbtn" id="backBtn" aria-label="Volver · Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+      <button class="iconbtn" id="backBtn" aria-label="Volver / Back"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
       <div class="title" id="qTitle">Práctica</div>
       <span class="combo" id="combo" hidden>Racha ×0</span>
       <div class="count" id="qCount">1/1</div>
     </div>
     <div class="bar"><i id="qBar" style="width:0"></i></div>
     <div class="qtools">
-      <button class="qtool" id="qHome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Inicio · Home</button>
-      <button class="qtool" id="qReview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h10"/></svg>Repasar errores · Review<span class="qbadge" id="qWrongN">0</span></button>
-      <label class="qtool entog"><input type="checkbox" class="sw entsw" id="qEn" checked>Mostrar inglés · Show English</label>
+      <button class="qtool" id="qHome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Inicio / Home</button>
+      <button class="qtool" id="qReview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h10"/></svg>Repasar errores / Review<span class="qbadge" id="qWrongN">0</span></button>
+      <label class="qtool entog"><input type="checkbox" class="sw entsw" id="qEn" checked>Mostrar inglés / Show English</label>
     </div>
     <div class="card" id="qCard">
       <div class="tags" id="qTags"></div>
@@ -637,11 +635,11 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
       <div id="qComments"></div>
     </div>
     <div class="qnav">
-      <button class="star" id="favBtn" aria-pressed="false" aria-label="Favorito · Favorite"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></button>
+      <button class="star" id="favBtn" aria-pressed="false" aria-label="Favorito / Favorite"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></button>
       <button class="btn ghost" id="prevBtn">Anterior</button>
-      <button class="btn grow" id="nextBtn" disabled>Siguiente · Next</button>
+      <button class="btn grow" id="nextBtn" disabled>Siguiente / Next</button>
     </div>
-    <div class="kbd">Teclado: 1–4 / A–D para responder · Enter siguiente · F favorito</div>
+    <div class="kbd">Teclado: 1–4 / A–D para responder / Enter siguiente / F favorito</div>
   </section>
 
   <!-- RESULT -->
@@ -654,9 +652,9 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
 <div class="welcome hide" id="welcome" role="dialog" aria-modal="true" aria-labelledby="wTitle">
   <div class="wbox">
     <svg class="wshield" viewBox="0 0 34 38" aria-hidden="true"><path d="M2 3h30v15c0 9-7 15-15 18C9 33 2 27 2 18z" fill="#f4a6c1" stroke="#111" stroke-width="2"/><text x="17" y="22" text-anchor="middle" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="14" fill="#111">NJ</text></svg>
-    <div><span class="new26 big">Versión 2026 más reciente · LATEST</span></div>
+    <div><span class="new26 big">Versión 2026 más reciente / LATEST</span></div>
     <h1 id="wTitle">Examen de manejo de Nueva Jersey<small>Free NJ Permit Test Practice 2026</small></h1>
-    <p class="wsub">Elija el idioma de las preguntas · Choose your language</p>
+    <p class="wsub">Elija el idioma de las preguntas / Choose your language</p>
     <!-- every bilingual version is the same size; the page's own version is moved to the top by script.
          Chinese here is written as entities so the language builds leave it alone -->
     <div class="wopts">
@@ -667,28 +665,28 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
       <a class="sitelang wopt" data-site="ar" href="/ar/" lang="ar" dir="rtl"><b>العربية + English</b><span>ثنائي اللغة: العربية والإنجليزية</span></a>
       <button class="wopt wen" data-wlang="en" lang="en"><b>English only</b><span>Questions in English only</span></button>
     </div>
-    <p class="wnote">Puedes ocultar o mostrar el original en inglés en cualquier momento con el interruptor “Mostrar inglés” · Turn the English original on or off anytime with the “Show English” switch.</p>
+    <p class="wnote">Puedes ocultar o mostrar el original en inglés en cualquier momento con el interruptor “Mostrar inglés” / Turn the English original on or off anytime with the “Show English” switch.</p>
   </div>
 </div>
 
 <div class="welcome hide" id="authDlg" role="dialog" aria-modal="true" aria-labelledby="authTitle">
   <div class="wbox abox">
-    <button class="aclose" id="authClose" aria-label="Cerrar · Close">×</button>
-    <h2 id="authTitle">Iniciar sesión / Registrarse · Log in / Sign up</h2>
+    <button class="aclose" id="authClose" aria-label="Cerrar / Close">×</button>
+    <h2 id="authTitle">Iniciar sesión / Registrarse / Log in / Sign up</h2>
     <p class="areason hide" id="aReason"></p>
     <p class="asub">Inicie sesión para comentar las preguntas y sincronizar Mis errores y Favoritos entre el teléfono y la computadora. Para practicar no hace falta iniciar sesión.<br><span>Log in to comment and sync your progress across devices. Practice never requires an account.</span></p>
-    <button class="gbtn" id="authGoogle"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.8 6C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.6c0-1.6-.1-3.1-.4-4.6H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.4 5.8c4.3-4 6.9-9.9 6.9-17.1z"/><path fill="#FBBC05" d="M10.5 28.7c-.5-1.4-.8-3-.8-4.7s.3-3.3.8-4.7l-7.8-6C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.8c-2.1 1.4-4.8 2.2-8.5 2.2-6.3 0-11.6-4.1-13.5-9.8l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>Continuar con una cuenta de Google · Continue with Google</button>
-    <div class="aor"><span>o con su correo · or with email</span></div>
+    <button class="gbtn" id="authGoogle"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.8 6C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.6c0-1.6-.1-3.1-.4-4.6H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.4 5.8c4.3-4 6.9-9.9 6.9-17.1z"/><path fill="#FBBC05" d="M10.5 28.7c-.5-1.4-.8-3-.8-4.7s.3-3.3.8-4.7l-7.8-6C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.8c-2.1 1.4-4.8 2.2-8.5 2.2-6.3 0-11.6-4.1-13.5-9.8l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>Continuar con una cuenta de Google / Continue with Google</button>
+    <div class="aor"><span>o con su correo / or with email</span></div>
     <div class="atabs" role="tablist">
-      <button role="tab" id="tabLogin" aria-selected="true">Iniciar sesión · Log in</button>
-      <button role="tab" id="tabSignup" aria-selected="false">Registrarse · Sign up</button>
+      <button role="tab" id="tabLogin" aria-selected="true">Iniciar sesión / Log in</button>
+      <button role="tab" id="tabSignup" aria-selected="false">Registrarse / Sign up</button>
     </div>
     <form id="authForm" novalidate>
-      <label class="afield hide" id="nameField">Apodo · Nickname<input id="aName" type="text" maxlength="30" autocomplete="nickname" placeholder="Nombre que se mostrará en sus comentarios"></label>
-      <label class="afield">Correo electrónico · Email<input id="aEmail" type="email" autocomplete="email" required></label>
-      <label class="afield">Contraseña · Password<input id="aPass" type="password" autocomplete="current-password" minlength="6" required></label>
+      <label class="afield hide" id="nameField">Apodo / Nickname<input id="aName" type="text" maxlength="30" autocomplete="nickname" placeholder="Nombre que se mostrará en sus comentarios"></label>
+      <label class="afield">Correo electrónico / Email<input id="aEmail" type="email" autocomplete="email" required></label>
+      <label class="afield">Contraseña / Password<input id="aPass" type="password" autocomplete="current-password" minlength="6" required></label>
       <p class="aerr" id="aErr" role="alert"></p>
-      <button class="btn grow" type="submit" id="aSubmit">Iniciar sesión · Log in</button>
+      <button class="btn grow" type="submit" id="aSubmit">Iniciar sesión / Log in</button>
       <button class="linkbtn alink" type="button" id="aForgot">¿Olvidó su contraseña? Forgot password?</button>
     </form>
   </div>
@@ -13127,16 +13125,16 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
 /* ---------- data ---------- */
 const TOPICS = {
   license:{zh:"Licencias y exámenes",en:"Licensing & GDL"},
-  vehicle:{zh:"Vehículo · seguro · inspección",en:"Vehicle & insurance"},
+  vehicle:{zh:"Vehículo / seguro / inspección",en:"Vehicle & insurance"},
   rules:{zh:"Reglas básicas",en:"Basic rules"},
   speed:{zh:"Límites de velocidad",en:"Speed"},
   rightofway:{zh:"Derecho de paso",en:"Right-of-way"},
-  turning:{zh:"Giros · rebasar · estacionar",en:"Turns, passing, parking"},
+  turning:{zh:"Giros / rebasar / estacionar",en:"Turns, passing, parking"},
   defensive:{zh:"Conducción defensiva",en:"Defensive driving"},
   alcohol:{zh:"Alcohol y drogas",en:"Alcohol & drugs"},
   penalties:{zh:"Sanciones y puntos",en:"Penalties & points"},
   sharing:{zh:"Compartir la vía",en:"Sharing the road"},
-  signs:{zh:"Señales · semáforos · marcas viales",en:"Signs, signals, markings"}
+  signs:{zh:"Señales / semáforos / marcas viales",en:"Signs, signals, markings"}
 };
 const ALL = [];
 // near-duplicates of questions kept from another chapter
@@ -13185,38 +13183,38 @@ const MANUAL_ZH="https://www.nj.gov/mvc/pdf/license/drivermanuals.pdf";
 function sourceHTML(q){
   const s=source(q); if(!s) return "";
   const p=parseInt(s.page,10), href=MANUAL_EN+(p?`#page=${p+2}`:"");
-  return `<div class="src"><b>Fuente · Source</b><span class="zh">Capítulo ${s.ch} «${esc(s.zh)}», página ${esc(s.page)} del Manual del conductor de Nueva Jersey 2026</span><span class="en">2026 New Jersey Driver Manual, Ch. ${s.ch} “${esc(s.en)}”, p. ${esc(s.page)}</span><a class="srclink" href="${href}" target="_blank" rel="noopener">Abrir el manual oficial en la pág. ${esc(s.page)} · Open manual at p. ${esc(s.page)} ↗</a>${q.scene?`<span class="note">Ilustración basada en el texto del manual · Diagram drawn from the manual's rules</span>`:""}</div>`;
+  return `<div class="src"><b>Fuente / Source</b><span class="zh">Capítulo ${s.ch} «${esc(s.zh)}», página ${esc(s.page)} del Manual del conductor de Nueva Jersey 2026</span><span class="en">2026 New Jersey Driver Manual, Ch. ${s.ch} “${esc(s.en)}”, p. ${esc(s.page)}</span><a class="srclink" href="${href}" target="_blank" rel="noopener">Abrir el manual oficial en la pág. ${esc(s.page)}  / Open manual at p. ${esc(s.page)} ↗</a>${q.scene?`<span class="note">Ilustración basada en el texto del manual / Diagram drawn from the manual's rules</span>`:""}</div>`;
 }
 
 /* ---------- glossary ---------- */
 const GLOSS=[
-  ["GDL",/\bGDL\b|\u5206\u7ea7\u9a7e\u7167/,"Licencia de conducir gradual (GDL) · Graduated Driver License","Sistema por etapas de Nueva Jersey para quienes obtienen su primera licencia: primero un permiso (permiso especial de aprendiz o permiso de examen) para practicar con un conductor adulto con licencia que supervise; después de aprobar el examen práctico de conducción, una licencia de prueba por un año, y por último la licencia básica de conducir. Los titulares menores de 21 años tienen restricciones: no pueden conducir entre las 11:01 p.m. y las 5:00 a.m., tienen un límite de pasajeros, no pueden usar teléfonos celulares y deben exhibir calcomanías rojas reflectantes en las placas.","New Jersey's phased licensing program for first-time drivers: permit, supervised practice, a one-year probationary license, then a basic license. Drivers under 21 face limits on hours, passengers, phones, and must display red decals."],
-  ["MVC",/\bMVC\b|\u673a\u52a8\u8f66\u59d4\u5458\u4f1a/,"Comisión de Vehículos Motorizados de Nueva Jersey · MVC","New Jersey Motor Vehicle Commission (Comisión de Vehículos Motorizados de Nueva Jersey): se encarga de las licencias, el registro de vehículos y las inspecciones; equivale al DMV de otros estados.","The New Jersey Motor Vehicle Commission, which handles licenses, registration and inspection (like a DMV)."],
-  ["BAC",/\bBAC\b|\u8840\u6db2\u9152\u7cbe\u6d53\u5ea6/,"Concentración de alcohol en la sangre · BAC","Blood Alcohol Concentration: concentración de alcohol en la sangre, es decir, el porcentaje de alcohol en la sangre. Límites legales en Nueva Jersey: 0,08% para personas de 21 años o más, 0,01% para menores de 21 años y 0,04% para conductores de vehículos comerciales.","Blood Alcohol Concentration: the percent of alcohol in the blood. NJ limits are 0.08% (21+), 0.01% (under 21) and 0.04% (commercial drivers)."],
-  ["DUI",/\bDUI\b|\bDWI\b|\u9152\u9a7e/,"Conducir bajo la influencia · DUI / DWI","Driving Under the Influence / Driving While Intoxicated: conducir bajo la influencia de alcohol o drogas.","Driving under the influence of alcohol or drugs."],
-  ["IID",/\bIID\b|[Ii]gnition [Ii]nterlock|\u70b9\u706b\u8054\u9501/,"Dispositivo de bloqueo de encendido · IID","Ignition Interlock Device: dispositivo de bloqueo de encendido, un detector de alcohol en el aliento instalado en el vehículo; si el aliento del conductor supera el límite, el vehículo no arranca. Suele exigirse tras un DUI o tras negarse a la prueba de aliento.","Ignition Interlock Device: a breath tester wired to the ignition. The car won't start if the driver's BAC is over the limit."],
-  ["implied",/[Ii]mplied [Cc]onsent|\u9ed8\u793a\u540c\u610f/,"Ley de consentimiento implícito · Implied Consent","Al conducir en Nueva Jersey, se considera que usted aceptó someterse a la prueba de aliento si lo arrestan por sospecha de conducir intoxicado. Negarse a la prueba se sanciona por sí mismo.","By driving in NJ you have agreed to take a breath test if arrested for suspected drunk driving. Refusing is itself punished."],
-  ["prob",/[Pp]robationary (?:license|driver)|\u8bd5\u7528\u9a7e\u7167/,"Licencia de prueba · Probationary license","Licencia que se obtiene en el programa GDL al aprobar el examen práctico de conducción. Tras al menos un año sin infracciones, se puede cambiar por la licencia básica de conducir (basic).","The license you get after the road test under GDL. After at least one year you can upgrade to a basic license."],
-  ["slp",/[Ss]pecial learner(?:'s)? permit|\u7279\u522b\u5b66\u4e60\u8bb8\u53ef\u8bc1/,"Permiso especial de aprendiz · Special learner permit","Se puede obtener desde los 16 años mediante un curso de capacitación detrás del volante (behind-the-wheel) de una escuela de manejo; el instructor compra el permiso.","Available from age 16 through an approved driving school's behind-the-wheel course."],
-  ["exam",/[Ee]xamination permit|\u8003\u8bd5\u8bb8\u53ef\u8bc1/,"Permiso de examen · Examination permit","Se puede obtener desde los 17 años, sin escuela de manejo. Tras aprobar el examen teórico y el examen de la vista, se puede practicar acompañado de un conductor que supervise.","Available from age 17 without a driving school, after passing the knowledge and vision tests."],
+  ["GDL",/\bGDL\b|\u5206\u7ea7\u9a7e\u7167/,"Licencia de conducir gradual (GDL) / Graduated Driver License","Sistema por etapas de Nueva Jersey para quienes obtienen su primera licencia: primero un permiso (permiso especial de aprendiz o permiso de examen) para practicar con un conductor adulto con licencia que supervise; después de aprobar el examen práctico de conducción, una licencia de prueba por un año, y por último la licencia básica de conducir. Los titulares menores de 21 años tienen restricciones: no pueden conducir entre las 11:01 p.m. y las 5:00 a.m., tienen un límite de pasajeros, no pueden usar teléfonos celulares y deben exhibir calcomanías rojas reflectantes en las placas.","New Jersey's phased licensing program for first-time drivers: permit, supervised practice, a one-year probationary license, then a basic license. Drivers under 21 face limits on hours, passengers, phones, and must display red decals."],
+  ["MVC",/\bMVC\b|\u673a\u52a8\u8f66\u59d4\u5458\u4f1a/,"Comisión de Vehículos Motorizados de Nueva Jersey / MVC","New Jersey Motor Vehicle Commission (Comisión de Vehículos Motorizados de Nueva Jersey): se encarga de las licencias, el registro de vehículos y las inspecciones; equivale al DMV de otros estados.","The New Jersey Motor Vehicle Commission, which handles licenses, registration and inspection (like a DMV)."],
+  ["BAC",/\bBAC\b|\u8840\u6db2\u9152\u7cbe\u6d53\u5ea6/,"Concentración de alcohol en la sangre / BAC","Blood Alcohol Concentration: concentración de alcohol en la sangre, es decir, el porcentaje de alcohol en la sangre. Límites legales en Nueva Jersey: 0,08% para personas de 21 años o más, 0,01% para menores de 21 años y 0,04% para conductores de vehículos comerciales.","Blood Alcohol Concentration: the percent of alcohol in the blood. NJ limits are 0.08% (21+), 0.01% (under 21) and 0.04% (commercial drivers)."],
+  ["DUI",/\bDUI\b|\bDWI\b|\u9152\u9a7e/,"Conducir bajo la influencia / DUI / DWI","Driving Under the Influence / Driving While Intoxicated: conducir bajo la influencia de alcohol o drogas.","Driving under the influence of alcohol or drugs."],
+  ["IID",/\bIID\b|[Ii]gnition [Ii]nterlock|\u70b9\u706b\u8054\u9501/,"Dispositivo de bloqueo de encendido / IID","Ignition Interlock Device: dispositivo de bloqueo de encendido, un detector de alcohol en el aliento instalado en el vehículo; si el aliento del conductor supera el límite, el vehículo no arranca. Suele exigirse tras un DUI o tras negarse a la prueba de aliento.","Ignition Interlock Device: a breath tester wired to the ignition. The car won't start if the driver's BAC is over the limit."],
+  ["implied",/[Ii]mplied [Cc]onsent|\u9ed8\u793a\u540c\u610f/,"Ley de consentimiento implícito / Implied Consent","Al conducir en Nueva Jersey, se considera que usted aceptó someterse a la prueba de aliento si lo arrestan por sospecha de conducir intoxicado. Negarse a la prueba se sanciona por sí mismo.","By driving in NJ you have agreed to take a breath test if arrested for suspected drunk driving. Refusing is itself punished."],
+  ["prob",/[Pp]robationary (?:license|driver)|\u8bd5\u7528\u9a7e\u7167/,"Licencia de prueba / Probationary license","Licencia que se obtiene en el programa GDL al aprobar el examen práctico de conducción. Tras al menos un año sin infracciones, se puede cambiar por la licencia básica de conducir (basic).","The license you get after the road test under GDL. After at least one year you can upgrade to a basic license."],
+  ["slp",/[Ss]pecial learner(?:'s)? permit|\u7279\u522b\u5b66\u4e60\u8bb8\u53ef\u8bc1/,"Permiso especial de aprendiz / Special learner permit","Se puede obtener desde los 16 años mediante un curso de capacitación detrás del volante (behind-the-wheel) de una escuela de manejo; el instructor compra el permiso.","Available from age 16 through an approved driving school's behind-the-wheel course."],
+  ["exam",/[Ee]xamination permit|\u8003\u8bd5\u8bb8\u53ef\u8bc1/,"Permiso de examen / Examination permit","Se puede obtener desde los 17 años, sin escuela de manejo. Tras aprobar el examen teórico y el examen de la vista, se puede practicar acompañado de un conductor que supervise.","Available from age 17 without a driving school, after passing the knowledge and vision tests."],
   ["realid",/REAL ID/,"REAL ID","Identificación que cumple las normas federales y sirve, por ejemplo, para abordar vuelos. Para solicitarla se necesitan los documentos «2+1+6»: 2 comprobantes de domicilio, 1 prueba del número de Seguro Social y 6 puntos de identificación.","A federally compliant license usable for domestic flights. Requires 2 proofs of address, 1 proof of SSN and 6 points of ID."],
-  ["nozone",/No-Zones?|[Nn]o [Zz]ones?|\u76f2\u533a/,"Zona de visibilidad limitada · No-Zone","Zonas alrededor de camiones y autobuses que su conductor no puede ver (puntos ciegos): a los lados, justo detrás y justo delante. Si usted no ve al conductor en los espejos del camión, el conductor tampoco lo ve a usted.","The blind spots around trucks and buses: the sides, close behind and close in front."],
-  ["moveover",/Move Over/,"Ley «Hacerse a un lado» · Move Over law","Al acercarse a un vehículo de policía, ambulancia o grúa detenido con luces intermitentes, o a un vehículo averiado con las luces de emergencia encendidas, cámbiese a un carril que no sea adyacente; si no puede cambiar de carril, reduzca la velocidad por debajo del límite señalado y esté preparado para detenerse.","Change to a lane not next to a stopped emergency vehicle or disabled vehicle with flashing lights; if you can't, slow below the limit and be ready to stop."],
-  ["safepass",/Safe Passing|\u5b89\u5168\u8d85\u8f66\u6cd5/,"Ley de Paso Seguro · Safe Passing Law","Al rebasar a peatones, ciclistas, patinadores y otros usuarios vulnerables de la vía: cámbiese de carril si es posible; en una carretera de un solo carril, deje al menos 4 pies; si no es posible, reduzca la velocidad a 25 mph y esté preparado para detenerse.","When passing vulnerable road users: move over a lane if possible, give at least 4 feet, or slow to 25 mph."],
-  ["abs",/\bABS\b|\u9632\u62b1\u6b7b/,"Frenos antibloqueo · ABS","Anti-lock Braking System (sistema de frenos antibloqueo). En una frenada de emergencia, mantenga una presión constante en el freno, sin bombearlo; el sistema evita automáticamente que las ruedas se bloqueen.","Anti-lock Braking System. In an emergency, press firmly and hold; don't pump."],
-  ["hydro",/[Hh]ydroplan\w*|\u6c34\u6ed1/,"Hidroplaneo · Hydroplaning","Cuando se conduce demasiado rápido bajo la lluvia, los neumáticos se deslizan sobre una película de agua (hidroplanear) y pierden contacto con el pavimento. Puede empezar a unas 35 mph; a unas 55 mph los neumáticos pueden perder por completo el contacto con la carretera.","Tires riding on a film of water and losing contact with the road; can start around 35 mph."],
-  ["hov",/\bHOV\b/,"Carril para vehículos de alta ocupación · HOV","High Occupancy Vehicle lane: carril para vehículos de alta ocupación, solo para vehículos con varios ocupantes; se marca con diamantes blancos en el pavimento.","High Occupancy Vehicle lane, for vehicles with multiple riders, marked with white diamonds."],
-  ["rowy",/[Rr]ight-of-way|\u8def\u6743/,"Derecho de paso · Right-of-way","Quién tiene derecho a pasar primero en intersecciones, incorporaciones, etc. Quien no tiene el derecho de paso debe ceder el paso (yield).","Who has the right to go first at intersections, merges and crosswalks; the other driver must yield."],
-  ["surch",/[Ss]urcharge|\u9644\u52a0\u8d39/,"Recargo · Surcharge","Cargo que la MVC cobra además de las multas; por ejemplo, $1,000 al año durante 3 años tras una condena por DUI. También se cobra al acumular 6 o más puntos.","An extra MVC charge on top of fines, e.g. $1,000 a year for 3 years after a DUI."],
-  ["points",/[Pp]oints? (?:system|reduction)|\u8bb0\u70b9|\u6263\u5206\u70b9/,"Sistema de puntos · Point system","Las infracciones de tránsito suman puntos en el historial del conductor. Con 6 o más puntos en 3 años se paga un recargo; con 12 a 14 puntos en 24 meses se recibe un aviso de suspensión. Por cada 12 meses sin infracciones se pueden restar hasta 3 puntos.","Violations add points to your record. 6+ points in 3 years brings a surcharge; 12–14 points in 24 months brings a Notice of Scheduled Suspension."],
-  ["accel",/[Aa]cceleration lane|\u52a0\u901f\u8f66\u9053/,"Carril de aceleración · Acceleration lane","Carril adicional en la entrada de una autopista que se usa para acelerar hasta la velocidad del flujo del tránsito de la vía principal antes de incorporarse.","An extra lane at a highway entrance used to speed up to traffic speed before merging."],
-  ["unc",/[Uu]ncontrolled intersection|\u65e0\u63a7\u5236\u8def\u53e3/,"Intersección no controlada · Uncontrolled intersection","Intersección sin semáforos ni señales de ALTO o CEDA EL PASO. Regla: el vehículo de la izquierda cede el paso al vehículo de la derecha.","An intersection with no signals or signs. Rule: the vehicle on the left yields to the vehicle on the right."],
+  ["nozone",/No-Zones?|[Nn]o [Zz]ones?|\u76f2\u533a/,"Zona de visibilidad limitada / No-Zone","Zonas alrededor de camiones y autobuses que su conductor no puede ver (puntos ciegos): a los lados, justo detrás y justo delante. Si usted no ve al conductor en los espejos del camión, el conductor tampoco lo ve a usted.","The blind spots around trucks and buses: the sides, close behind and close in front."],
+  ["moveover",/Move Over/,"Ley «Hacerse a un lado» / Move Over law","Al acercarse a un vehículo de policía, ambulancia o grúa detenido con luces intermitentes, o a un vehículo averiado con las luces de emergencia encendidas, cámbiese a un carril que no sea adyacente; si no puede cambiar de carril, reduzca la velocidad por debajo del límite señalado y esté preparado para detenerse.","Change to a lane not next to a stopped emergency vehicle or disabled vehicle with flashing lights; if you can't, slow below the limit and be ready to stop."],
+  ["safepass",/Safe Passing|\u5b89\u5168\u8d85\u8f66\u6cd5/,"Ley de Paso Seguro / Safe Passing Law","Al rebasar a peatones, ciclistas, patinadores y otros usuarios vulnerables de la vía: cámbiese de carril si es posible; en una carretera de un solo carril, deje al menos 4 pies; si no es posible, reduzca la velocidad a 25 mph y esté preparado para detenerse.","When passing vulnerable road users: move over a lane if possible, give at least 4 feet, or slow to 25 mph."],
+  ["abs",/\bABS\b|\u9632\u62b1\u6b7b/,"Frenos antibloqueo / ABS","Anti-lock Braking System (sistema de frenos antibloqueo). En una frenada de emergencia, mantenga una presión constante en el freno, sin bombearlo; el sistema evita automáticamente que las ruedas se bloqueen.","Anti-lock Braking System. In an emergency, press firmly and hold; don't pump."],
+  ["hydro",/[Hh]ydroplan\w*|\u6c34\u6ed1/,"Hidroplaneo / Hydroplaning","Cuando se conduce demasiado rápido bajo la lluvia, los neumáticos se deslizan sobre una película de agua (hidroplanear) y pierden contacto con el pavimento. Puede empezar a unas 35 mph; a unas 55 mph los neumáticos pueden perder por completo el contacto con la carretera.","Tires riding on a film of water and losing contact with the road; can start around 35 mph."],
+  ["hov",/\bHOV\b/,"Carril para vehículos de alta ocupación / HOV","High Occupancy Vehicle lane: carril para vehículos de alta ocupación, solo para vehículos con varios ocupantes; se marca con diamantes blancos en el pavimento.","High Occupancy Vehicle lane, for vehicles with multiple riders, marked with white diamonds."],
+  ["rowy",/[Rr]ight-of-way|\u8def\u6743/,"Derecho de paso / Right-of-way","Quién tiene derecho a pasar primero en intersecciones, incorporaciones, etc. Quien no tiene el derecho de paso debe ceder el paso (yield).","Who has the right to go first at intersections, merges and crosswalks; the other driver must yield."],
+  ["surch",/[Ss]urcharge|\u9644\u52a0\u8d39/,"Recargo / Surcharge","Cargo que la MVC cobra además de las multas; por ejemplo, $1,000 al año durante 3 años tras una condena por DUI. También se cobra al acumular 6 o más puntos.","An extra MVC charge on top of fines, e.g. $1,000 a year for 3 years after a DUI."],
+  ["points",/[Pp]oints? (?:system|reduction)|\u8bb0\u70b9|\u6263\u5206\u70b9/,"Sistema de puntos / Point system","Las infracciones de tránsito suman puntos en el historial del conductor. Con 6 o más puntos en 3 años se paga un recargo; con 12 a 14 puntos en 24 meses se recibe un aviso de suspensión. Por cada 12 meses sin infracciones se pueden restar hasta 3 puntos.","Violations add points to your record. 6+ points in 3 years brings a surcharge; 12–14 points in 24 months brings a Notice of Scheduled Suspension."],
+  ["accel",/[Aa]cceleration lane|\u52a0\u901f\u8f66\u9053/,"Carril de aceleración / Acceleration lane","Carril adicional en la entrada de una autopista que se usa para acelerar hasta la velocidad del flujo del tránsito de la vía principal antes de incorporarse.","An extra lane at a highway entrance used to speed up to traffic speed before merging."],
+  ["unc",/[Uu]ncontrolled intersection|\u65e0\u63a7\u5236\u8def\u53e3/,"Intersección no controlada / Uncontrolled intersection","Intersección sin semáforos ni señales de ALTO o CEDA EL PASO. Regla: el vehículo de la izquierda cede el paso al vehículo de la derecha.","An intersection with no signals or signs. Rule: the vehicle on the left yields to the vehicle on the right."],
   ["idrc",/\bIDRC\b/,"IDRC","Intoxicated Driver Resource Center: Centro de Recursos para Conductores Intoxicados, programa educativo obligatorio tras una condena por DUI.","Intoxicated Driver Resource Center: a required program after a DUI conviction."],
-  ["cdl",/\bCDL\b/,"Licencia de conducir comercial · CDL","Commercial Driver License (licencia de conducir comercial): necesaria para conducir camiones grandes, autobuses y vehículos que transportan materiales peligrosos.","Commercial Driver License for large trucks, buses and hazardous materials."],
-  ["smv",/[Ss]low-moving vehicle|\u6162\u901f\u8f66\u8f86/,"Vehículo a baja velocidad · Slow-moving vehicle","Equipo de granja, de construcción, etc.; lleva en la parte posterior una señal triangular anaranjada con borde rojo.","Farm or construction equipment, marked with an orange triangle with a red border."],
-  ["maggie",/Maggie's Law/,"Ley de Maggie · Maggie's Law","Ley aprobada en 2003: es ilegal conducir sabiendo que se está afectado por la falta de sueño; causar una muerte al conducir con fatiga puede tratarse como imprudencia según la ley de homicidio vehicular.","A 2003 law making it illegal to knowingly drive while impaired by lack of sleep; fatigued driving counts as recklessness under the vehicular homicide statute."],
+  ["cdl",/\bCDL\b/,"Licencia de conducir comercial / CDL","Commercial Driver License (licencia de conducir comercial): necesaria para conducir camiones grandes, autobuses y vehículos que transportan materiales peligrosos.","Commercial Driver License for large trucks, buses and hazardous materials."],
+  ["smv",/[Ss]low-moving vehicle|\u6162\u901f\u8f66\u8f86/,"Vehículo a baja velocidad / Slow-moving vehicle","Equipo de granja, de construcción, etc.; lleva en la parte posterior una señal triangular anaranjada con borde rojo.","Farm or construction equipment, marked with an orange triangle with a red border."],
+  ["maggie",/Maggie's Law/,"Ley de Maggie / Maggie's Law","Ley aprobada en 2003: es ilegal conducir sabiendo que se está afectado por la falta de sueño; causar una muerte al conducir con fatiga puede tratarse como imprudencia según la ley de homicidio vehicular.","A 2003 law making it illegal to knowingly drive while impaired by lack of sleep; fatigued driving counts as recklessness under the vehicular homicide statute."],
   ["mph",/\bmph\b/,"mph millas por hora","miles per hour (millas por hora). 25 mph ≈ 40 km/h, 55 mph ≈ 89 km/h, 65 mph ≈ 105 km/h.","Miles per hour. 25 mph ≈ 40 km/h; 65 mph ≈ 105 km/h."],
-  ["ft",/\b\d+(?:,\d{3})? (?:feet|ft)\b/,"Conversión de pies · feet","1 pie ≈ 0.3 m. 10 ft ≈ 3 m, 25 ft ≈ 7.6 m, 50 ft ≈ 15 m, 100 ft ≈ 30 m, 300 ft ≈ 91 m.","1 foot ≈ 0.3 m. 25 ft ≈ 7.6 m; 300 ft ≈ 91 m."]
+  ["ft",/\b\d+(?:,\d{3})? (?:feet|ft)\b/,"Conversión de pies / feet","1 pie ≈ 0.3 m. 10 ft ≈ 3 m, 25 ft ≈ 7.6 m, 50 ft ≈ 15 m, 100 ft ≈ 30 m, 300 ft ≈ 91 m.","1 foot ≈ 0.3 m. 25 ft ≈ 7.6 m; 300 ft ≈ 91 m."]
 ];
 const GKEY=Object.fromEntries(GLOSS.map(g=>[g[0],g]));
 function gloss(text,inOption){
@@ -13273,9 +13271,9 @@ function mergeMap(a,b){const out=Object.assign({},a); for(const k in b){ if(!out
 function mergeDone(a,b){const out=Object.assign({},a); for(const k in b){const x=out[k]||{c:0,w:0},y=b[k]; out[k]={c:Math.max(x.c||0,y.c||0),w:Math.max(x.w||0,y.w||0)};} return out;}
 function setSync(mode){
   const el=document.getElementById('syncNote');
-  el.textContent = (mode==="cloud"||mode==="account") ? "Sesión iniciada: Mis errores y Favoritos se sincronizan con su cuenta en el teléfono y la computadora · Synced to your account" :
-                   mode==="loading" ? "Conectando con la nube… · Connecting…" :
-                   "El progreso se guarda en este navegador · Saved on this device";
+  el.textContent = (mode==="cloud"||mode==="account") ? "Sesión iniciada: Mis errores y Favoritos se sincronizan con su cuenta en el teléfono y la computadora / Synced to your account" :
+                   mode==="loading" ? "Conectando con la nube… / Connecting…" :
+                   "El progreso se guarda en este navegador / Saved on this device";
 }
 (async function initCloud(){
   if(!window.claude||typeof window.claude.use!=="function") return;
@@ -13362,7 +13360,7 @@ const light=(lit,flash,arrow)=>{
   const c={r:"#ff2a2a",y:"#ffc400",g:"#18d36b"}, off="#3a3a3a";
   const f=flash?`<animate attributeName="opacity" values="1;0.15;1" dur="1s" repeatCount="indefinite"/>`:"";
   const circ=(cy,k)=>`<circle cx="60" cy="${cy}" r="14" fill="${lit===k?c[k]:off}">${lit===k?f:""}</circle>`;
-  const rays=flash?`<g stroke="${c[lit]}" stroke-width="3" stroke-linecap="round">${[[-1,-1],[1,-1],[-1,1],[1,1]].map(([dx,dy])=>{const cy=lit==='r'?24:lit==='y'?58:92;return `<line x1="${60+dx*28}" y1="${cy+dy*12}" x2="${60+dx*36}" y2="${cy+dy*16}"/>`}).join("")}</g><text x="60" y="140" text-anchor="middle" font-size="12" font-weight="700" fill="${c[lit]}" stroke="#000" stroke-width=".3" font-family="sans-serif">Intermitente · FLASHING</text>`:"";
+  const rays=flash?`<g stroke="${c[lit]}" stroke-width="3" stroke-linecap="round">${[[-1,-1],[1,-1],[-1,1],[1,1]].map(([dx,dy])=>{const cy=lit==='r'?24:lit==='y'?58:92;return `<line x1="${60+dx*28}" y1="${cy+dy*12}" x2="${60+dx*36}" y2="${cy+dy*16}"/>`}).join("")}</g><text x="60" y="140" text-anchor="middle" font-size="12" font-weight="700" fill="${c[lit]}" stroke="#000" stroke-width=".3" font-family="sans-serif">Intermitente / FLASHING</text>`:"";
   return `<svg viewBox="0 0 120 150"><rect x="38" y="4" width="44" height="${arrow?142:112}" rx="10" fill="#1b1b1b"/>${circ(24,'r')}${circ(58,'y')}${circ(92,'g')}${arrow?`<circle cx="60" cy="126" r="14" fill="#0d2a18"/><path d="M68 126H52m6-7-7 7 7 7" stroke="${c.g}" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>`:""}${rays}</svg>`;
 };
 const road=(left,right)=>{ // yellow center pair; left/right: 's' solid, 'b' broken
@@ -13380,7 +13378,7 @@ const hand=(kind)=>{
   <rect x="150" y="96" width="36" height="12" rx="2" fill="#f4f4f4"/><rect x="118" y="114" width="22" height="20" rx="4" fill="#222"/><rect x="196" y="114" width="22" height="20" rx="4" fill="#222"/>
   <circle cx="148" cy="44" r="7" fill="#e8b48a"/>
   <path d="${path}" stroke="#e8b48a" stroke-width="9" fill="none" stroke-linecap="round" stroke-linejoin="round"/><circle cx="${end[0]}" cy="${end[1]}" r="7" fill="#e8b48a"/>
-  <text x="168" y="16" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">Vista trasera · rear view · mano izquierda del conductor</text></svg>`;
+  <text x="168" y="16" text-anchor="middle" font-size="11" fill="#333" font-family="sans-serif">Vista trasera / rear view / mano izquierda del conductor</text></svg>`;
 };
 const SIGNS={
   stop:`<svg viewBox="0 0 120 120"><polygon points="36,4 84,4 116,36 116,84 84,116 36,116 4,84 4,36" fill="#d0021b"/><polygon points="38,9 82,9 111,38 111,82 82,111 38,111 9,82 9,38" fill="none" stroke="#fff" stroke-width="3"/><text x="60" y="72" text-anchor="middle" font-family="Arial Narrow,Arial,sans-serif" font-weight="700" font-size="34" fill="#fff">STOP</text></svg>`,
@@ -13420,7 +13418,7 @@ const SIGNS={
   lane_yellow_x:`<svg viewBox="0 0 120 120"><rect x="10" y="10" width="100" height="100" rx="10" fill="#1b1b1b"/><path d="M32 32 88 88M88 32 32 88" stroke="#ffc400" stroke-width="12" stroke-linecap="round"/></svg>`,
   lane_green_arrow:`<svg viewBox="0 0 120 120"><rect x="10" y="10" width="100" height="100" rx="10" fill="#1b1b1b"/><path d="M60 26V86" stroke="#18d36b" stroke-width="12" stroke-linecap="round"/><path d="M36 66 60 94 84 66" stroke="#18d36b" stroke-width="12" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
   mark_double_yellow:road('s','s'), mark_yellow_solid_broken:road('b','s'), mark_yellow_broken_solid:road('s','b'),
-  mark_white_broken:`<svg viewBox="0 0 240 150"><rect width="240" height="150" fill="#4a4f52"/><rect x="8" y="0" width="3" height="150" fill="#eee"/><rect x="229" y="0" width="3" height="150" fill="#eee"/><g fill="#eee">${[0,1,2,3,4].map(i=>`<rect x="118" y="${i*32}" width="4" height="18"/>`).join("")}</g>${car(64,90,"#1f7ae0")}${car(176,50,"#888")}<text x="120" y="146" text-anchor="middle" font-size="11" fill="#fff" font-family="sans-serif">Mismo sentido · same direction ↑</text></svg>`,
+  mark_white_broken:`<svg viewBox="0 0 240 150"><rect width="240" height="150" fill="#4a4f52"/><rect x="8" y="0" width="3" height="150" fill="#eee"/><rect x="229" y="0" width="3" height="150" fill="#eee"/><g fill="#eee">${[0,1,2,3,4].map(i=>`<rect x="118" y="${i*32}" width="4" height="18"/>`).join("")}</g>${car(64,90,"#1f7ae0")}${car(176,50,"#888")}<text x="120" y="146" text-anchor="middle" font-size="11" fill="#fff" font-family="sans-serif">Mismo sentido / same direction ↑</text></svg>`,
   hand_left:hand("left"), hand_right:hand("right"), hand_stop:hand("stop")
 };
 /* extra regulatory / warning signs shown in the manual's sign pages */
@@ -13537,17 +13535,17 @@ const SCN=(function(){
     const dbl=y=>`<rect x="0" y="${y-3}" width="300" height="1.8" fill="${YL}"/><rect x="0" y="${y+1.2}" width="300" height="1.8" fill="${YL}"/>`;
     if(k==="two"){ g+=`<rect x="0" y="70" width="300" height="80" fill="${AS}"/>`+dbl(110)+`<rect x="0" y="71" width="300" height="1.5" fill="${W}"/><rect x="0" y="147.5" width="300" height="1.5" fill="${W}"/>`; }
     if(k==="multi"){ g+=`<rect x="0" y="50" width="300" height="120" fill="${AS}"/>`+dbl(110)+dash(80)+dash(140); }
-    if(k==="median"){ g+=`<rect x="0" y="40" width="300" height="140" fill="${AS}"/><rect x="0" y="100" width="300" height="20" fill="#9fc38c" stroke="#ddd" stroke-width="2"/>`+dash(70)+dash(150)+txt(150,114,"Mediana elevada · raised median",{fs:9,c:"#2d4a22"}); }
-    if(k==="hwy"){ g+=`<rect x="0" y="50" width="300" height="90" fill="${AS}"/><rect x="0" y="140" width="300" height="26" fill="#787d80"/><rect x="0" y="51" width="300" height="2" fill="${YL}"/><rect x="0" y="139" width="300" height="2" fill="${W}"/>`+dash(80)+dash(110)+txt(30,158,"Arcén · shoulder",{fs:9,a:"start"}); }
-    if(k==="ramp"){ g+=`<rect x="0" y="50" width="300" height="60" fill="${AS}"/><polygon points="0,110 220,110 285,110 220,140 0,140" fill="${AS}"/><path d="M0 140 Q60 140 90 170 L70 200 L-10 200" fill="${AS}"/><rect x="0" y="51" width="300" height="2" fill="${YL}"/>`+dash(80)+`<g>${[...Array(9)].map((_,i)=>`<rect x="${4+i*24}" y="109" width="12" height="2" fill="${W}"/>`).join("")}</g>`+txt(250,150,"Carril de aceleración · Acceleration lane",{fs:9,c:"#2d4a22"}); }
+    if(k==="median"){ g+=`<rect x="0" y="40" width="300" height="140" fill="${AS}"/><rect x="0" y="100" width="300" height="20" fill="#9fc38c" stroke="#ddd" stroke-width="2"/>`+dash(70)+dash(150)+txt(150,114,"Mediana elevada / raised median",{fs:9,c:"#2d4a22"}); }
+    if(k==="hwy"){ g+=`<rect x="0" y="50" width="300" height="90" fill="${AS}"/><rect x="0" y="140" width="300" height="26" fill="#787d80"/><rect x="0" y="51" width="300" height="2" fill="${YL}"/><rect x="0" y="139" width="300" height="2" fill="${W}"/>`+dash(80)+dash(110)+txt(30,158,"Arcén / shoulder",{fs:9,a:"start"}); }
+    if(k==="ramp"){ g+=`<rect x="0" y="50" width="300" height="60" fill="${AS}"/><polygon points="0,110 220,110 285,110 220,140 0,140" fill="${AS}"/><path d="M0 140 Q60 140 90 170 L70 200 L-10 200" fill="${AS}"/><rect x="0" y="51" width="300" height="2" fill="${YL}"/>`+dash(80)+`<g>${[...Array(9)].map((_,i)=>`<rect x="${4+i*24}" y="109" width="12" height="2" fill="${W}"/>`).join("")}</g>`+txt(250,150,"Carril de aceleración / Acceleration lane",{fs:9,c:"#2d4a22"}); }
     if(k==="curb"){ g+=`<rect x="0" y="30" width="300" height="120" fill="${AS}"/><rect x="0" y="150" width="300" height="50" fill="#c9c9c4"/><rect x="0" y="148" width="300" height="4" fill="#9a9a95"/>`+dbl(80); }
     (s.objs||[]).forEach(o=>{
       if(o.t==="cross") { const [t0,t1]={two:[70,150],multi:[50,170],median:[40,180],hwy:[50,140],ramp:[50,140],curb:[30,150]}[k]; for(let y=t0+3;y<t1-4;y+=13) g+=`<rect x="${o.x}" y="${y}" width="22" height="7" fill="${W}"/>`; }
-      if(o.t==="drive") g+=`<rect x="${o.x-20}" y="149" width="40" height="51" fill="#8b8f92"/>`+txt(o.x+28,192,"Entrada privada · driveway",{fs:9,a:"start",c:"#2d4a22"});
-      if(o.t==="hydrant") g+=`<circle cx="${o.x}" cy="162" r="6" fill="#d0021b" stroke="#7a0010" stroke-width="2"/>`+txt(o.x,182,"Hidrante · hydrant",{fs:9,c:"#333"});
+      if(o.t==="drive") g+=`<rect x="${o.x-20}" y="149" width="40" height="51" fill="#8b8f92"/>`+txt(o.x+28,192,"Entrada privada / driveway",{fs:9,a:"start",c:"#2d4a22"});
+      if(o.t==="hydrant") g+=`<circle cx="${o.x}" cy="162" r="6" fill="#d0021b" stroke="#7a0010" stroke-width="2"/>`+txt(o.x,182,"Hidrante / hydrant",{fs:9,c:"#333"});
       if(o.t==="stop") g+=`<rect x="${o.x-1}" y="156" width="2" height="12" fill="#666"/>`+oct(o.x,160,9)+`<text x="${o.x}" y="162" text-anchor="middle" font-size="5" font-weight="700" fill="#fff" font-family="Arial">STOP</text>`;
       if(o.t==="fire") g+=`<rect x="${o.x}" y="148" width="44" height="52" fill="#a9a9a4"/><rect x="${o.x-10}" y="178" width="64" height="22" fill="#b33" />`+txt(o.x+22,193,"FIRE STATION",{fs:8});
-      if(o.t==="rail") g+=`<g><rect x="${o.x-14}" y="30" width="28" height="120" fill="#6d5a45" opacity=".6"/>${[...Array(10)].map((_,i)=>`<rect x="${o.x-14}" y="${33+i*12}" width="28" height="4" fill="#4a3b2c"/>`).join("")}<rect x="${o.x-7}" y="30" width="2.5" height="120" fill="#ccc"/><rect x="${o.x+4.5}" y="30" width="2.5" height="120" fill="#ccc"/></g>`+txt(o.x,190,"Ferrocarril · railroad",{fs:9,c:"#333"});
+      if(o.t==="rail") g+=`<g><rect x="${o.x-14}" y="30" width="28" height="120" fill="#6d5a45" opacity=".6"/>${[...Array(10)].map((_,i)=>`<rect x="${o.x-14}" y="${33+i*12}" width="28" height="4" fill="#4a3b2c"/>`).join("")}<rect x="${o.x-7}" y="30" width="2.5" height="120" fill="#ccc"/><rect x="${o.x+4.5}" y="30" width="2.5" height="120" fill="#ccc"/></g>`+txt(o.x,190,"Ferrocarril / railroad",{fs:9,c:"#333"});
       if(o.t==="school") g+=`<rect x="${o.x}" y="2" width="90" height="40" fill="#b5651d"/><polygon points="${o.x-4},4 ${o.x+45},-14 ${o.x+94},4" fill="#7a3e0e"/>`+txt(o.x+45,28,"SCHOOL Escuela",{fs:11});
       if(o.t==="text") g+=txt(o.x,o.y,o.s,{fs:o.fs||10,c:o.c||"#fff",a:o.a});
     });
@@ -13577,7 +13575,7 @@ const SCN=(function(){
     g+=`<rect x="203" y="96" width="3" height="40" fill="#555"/><g transform="translate(205 100)"><rect x="-10" y="-2" width="20" height="4" fill="#fff" transform="rotate(35)"/><rect x="-10" y="-2" width="20" height="4" fill="#fff" transform="rotate(-35)"/></g><circle cx="196" cy="116" r="4.5" fill="#ff2a2a"/><circle cx="214" cy="116" r="4.5" fill="${s.flash?"#ff2a2a":"#552"}"/>`;
     if(s.flash) g+=rays(196,116,"#ff2a2a")+rays(214,116,"#ff2a2a");
     if(s.gate) g+=`<rect x="152" y="98" width="52" height="4" fill="#fff" stroke="#d0021b" stroke-dasharray="6 6" stroke-width="4"/>`;
-    g+=txt(250,48,"Vías del tren · tracks",{fs:9,c:"#333"});
+    g+=txt(250,48,"Vías del tren / tracks",{fs:9,c:"#333"});
     (s.v||[]).forEach(v=>g+=veh(Object.assign({a:0},v)));
     (s.dims||[]).forEach(d=>g+=dim(d));
     return wrap(220,g);
@@ -13590,8 +13588,8 @@ const SCN=(function(){
     const ang=Math.atan2(90,300)*180/Math.PI;
     const carSide=`<g><path d="M-38 0v-14q0-6 6-7l14-3 10-12h28l12 12 10 2q6 2 6 8V0z" fill="#2b6cb0"/><path d="M-12 -24 -3 -34h13v10zM14 -24v-10h12l9 10z" fill="#cfe3ff"/><circle cx="-22" cy="0" r="8" fill="#222"/><circle cx="22" cy="0" r="8" fill="#222"/></g>`;
     g+=`<g transform="translate(150 ${115-8}) rotate(${ang}) ${down?"":"scale(-1 1)"}">${carSide}</g>`;
-    g+=txt(150,190,down?"Cuesta abajo · facing DOWNHILL":"Cuesta arriba · facing UPHILL",{fs:12,c:"#fff"});
-    g+=txt(150,24,"Acera a la derecha · Curb on the right",{fs:12,c:"#1b3a4f"});
+    g+=txt(150,190,down?"Cuesta abajo / facing DOWNHILL":"Cuesta arriba / facing UPHILL",{fs:12,c:"#fff"});
+    g+=txt(150,24,"Acera a la derecha / Curb on the right",{fs:12,c:"#1b3a4f"});
     g+=`<path d="${down?"M200 60 L250 75":"M100 75 L50 60"}" stroke="#1b3a4f" stroke-width="3" marker-end="url(#sa)"/>`;
     return wrap(200,g);
   }
@@ -13602,7 +13600,7 @@ const SCN=(function(){
     g+=`<rect x="40" y="40" width="220" height="${70+(s.inch>6?-10:0)}" rx="14" fill="#2b6cb0"/>`;
     const ty=s.inch>6?100:112; g+=`<rect x="70" y="${ty}" width="38" height="16" rx="3" fill="#222"/><rect x="200" y="${ty}" width="38" height="16" rx="3" fill="#222"/>`;
     g+=dim({x1:254,y1:ty+16,x2:254,y2:138,t:s.inch+" in"});
-    g+=txt(150,170,"Acera · curb",{fs:11,c:"#333"})+txt(150,26,"Vista superior · top view",{fs:10,c:"#ddd"});
+    g+=txt(150,170,"Acera / curb",{fs:11,c:"#333"})+txt(150,26,"Vista superior / top view",{fs:10,c:"#ddd"});
     return wrap(200,g);
   }
   return {x4,road,up3,rail,hill,gap};
@@ -13640,14 +13638,14 @@ function refreshHome(){
   Object.keys(TOPICS).forEach(k=>{
     const n=ALL.filter(q=>q.topic===k).length; if(!n) return;
     const b=document.createElement('button'); b.className='chip';
-    b.innerHTML=`${esc(TOPICS[k].zh)} <span>${esc(TOPICS[k].en)} · ${n}</span>`;
+    b.innerHTML=`${esc(TOPICS[k].zh)} <span>${esc(TOPICS[k].en)} ${n}</span>`;
     b.addEventListener('click',()=>start('topic',k)); tc.appendChild(b);
   });
 }
 
 /* ---------- quiz engine ---------- */
 let Q=null; // {mode,title,list:[{q,order}],i,answers:[],combo,best,right}
-const MODE_TITLE={hf:"Preguntas frecuentes · High frequency",tricky:"Preguntas engañosas · Error-prone",exam:"Examen simulado · Mock test",wrong:"Mis errores · Wrong answers",fav:"Favoritos · Favorites",notes:"Mis notas · My notes",all:"Todas las preguntas · All"};
+const MODE_TITLE={hf:"Preguntas frecuentes / High frequency",tricky:"Preguntas engañosas / Error-prone",exam:"Examen simulado / Mock test",wrong:"Mis errores / Wrong answers",fav:"Favoritos / Favorites",notes:"Mis notas / My notes",all:"Todas las preguntas / All"};
 const hasAbove=q=>q.options.some(o=>/above|\u4ee5\u4e0a|both|all of these|none of these/i.test((o.en||"")+(o.zh||"")));
 function buildOrder(q){ const idx=[0,1,2,3]; return (S.prefs.shuffleOpt&&!hasAbove(q))?shuffle(idx):idx; }
 function start(mode,arg,customList){
@@ -13664,7 +13662,7 @@ function start(mode,arg,customList){
   if(!pool.length){ toast(mode==="wrong"?"¡Mis errores está vacío! Siga así.":mode==="fav"?"Aún no hay favoritos; toque la estrella al responder para guardar una pregunta":"No hay preguntas"); return; }
   if(mode!=="exam" && S.prefs.shuffle && mode!=="all") pool=shuffle(pool);
   if(mode==="all" && S.prefs.shuffle) pool=shuffle(pool);
-  Q={mode,arg,title:mode==="topic"?`${TOPICS[arg].zh} ${TOPICS[arg].en}`:(customList?"Repetir errores · Retry":MODE_TITLE[mode]),
+  Q={mode,arg,title:mode==="topic"?`${TOPICS[arg].zh} ${TOPICS[arg].en}`:(customList?"Repetir errores / Retry":MODE_TITLE[mode]),
      list:pool.map(q=>({q,order:buildOrder(q)})),i:0,answers:[],combo:0,best:0,right:0};
   show('vQuiz'); render();
 }
@@ -13684,8 +13682,8 @@ function render(){
   $('qBar').style.width=((Q.i+(ans!=null?1:0))/Q.list.length*100)+'%';
   updateCombo();
   const tags=[];
-  if(q.hf) tags.push('<span class="tag hf">Frecuente · HF</span>');
-  if(q.tricky) tags.push('<span class="tag tr">Engañosa · Tricky</span>');
+  if(q.hf) tags.push('<span class="tag hf">Frecuente / HF</span>');
+  if(q.tricky) tags.push('<span class="tag tr">Engañosa / Tricky</span>');
   if(q.trNote) tags.push(`<span class="tag trn">⚠ ${esc(window.__TRTAG||"")}</span>`);
   tags.push(`<span class="tag">${esc(TOPICS[q.topic].zh)}</span>`);
   if(isWrong(q.id)) tags.push(`<span class="tag" style="color:var(--bad);border-color:var(--bad)">Fallada ${S.wrong[q.id].n} vez(es)</span>`);
@@ -13709,7 +13707,7 @@ function render(){
   $('qExplain').innerHTML="";
   if(ans!=null) paintAnswered(ans,false);
   $('nextBtn').disabled = ans==null;
-  $('nextBtn').textContent = Q.i===Q.list.length-1 ? "Terminar · Finish" : "Siguiente · Next";
+  $('nextBtn').textContent = Q.i===Q.list.length-1 ? "Terminar / Finish" : "Siguiente / Next";
   $('prevBtn').disabled = Q.i===0;
   const fb=$('favBtn'); fb.setAttribute('aria-pressed',String(isFav(q.id)));
 }
@@ -13729,7 +13727,7 @@ function paintAnswered(chosen,animate){
   const ex=q.explain||{};
   const showEx = !ok || !(S.prefs.auto&&animate);
   if(showEx||!ok){
-    $('qExplain').innerHTML=`<div class="explain ${ok?"":"bad"}"><div class="h">${ok?"✓ Respuesta correcta · Correct":"✗ La respuesta correcta es "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]+" · Correct answer: "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]}</div>${ex.en?`<div class="en">${gloss(ex.en)}</div>`:""}${ex.zh?`<div class="zh">${gloss(ex.zh)}</div>`:""}${q.trNote?`<div class="trnote">⚠ ${esc(q.trNote)}</div>`:""}${sourceHTML(q)}</div>`;
+    $('qExplain').innerHTML=`<div class="explain ${ok?"":"bad"}"><div class="h">${ok?"✓ Respuesta correcta / Correct":"✗ La respuesta correcta es "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]+" Correct answer: "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]}</div>${ex.en?`<div class="en">${gloss(ex.en)}</div>`:""}${ex.zh?`<div class="zh">${gloss(ex.zh)}</div>`:""}${q.trNote?`<div class="trnote">⚠ ${esc(q.trNote)}</div>`:""}${sourceHTML(q)}</div>`;
   }
 }
 let autoT=null;
@@ -13745,8 +13743,8 @@ function choose(oi,btn,ev){
     burst(x,y,Q.combo); sndRight(Q.combo); buzz(12);
     if(Q.mode==="wrong"&&isWrong(q.id)){
       const left=wrongCorrect(q.id);
-      if(left===0) toast(`Acertada ${REMOVE_AFTER} veces seguidas: eliminada de Mis errores ✓ · Mastered, removed`);
-      else if(left>0) toast(`¡Correcto! Acierte ${left} vez(es) más y saldrá de Mis errores · ${left} more to remove`);
+      if(left===0) toast(`Acertada ${REMOVE_AFTER} veces seguidas: eliminada de Mis errores ✓ / Mastered, removed`);
+      else if(left>0) toast(`¡Correcto! Acierte ${left} vez(es) más y saldrá de Mis errores ${left} more to remove`);
     }
     else if(Q.combo>0&&Q.combo%5===0) toast(`¡Increíble! ${Q.combo} respuestas correctas seguidas 🔥`);
   }else{
@@ -13772,14 +13770,14 @@ function finish(){
     <svg class="ring" viewBox="0 0 150 150"><circle cx="75" cy="75" r="${R}" fill="none" stroke="var(--line)" stroke-width="12"/>
     <circle cx="75" cy="75" r="${R}" fill="none" stroke="${pass?'var(--good)':'var(--bad)'}" stroke-width="12" stroke-linecap="round" stroke-dasharray="${C*pct} ${C}" transform="rotate(-90 75 75)"/>
     <text x="75" y="82" text-anchor="middle" font-size="36" font-weight="700" fill="var(--ink)">${right}/${total}</text></svg>
-    <div class="verdict ${pass?'pass':'fail'}">${isExam?(pass?"Aprobado · PASS":"No aprobado · FAIL"):(pass?"¡Muy bien! GREAT":"¡Siga practicando! KEEP GOING")}</div>
-    <div style="color:var(--muted);margin-top:4px">${isExam?"Se aprueba con 40 correctas · Need 40 of 50":"Aciertos "+Math.round(pct*100)+"%"} · Mejor racha ${Q.best}</div>
+    <div class="verdict ${pass?'pass':'fail'}">${isExam?(pass?"Aprobado / PASS":"No aprobado / FAIL"):(pass?"¡Muy bien! GREAT":"¡Siga practicando! KEEP GOING")}</div>
+    <div style="color:var(--muted);margin-top:4px">${isExam?"Se aprueba con 40 correctas / Need 40 of 50":"Aciertos "+Math.round(pct*100)+"%"}, Mejor racha ${Q.best}</div>
     <div class="rbtns">
       ${wrongs.length?'<button class="btn" id="rRetry">Repetir los errores de esta ronda ('+wrongs.length+')</button>':''}
       <button class="btn ghost" id="rAgain">Otra ronda</button>
       <button class="btn ghost" id="rHome">Volver al inicio</button>
     </div></div>
-    ${wrongs.length?'<h2 class="sec">Errores de esta ronda · Missed</h2><div class="list">'+wrongs.map(itemHTML).join("")+'</div>':''}`;
+    ${wrongs.length?'<h2 class="sec">Errores de esta ronda / Missed</h2><div class="list">'+wrongs.map(itemHTML).join("")+'</div>':''}`;
   show('vResult');
   if(pass&&!reduceMotion()){ const r=v.querySelector('.ring').getBoundingClientRect(); for(let k=0;k<3;k++) setTimeout(()=>burst(r.left+r.width/2+(k-1)*60,r.top+r.height/2,8),k*180); tone([523,659,784,1046],0.3,"triangle",0.14); }
   const m=Q.mode,a=Q.arg;
@@ -13794,7 +13792,7 @@ function itemHTML(q){
     <div class="a">✓ ${bi(q.options[q.answer])}</div>
     ${q.explain?`<div style="font-size:13px;color:var(--muted);margin-top:4px">${bi(q.explain)}</div>`:""}
     ${q.trNote?`<div class="trnote">⚠ ${esc(q.trNote)}</div>`:""}
-    ${noteOf(q.id).trim()?`<div class="mynote"><b>✎ Mi nota · My note</b>${esc(noteOf(q.id))}</div>`:""}
+    ${noteOf(q.id).trim()?`<div class="mynote"><b>✎ Mi nota / My note</b>${esc(noteOf(q.id))}</div>`:""}
     ${sourceHTML(q)}
     <div class="meta">${isWrong(q.id)?`<span style="color:var(--bad)">Fallada ${S.wrong[q.id].n} vez(es)</span>${(S.prefs.autoRemove!==false&&S.wrong[q.id].ok)?`<span style="color:var(--good)">Acertada ${S.wrong[q.id].ok}/${REMOVE_AFTER}</span>`:""}`:""}<span>${esc(TOPICS[q.topic].zh)}</span><span class="sp"></span>
     <button class="mini" data-act="fav">${isFav(q.id)?"★ Guardada":"☆ Guardar"}</button>
@@ -13813,9 +13811,9 @@ function showList(kind,fromQuiz){
   if(kind==="wrong") qs.sort((a,b)=>S.wrong[b.id].n-S.wrong[a.id].n);
   const resume = fromQuiz && Q;
   const v=$('vList');
-  v.innerHTML=`<div class="qtop"><button class="iconbtn" id="lBack" aria-label="${resume?"Volver a las preguntas · Back to quiz":"Volver · Back"}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
-    <div class="title">${kind==="wrong"?"Mis errores · Wrong answers":kind==="notes"?"Mis notas · My notes":"Favoritos · Favorites"}</div><div class="count">${qs.length}</div></div>
-    ${resume?`<div class="qtools"><button class="qtool" id="lResume">Continuar la práctica · Resume (${Q.i+1}/${Q.list.length})</button><button class="qtool" id="lHome">Inicio · Home</button></div>`:""}
+  v.innerHTML=`<div class="qtop"><button class="iconbtn" id="lBack" aria-label="${resume?"Volver a las preguntas / Back to quiz":"Volver / Back"}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+    <div class="title">${kind==="wrong"?"Mis errores / Wrong answers":kind==="notes"?"Mis notas / My notes":"Favoritos / Favorites"}</div><div class="count">${qs.length}</div></div>
+    ${resume?`<div class="qtools"><button class="qtool" id="lResume">Continuar la práctica / Resume (${Q.i+1}/${Q.list.length})</button><button class="qtool" id="lHome">Inicio / Home</button></div>`:""}
     ${qs.length?`<div class="qnav"><button class="btn grow" id="lStart">Practicar estas ${qs.length} preguntas</button></div><div class="list">${qs.map(itemHTML).join("")}</div>`
       :`<div class="empty">${kind==="wrong"?"Aún no hay errores. Las preguntas que responda mal aparecerán aquí automáticamente.":kind==="notes"?"Aún no tienes notas. Al practicar, toca “Escribir nota” debajo de la pregunta para anotar lo que quieras recordar.":"Aún no hay favoritos. Mientras responde, toque la estrella abajo a la izquierda para guardar una pregunta."}</div>`}`;
   show('vList');
@@ -13855,7 +13853,7 @@ function unitNote(q){
     sort(ft).forEach(([v,raw])=>{ const mtr=v*0.3048; zh.push(`${raw} pies ≈ ${fmtN(mtr)} m`); en.push(`${raw} ft ≈ ${fmtN(mtr)} m`); }); }
   if(inch.size){ base.push("1 pulgada = 2.54 cm"); baseEn.push("1 in = 2.54 cm");
     sort(inch).forEach(([v,raw])=>{ const cm=v*2.54; zh.push(`${raw} pulgadas ≈ ${fmtN(cm)} cm`); en.push(`${raw} in ≈ ${fmtN(cm)} cm`); }); }
-  return `<span class="ulabel">Conversión de unidades · Units</span><span class="zh">${base.join(", ")}. En esta pregunta: ${zh.join("; ")}</span><span class="en">${baseEn.join(", ")}. Here: ${en.join("; ")}</span>`;
+  return `<span class="ulabel">Conversión de unidades / Units</span><span class="zh">${base.join(", ")}. En esta pregunta: ${zh.join("; ")}</span><span class="en">${baseEn.join(", ")}. Here: ${en.join("; ")}</span>`;
 }
 
 /* ---------- accounts, comments, synced progress (Firebase) ---------- */
@@ -13886,14 +13884,14 @@ async function fbOnLogin(u){
 let fbAuthKnown=false;
 function gate(){
   if(fbUser||fbFailed) return true;
-  if(!fb||!fbAuthKnown){ toast("Conectando con las cuentas, espera un momento · Connecting…"); return false; }
-  openAuth("login","Inicia sesión para usar Mis errores y Favoritos · Log in to use wrong answers and favorites");
+  if(!fb||!fbAuthKnown){ toast("Conectando con las cuentas, espera un momento / Connecting…"); return false; }
+  openAuth("login","Inicia sesión para usar Mis errores y Favoritos / Log in to use wrong answers and favorites");
   return false;
 }
 function updateAcct(){
   document.body.classList.toggle('signed-out',fbAuthKnown&&!fbUser);
   const lbl=$('acctLabel');
-  lbl.textContent = fbUser ? displayName(fbUser) : "Iniciar sesión · Log in";
+  lbl.textContent = fbUser ? displayName(fbUser) : "Iniciar sesión / Log in";
   $('acctBtn').classList.toggle('in',!!fbUser);
 }
 window.addEventListener('njfb-ready',()=>{
@@ -13911,20 +13909,20 @@ window.addEventListener('njfb-ready',()=>{
 },{once:true});
 window.addEventListener('njfb-failed',()=>{ fbFailed=true; },{once:true});
 
-const AUTH_ERR={"auth/email-already-in-use":"Este correo ya está registrado; inicie sesión · Email already registered","auth/invalid-credential":"Correo o contraseña incorrectos · Wrong email or password","auth/wrong-password":"Correo o contraseña incorrectos · Wrong email or password","auth/user-not-found":"Correo o contraseña incorrectos · Wrong email or password","auth/weak-password":"La contraseña debe tener al menos 6 caracteres · Password must be at least 6 characters","auth/invalid-email":"Formato de correo no válido · Invalid email","auth/too-many-requests":"Demasiados intentos; inténtelo más tarde · Too many attempts, try later","auth/popup-closed-by-user":"Se cerró la ventana de inicio de sesión · Login window closed","auth/popup-blocked":"El navegador bloqueó la ventana de inicio de sesión; permita las ventanas emergentes y vuelva a intentarlo · Allow pop-ups and retry","auth/network-request-failed":"Error de conexión · Network error"};
-const authMsg=e=>AUTH_ERR[e&&e.code]||("Algo salió mal; vuelva a intentarlo · Something went wrong"+(e&&e.code?` (${e.code})`:""));
+const AUTH_ERR={"auth/email-already-in-use":"Este correo ya está registrado; inicie sesión / Email already registered","auth/invalid-credential":"Correo o contraseña incorrectos / Wrong email or password","auth/wrong-password":"Correo o contraseña incorrectos / Wrong email or password","auth/user-not-found":"Correo o contraseña incorrectos / Wrong email or password","auth/weak-password":"La contraseña debe tener al menos 6 caracteres / Password must be at least 6 characters","auth/invalid-email":"Formato de correo no válido / Invalid email","auth/too-many-requests":"Demasiados intentos; inténtelo más tarde / Too many attempts, try later","auth/popup-closed-by-user":"Se cerró la ventana de inicio de sesión / Login window closed","auth/popup-blocked":"El navegador bloqueó la ventana de inicio de sesión; permita las ventanas emergentes y vuelva a intentarlo / Allow pop-ups and retry","auth/network-request-failed":"Error de conexión / Network error"};
+const authMsg=e=>AUTH_ERR[e&&e.code]||("Algo salió mal; vuelva a intentarlo / Something went wrong"+(e&&e.code?` (${e.code})`:""));
 let authMode="login";
 function setAuthMode(m){
   authMode=m;
   $('tabLogin').setAttribute('aria-selected',String(m==="login")); $('tabSignup').setAttribute('aria-selected',String(m==="signup"));
   $('nameField').classList.toggle('hide',m!=="signup");
-  $('aSubmit').textContent = m==="login" ? "Iniciar sesión · Log in" : "Registrarse · Sign up";
+  $('aSubmit').textContent = m==="login" ? "Iniciar sesión / Log in" : "Registrarse / Sign up";
   $('aPass').setAttribute('autocomplete',m==="login"?"current-password":"new-password");
   $('aForgot').classList.toggle('hide',m!=="login");
   $('aErr').textContent="";
 }
 function openAuth(mode,reason){
-  if(fbFailed){ toast("No se puede conectar con el servicio de cuentas; inténtelo más tarde · Accounts unavailable"); return; }
+  if(fbFailed){ toast("No se puede conectar con el servicio de cuentas; inténtelo más tarde / Accounts unavailable"); return; }
   const rs=$('aReason'); rs.textContent=reason||""; rs.classList.toggle('hide',!reason);
   setAuthMode(mode||"login"); $('authDlg').classList.remove('hide'); setTimeout(()=>$('aEmail').focus(),50);
 }
@@ -13934,23 +13932,23 @@ $('tabSignup').addEventListener('click',()=>setAuthMode("signup"));
 $('authClose').addEventListener('click',closeAuth);
 $('authDlg').addEventListener('click',e=>{ if(e.target.id==="authDlg") closeAuth(); });
 $('authGoogle').addEventListener('click',async()=>{
-  if(!fb){ $('aErr').textContent="Cargando, espere un momento · Loading…"; return; }
-  try{ await fb.google(); closeAuth(); toast("Sesión iniciada · Logged in"); }catch(e){ $('aErr').textContent=authMsg(e); }
+  if(!fb){ $('aErr').textContent="Cargando, espere un momento / Loading…"; return; }
+  try{ await fb.google(); closeAuth(); toast("Sesión iniciada / Logged in"); }catch(e){ $('aErr').textContent=authMsg(e); }
 });
 $('authForm').addEventListener('submit',async e=>{
-  e.preventDefault(); if(!fb){ $('aErr').textContent="Cargando, espere un momento · Loading…"; return; }
+  e.preventDefault(); if(!fb){ $('aErr').textContent="Cargando, espere un momento / Loading…"; return; }
   const email=$('aEmail').value.trim(), pw=$('aPass').value, name=$('aName').value.trim();
-  if(authMode==="signup"&&!name){ $('aErr').textContent="Escriba un apodo · Please enter a nickname"; return; }
+  if(authMode==="signup"&&!name){ $('aErr').textContent="Escriba un apodo / Please enter a nickname"; return; }
   $('aSubmit').disabled=true;
   try{
-    if(authMode==="signup"){ await fb.register(email,pw,name.slice(0,30)); closeAuth(); toast("¡Registro completado! Revise su correo y verifique su cuenta para poder comentar · Check your inbox to verify"); }
-    else { await fb.login(email,pw); closeAuth(); toast("Sesión iniciada · Logged in"); }
+    if(authMode==="signup"){ await fb.register(email,pw,name.slice(0,30)); closeAuth(); toast("¡Registro completado! Revise su correo y verifique su cuenta para poder comentar / Check your inbox to verify"); }
+    else { await fb.login(email,pw); closeAuth(); toast("Sesión iniciada / Logged in"); }
   }catch(err){ $('aErr').textContent=authMsg(err); }
   $('aSubmit').disabled=false;
 });
 $('aForgot').addEventListener('click',async()=>{
-  const email=$('aEmail').value.trim(); if(!email){ $('aErr').textContent="Primero escriba su correo · Enter your email first"; return; }
-  try{ await fb.reset(email); $('aErr').textContent="Se envió el correo para restablecer la contraseña · Password reset email sent"; }catch(err){ $('aErr').textContent=authMsg(err); }
+  const email=$('aEmail').value.trim(); if(!email){ $('aErr').textContent="Primero escriba su correo / Enter your email first"; return; }
+  try{ await fb.reset(email); $('aErr').textContent="Se envió el correo para restablecer la contraseña / Password reset email sent"; }catch(err){ $('aErr').textContent=authMsg(err); }
 });
 function closeMenu(){ $('acctMenu').classList.add('hide'); }
 $('acctBtn').addEventListener('click',e=>{
@@ -13958,33 +13956,33 @@ $('acctBtn').addEventListener('click',e=>{
   if(!fbUser){ openAuth("login"); return; }
   const m=$('acctMenu');
   if(!m.classList.contains('hide')){ closeMenu(); return; }
-  const verifiedLine = canPost(fbUser) ? "" : `<p class="mwarn">Su correo aún no está verificado; verifíquelo para poder comentar · Verify your email to comment</p><button class="mitem" id="mResend">Reenviar correo de verificación · Resend email</button><button class="mitem" id="mRefresh">Ya lo verifiqué · I've verified</button>`;
-  m.innerHTML=`<p class="mname">${esc(displayName(fbUser))}${isAdmin?' <i class="new26">Administrador</i>':""}</p><p class="mmail">${esc(fbUser.email||"")}</p><p class="msync">Mis errores y Favoritos sincronizados con su cuenta · Progress synced</p>${verifiedLine}<button class="mitem" id="mLogout">Cerrar sesión · Log out</button>`;
+  const verifiedLine = canPost(fbUser) ? "" : `<p class="mwarn">Su correo aún no está verificado; verifíquelo para poder comentar / Verify your email to comment</p><button class="mitem" id="mResend">Reenviar correo de verificación / Resend email</button><button class="mitem" id="mRefresh">Ya lo verifiqué / I've verified</button>`;
+  m.innerHTML=`<p class="mname">${esc(displayName(fbUser))}${isAdmin?' <i class="new26">Administrador</i>':""}</p><p class="mmail">${esc(fbUser.email||"")}</p><p class="msync">Mis errores y Favoritos sincronizados con su cuenta / Progress synced</p>${verifiedLine}<button class="mitem" id="mLogout">Cerrar sesión / Log out</button>`;
   const r=$('acctBtn').getBoundingClientRect(); m.style.top=(r.bottom+6)+"px"; m.style.right=Math.max(16,innerWidth-r.right)+"px";
   m.classList.remove('hide');
-  $('mLogout').addEventListener('click',async()=>{ closeMenu(); await fb.logout(); toast("Sesión cerrada · Logged out"); });
-  const rs=$('mResend'); if(rs) rs.addEventListener('click',async()=>{ try{ await fb.resend(); toast("Correo de verificación enviado · Verification email sent"); }catch(err){ toast(authMsg(err)); } });
-  const rf=$('mRefresh'); if(rf) rf.addEventListener('click',async()=>{ const u=await fb.refresh(); fbUser=u; closeMenu(); toast(u.emailVerified?"Correo verificado; ya puede comentar · Verified":"Aún no se detecta la verificación; haga clic en el enlace del correo · Not verified yet"); });
+  $('mLogout').addEventListener('click',async()=>{ closeMenu(); await fb.logout(); toast("Sesión cerrada / Logged out"); });
+  const rs=$('mResend'); if(rs) rs.addEventListener('click',async()=>{ try{ await fb.resend(); toast("Correo de verificación enviado / Verification email sent"); }catch(err){ toast(authMsg(err)); } });
+  const rf=$('mRefresh'); if(rf) rf.addEventListener('click',async()=>{ const u=await fb.refresh(); fbUser=u; closeMenu(); toast(u.emailVerified?"Correo verificado; ya puede comentar / Verified":"Aún no se detecta la verificación; haga clic en el enlace del correo / Not verified yet"); });
 });
 document.addEventListener('click',e=>{ if(!e.target.closest('#acctMenu')&&!e.target.closest('#acctBtn')) closeMenu(); });
 
 /* "I got this on my test" button: anyone can see the count, logging in is needed to add yourself */
 async function renderSeen(q){
   const id=q.id, box=$('qSeen');
-  box.innerHTML=`<button class="seenbtn" id="seenBtn" aria-pressed="false" title="Tócalo si esta pregunta salió en tu examen real · Tap if this question was on your real test"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg><span>Me salió en el examen · I got this on my test</span><b id="seenN"></b></button>`;
+  box.innerHTML=`<button class="seenbtn" id="seenBtn" aria-pressed="false" title="Tócalo si esta pregunta salió en tu examen real / Tap if this question was on your real test"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg><span>Me salió en el examen / I got this on my test</span><b id="seenN"></b></button>`;
   const btn=$('seenBtn'), cur=()=>Q&&Q.list[Q.i]&&Q.list[Q.i].q.id===id;
   btn.addEventListener('click',async()=>{
-    if(fbFailed){ toast("No se puede conectar con el servicio de cuentas; inténtelo más tarde · Accounts unavailable"); return; }
-    if(!fb||!fbAuthKnown){ toast("Conectando con las cuentas, espera un momento · Connecting…"); return; }
-    if(!fbUser){ openAuth("login","Inicia sesión para marcar las preguntas de tu examen · Log in to mark questions from your test"); return; }
-    if(!canPost(fbUser)){ toast("Primero verifica tu correo (toca tu cuenta arriba a la derecha para reenviar el correo) · Verify your email first"); return; }
+    if(fbFailed){ toast("No se puede conectar con el servicio de cuentas; inténtelo más tarde / Accounts unavailable"); return; }
+    if(!fb||!fbAuthKnown){ toast("Conectando con las cuentas, espera un momento / Connecting…"); return; }
+    if(!fbUser){ openAuth("login","Inicia sesión para marcar las preguntas de tu examen / Log in to mark questions from your test"); return; }
+    if(!canPost(fbUser)){ toast("Primero verifica tu correo (toca tu cuenta arriba a la derecha para reenviar el correo) / Verify your email first"); return; }
     const on=btn.getAttribute('aria-pressed')!=="true"; btn.disabled=true;
     try{
       await fb.seenSet(id,on);
       btn.setAttribute('aria-pressed',String(on));
       const n=Math.max(0,(parseInt($('seenN').textContent)||0)+(on?1:-1)); $('seenN').textContent=n||"";
-      if(on){ toast("¡Registrado, gracias por compartir! · Thanks for sharing!"); tone([660,880],0.1,"sine",0.08); }
-    }catch(e){ console.warn(e); toast("No se pudo guardar, inténtalo más tarde · Could not save"); }
+      if(on){ toast("¡Registrado, gracias por compartir! / Thanks for sharing!"); tone([660,880],0.1,"sine",0.08); }
+    }catch(e){ console.warn(e); toast("No se pudo guardar, inténtalo más tarde / Could not save"); }
     btn.disabled=false;
   });
   if(!fb){ if(!fbFailed) window.addEventListener('njfb-ready',()=>{ if(cur()) renderSeen(q); },{once:true}); return; }
@@ -14000,28 +13998,28 @@ function fitNote(ta){ ta.style.height="auto"; ta.style.height=Math.max(ta.scroll
 function renderNote(q,open){
   const box=$('qNote');
   if(!open && !noteOf(q.id).trim()){
-    box.innerHTML=`<button class="qtool noteadd" id="noteAdd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg>Escribir nota · Add a note</button>`;
+    box.innerHTML=`<button class="qtool noteadd" id="noteAdd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg>Escribir nota / Add a note</button>`;
     $('noteAdd').addEventListener('click',()=>{ renderNote(q,true); $('noteText').focus(); });
     return;
   }
-  box.innerHTML=`<div class="notebox"><div class="nh"><b>✎ Mi nota · My note</b><span id="noteSt">Se guarda solo y solo tú puedes verla · Saved automatically, only you can see it</span></div><textarea id="noteText" maxlength="2000" placeholder="Escribe lo que entendiste, trucos para recordar o lo que suele confundirte · Your own notes or memory tricks"></textarea></div>`;
+  box.innerHTML=`<div class="notebox"><div class="nh"><b>✎ Mi nota / My note</b><span id="noteSt">Se guarda solo y solo tú puedes verla / Saved automatically, only you can see it</span></div><textarea id="noteText" maxlength="2000" placeholder="Escribe lo que entendiste, trucos para recordar o lo que suele confundirte / Your own notes or memory tricks"></textarea></div>`;
   const ta=$('noteText'); ta.value=noteOf(q.id); fitNote(ta);
-  ta.addEventListener('input',()=>{ fitNote(ta); setNote(q.id, ta.value.trim()?ta.value:""); $('noteSt').textContent="Guardado · Saved"; });
+  ta.addEventListener('input',()=>{ fitNote(ta); setNote(q.id, ta.value.trim()?ta.value:""); $('noteSt').textContent="Guardado / Saved"; });
   ta.addEventListener('keydown',e=>e.stopPropagation());
 }
 
 /* comments under each question */
 function cmItemHTML(c,tag){
-  return `<div class="cmi" data-id="${esc(c.id)}"><div class="cmmeta"><b>${esc(c.name)}</b>${tag?`<span class="cmtag">${esc(tag)}</span>`:""}<span>${new Date(c.t).toLocaleDateString()}</span>${(fbUser&&(c.uid===fbUser.uid||isAdmin))?`<button class="cmdel" data-id="${esc(c.id)}">Eliminar · Delete</button>`:""}</div><p>${esc(c.text)}</p></div>`;
+  return `<div class="cmi" data-id="${esc(c.id)}"><div class="cmmeta"><b>${esc(c.name)}</b>${tag?`<span class="cmtag">${esc(tag)}</span>`:""}<span>${new Date(c.t).toLocaleDateString()}</span>${(fbUser&&(c.uid===fbUser.uid||isAdmin))?`<button class="cmdel" data-id="${esc(c.id)}">Eliminar / Delete</button>`:""}</div><p>${esc(c.text)}</p></div>`;
 }
 function bindDel(list,reload){
   list.querySelectorAll('.cmdel').forEach(b=>b.addEventListener('click',async()=>{
-    if(b.dataset.armed!=="1"){ b.dataset.armed="1"; b.textContent="Toque de nuevo para confirmar · Confirm"; setTimeout(()=>{ b.dataset.armed=""; b.textContent="Eliminar · Delete"; },3000); return; }
-    try{ await fb.delComment(b.dataset.id); toast("Eliminado · Deleted"); reload(); }catch(err){ toast("No se pudo eliminar · Could not delete"); }
+    if(b.dataset.armed!=="1"){ b.dataset.armed="1"; b.textContent="Toque de nuevo para confirmar / Confirm"; setTimeout(()=>{ b.dataset.armed=""; b.textContent="Eliminar / Delete"; },3000); return; }
+    try{ await fb.delComment(b.dataset.id); toast("Eliminado / Deleted"); reload(); }catch(err){ toast("No se pudo eliminar / Could not delete"); }
   }));
 }
 function cmFormHTML(id,ph){
-  return `<label class="cmlabel" for="${id}Text">Comentar como ${esc(displayName(fbUser))} · Comment as ${esc(displayName(fbUser))}</label><textarea id="${id}Text" maxlength="500" rows="3" placeholder="${ph}"></textarea><div class="cmrow"><span id="${id}Count">0/500</span><button class="btn" id="${id}Send">Publicar · Post</button></div>`;
+  return `<label class="cmlabel" for="${id}Text">Comentar como ${esc(displayName(fbUser))}  / Comment as ${esc(displayName(fbUser))}</label><textarea id="${id}Text" maxlength="500" rows="3" placeholder="${ph}"></textarea><div class="cmrow"><span id="${id}Count">0/500</span><button class="btn" id="${id}Send">Publicar / Post</button></div>`;
 }
 function bindCmForm(id,qid,reload){
   const ta=$(id+'Text'), send=$(id+'Send');
@@ -14030,8 +14028,8 @@ function bindCmForm(id,qid,reload){
   send.addEventListener('click',async()=>{
     const t=ta.value.trim(); if(!t) return;
     send.disabled=true;
-    try{ await fb.addComment(qid(),t.slice(0,500),displayName(fbUser).slice(0,30)); toast("Publicado · Posted"); reload(); }
-    catch(err){ console.warn(err); toast("No se pudo publicar; confirme que su correo está verificado · Could not post"); send.disabled=false; }
+    try{ await fb.addComment(qid(),t.slice(0,500),displayName(fbUser).slice(0,30)); toast("Publicado / Posted"); reload(); }
+    catch(err){ console.warn(err); toast("No se pudo publicar; confirme que su correo está verificado / Could not post"); send.disabled=false; }
   });
 }
 // comments sit under every question; before answering they stay folded so they can't give the answer away
@@ -14039,27 +14037,27 @@ function unlockComments(){ const c=document.querySelector('#qComments .cm'); if(
 async function loadComments(q){
   const box=$('qComments');
   const locked = !(Q && Q.list[Q.i] && Q.list[Q.i].q.id===q.id && Q.answers[Q.i]!=null);
-  box.innerHTML=`<div class="cm${locked?" locked":""}"><div class="cmh">Comentarios · Comments <span class="cmn" id="cmN"></span></div><p class="cmlock">Responde primero para ver los comentarios (sin spoilers) · Answer first to see comments</p><div class="cmlist" id="cmList"><p class="cmempty">Cargando… Loading…</p></div><div id="cmForm"></div></div>`;
+  box.innerHTML=`<div class="cm${locked?" locked":""}"><div class="cmh">Comentarios / Comments <span class="cmn" id="cmN"></span></div><p class="cmlock">Responde primero para ver los comentarios (sin spoilers) / Answer first to see comments</p><div class="cmlist" id="cmList"><p class="cmempty">Cargando… Loading…</p></div><div id="cmForm"></div></div>`;
   renderCmForm(q);
-  if(!fb){ $('cmList').innerHTML=`<p class="cmempty">${fbFailed?"No se puede conectar con los comentarios · Comments unavailable":"Conectando… Connecting…"}</p>`; if(!fbFailed) window.addEventListener('njfb-ready',()=>{ if(Q&&Q.list[Q.i].q.id===q.id) loadComments(q); },{once:true}); return; }
+  if(!fb){ $('cmList').innerHTML=`<p class="cmempty">${fbFailed?"No se puede conectar con los comentarios / Comments unavailable":"Conectando… Connecting…"}</p>`; if(!fbFailed) window.addEventListener('njfb-ready',()=>{ if(Q&&Q.list[Q.i].q.id===q.id) loadComments(q); },{once:true}); return; }
   try{
     const list=(await fb.listComments(q.id)).sort((a,b)=>b.t-a.t);
     if(!Q||Q.list[Q.i].q.id!==q.id) return;
     $('cmN').textContent=list.length;
     $('cmList').innerHTML = list.length ? list.map(c=>cmItemHTML(c)).join("")
-      : `<p class="cmempty">Aún no hay comentarios; sea el primero · No comments yet</p>`;
+      : `<p class="cmempty">Aún no hay comentarios; sea el primero / No comments yet</p>`;
     bindDel($('cmList'),()=>loadComments(q));
-  }catch(err){ console.warn(err); $('cmList').innerHTML=`<p class="cmempty">No se pudieron cargar los comentarios · Could not load comments</p>`; }
+  }catch(err){ console.warn(err); $('cmList').innerHTML=`<p class="cmempty">No se pudieron cargar los comentarios / Could not load comments</p>`; }
 }
 // login / verify prompt shared by both comment areas; returns true when the person can post
 function cmGate(f,id){
-  if(!fbUser){ f.innerHTML=`<button class="btn ghost grow cmlogin" id="${id}Login">Inicie sesión para comentar · Log in to comment</button>`; $(id+'Login').addEventListener('click',()=>openAuth("login")); return false; }
-  if(!canPost(fbUser)){ f.innerHTML=`<p class="cmempty">Verifique su correo electrónico antes de comentar (toque su cuenta arriba a la derecha para reenviar el correo de verificación) · Verify your email to comment</p>`; return false; }
+  if(!fbUser){ f.innerHTML=`<button class="btn ghost grow cmlogin" id="${id}Login">Inicie sesión para comentar / Log in to comment</button>`; $(id+'Login').addEventListener('click',()=>openAuth("login")); return false; }
+  if(!canPost(fbUser)){ f.innerHTML=`<p class="cmempty">Verifique su correo electrónico antes de comentar (toque su cuenta arriba a la derecha para reenviar el correo de verificación) / Verify your email to comment</p>`; return false; }
   return true;
 }
 function renderCmForm(q){
   const f=$('cmForm'); if(!cmGate(f,'cm')) return;
-  f.innerHTML=cmFormHTML('cm',"Comparta su explicación o truco para recordar (máx. 500 caracteres) · Share a tip (max 500)");
+  f.innerHTML=cmFormHTML('cm',"Comparta su explicación o truco para recordar (máx. 500 caracteres) / Share a tip (max 500)");
   bindCmForm('cm',()=>q.id,()=>loadComments(q));
 }
 
@@ -14069,8 +14067,8 @@ const ROAD_SITES=["Bakers Basin","Cape May","Cherry Hill","Delanco","Eatontown",
 const LIC_SITES=["Bakers Basin","Bayonne","Camden","Cardiff","Delanco","Eatontown","Edison","Elizabeth","Flemington","Freehold","Lodi","Manahawkin","Newark","Newton","North Bergen","Oakland","Paterson","Rahway","Randolph","Rio Grande","Runnemede","Salem","South Plainfield","Toms River","Vineland","Washington","Wayne","West Deptford"];
 const siteSlug=s=>s.toLowerCase().replace(/\s*\(.*\)/,"").replace(/[^a-z]/g,"").slice(0,15);
 const BQ={}; // qid -> label; qids stay within the 20-character limit in the database rules
-ROAD_SITES.forEach(n=>BQ["c:r:"+siteSlug(n)]="Examen de manejo · "+n);
-LIC_SITES.forEach(n=>BQ["c:k:"+siteSlug(n)]="Examen de conocimientos · "+n);
+ROAD_SITES.forEach(n=>BQ["c:r:"+siteSlug(n)]="Examen de manejo: "+n);
+LIC_SITES.forEach(n=>BQ["c:k:"+siteSlug(n)]="Examen de conocimientos: "+n);
 const B={tab:"tip",ctr:"",loaded:false,seq:0};
 const siteChips=(arr,p)=>arr.map(n=>`<button class="chip" data-ctr="${p}${siteSlug(n)}" aria-pressed="false">${esc(n)}</button>`).join("");
 $('bRoad').innerHTML=siteChips(ROAD_SITES,"c:r:");
@@ -14088,10 +14086,10 @@ $('board').addEventListener('click',e=>{
 const boardQid=()=>B.tab==="tip"?"b:tip":B.ctr; // "" = every center
 async function loadBoard(){
   B.loaded=true; const seq=++B.seq, L=$('bList');
-  $('bTitle').textContent = B.tab==="tip" ? "Sugerencias · Suggestions" : (B.ctr ? BQ[B.ctr] : "Todos los centros · All centers");
+  $('bTitle').textContent = B.tab==="tip" ? "Sugerencias / Suggestions" : (B.ctr ? BQ[B.ctr] : "Todos los centros / All centers");
   $('bN').textContent="";
   renderBoardForm();
-  if(!fb){ L.innerHTML=`<p class="cmempty">${fbFailed?"No se puede conectar con los comentarios · Comments unavailable":"Conectando… Connecting…"}</p>`; return; }
+  if(!fb){ L.innerHTML=`<p class="cmempty">${fbFailed?"No se puede conectar con los comentarios / Comments unavailable":"Conectando… Connecting…"}</p>`; return; }
   L.innerHTML=`<p class="cmempty">Cargando… Loading…</p>`;
   try{
     const qid=boardQid();
@@ -14099,16 +14097,16 @@ async function loadBoard(){
     if(seq!==B.seq) return;
     $('bN').textContent=list.length;
     L.innerHTML = list.length ? list.map(c=>cmItemHTML(c, qid?"":BQ[c.qid])).join("")
-      : `<p class="cmempty">${B.tab==="tip"?"Aún no hay sugerencias. ¡Sé el primero! · No suggestions yet":"Aún no hay experiencias aquí. ¡Escribe la primera! · No posts yet"}</p>`;
+      : `<p class="cmempty">${B.tab==="tip"?"Aún no hay sugerencias. ¡Sé el primero! / No suggestions yet":"Aún no hay experiencias aquí. ¡Escribe la primera! / No posts yet"}</p>`;
     bindDel(L,loadBoard);
-  }catch(err){ console.warn(err); if(seq===B.seq) L.innerHTML=`<p class="cmempty">No se pudieron cargar los comentarios · Could not load comments</p>`; }
+  }catch(err){ console.warn(err); if(seq===B.seq) L.innerHTML=`<p class="cmempty">No se pudieron cargar los comentarios / Could not load comments</p>`; }
 }
 function renderBoardForm(){
   const f=$('bForm'); if(!cmGate(f,'b')) return;
-  if(B.tab==="ctr"&&!B.ctr){ f.innerHTML=`<p class="cmempty">Elige un centro arriba para publicar · Pick a test center above to post</p>`; return; }
+  if(B.tab==="ctr"&&!B.ctr){ f.innerHTML=`<p class="cmempty">Elige un centro arriba para publicar / Pick a test center above to post</p>`; return; }
   f.innerHTML=cmFormHTML('b', B.tab==="tip"
-    ? "¿Alguna sugerencia para el sitio o las preguntas? También puedes avisarnos de una respuesta incorrecta (máx. 500) · Suggestions (max 500)"
-    : "Examinador, ruta, tiempo de espera, consejos… (máx. 500) · Examiner, route, wait time, tips…");
+    ? "¿Alguna sugerencia para el sitio o las preguntas? También puedes avisarnos de una respuesta incorrecta (máx. 500) / Suggestions (max 500)"
+    : "Examinador, ruta, tiempo de espera, consejos… (máx. 500) / Examiner, route, wait time, tips…");
   bindCmForm('b',boardQid,loadBoard);
 }
 // load the board only when it scrolls into view, to keep database reads low
@@ -14160,9 +14158,9 @@ $('oAutoRemove').addEventListener('change',()=>setTimeout(refreshHome));
 });
 let resetArm=0;
 $('resetBtn').addEventListener('click',()=>{
-  if(Date.now()-resetArm>3000){ resetArm=Date.now(); $('resetBtn').textContent="Toque de nuevo para confirmar · Tap again"; setTimeout(()=>$('resetBtn').textContent="Borrar · Reset",3000); return; }
+  if(Date.now()-resetArm>3000){ resetArm=Date.now(); $('resetBtn').textContent="Toque de nuevo para confirmar / Tap again"; setTimeout(()=>$('resetBtn').textContent="Borrar / Reset",3000); return; }
   const now=Date.now(); const off=m=>{const o={}; for(const k in m) o[k]=Object.assign({},m[k],{on:false,t:now}); return o;};
-  S.wrong=off(S.wrong); S.fav=off(S.fav); S.done={}; S.best=null; changed(); refreshHome(); $('resetBtn').textContent="Borrar · Reset"; toast("Progreso borrado");
+  S.wrong=off(S.wrong); S.fav=off(S.fav); S.done={}; S.best=null; changed(); refreshHome(); $('resetBtn').textContent="Borrar / Reset"; toast("Progreso borrado");
 });
 document.addEventListener('keydown',e=>{
   if($('vQuiz').classList.contains('hide')||!Q||e.metaKey||e.ctrlKey||e.altKey) return;
