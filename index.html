@@ -24,26 +24,26 @@
 <style>
 /* Layout idea: one phone-width column like a highway guide sign stack; green guide-sign accent, warning-yellow for "tricky". */
 :root{
-  --bg:#eaefec; --surface:#ffffff; --ink:#15201a; --muted:#5a6a61; --line:#d3ddd7;
-  --accent:#0b6e4f; --accent-ink:#ffffff; --sign:#f2c300; --sign-ink:#1a1400;
+  --bg:#fcedf3; --surface:#ffffff; --ink:#2b1520; --muted:#7d5a6a; --line:#f2d2df;
+  --accent:#c2185b; --accent-ink:#ffffff; --sign:#f2c300; --sign-ink:#1a1400;
   --good:#17985a; --good-soft:#dcf5e7; --bad:#d23b3b; --bad-soft:#fbe3e3;
-  --shadow:0 1px 2px rgba(10,40,25,.06),0 6px 20px rgba(10,40,25,.07);
+  --shadow:0 1px 2px rgba(110,20,60,.06),0 6px 20px rgba(110,20,60,.07);
   --display:"Barlow Condensed","Arial Narrow","Noto Sans SC",sans-serif;
   --body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
   color-scheme:light;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#0e1411; --surface:#17201b; --ink:#e6eee9; --muted:#93a59a; --line:#2a3630;
-    --accent:#35b98a; --accent-ink:#06150e; --sign:#f2c300; --sign-ink:#1a1400;
+    --bg:#1a0f15; --surface:#27161f; --ink:#f7e9f0; --muted:#bc98a9; --line:#40283a;
+    --accent:#ff7eb6; --accent-ink:#2a0716; --sign:#f2c300; --sign-ink:#1a1400;
     --good:#3ccf86; --good-soft:#123826; --bad:#ff6b6b; --bad-soft:#3d1a1a;
     --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.3);
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0e1411; --surface:#17201b; --ink:#e6eee9; --muted:#93a59a; --line:#2a3630;
-  --accent:#35b98a; --accent-ink:#06150e; --sign:#f2c300; --sign-ink:#1a1400;
+  --bg:#1a0f15; --surface:#27161f; --ink:#f7e9f0; --muted:#bc98a9; --line:#40283a;
+  --accent:#ff7eb6; --accent-ink:#2a0716; --sign:#f2c300; --sign-ink:#1a1400;
   --good:#3ccf86; --good-soft:#123826; --bad:#ff6b6b; --bad-soft:#3d1a1a;
   --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.3);
   color-scheme:dark;
@@ -356,7 +356,7 @@ a.wopt{text-decoration:none;color:var(--ink)}
 <header>
   <div class="hbar">
     <button class="brand" id="homeBtn" aria-label="返回首页 Home">
-      <svg class="shield" viewBox="0 0 34 38" aria-hidden="true"><path d="M2 3h30v15c0 9-7 15-15 18C9 33 2 27 2 18z" fill="#0b6e4f" stroke="#fff" stroke-width="2"/><text x="17" y="22" text-anchor="middle" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="14" fill="#fff">NJ</text></svg>
+      <svg class="shield" viewBox="0 0 34 38" aria-hidden="true"><path d="M2 3h30v15c0 9-7 15-15 18C9 33 2 27 2 18z" fill="#c2185b" stroke="#fff" stroke-width="2"/><text x="17" y="22" text-anchor="middle" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="14" fill="#fff">NJ</text></svg>
       <span><b>NJ 驾照笔试题库 <i class="new26">2026 最新</i></b><small>Latest 2026 Driver Manual · 中英对照</small></span>
     </button>
     <div class="seg" role="group" aria-label="语言 Language" id="langSeg">
@@ -486,7 +486,7 @@ a.wopt{text-decoration:none;color:var(--ink)}
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="welcome hide" id="welcome" role="dialog" aria-modal="true" aria-labelledby="wTitle">
   <div class="wbox">
-    <svg class="wshield" viewBox="0 0 34 38" aria-hidden="true"><path d="M2 3h30v15c0 9-7 15-15 18C9 33 2 27 2 18z" fill="#0b6e4f" stroke="#fff" stroke-width="2"/><text x="17" y="22" text-anchor="middle" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="14" fill="#fff">NJ</text></svg>
+    <svg class="wshield" viewBox="0 0 34 38" aria-hidden="true"><path d="M2 3h30v15c0 9-7 15-15 18C9 33 2 27 2 18z" fill="#c2185b" stroke="#fff" stroke-width="2"/><text x="17" y="22" text-anchor="middle" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="14" fill="#fff">NJ</text></svg>
     <div><span class="new26 big">2026 最新版 · LATEST</span></div>
     <h1 id="wTitle">NJ 驾照笔试题库<small>Free NJ Permit Test Practice 2026</small></h1>
     <p class="wsub">请选择题目语言 · Choose your language</p>
@@ -13159,7 +13159,7 @@ const sndWrong=()=>tone([196,147],0.25,"sawtooth",0.06);
 /* ---------- juice ---------- */
 function burst(x,y,combo){
   if(reduceMotion()) return;
-  const colors=["#17985a","#f2c300","#35b98a","#ffffff","#0b6e4f","#ff9f1c"];
+  const colors=["#ff7eb6","#c2185b","#ffc2da","#ffffff","#f2c300","#ff9f1c"];
   const n=14+Math.min(combo,10)*2;
   for(let i=0;i<n;i++){
     const p=document.createElement('i'); p.className='particle';
