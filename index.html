@@ -123,7 +123,7 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 .h26text span{font-size:13px;color:var(--muted)}
 .h26text small{font-size:11px;color:var(--muted)}
 .h26links{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
-.h26btn{display:inline-flex;align-items:center;border:1px solid var(--accent);color:var(--accent-text);background:transparent;border-radius:999px;padding:5px 12px;font-size:13px;font-weight:700;text-decoration:none}
+.h26btn{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--accent);color:var(--accent-text);background:transparent;border-radius:999px;padding:5px 12px;font-size:13px;font-weight:700;text-decoration:none}
 .h26btn:hover{background:var(--accent);color:var(--accent-ink)}
 .srclink{color:var(--accent-text);font-weight:700;text-decoration:none;margin-top:2px}
 .srclink:hover{text-decoration:underline}
@@ -407,6 +407,8 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
 .hero26{border:2px solid transparent;border-radius:20px;padding:16px;background:var(--soft)}
 [dir="rtl"] .hero26{border:2px solid transparent}
 .h26badge{border-radius:16px;background:#ef3b2d;box-shadow:0 4px 0 #b9271c}
+.h26btn svg{width:14px;height:14px;flex:none;opacity:.7}
+.h26btn:hover svg{opacity:1}
 .h26badge b{font-family:var(--display);font-weight:900}
 .h26text b{font-weight:800}
 .new26{background:#ef3b2d;border-radius:8px}
@@ -757,12 +759,11 @@ header{background:var(--bg)}
     </div>
 
     <div class="hero26">
-      <div class="h26badge"><b>2026</b><span>最新版</span></div>
       <div class="h26text">
         <b><span class="uz">官方驾驶手册</span><span class="ue">Official driver manual</span></b>
         <div class="h26links">
-          <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/drivermanual.pdf" target="_blank" rel="noopener">English PDF</a>
-          <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/chinesemanual.pdf" target="_blank" rel="noopener">中文 PDF</a>
+          <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/drivermanual.pdf" target="_blank" rel="noopener">English PDF<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a>
+          <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/chinesemanual.pdf" target="_blank" rel="noopener">中文 PDF<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a>
         </div>
       </div>
     </div>
