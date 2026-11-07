@@ -29,8 +29,8 @@
 /* Look: a friendly flashcard app. White cards with soft gray borders and a chunky bottom "ledge" so buttons feel pressable;
    light pink is the one accent, green/red only mean right/wrong, yellow marks "tricky". Rounded Nunito for Latin text and numbers. */
 :root{
-  --bg:#ffffff; --surface:#ffffff; --soft:#fdf1f5; --ink:#1d1d1f; --muted:#77767b; --line:#e9e5e7; --ledge:#dcd7da;
-  --accent:#f4a6c1; --accent-deep:#de85a6; --accent-ink:#1d1d1f; --accent-text:#1d1d1f; --sign:#ffcc33; --sign-ink:#3d2e00;
+  --bg:#ffffff; --surface:#ffffff; --soft:#fdf1f5; --ink:#000; --muted:#77767b; --line:#e9e5e7; --ledge:#dcd7da;
+  --accent:#f4a6c1; --accent-deep:#de85a6; --accent-ink:#000; --accent-text:#000; --sign:#ffcc33; --sign-ink:#3d2e00;
   --good:#2f9e44; --good-deep:#237a34; --good-soft:#e8f7eb; --bad:#e5484d; --bad-deep:#b8363a; --bad-soft:#fdeeee;
   --shadow:none;
   --display:"Nunito","Noto Sans SC",sans-serif;
@@ -40,16 +40,16 @@
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#121212; --surface:#1b1b1d; --soft:#231c20; --ink:#f4f4f5; --muted:#a1a1a6; --line:#313134; --ledge:#313134;
-    --accent:#f6b3cb; --accent-deep:#c98aa2; --accent-ink:#151515; --accent-text:#f6b3cb; --sign:#ffcc33; --sign-ink:#3d2e00;
+    --bg:#000; --surface:#141414; --soft:#1f1a1c; --ink:#fff; --muted:#a3a3a3; --line:#2b2b2b; --ledge:#2b2b2b;
+    --accent:#f6b3cb; --accent-deep:#c98aa2; --accent-ink:#000; --accent-text:#f6b3cb; --sign:#ffcc33; --sign-ink:#3d2e00;
     --good:#4cc767; --good-deep:#2f8f45; --good-soft:#15291a; --bad:#ff6369; --bad-deep:#b8363a; --bad-soft:#331718;
     --shadow:none;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#121212; --surface:#1b1b1d; --soft:#231c20; --ink:#f4f4f5; --muted:#a1a1a6; --line:#313134; --ledge:#313134;
-  --accent:#f6b3cb; --accent-deep:#c98aa2; --accent-ink:#151515; --accent-text:#f6b3cb; --sign:#ffcc33; --sign-ink:#3d2e00;
+  --bg:#000; --surface:#141414; --soft:#1f1a1c; --ink:#fff; --muted:#a3a3a3; --line:#2b2b2b; --ledge:#2b2b2b;
+  --accent:#f6b3cb; --accent-deep:#c98aa2; --accent-ink:#000; --accent-text:#f6b3cb; --sign:#ffcc33; --sign-ink:#3d2e00;
   --good:#4cc767; --good-deep:#2f8f45; --good-soft:#15291a; --bad:#ff6369; --bad-deep:#b8363a; --bad-soft:#331718;
   --shadow:none;
   color-scheme:dark;
@@ -501,21 +501,21 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
 .brand b,h2.sec,.mode .t,.glossbox .gt,.wbox h1,.abox h2,.qtop .title,.verdict,.lbtn b{font-family:var(--head);font-weight:400;letter-spacing:.2px}
 .brand b{font-size:23px}
 h2.sec{font-size:26px;margin:34px 2px 14px}
-.hero{position:relative;overflow:hidden;background:var(--accent);color:#1d1d1f;border-radius:28px;padding:26px 22px 22px;margin:18px 0 14px}
+.hero{position:relative;overflow:hidden;background:var(--accent);color:#000;border-radius:28px;padding:26px 22px 22px;margin:18px 0 14px}
 .hero::after{content:"NJ";position:absolute;right:-14px;bottom:-56px;font-family:var(--head);font-size:200px;line-height:1;color:rgba(255,255,255,.38);pointer-events:none}
 .hero>*{position:relative;z-index:1}
 .hero-pills{display:flex;gap:8px;flex-wrap:wrap}
-.pill{background:#fff;color:#1d1d1f;border-radius:999px;padding:4px 12px;font-size:13px;font-weight:800}
+.pill{background:#fff;color:#000;border-radius:999px;padding:4px 12px;font-size:13px;font-weight:800}
 .pill.hot{background:#ef3b2d;color:#fff}
 .hero-title{font-family:var(--head);font-weight:400;font-size:44px;line-height:1.08;margin:16px 0 12px;letter-spacing:.5px}
-.hero-title span{display:table;margin-top:8px;background:#1d1d1f;color:var(--accent);padding:2px 12px 4px;border-radius:12px;transform:rotate(-1.5deg);font-size:.82em}
+.hero-title span{display:table;margin-top:8px;background:#000;color:var(--accent);padding:2px 12px 4px;border-radius:12px;transform:rotate(-1.5deg);font-size:.82em}
 .hero-sub{margin:0;font-size:16px;font-weight:700;max-width:30em}
 .hero-en{margin:4px 0 0;font-size:14px;opacity:.75}
 .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
 .btn.big{font-size:17px;padding:14px 22px;border-radius:18px}
-.hero .btn{background:#1d1d1f;color:#fff;box-shadow:0 4px 0 #000}
+.hero .btn{background:#000;color:#fff;box-shadow:0 4px 0 #000}
 .hero .btn:active{box-shadow:0 0 0 #000}
-.hero .btn.ghost{background:#fff;color:#1d1d1f;border-color:#fff;box-shadow:0 4px 0 var(--accent-deep)}
+.hero .btn.ghost{background:#fff;color:#000;border-color:#fff;box-shadow:0 4px 0 var(--accent-deep)}
 .progress{display:flex;align-items:center;gap:16px;border:2px solid var(--line);border-radius:24px;padding:14px 18px;background:var(--surface)}
 .pring{position:relative;width:78px;height:78px;flex:none}
 .pring svg{width:100%;height:100%;transform:rotate(-90deg)}
@@ -532,19 +532,19 @@ h2.sec{font-size:26px;margin:34px 2px 14px}
 .mode{padding:16px 16px 14px}
 .mode .t{font-size:24px;line-height:1.15}
 .mode .t::before{display:none}
-.mode .mi{width:46px;height:46px;border-radius:15px;background:var(--stripe,var(--accent));color:#1d1d1f;display:grid;place-items:center;margin-bottom:12px;box-shadow:inset 0 -3px 0 rgba(0,0,0,.12)}
+.mode .mi{width:46px;height:46px;border-radius:15px;background:var(--stripe,var(--accent));color:#000;display:grid;place-items:center;margin-bottom:12px;box-shadow:inset 0 -3px 0 rgba(0,0,0,.12)}
 .mode .mi svg{width:24px;height:24px}
 .mode .e{margin-top:2px;opacity:.85}
 .m-hf{--stripe:var(--accent)}
 .m-wr{--stripe:#ff8a8d}
-.m-ex{background:#1d1d1f;color:#fff;border-color:#1d1d1f;box-shadow:0 4px 0 #000}
+.m-ex{background:#000;color:#fff;border-color:#000;box-shadow:0 4px 0 #000}
 .m-ex .e,.m-ex .c{color:#b9b9bd}
 .m-ex .mi{--stripe:var(--accent)}
-.m-ex:hover{border-color:#1d1d1f}
+.m-ex:hover{border-color:#000}
 .m-ex:active{box-shadow:0 0 0 #000}
-.dark-on .m-ex{background:var(--accent);color:#1d1d1f;border-color:var(--accent);box-shadow:0 4px 0 var(--accent-deep)}
+.dark-on .m-ex{background:var(--accent);color:#000;border-color:var(--accent);box-shadow:0 4px 0 var(--accent-deep)}
 .dark-on .m-ex .e,.dark-on .m-ex .c{color:#4a3a40}
-.dark-on .m-ex .mi{--stripe:#1d1d1f;color:var(--accent)}
+.dark-on .m-ex .mi{--stripe:#000;color:var(--accent)}
 .lbtn b{font-size:19px}
 .hero26{margin-top:22px;background:var(--surface);border:2px solid var(--line)}
 .qtop .title{font-size:21px}
@@ -587,6 +587,40 @@ h2.sec{font-size:26px;margin:34px 2px 14px}
 @media (prefers-reduced-motion: reduce){
   .pop,.shake,.check,.mode{animation:none!important;transition:none!important}
 }
+/* ---------- refine: native language leads; plate hero; quieter labels ---------- */
+/* question, options, explanation: the reader's own language is the main text, English is the gloss */
+.qtext .zh,.qtext .en{display:block;font-size:20px;font-weight:700;line-height:1.5}
+.lang-both .qtext .zh{font-size:20px;font-weight:700;color:var(--ink);margin-top:0}
+.lang-both .qtext .en{font-size:15px;font-weight:500;color:var(--muted);line-height:1.45;margin-top:6px}
+.choice .tx{font-weight:600}
+.choice .tx .zh,.lang-both .choice .tx .zh{font-size:16px;font-weight:700;color:inherit}
+.lang-both .choice .tx .en{font-size:13.5px;font-weight:500;color:var(--muted);margin-top:2px}
+.choice.dim .tx .en{color:inherit}
+.explain .zh{margin-top:0}
+.lang-both .explain .en{font-size:13px;color:var(--muted);margin-top:6px}
+.lang-both .item .zh{opacity:1}
+.lang-both .item .en{opacity:.65;font-size:.92em}
+/* hero */
+.hero::after{display:none}
+.hero-top{display:flex;align-items:center;gap:14px}
+.plate{flex:none;display:grid;justify-items:center;background:#f6e7a4;color:#000;border:3px solid #000;border-radius:12px;padding:3px 14px 4px;transform:rotate(-4deg);box-shadow:0 4px 0 #000;line-height:1}
+.plate small{font-family:var(--display);font-weight:900;font-size:9px;letter-spacing:.18em}
+.plate small:last-child{font-style:italic;letter-spacing:.04em;font-weight:800}
+.plate b{font-family:var(--display);font-weight:900;font-size:34px;letter-spacing:.08em;margin:1px 0}
+.hero-ed{margin:0;display:grid;gap:1px}
+.hero-ed b{font-size:15px;font-weight:800}
+.hero-ed span{font-size:13px;opacity:.8}
+.hero-title{font-size:46px;margin:20px 0 12px;text-wrap:balance;word-break:keep-all}
+.hero-title span{display:none}
+.mode .e{font-family:inherit;font-size:13px;font-weight:700;letter-spacing:0;text-transform:none}
+@media (max-width:440px){
+  .hero-title{font-size:38px}
+  .plate b{font-size:28px}
+  .qtext .zh,.lang-both .qtext .zh,.qtext .en{font-size:18px}
+  .lang-both .qtext .en{font-size:14px}
+  .mode .e{font-size:12px}
+}
+
 </style>
 </head>
 <body class="lang-both">
@@ -613,8 +647,11 @@ h2.sec{font-size:26px;margin:34px 2px 14px}
   <!-- HOME -->
   <section id="vHome">
     <div class="hero">
-      <div class="hero-pills"><span class="pill hot">2026 최신판</span><span class="pill">2026년 9월 새 매뉴얼 기준</span></div>
-      <h1 class="hero-title">뉴저지 운전면허 필기시험<span>한국어와 영어 문제집</span></h1>
+      <div class="hero-top">
+        <div class="plate" aria-hidden="true"><small>NEW JERSEY</small><b>2026</b><small>Garden State</small></div>
+        <p class="hero-ed"><b>2026 최신판</b><span>2026년 9월 새 매뉴얼 기준</span></p>
+      </div>
+      <h1 class="hero-title">뉴저지주 운전면허 필기시험 문제</h1>
       <p class="hero-sub">연습 문제 527개: 자주 나오는 문제, 헷갈리는 함정 문제, 50문항 모의고사까지 모두 무료.</p>
       <p class="hero-en">Free NJ permit practice test, English + 한국어</p>
       <div class="hero-cta">
@@ -635,11 +672,11 @@ h2.sec{font-size:26px;margin:34px 2px 14px}
 
     <h2 class="sec">연습 모드 Practice</h2>
     <div class="modes">
-      <button class="mode m-hf" data-start="hf"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></i><div class="t">빈출 필수</div><div class="e">HIGH FREQUENCY</div><div class="c"><b id="cHf">0</b>문항, 매년 반복 출제되는 핵심 내용</div></button>
-      <button class="mode m-tr" data-start="tricky"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5L22 20H2z"/><path d="M12 10v4.5"/><path d="M12 17.6v.1"/></svg></i><div class="t">헷갈리는 함정</div><div class="e">ERROR-PRONE</div><div class="c"><b id="cTr">0</b>문항, 헷갈리는 숫자, 예외, 신구 규정 변화</div></button>
-      <button class="mode m-ex wide" data-start="exam"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4V2.8h6V4"/><path d="M9 12.5l2 2 4-4"/></svg></i><div class="t">모의고사</div><div class="e">MOCK TEST / 50 QUESTIONS / PASS 40</div><div class="c">실제 시험과 동일: 무작위 50문항, 40문항(80%) 이상 맞히면 합격</div></button>
-      <button class="mode m-wr" data-start="wrong"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg></i><div class="t">오답 노트</div><div class="e">WRONG ANSWERS</div><div class="c"><b id="cWr">0</b>문항,<span id="cWrRule">오답 노트에서 연속 2회 맞히면 자동 제거</span></div></button>
-      <button class="mode m-fv" data-start="fav"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></i><div class="t">즐겨찾기</div><div class="e">FAVORITES</div><div class="c"><b id="cFv">0</b>문항, 문제 옆의 별표를 눌러 저장</div></button>
+      <button class="mode m-hf" data-start="hf"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></i><div class="t">빈출 필수</div><div class="e">High frequency</div><div class="c"><b id="cHf">0</b>문항, 매년 반복 출제되는 핵심 내용</div></button>
+      <button class="mode m-tr" data-start="tricky"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5L22 20H2z"/><path d="M12 10v4.5"/><path d="M12 17.6v.1"/></svg></i><div class="t">헷갈리는 함정</div><div class="e">Error-prone</div><div class="c"><b id="cTr">0</b>문항, 헷갈리는 숫자, 예외, 신구 규정 변화</div></button>
+      <button class="mode m-ex wide" data-start="exam"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4V2.8h6V4"/><path d="M9 12.5l2 2 4-4"/></svg></i><div class="t">모의고사</div><div class="e">Mock test, 50 questions, pass with 40</div><div class="c">실제 시험과 동일: 무작위 50문항, 40문항(80%) 이상 맞히면 합격</div></button>
+      <button class="mode m-wr" data-start="wrong"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg></i><div class="t">오답 노트</div><div class="e">Wrong answers</div><div class="c"><b id="cWr">0</b>문항,<span id="cWrRule">오답 노트에서 연속 2회 맞히면 자동 제거</span></div></button>
+      <button class="mode m-fv" data-start="fav"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></i><div class="t">즐겨찾기</div><div class="e">Favorites</div><div class="c"><b id="cFv">0</b>문항, 문제 옆의 별표를 눌러 저장</div></button>
     </div>
     <div class="lists">
       <button class="lbtn" data-list="wrong"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg></i><b>오답 노트</b><small>Wrong answers</small></button>
@@ -648,13 +685,13 @@ h2.sec{font-size:26px;margin:34px 2px 14px}
     </div>
 
     <div class="hero26">
-      <div class="h26badge"><b>2026</b><span>최신판<br>LATEST</span></div>
+      <div class="h26badge"><b>2026</b><span>최신판<br>Latest</span></div>
       <div class="h26text">
         <b>2026년 9월 최신판 《뉴저지 운전자 매뉴얼》 기준</b>
         <span>Updated for the latest 2026 NJ Driver Manual (Sept 2026). 예전 문제은행의 낡은 정답은 모두 새 규정에 맞게 수정했습니다.</span>
         <div class="h26links">
-          <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/drivermanual.pdf" target="_blank" rel="noopener">영어 매뉴얼 English PDF ↗</a>
-          <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/Korean-driver-manual.pdf" target="_blank" rel="noopener">한국어 매뉴얼 Korean PDF ↗</a>
+          <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/drivermanual.pdf" target="_blank" rel="noopener">영어 매뉴얼 English PDF</a>
+          <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/Korean-driver-manual.pdf" target="_blank" rel="noopener">한국어 매뉴얼 Korean PDF</a>
         </div>
         <small>공식 매뉴얼은 뉴저지주 MVC 웹사이트에서 제공됩니다(약 40MB) / Official PDFs from nj.gov</small>
       </div>
@@ -737,7 +774,7 @@ h2.sec{font-size:26px;margin:34px 2px 14px}
 <div class="welcome hide" id="welcome" role="dialog" aria-modal="true" aria-labelledby="wTitle">
   <div class="wbox">
     <svg class="wshield" viewBox="0 0 34 38" aria-hidden="true"><path d="M2 3h30v15c0 9-7 15-15 18C9 33 2 27 2 18z" fill="#f4a6c1" stroke="#111" stroke-width="2"/><text x="17" y="22" text-anchor="middle" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="14" fill="#111">NJ</text></svg>
-    <div><span class="new26 big">2026 최신판 LATEST</span></div>
+    <div><span class="new26 big">2026 최신판 Latest</span></div>
     <h1 id="wTitle">뉴저지주 운전면허 필기시험 문제<small>Free NJ Permit Test Practice 2026</small></h1>
     <p class="wsub">문제 언어를 선택하세요 Choose your language</p>
     <!-- every bilingual version is the same size; the page's own version is moved to the top by script.
@@ -13386,7 +13423,7 @@ const $=id=>document.getElementById(id);
 const esc=s=>String(s==null?"":s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const shuffle=a=>{a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1)); [a[i],a[j]]=[a[j],a[i]];} return a;};
 function bi(o,cls){ if(!o) return ""; if(typeof o==="string") return `<span class="en ${cls||""}">${esc(o)}</span>`;
-  return `<span class="en">${esc(o.en)}</span><span class="zh">${esc(o.zh||o.en)}</span>`; }
+  return `<span class="zh">${esc(o.zh||o.en)}</span><span class="en">${esc(o.en)}</span>`; }
 let toastT;
 function toast(msg){const t=$('toast'); t.textContent=msg; t.classList.add('on'); clearTimeout(toastT); toastT=setTimeout(()=>t.classList.remove('on'),1800);}
 const reduceMotion=()=>window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -13415,7 +13452,7 @@ const sndWrong=()=>tone([196,147],0.25,"sawtooth",0.06);
 /* ---------- juice ---------- */
 function burst(x,y,combo){
   if(reduceMotion()) return;
-  const colors=["#f4a6c1","#ffd1df","#111111","#ffe4ec","#f2c300","#ffffff"];
+  const colors=["#f4a6c1","#ffd1df","#000","#ffe4ec","#f6e7a4","#ffffff"];
   const n=14+Math.min(combo,10)*2;
   for(let i=0;i<n;i++){
     const p=document.createElement('i'); p.className='particle';
@@ -13779,14 +13816,14 @@ function render(){
   if(q.scene){ sg.innerHTML=sceneSVG(q.scene); sg.classList.remove('hide'); sg.classList.add('wide','scene'); }
   else if(q.sign&&SIGNS[q.sign]){ sg.innerHTML=SIGNS[q.sign]; sg.classList.remove('hide','scene'); sg.classList.toggle('wide',WIDE.has(q.sign)); }
   else { sg.innerHTML=""; sg.classList.add('hide'); }
-  $('qText').innerHTML=`<div class="en">${gloss(q.q.en)}</div><div class="zh">${gloss(q.q.zh||q.q.en)}</div>`;
+  $('qText').innerHTML=`<div class="zh">${gloss(q.q.zh||q.q.en)}</div><div class="en">${gloss(q.q.en)}</div>`;
   const un=unitNote(q), ue=$('qUnits'); ue.innerHTML=un; ue.classList.toggle('hide',!un);
   renderSeen(q); renderNote(q); $('qComments').innerHTML=""; loadComments(q);
   const ch=$('qChoices'); ch.innerHTML="";
   it.order.forEach((oi,pos)=>{
     const o=q.options[oi];
     const b=document.createElement('button'); b.className='choice'; b.dataset.oi=oi;
-    b.innerHTML=`<span class="k">${"ABCD"[pos]}</span><span class="tx"><span class="en">${gloss(o.en,1)}</span><span class="zh">${gloss(o.zh||o.en,1)}</span></span>`;
+    b.innerHTML=`<span class="k">${"ABCD"[pos]}</span><span class="tx"><span class="zh">${gloss(o.zh||o.en,1)}</span><span class="en">${gloss(o.en,1)}</span></span>`;
     b.addEventListener('click',e=>choose(oi,b,e));
     ch.appendChild(b);
   });
@@ -13813,7 +13850,7 @@ function paintAnswered(chosen,animate){
   const ex=q.explain||{};
   const showEx = !ok || !(S.prefs.auto&&animate);
   if(showEx||!ok){
-    $('qExplain').innerHTML=`<div class="explain ${ok?"":"bad"}"><div class="h">${ok?"✓ 정답입니다 Correct":"✗ 정답은 "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]+" Correct answer: "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]}</div>${ex.en?`<div class="en">${gloss(ex.en)}</div>`:""}${ex.zh?`<div class="zh">${gloss(ex.zh)}</div>`:""}${q.trNote?`<div class="trnote">⚠ ${esc(q.trNote)}</div>`:""}${sourceHTML(q)}</div>`;
+    $('qExplain').innerHTML=`<div class="explain ${ok?"":"bad"}"><div class="h">${ok?"✓ 정답입니다 Correct":"✗ 정답은 "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]+" Correct answer: "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]}</div>${ex.zh?`<div class="zh">${gloss(ex.zh)}</div>`:""}${ex.en?`<div class="en">${gloss(ex.en)}</div>`:""}${q.trNote?`<div class="trnote">⚠ ${esc(q.trNote)}</div>`:""}${sourceHTML(q)}</div>`;
   }
 }
 let autoT=null;
