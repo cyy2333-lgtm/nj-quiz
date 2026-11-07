@@ -22,9 +22,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chinese-fonts/dyh@3.0.0/dist/SmileySans-Oblique/result.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Light/result.css" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Regular/result.css" media="print" onload="this.media='all'">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/result.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Medium/result.css" media="print" onload="this.media='all'">
 <style>
 /* Look: a friendly flashcard app. White cards with soft gray borders and a chunky bottom "ledge" so buttons feel pressable;
    light pink is the one accent, green/red only mean right/wrong, yellow marks "tricky". Rounded Nunito for Latin text and numbers. */
@@ -620,6 +620,32 @@ h2.sec{font-size:26px;margin:34px 2px 14px}
   .lang-both .qtext .en{font-size:14px}
   .mode .e{font-size:12px}
 }
+
+/* ---------- type: one family, light to medium. Nothing heavier than medium is loaded and weights are never faked,
+   so every "bold" in the sheet renders as medium. Nunito stays only on the licence plate. ---------- */
+:root{--display:"HarmonyOS Sans SC","Noto Sans SC",sans-serif;--head:"HarmonyOS Sans SC","Noto Sans SC",sans-serif}
+body{font-family:"HarmonyOS Sans SC",var(--body);font-synthesis-weight:none;line-height:1.6;letter-spacing:.01em}
+.brand b{font-weight:500;font-size:19px;letter-spacing:.02em}
+h2.sec{font-weight:400;font-size:24px;letter-spacing:.02em}
+.hero-title{font-weight:300;letter-spacing:.03em;line-height:1.15}
+.hero-sub{font-weight:400}
+.hero-ed b{font-weight:500}
+.mode .t{font-weight:500;font-size:20px}
+.mode .c b,.pstats b{font-weight:300;font-size:28px}
+.pring b{font-weight:400}
+.lbtn b{font-weight:500;font-size:16px}
+.glossbox .gt{font-weight:500}
+.qtop .title{font-weight:500;font-size:18px}
+.qtext .zh,.lang-both .qtext .zh,.qtext .en{font-weight:500}
+.lang-both .qtext .en{font-weight:400}
+.choice .tx .zh,.lang-both .choice .tx .zh{font-weight:500}
+.lang-both .choice .tx .en{font-weight:400}
+.choice .k{font-weight:500}
+.explain .h{font-weight:500}
+.verdict{font-weight:300}
+.btn,.btn.ghost{font-weight:500;letter-spacing:.03em}
+.plate small,.plate b{font-family:"Nunito",sans-serif}
+@media (max-width:440px){ .mode .c b,.pstats b{font-size:24px} h2.sec{font-size:22px} .brand b{font-size:16px} }
 
 </style>
 </head>
