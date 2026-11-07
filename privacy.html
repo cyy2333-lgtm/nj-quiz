@@ -32,11 +32,18 @@ a{color:var(--accent)}
 <p class="en">njpermitquiz.com is a free practice site for the New Jersey driver knowledge test. It is not affiliated with the New Jersey Motor Vehicle Commission (MVC).</p>
 
 <h2>我们收集哪些信息 What we collect</h2>
-<p>本站没有账号系统，不要求你填写任何个人信息。你的答题记录、错题本、收藏和设置只保存在你自己浏览器的本地存储（localStorage）中，不会上传到我们的服务器。清除浏览器数据即可删除这些记录。</p>
-<p class="en">There are no accounts and we do not ask for personal information. Your progress, wrong-answer list, favorites and settings are stored only in your own browser (localStorage) and are never sent to us. Clearing your browser data removes them.</p>
+<p><b>不登录时：</b>不收集任何个人信息。答题记录、错题本、收藏和设置只保存在你自己浏览器的本地存储（localStorage）中，清除浏览器数据即可删除。</p>
+<p class="en"><b>Without an account:</b> we collect no personal information. Your progress, wrong-answer list, favorites and settings stay in your own browser (localStorage); clearing browser data removes them.</p>
+<p><b>注册或登录后（可选）：</b>账号由 Google Firebase Authentication 管理，我们会保存你的邮箱、昵称（或 Google 账号的显示名称）。密码由 Firebase 加密保存，我们看不到。你的错题本、收藏和练习记录会同步保存在 Google Cloud Firestore 中，只有你本人能读取。</p>
+<p class="en"><b>With an optional account:</b> accounts are handled by Google Firebase Authentication, which stores your email and nickname (or your Google display name); passwords are stored by Firebase and are never visible to us. Your wrong-answer list, favorites and progress are synced to Google Cloud Firestore and are readable only by you.</p>
+<p><b>评论：</b>你发表的评论和昵称会公开显示给所有访问者。你可以随时删除自己的评论；站长可以删除违规评论。请不要在评论里留下个人信息。</p>
+<p class="en"><b>Comments:</b> comments you post are public, together with your nickname. You can delete your own comments at any time, and the site owner may remove inappropriate ones. Please do not include personal information in comments.</p>
+<p><b>删除账号：</b>如需删除账号及其数据，请在 <a href="https://github.com/cyy2333-lgtm/nj-quiz/issues" rel="noopener">GitHub Issues</a> 联系我们（请勿在公开留言中写出你的邮箱，我们会通过其他方式核实）。</p>
+<p class="en"><b>Account deletion:</b> to delete your account and its data, contact us via <a href="https://github.com/cyy2333-lgtm/nj-quiz/issues" rel="noopener">GitHub Issues</a> (do not post your email publicly; we will verify another way).</p>
 
 <h2>第三方服务 Third-party services</h2>
 <ul>
+<li>账号与评论由 Google Firebase（Authentication、Cloud Firestore）提供。<br><span class="en">Accounts and comments are provided by Google Firebase (Authentication and Cloud Firestore).</span></li>
 <li>网站由 GitHub Pages 托管，域名解析由 Cloudflare 提供。它们可能为安全和运维记录访问日志（如 IP 地址）。<br><span class="en">The site is hosted on GitHub Pages and uses Cloudflare DNS, which may keep standard server logs such as IP addresses.</span></li>
 <li>字体由 Google Fonts 提供，加载字体时你的浏览器会连接 Google 服务器。<br><span class="en">Fonts are loaded from Google Fonts, so your browser connects to Google's servers.</span></li>
 </ul>

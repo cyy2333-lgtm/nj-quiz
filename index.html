@@ -116,6 +116,57 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 .srclink{color:var(--accent);font-weight:700;text-decoration:none;margin-top:2px}
 .srclink:hover{text-decoration:underline}
 @media (max-width:440px){.h26badge{width:60px;height:60px}.h26badge b{font-size:22px}}
+.acct{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:5px 12px 5px 8px;font-size:13px;cursor:pointer;max-width:160px;flex:none}
+.acct svg{width:18px;height:18px;flex:none}
+.acct span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.acct.in{border-color:var(--accent);color:var(--accent);font-weight:700}
+.acctmenu{position:fixed;z-index:85;width:min(300px,calc(100vw - 32px));background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:12px 14px;display:grid;gap:4px}
+.acctmenu p{margin:0;font-size:13px}
+.acctmenu .mname{font-weight:700;font-size:15px}
+.acctmenu .mmail,.acctmenu .msync{color:var(--muted)}
+.acctmenu .mwarn{color:var(--bad);margin-top:6px}
+.mitem{text-align:left;border:0;background:none;padding:8px 0;border-top:1px solid var(--line);cursor:pointer;font-size:14px;color:var(--ink)}
+.mitem:first-of-type{margin-top:6px}
+.abox{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px 20px;box-shadow:var(--shadow);text-align:left}
+.abox h2{font-family:var(--display);font-size:24px;margin:0 0 6px}
+.asub{font-size:13px;margin:0 0 14px}
+.asub span{color:var(--muted)}
+.aclose{position:absolute;top:10px;right:12px;border:0;background:none;font-size:24px;line-height:1;cursor:pointer;color:var(--muted)}
+.gbtn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;padding:11px;font-weight:700;cursor:pointer}
+.gbtn svg{width:20px;height:20px}
+.gbtn:hover{border-color:var(--accent)}
+.aor{display:flex;align-items:center;gap:10px;color:var(--muted);font-size:12px;margin:14px 0 10px}
+.aor::before,.aor::after{content:"";flex:1;height:1px;background:var(--line)}
+.atabs{display:flex;gap:6px;margin-bottom:10px}
+.atabs button{flex:1;border:1px solid var(--line);background:none;border-radius:10px;padding:7px;cursor:pointer;color:var(--muted)}
+.atabs button[aria-selected="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+#authForm{display:grid;gap:10px}
+.afield{display:grid;gap:4px;font-size:13px;color:var(--muted)}
+.afield input{font:inherit;font-size:16px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 11px}
+.afield input:focus{outline:2px solid var(--accent);outline-offset:0}
+.aerr{min-height:18px;margin:0;font-size:13px;color:var(--bad)}
+.alink{color:var(--accent);justify-self:center;font-size:13px}
+.unitnote{margin-top:10px;padding:8px 12px;border-radius:10px;background:var(--bg);border:1px dashed var(--line);font-size:13px;color:var(--muted);display:grid;gap:2px}
+.unitnote .ulabel{font-size:11px;font-weight:700;letter-spacing:.5px;color:var(--accent)}
+.lang-both .unitnote .en{font-size:12px}
+#qComments{margin-top:12px}
+.cmopen{width:100%;justify-content:center}
+.cm{border-top:1px solid var(--line);padding-top:12px;display:grid;gap:10px}
+.cmh{font-weight:700}
+.cmn{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:var(--line);color:var(--ink);font-size:12px;margin-left:4px}
+.cmn:empty{display:none}
+.cmlist{display:grid;gap:8px;max-height:360px;overflow:auto}
+.cmi{background:var(--bg);border-radius:10px;padding:8px 12px}
+.cmi p{margin:4px 0 0;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere}
+.cmmeta{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted)}
+.cmmeta b{color:var(--ink);font-size:13px}
+.cmdel{margin-left:auto;border:0;background:none;color:var(--bad);cursor:pointer;font-size:12px}
+.cmempty{margin:0;font-size:13px;color:var(--muted)}
+.cmlabel{font-size:12px;color:var(--muted)}
+#cmText{width:100%;font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 11px;resize:vertical}
+.cmrow{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted)}
+.cmlogin{width:100%}
+@media (max-width:440px){ .acct span{display:none} .acct{padding:6px} }
 .welcome{position:fixed;inset:0;z-index:90;background:var(--bg);display:grid;place-items:center;padding:16px;overflow:auto}
 .welcome.hide{display:none}
 .welcome.out{animation:wout .35s ease forwards}
@@ -259,6 +310,7 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
       <button data-lang="zh" aria-pressed="false">中文</button>
       <button data-lang="en" aria-pressed="false">EN</button>
     </div>
+    <button class="acct" id="acctBtn" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span id="acctLabel">登录 Log in</span></button>
   </div>
 </header>
 
@@ -334,8 +386,10 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
       <div class="tags" id="qTags"></div>
       <div class="signbox hide" id="qSign"></div>
       <div class="qtext" id="qText"></div>
+      <div class="unitnote hide" id="qUnits"></div>
       <div class="choices" id="qChoices"></div>
       <div id="qExplain"></div>
+      <div id="qComments"></div>
     </div>
     <div class="qnav">
       <button class="star" id="favBtn" aria-pressed="false" aria-label="收藏 Favorite"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></button>
@@ -366,6 +420,29 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
     <p class="wnote">之后可随时在右上角切换 · You can change this anytime at the top right.</p>
   </div>
 </div>
+
+<div class="welcome hide" id="authDlg" role="dialog" aria-modal="true" aria-labelledby="authTitle">
+  <div class="wbox abox">
+    <button class="aclose" id="authClose" aria-label="关闭 Close">×</button>
+    <h2 id="authTitle">登录 / 注册 · Log in / Sign up</h2>
+    <p class="asub">登录后可以发表题目评论，错题本和收藏会在手机、电脑之间同步。练习本身不需要登录。<br><span>Log in to comment and sync your progress across devices. Practice never requires an account.</span></p>
+    <button class="gbtn" id="authGoogle"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.8 6C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.6c0-1.6-.1-3.1-.4-4.6H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.4 5.8c4.3-4 6.9-9.9 6.9-17.1z"/><path fill="#FBBC05" d="M10.5 28.7c-.5-1.4-.8-3-.8-4.7s.3-3.3.8-4.7l-7.8-6C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.8c-2.1 1.4-4.8 2.2-8.5 2.2-6.3 0-11.6-4.1-13.5-9.8l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>使用 Google 账号继续 · Continue with Google</button>
+    <div class="aor"><span>或用邮箱 · or with email</span></div>
+    <div class="atabs" role="tablist">
+      <button role="tab" id="tabLogin" aria-selected="true">登录 Log in</button>
+      <button role="tab" id="tabSignup" aria-selected="false">注册 Sign up</button>
+    </div>
+    <form id="authForm" novalidate>
+      <label class="afield hide" id="nameField">昵称 Nickname<input id="aName" type="text" maxlength="30" autocomplete="nickname" placeholder="评论时显示的名字"></label>
+      <label class="afield">邮箱 Email<input id="aEmail" type="email" autocomplete="email" required></label>
+      <label class="afield">密码 Password<input id="aPass" type="password" autocomplete="current-password" minlength="6" required></label>
+      <p class="aerr" id="aErr" role="alert"></p>
+      <button class="btn grow" type="submit" id="aSubmit">登录 Log in</button>
+      <button class="linkbtn alink" type="button" id="aForgot">忘记密码？Forgot password?</button>
+    </form>
+  </div>
+</div>
+<div class="acctmenu hide" id="acctMenu" role="menu"></div>
 
 <script type="application/json" class="qset" data-src="c1.json">[
     {
@@ -12906,7 +12983,7 @@ function record(id,ok){const d=S.done[id]||{c:0,w:0}; ok?d.c++:d.w++; S.done[id]
 
 /* cloud sync (per-viewer private doc), optional */
 let cloud=null, pushTimer=null, pushing=false, pushAgain=false;
-function changed(){saveLocal(); if(cloud){clearTimeout(pushTimer); pushTimer=setTimeout(push,1500);}}
+function changed(){saveLocal(); if(cloud){clearTimeout(pushTimer); pushTimer=setTimeout(push,1500);} if(typeof fbSchedule==="function") fbSchedule();}
 async function push(){
   if(!cloud) return;
   if(pushing){pushAgain=true;return;}
@@ -12918,7 +12995,7 @@ function mergeMap(a,b){const out=Object.assign({},a); for(const k in b){ if(!out
 function mergeDone(a,b){const out=Object.assign({},a); for(const k in b){const x=out[k]||{c:0,w:0},y=b[k]; out[k]={c:Math.max(x.c||0,y.c||0),w:Math.max(x.w||0,y.w||0)};} return out;}
 function setSync(mode){
   const el=document.getElementById('syncNote');
-  el.textContent = mode==="cloud" ? "已同步到你的账号，手机电脑通用 · Synced to your account" :
+  el.textContent = (mode==="cloud"||mode==="account") ? "已登录，错题本和收藏同步到账号，手机电脑通用 · Synced to your account" :
                    mode==="loading" ? "正在连接云端… · Connecting…" :
                    "记录保存在本机浏览器 · Saved on this device";
 }
@@ -12995,7 +13072,7 @@ function burst(x,y,combo){
   f.style.left=(x-20)+'px'; f.style.top=(y-30)+'px'; document.body.appendChild(f);
   f.animate([{transform:'translateY(0) scale(.6)',opacity:0},{transform:'translateY(-14px) scale(1.15)',opacity:1,offset:.3},{transform:'translateY(-60px) scale(1)',opacity:0}],{duration:900,easing:'ease-out'}).onfinish=()=>f.remove();
 }
-function buzz(ms){try{navigator.vibrate&&navigator.vibrate(ms)}catch(e){}}
+function buzz(ms){try{ if(navigator.userActivation&&!navigator.userActivation.hasBeenActive) return; navigator.vibrate&&navigator.vibrate(ms);}catch(e){}}
 
 /* ---------- signs (inline SVG) ---------- */
 const K="#111";
@@ -13333,6 +13410,8 @@ function render(){
   else if(q.sign&&SIGNS[q.sign]){ sg.innerHTML=SIGNS[q.sign]; sg.classList.remove('hide','scene'); sg.classList.toggle('wide',WIDE.has(q.sign)); }
   else { sg.innerHTML=""; sg.classList.add('hide'); }
   $('qText').innerHTML=`<div class="en">${gloss(q.q.en)}</div><div class="zh">${gloss(q.q.zh||q.q.en)}</div>`;
+  const un=unitNote(q), ue=$('qUnits'); ue.innerHTML=un; ue.classList.toggle('hide',!un);
+  $('qComments').innerHTML="";
   const ch=$('qChoices'); ch.innerHTML="";
   it.order.forEach((oi,pos)=>{
     const o=q.options[oi];
@@ -13360,6 +13439,7 @@ function paintAnswered(chosen,animate){
     if(oi===q.answer&&ok&&animate){ b.classList.add('pop'); const c=document.createElement('span'); c.className='check'; c.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'; b.appendChild(c); }
     if(oi===chosen&&!ok&&animate) b.classList.add('shake');
   });
+  commentsButton(q);
   const ex=q.explain||{};
   const showEx = !ok || !(S.prefs.auto&&animate);
   if(showEx||!ok){
@@ -13454,6 +13534,169 @@ function showList(kind,fromQuiz){
 }
 function goHome(){ clearTimeout(autoT); Q=null; refreshHome(); show('vHome'); }
 
+/* ---------- feet / inch → metric notes ---------- */
+function fmtNum(n){ return n>=10?n.toFixed(1).replace(/\.0$/,""):n>=1?n.toFixed(2).replace(/0$/,"").replace(/\.$/,""):n.toFixed(2); }
+function parseNum(s){ s=s.replace(/,/g,""); if(s.includes("/")){ const [a,b]=s.split("/").map(Number); return b?a/b:NaN; } return parseFloat(s); }
+function unitNote(q){
+  const texts=[q.q.en,q.q.zh,q.explain&&q.explain.en,q.explain&&q.explain.zh].concat(q.options.flatMap(o=>[o.en,o.zh])).filter(Boolean).join(" \n ");
+  const ft=new Map(), inch=new Map(), mi=new Map(), mph=new Map();
+  const maps={ft,in:inch,mi,mph};
+  const add=(raw,unit)=>{ const v=parseNum(raw); if(!isFinite(v)||v<=0) return; maps[unit].set(v,raw.replace(/,/g,"")); };
+  const N="(\\d+\\/\\d+|\\d{1,3}(?:,\\d{3})+|\\d+(?:\\.\\d+)?)";
+  let m; const reEn=new RegExp(N+"(?:\\s|-)?(feet|foot|ft|inches|inch|miles|mile|mph)\\b","gi");
+  while((m=reEn.exec(texts))){ const u=m[2].toLowerCase(); add(m[1], u==="mph"?"mph":u.startsWith("mile")?"mi":u.startsWith("in")?"in":"ft"); }
+  const reZh=new RegExp(N+"\\s*(英尺|英寸|英里\\s*\\/\\s*小时|英里每小时|英里)","g");
+  while((m=reZh.exec(texts))){ const u=m[2]; add(m[1], u==="英尺"?"ft":u==="英寸"?"in":u==="英里"?"mi":"mph"); }
+  if(/\b(one-half|half a) mile\b|半英里/i.test(texts)) mi.set(0.5,"1/2");
+  if(/\ba mile\b|一英里/i.test(texts)) mi.set(1,"1");
+  if(!ft.size&&!inch.size&&!mi.size&&!mph.size) return "";
+  const sort=mp=>[...mp.entries()].sort((a,b)=>a[0]-b[0]);
+  const zh=[], en=[], base=[], baseEn=[];
+  if(mph.size){ base.push("1 英里/小时 ≈ 1.609 公里/小时"); baseEn.push("1 mph ≈ 1.609 km/h");
+    sort(mph).forEach(([v,raw])=>{ const k=v*1.609344; zh.push(`${raw} 英里/小时 ≈ ${fmtNum(k)} 公里/小时`); en.push(`${raw} mph ≈ ${fmtNum(k)} km/h`); }); }
+  if(mi.size){ base.push("1 英里 ≈ 1.609 公里"); baseEn.push("1 mile ≈ 1.609 km");
+    sort(mi).forEach(([v,raw])=>{ const k=v*1.609344; zh.push(`${raw} 英里 ≈ ${fmtNum(k)} 公里`); en.push(`${raw} mi ≈ ${fmtNum(k)} km`); }); }
+  if(ft.size){ base.push("1 英尺 = 0.3048 米"); baseEn.push("1 ft = 0.3048 m");
+    sort(ft).forEach(([v,raw])=>{ const mtr=v*0.3048; zh.push(`${raw} 英尺 ≈ ${fmtNum(mtr)} 米`); en.push(`${raw} ft ≈ ${fmtNum(mtr)} m`); }); }
+  if(inch.size){ base.push("1 英寸 = 2.54 厘米"); baseEn.push("1 in = 2.54 cm");
+    sort(inch).forEach(([v,raw])=>{ const cm=v*2.54; zh.push(`${raw} 英寸 ≈ ${fmtNum(cm)} 厘米`); en.push(`${raw} in ≈ ${fmtNum(cm)} cm`); }); }
+  return `<span class="ulabel">单位换算 Units</span><span class="zh">${base.join("，")}。本题：${zh.join(" / ")}</span><span class="en">${baseEn.join(", ")}. Here: ${en.join(" / ")}</span>`;
+}
+
+/* ---------- accounts, comments, synced progress (Firebase) ---------- */
+let fb=null, fbUser=null, fbPushT=null, fbPushing=false, fbAgain=false, fbFailed=false;
+const ADMIN_HASH="da02fc9c94ea8f277be79c1e7deb63dc8dbf9d5583a7127106d66b9964ad6a35";
+let isAdmin=false;
+async function sha256(s){ try{ const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s)); return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join(""); }catch(e){ return ""; } }
+const isPasswordUser=u=>u&&u.providerData.some(p=>p.providerId==="password");
+const canPost=u=>u&&(u.emailVerified||!isPasswordUser(u));
+const displayName=u=>u?(u.displayName||(u.email||"").split("@")[0]||"User"):"";
+function fbSchedule(){ if(!fb||!fbUser) return; clearTimeout(fbPushT); fbPushT=setTimeout(fbPush,2000); }
+async function fbPush(){
+  if(!fb||!fbUser) return; if(fbPushing){fbAgain=true;return;}
+  fbPushing=true;
+  try{ await fb.saveProgress(fbUser.uid,{wrong:S.wrong,fav:S.fav,done:S.done,best:S.best||null,v:1,updated:Date.now()}); }catch(e){ console.warn("sync failed",e); }
+  fbPushing=false; if(fbAgain){fbAgain=false; fbPush();}
+}
+async function fbOnLogin(u){
+  try{
+    const d=await fb.loadProgress(u.uid);
+    if(d){ S.wrong=mergeMap(S.wrong,d.wrong||{}); S.fav=mergeMap(S.fav,d.fav||{}); S.done=mergeDone(S.done,d.done||{}); if(d.best&&(!S.best||d.best.score>S.best.score)) S.best=d.best; saveLocal(); }
+    await fbPush();
+    setSync("account"); refreshHome(); if(Q&&!$('vQuiz').classList.contains('hide')) updateTools();
+  }catch(e){ console.warn("load progress failed",e); }
+}
+function updateAcct(){
+  const lbl=$('acctLabel');
+  lbl.textContent = fbUser ? displayName(fbUser) : "登录 Log in";
+  $('acctBtn').classList.toggle('in',!!fbUser);
+}
+window.addEventListener('njfb-ready',()=>{
+  fb=window.NJFB;
+  fb.onUser(async u=>{
+    fbUser=u||null; isAdmin=false;
+    if(u&&u.email&&u.emailVerified) isAdmin=(await sha256(u.email.toLowerCase()))===ADMIN_HASH;
+    updateAcct();
+    if(u){ fbOnLogin(u); } else { setSync("local"); }
+    const open=document.querySelector('#qComments .cm'); if(open&&Q) loadComments(Q.list[Q.i].q);
+  });
+},{once:true});
+window.addEventListener('njfb-failed',()=>{ fbFailed=true; },{once:true});
+
+const AUTH_ERR={"auth/email-already-in-use":"这个邮箱已经注册过了，请直接登录 · Email already registered","auth/invalid-credential":"邮箱或密码不正确 · Wrong email or password","auth/wrong-password":"邮箱或密码不正确 · Wrong email or password","auth/user-not-found":"邮箱或密码不正确 · Wrong email or password","auth/weak-password":"密码至少 6 位 · Password must be at least 6 characters","auth/invalid-email":"邮箱格式不正确 · Invalid email","auth/too-many-requests":"尝试次数太多，请稍后再试 · Too many attempts, try later","auth/popup-closed-by-user":"登录窗口被关闭了 · Login window closed","auth/popup-blocked":"浏览器拦截了登录弹窗，请允许弹窗后重试 · Allow pop-ups and retry","auth/network-request-failed":"网络连接失败 · Network error"};
+const authMsg=e=>AUTH_ERR[e&&e.code]||("出错了，请重试 · Something went wrong"+(e&&e.code?` (${e.code})`:""));
+let authMode="login";
+function setAuthMode(m){
+  authMode=m;
+  $('tabLogin').setAttribute('aria-selected',String(m==="login")); $('tabSignup').setAttribute('aria-selected',String(m==="signup"));
+  $('nameField').classList.toggle('hide',m!=="signup");
+  $('aSubmit').textContent = m==="login" ? "登录 Log in" : "注册 Sign up";
+  $('aPass').setAttribute('autocomplete',m==="login"?"current-password":"new-password");
+  $('aForgot').classList.toggle('hide',m!=="login");
+  $('aErr').textContent="";
+}
+function openAuth(mode){
+  if(fbFailed){ toast("账号服务暂时无法连接，请稍后再试 · Accounts unavailable"); return; }
+  setAuthMode(mode||"login"); $('authDlg').classList.remove('hide'); setTimeout(()=>$('aEmail').focus(),50);
+}
+function closeAuth(){ $('authDlg').classList.add('hide'); }
+$('tabLogin').addEventListener('click',()=>setAuthMode("login"));
+$('tabSignup').addEventListener('click',()=>setAuthMode("signup"));
+$('authClose').addEventListener('click',closeAuth);
+$('authDlg').addEventListener('click',e=>{ if(e.target.id==="authDlg") closeAuth(); });
+$('authGoogle').addEventListener('click',async()=>{
+  if(!fb){ $('aErr').textContent="正在加载，请稍候 · Loading…"; return; }
+  try{ await fb.google(); closeAuth(); toast("登录成功 · Logged in"); }catch(e){ $('aErr').textContent=authMsg(e); }
+});
+$('authForm').addEventListener('submit',async e=>{
+  e.preventDefault(); if(!fb){ $('aErr').textContent="正在加载，请稍候 · Loading…"; return; }
+  const email=$('aEmail').value.trim(), pw=$('aPass').value, name=$('aName').value.trim();
+  if(authMode==="signup"&&!name){ $('aErr').textContent="请填写昵称 · Please enter a nickname"; return; }
+  $('aSubmit').disabled=true;
+  try{
+    if(authMode==="signup"){ await fb.register(email,pw,name.slice(0,30)); closeAuth(); toast("注册成功！请查收验证邮件，验证后即可评论 · Check your inbox to verify"); }
+    else { await fb.login(email,pw); closeAuth(); toast("登录成功 · Logged in"); }
+  }catch(err){ $('aErr').textContent=authMsg(err); }
+  $('aSubmit').disabled=false;
+});
+$('aForgot').addEventListener('click',async()=>{
+  const email=$('aEmail').value.trim(); if(!email){ $('aErr').textContent="请先填写邮箱 · Enter your email first"; return; }
+  try{ await fb.reset(email); $('aErr').textContent="已发送重置密码邮件 · Password reset email sent"; }catch(err){ $('aErr').textContent=authMsg(err); }
+});
+function closeMenu(){ $('acctMenu').classList.add('hide'); }
+$('acctBtn').addEventListener('click',e=>{
+  e.stopPropagation();
+  if(!fbUser){ openAuth("login"); return; }
+  const m=$('acctMenu');
+  if(!m.classList.contains('hide')){ closeMenu(); return; }
+  const verifiedLine = canPost(fbUser) ? "" : `<p class="mwarn">邮箱还没验证，验证后才能发表评论 · Verify your email to comment</p><button class="mitem" id="mResend">重新发送验证邮件 Resend email</button><button class="mitem" id="mRefresh">我已验证 I've verified</button>`;
+  m.innerHTML=`<p class="mname">${esc(displayName(fbUser))}${isAdmin?' <i class="new26">管理员</i>':""}</p><p class="mmail">${esc(fbUser.email||"")}</p><p class="msync">错题本和收藏已同步到账号 · Progress synced</p>${verifiedLine}<button class="mitem" id="mLogout">退出登录 Log out</button>`;
+  const r=$('acctBtn').getBoundingClientRect(); m.style.top=(r.bottom+6)+"px"; m.style.right=Math.max(16,innerWidth-r.right)+"px";
+  m.classList.remove('hide');
+  $('mLogout').addEventListener('click',async()=>{ closeMenu(); await fb.logout(); toast("已退出登录 · Logged out"); });
+  const rs=$('mResend'); if(rs) rs.addEventListener('click',async()=>{ try{ await fb.resend(); toast("验证邮件已发送 · Verification email sent"); }catch(err){ toast(authMsg(err)); } });
+  const rf=$('mRefresh'); if(rf) rf.addEventListener('click',async()=>{ const u=await fb.refresh(); fbUser=u; closeMenu(); toast(u.emailVerified?"邮箱已验证，可以评论了 · Verified":"还没检测到验证，请点邮件里的链接 · Not verified yet"); });
+});
+document.addEventListener('click',e=>{ if(!e.target.closest('#acctMenu')&&!e.target.closest('#acctBtn')) closeMenu(); });
+
+/* comments under each question (loaded on demand to keep reads low) */
+function commentsButton(q){
+  const box=$('qComments'); if(box.querySelector('.cm')) return;
+  box.innerHTML=`<button class="qtool cmopen" id="cmOpen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>讨论这道题 Discuss</button>`;
+  $('cmOpen').addEventListener('click',()=>loadComments(q));
+}
+async function loadComments(q){
+  const box=$('qComments');
+  box.innerHTML=`<div class="cm"><div class="cmh">讨论 Comments <span class="cmn" id="cmN"></span></div><div class="cmlist" id="cmList"><p class="cmempty">加载中… Loading…</p></div><div id="cmForm"></div></div>`;
+  renderCmForm(q);
+  if(!fb){ $('cmList').innerHTML=`<p class="cmempty">${fbFailed?"评论服务暂时无法连接 · Comments unavailable":"正在连接… Connecting…"}</p>`; if(!fbFailed) window.addEventListener('njfb-ready',()=>{ if(Q&&Q.list[Q.i].q.id===q.id) loadComments(q); },{once:true}); return; }
+  try{
+    const list=(await fb.listComments(q.id)).sort((a,b)=>b.t-a.t);
+    if(!Q||Q.list[Q.i].q.id!==q.id) return;
+    $('cmN').textContent=list.length;
+    $('cmList').innerHTML = list.length ? list.map(c=>`<div class="cmi" data-id="${esc(c.id)}"><div class="cmmeta"><b>${esc(c.name)}</b><span>${new Date(c.t).toLocaleDateString()}</span>${(fbUser&&(c.uid===fbUser.uid||isAdmin))?`<button class="cmdel" data-id="${esc(c.id)}">删除 Delete</button>`:""}</div><p>${esc(c.text)}</p></div>`).join("")
+      : `<p class="cmempty">还没有评论，来说第一句吧 · No comments yet</p>`;
+    $('cmList').querySelectorAll('.cmdel').forEach(b=>b.addEventListener('click',async()=>{
+      if(b.dataset.armed!=="1"){ b.dataset.armed="1"; b.textContent="再点一次确认 Confirm"; setTimeout(()=>{ b.dataset.armed=""; b.textContent="删除 Delete"; },3000); return; }
+      try{ await fb.delComment(b.dataset.id); toast("已删除 · Deleted"); loadComments(q); }catch(err){ toast("删除失败 · Could not delete"); }
+    }));
+  }catch(err){ console.warn(err); $('cmList').innerHTML=`<p class="cmempty">评论加载失败 · Could not load comments</p>`; }
+}
+function renderCmForm(q){
+  const f=$('cmForm');
+  if(!fbUser){ f.innerHTML=`<button class="btn ghost grow cmlogin" id="cmLogin">登录后发表评论 · Log in to comment</button>`; $('cmLogin').addEventListener('click',()=>openAuth("login")); return; }
+  if(!canPost(fbUser)){ f.innerHTML=`<p class="cmempty">请先验证邮箱再发表评论（点右上角账号可重发验证邮件）· Verify your email to comment</p>`; return; }
+  f.innerHTML=`<label class="cmlabel" for="cmText">以 ${esc(displayName(fbUser))} 的身份评论 · Comment as ${esc(displayName(fbUser))}</label><textarea id="cmText" maxlength="500" rows="3" placeholder="分享你的理解或记忆方法（最多 500 字）· Share a tip (max 500)"></textarea><div class="cmrow"><span id="cmCount">0/500</span><button class="btn" id="cmSend">发表 Post</button></div>`;
+  const ta=$('cmText'); ta.addEventListener('input',()=>$('cmCount').textContent=ta.value.length+"/500");
+  ta.addEventListener('keydown',e=>e.stopPropagation());
+  $('cmSend').addEventListener('click',async()=>{
+    const t=ta.value.trim(); if(!t) return;
+    $('cmSend').disabled=true;
+    try{ await fb.addComment(q.id,t.slice(0,500),displayName(fbUser).slice(0,30)); toast("已发表 · Posted"); loadComments(q); }
+    catch(err){ console.warn(err); toast("发表失败，请确认邮箱已验证 · Could not post"); $('cmSend').disabled=false; }
+  });
+}
+
 /* ---------- glossary popover ---------- */
 let popEl=null;
 function closePop(){ if(popEl){ popEl.remove(); popEl=null; } }
@@ -13502,6 +13745,7 @@ $('resetBtn').addEventListener('click',()=>{
 });
 document.addEventListener('keydown',e=>{
   if($('vQuiz').classList.contains('hide')||!Q||e.metaKey||e.ctrlKey||e.altKey) return;
+  if(/^(INPUT|TEXTAREA|SELECT)$/.test((e.target&&e.target.tagName)||"")||!$('authDlg').classList.contains('hide')) return;
   const k=e.key.toLowerCase(); const map={"1":0,"2":1,"3":2,"4":3,"a":0,"b":1,"c":2,"d":3};
   if(k in map){ const b=document.querySelectorAll('#qChoices .choice')[map[k]]; if(b&&!b.disabled){ const r=b.getBoundingClientRect(); choose(+b.dataset.oi,b,{clientX:r.right-30,clientY:r.top+r.height/2}); } e.preventDefault(); }
   else if(k==="enter"||k==="arrowright"){ if(Q.answers[Q.i]!=null){ next(); e.preventDefault(); } }
@@ -13522,6 +13766,40 @@ if(!S.prefs.langChosen){
   setTimeout(()=>{ const f=w.querySelector('.wopt'); if(f) f.focus(); },50);
 }
 })();
+</script>
+<script type="module">
+/* Firebase: accounts, comments and progress sync. The web config is public by design;
+   access is enforced by Firestore security rules and the authorized-domain list. */
+const V="10.12.2", B=`https://www.gstatic.com/firebasejs/${V}/`;
+try{
+  const [{initializeApp},A,F]=await Promise.all([import(B+"firebase-app.js"),import(B+"firebase-auth.js"),import(B+"firebase-firestore.js")]);
+  const app=initializeApp({
+    apiKey:"AIzaSyCWZjL9iXt4TKWBPP09g1m8ToRHHwK4Wgc",
+    authDomain:"njpermitquiz.firebaseapp.com",
+    projectId:"njpermitquiz",
+    storageBucket:"njpermitquiz.firebasestorage.app",
+    messagingSenderId:"91981275309",
+    appId:"1:91981275309:web:b3a9d5bfad99aaefade624"
+  });
+  const auth=A.getAuth(app); auth.useDeviceLanguage();
+  const db=F.getFirestore(app);
+  window.NJFB={
+    onUser:cb=>A.onAuthStateChanged(auth,cb),
+    google:()=>A.signInWithPopup(auth,new A.GoogleAuthProvider()),
+    register:async(email,pw,name)=>{const c=await A.createUserWithEmailAndPassword(auth,email,pw); await A.updateProfile(c.user,{displayName:name}); await A.sendEmailVerification(c.user); return c.user;},
+    login:(email,pw)=>A.signInWithEmailAndPassword(auth,email,pw),
+    reset:email=>A.sendPasswordResetEmail(auth,email),
+    resend:()=>A.sendEmailVerification(auth.currentUser),
+    refresh:async()=>{ await A.reload(auth.currentUser); await auth.currentUser.getIdToken(true); return auth.currentUser; },
+    logout:()=>A.signOut(auth),
+    listComments:async qid=>{ const s=await F.getDocs(F.query(F.collection(db,"comments"),F.where("qid","==",qid),F.limit(100))); return s.docs.map(d=>{const x=d.data(); return {id:d.id,qid:x.qid,text:x.text,name:x.name,uid:x.uid,t:x.createdAt&&x.createdAt.toMillis?x.createdAt.toMillis():Date.now()};}); },
+    addComment:(qid,text,name)=>F.addDoc(F.collection(db,"comments"),{qid,text,name,uid:auth.currentUser.uid,createdAt:F.serverTimestamp()}),
+    delComment:id=>F.deleteDoc(F.doc(db,"comments",id)),
+    loadProgress:async uid=>{ const s=await F.getDoc(F.doc(db,"users",uid)); return s.exists()?s.data():null; },
+    saveProgress:(uid,data)=>F.setDoc(F.doc(db,"users",uid),data)
+  };
+  window.dispatchEvent(new Event("njfb-ready"));
+}catch(e){ console.warn("Firebase unavailable",e); window.dispatchEvent(new Event("njfb-failed")); }
 </script>
 </body>
 </html>
