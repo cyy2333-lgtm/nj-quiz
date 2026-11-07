@@ -125,7 +125,8 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 .h26links{display:flex;gap:8px;flex-wrap:wrap;margin-top:4px}
 .h26btn{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--accent);color:var(--accent-text);background:transparent;border-radius:999px;padding:5px 12px;font-size:13px;font-weight:700;text-decoration:none}
 .h26btn:hover{background:var(--accent);color:var(--accent-ink)}
-.srclink{color:var(--accent-text);font-weight:700;text-decoration:none;margin-top:2px}
+.srclink{color:var(--accent-text);font-weight:500;text-decoration:none;margin-top:2px;display:inline-flex;align-items:center;gap:4px}
+.srclink svg{width:13px;height:13px;opacity:.7}
 .srclink:hover{text-decoration:underline}
 @media (max-width:440px){.h26badge{width:60px;height:60px}.h26badge b{font-size:22px}}
 .acct{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:5px 12px 5px 8px;font-size:13px;cursor:pointer;max-width:160px;flex:none}
@@ -760,7 +761,7 @@ header{background:var(--bg)}
 
     <div class="hero26">
       <div class="h26text">
-        <b><span class="uz">官方驾驶手册</span><span class="ue">Official driver manual</span></b>
+        <b><span class="uz">官方驾驶手册下载</span><span class="ue">Download the official manual</span></b>
         <div class="h26links">
           <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/drivermanual.pdf" target="_blank" rel="noopener">English PDF<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a>
           <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/chinesemanual.pdf" target="_blank" rel="noopener">中文 PDF<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a>
@@ -13380,7 +13381,7 @@ const MANUAL_ZH="https://www.nj.gov/mvc/pdf/license/chinesemanual.pdf";
 function sourceHTML(q){
   const s=source(q); if(!s) return "";
   const p=parseInt(s.page,10), href=MANUAL_EN+(p?`#page=${p+2}`:"");
-  return `<div class="src"><a class="srclink" href="${href}" target="_blank" rel="noopener"><span class="uz">2026 官方手册 第${esc(s.page)}页</span><span class="ue">2026 manual, p. ${esc(s.page)}</span></a>${q.scene?`<span class="note">情景图是依据手册条文绘制的示意图 Diagram drawn from the manual's rules</span>`:""}</div>`;
+  return `<div class="src"><a class="srclink" href="${href}" target="_blank" rel="noopener"><span class="uz">2026官方手册 p.${esc(s.page)}</span><span class="ue">2026 manual p.${esc(s.page)}</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a>${q.scene?`<span class="note">情景图是依据手册条文绘制的示意图 Diagram drawn from the manual's rules</span>`:""}</div>`;
 }
 
 /* ---------- glossary ---------- */
