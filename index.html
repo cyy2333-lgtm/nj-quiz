@@ -173,6 +173,14 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 .cmrow{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted)}
 .cmlogin{width:100%}
 @media (max-width:440px){ .acct span{display:none} .acct{padding:6px} }
+.tag.trn{background:#fff4d6;border-color:#e0a800;color:#7a5600}
+.trnote{margin-top:8px;padding:8px 10px;border-radius:8px;background:#fff4d6;color:#5c4100;font-size:13px;line-height:1.5}
+.trnotes{margin:10px 0 4px;background:var(--surface);border:1px solid #e0a800;border-radius:12px;padding:10px 14px}
+.trnotes summary{cursor:pointer;font-weight:700;color:#7a5600}
+.trnotes ul{margin:8px 0 0;padding-inline-start:20px;display:grid;gap:6px;font-size:13px}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .trnote,:root:not([data-theme="light"]) .tag.trn{background:#3a2f0e;color:#f3d98b;border-color:#8a6d16} :root:not([data-theme="light"]) .trnotes summary{color:#f3d98b} }
+:root[data-theme="dark"] .trnote,:root[data-theme="dark"] .tag.trn{background:#3a2f0e;color:#f3d98b;border-color:#8a6d16}
+:root[data-theme="dark"] .trnotes summary{color:#f3d98b}
 .langlinks{display:flex;flex-wrap:wrap;gap:8px}
 .langlinks a{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font-size:14px;text-decoration:none}
 .langlinks a:hover{border-color:var(--accent)}
@@ -351,6 +359,7 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
         <small>官方手册来自新泽西州 MVC 官网（约 40 MB）· Official PDFs from nj.gov</small>
       </div>
     </div>
+    <!--__TRNOTES__-->
     <div class="stats">
       <div class="stat"><div class="n" id="sTotal">0</div><div class="l">题库总数 Questions</div></div>
       <div class="stat"><div class="n" id="sDone">0</div><div class="l">已练习 Practiced</div></div>
@@ -12934,7 +12943,9 @@ document.querySelectorAll('script.qset').forEach(s=>{
     q.q.zh=t.q||q.q.en;
     q.options.forEach((o,i)=>{ o.zh=(t.o&&t.o[i])||o.en; });
     if(q.explain) q.explain.zh=t.e||q.explain.en;
+    if(t.n) q.trNote=t.n;
   });
+  window.__TRTAG=TR._tag||"";
 })();
 const BYID = Object.fromEntries(ALL.map(q=>[q.id,q]));
 
@@ -13452,6 +13463,7 @@ function render(){
   const tags=[];
   if(q.hf) tags.push('<span class="tag hf">高频 HF</span>');
   if(q.tricky) tags.push('<span class="tag tr">易错 Tricky</span>');
+  if(q.trNote) tags.push(`<span class="tag trn">⚠ ${esc(window.__TRTAG||"")}</span>`);
   tags.push(`<span class="tag">${esc(TOPICS[q.topic].zh)}</span>`);
   if(isWrong(q.id)) tags.push(`<span class="tag" style="color:var(--bad);border-color:var(--bad)">错过 ${S.wrong[q.id].n} 次</span>`);
   const src=source(q); if(src) tags.push(`<span class="tag ref">出处：手册第${src.ch}章 ${esc(q.ref)}</span>`);
@@ -13494,7 +13506,7 @@ function paintAnswered(chosen,animate){
   const ex=q.explain||{};
   const showEx = !ok || !(S.prefs.auto&&animate);
   if(showEx||!ok){
-    $('qExplain').innerHTML=`<div class="explain ${ok?"":"bad"}"><div class="h">${ok?"✓ 回答正确 Correct":"✗ 正确答案是 "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]+" · Correct answer: "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]}</div>${ex.en?`<div class="en">${gloss(ex.en)}</div>`:""}${ex.zh?`<div class="zh">${gloss(ex.zh)}</div>`:""}${sourceHTML(q)}</div>`;
+    $('qExplain').innerHTML=`<div class="explain ${ok?"":"bad"}"><div class="h">${ok?"✓ 回答正确 Correct":"✗ 正确答案是 "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]+" · Correct answer: "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]}</div>${ex.en?`<div class="en">${gloss(ex.en)}</div>`:""}${ex.zh?`<div class="zh">${gloss(ex.zh)}</div>`:""}${q.trNote?`<div class="trnote">⚠ ${esc(q.trNote)}</div>`:""}${sourceHTML(q)}</div>`;
   }
 }
 let autoT=null;
@@ -13558,6 +13570,7 @@ function itemHTML(q){
     <div class="q">${bi(q.q)}</div>
     <div class="a">✓ ${bi(q.options[q.answer])}</div>
     ${q.explain?`<div style="font-size:13px;color:var(--muted);margin-top:4px">${bi(q.explain)}</div>`:""}
+    ${q.trNote?`<div class="trnote">⚠ ${esc(q.trNote)}</div>`:""}
     ${sourceHTML(q)}
     <div class="meta">${isWrong(q.id)?`<span style="color:var(--bad)">错 ${S.wrong[q.id].n} 次</span>${(S.prefs.autoRemove!==false&&S.wrong[q.id].ok)?`<span style="color:var(--good)">已答对 ${S.wrong[q.id].ok}/${REMOVE_AFTER}</span>`:""}`:""}<span>${esc(TOPICS[q.topic].zh)}</span><span class="sp"></span>
     <button class="mini" data-act="fav">${isFav(q.id)?"★ 已收藏":"☆ 收藏"}</button>
