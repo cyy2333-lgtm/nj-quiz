@@ -94,6 +94,11 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 .mode.wide{grid-column:1/-1}
 .m-hf{--stripe:var(--accent)} .m-tr{--stripe:var(--sign)} .m-ex{--stripe:#2f5fb3} .m-wr{--stripe:var(--bad)} .m-fv{--stripe:#e08a00}
 .topics{display:flex;flex-wrap:wrap;gap:8px}
+.topics a.chip{text-decoration:none;color:inherit}
+.sechead{display:flex;align-items:baseline;justify-content:space-between;gap:12px}
+.seclink{font-size:14px;color:var(--muted);text-decoration:none;white-space:nowrap}
+.seclink:hover{color:var(--ink)}
+.seclink::after{content:" \203A"}
 .chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:7px 13px;font-size:14px;cursor:pointer}
 .chip span{color:var(--muted);font-size:12px;margin-left:4px;font-variant-numeric:tabular-nums}
 .chip:hover{border-color:var(--accent)}
@@ -769,10 +774,11 @@ header{background:var(--bg)}
         <div class="h26links">
           <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/drivermanual.pdf" target="_blank" rel="noopener">English PDF<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a>
           <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/2026%20Driver%20Manual_Portuguese%209-21-26.pdf" target="_blank" rel="noopener">Português PDF<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg></a>
+          <a class="h26btn" href="guide/knowledge-test.html"><span class="uz">Guia da prova</span><span class="ue">Test guide</span></a>
         </div>
       </div>
     </div>
-    <h2 class="sec"><span class="uz">Por tema</span><span class="ue">By topic</span></h2>
+    <div class="sechead"><h2 class="sec"><span class="uz">Por tema</span><span class="ue">By topic</span></h2><a class="seclink" href="topics/"><span class="uz">Todas as questões e respostas</span><span class="ue">All questions and answers</span></a></div>
     <div class="topics" id="topicChips"></div>
     <div class="qnav"><button class="btn ghost grow" data-start="all"><span class="uz">Praticar todas as questões em ordem</span><span class="ue">All questions in order</span></button></div>
 
@@ -13852,9 +13858,9 @@ function refreshHome(){
   const tc=$('topicChips'); tc.innerHTML="";
   Object.keys(TOPICS).forEach(k=>{
     const n=ALL.filter(q=>q.topic===k).length; if(!n) return;
-    const b=document.createElement('button'); b.className='chip';
+    const b=document.createElement('a'); b.className='chip'; b.href=`topics/${k}.html`;
     b.innerHTML=`<span class="uz">${esc(TOPICS[k].zh)}</span><span class="ue">${esc(TOPICS[k].en)}</span> <span>${n}</span>`;
-    b.addEventListener('click',()=>start('topic',k)); tc.appendChild(b);
+    b.addEventListener('click',e=>{ e.preventDefault(); start('topic',k); }); tc.appendChild(b);
   });
 }
 
@@ -14462,6 +14468,12 @@ $('themeBtn').addEventListener('click',()=>setTheme(!isDark()));
 $('oDark').addEventListener('change',e=>setTheme(e.target.checked));
 if(darkMQ&&darkMQ.addEventListener) darkMQ.addEventListener("change",paintTheme);
 paintTheme();
+/* links from the topic pages: /?topic=speed or /?mode=hf|tricky|exam|all start practice right away */
+{ const P=new URLSearchParams(location.search), t=P.get('topic'), m=P.get('mode');
+  if((t&&TOPICS[t])||["hf","tricky","exam","all"].includes(m)){
+    S.prefs.langChosen=true; saveLocal(); history.replaceState(null,"",location.pathname);
+    setTimeout(()=>{ t&&TOPICS[t] ? start('topic',t) : start(m); },0);
+  } }
 /* first visit: ask for a language before entering */
 if(!S.prefs.langChosen){
   const w=$('welcome'); w.classList.remove('hide');
