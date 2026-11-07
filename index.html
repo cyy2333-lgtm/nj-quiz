@@ -13698,7 +13698,7 @@ function unitNote(q){
     sort(ft).forEach(([v,raw])=>{ const mtr=v*0.3048; zh.push(`${raw} 英尺 ≈ ${fmtN(mtr)} 米`); en.push(`${raw} ft ≈ ${fmtN(mtr)} m`); }); }
   if(inch.size){ base.push("1 英寸 = 2.54 厘米"); baseEn.push("1 in = 2.54 cm");
     sort(inch).forEach(([v,raw])=>{ const cm=v*2.54; zh.push(`${raw} 英寸 ≈ ${fmtN(cm)} 厘米`); en.push(`${raw} in ≈ ${fmtN(cm)} cm`); }); }
-  return `<span class="ulabel">单位换算 Units</span><span class="zh">${base.join("，")}。本题：${zh.join(" / ")}</span><span class="en">${baseEn.join(", ")}. Here: ${en.join(" / ")}</span>`;
+  return `<span class="ulabel">单位换算 Units</span><span class="zh">${base.join("，")}。本题：${zh.join("；")}</span><span class="en">${baseEn.join(", ")}. Here: ${en.join("; ")}</span>`;
 }
 
 /* ---------- accounts, comments, synced progress (Firebase) ---------- */

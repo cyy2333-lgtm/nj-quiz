@@ -13700,7 +13700,7 @@ function unitNote(q){
     sort(ft).forEach(([v,raw])=>{ const mtr=v*0.3048; zh.push(`${raw} pies ≈ ${fmtN(mtr)} m`); en.push(`${raw} ft ≈ ${fmtN(mtr)} m`); }); }
   if(inch.size){ base.push("1 pulgada = 2.54 cm"); baseEn.push("1 in = 2.54 cm");
     sort(inch).forEach(([v,raw])=>{ const cm=v*2.54; zh.push(`${raw} pulgadas ≈ ${fmtN(cm)} cm`); en.push(`${raw} in ≈ ${fmtN(cm)} cm`); }); }
-  return `<span class="ulabel">Conversión de unidades · Units</span><span class="zh">${base.join(", ")}. En esta pregunta: ${zh.join(" / ")}</span><span class="en">${baseEn.join(", ")}. Here: ${en.join(" / ")}</span>`;
+  return `<span class="ulabel">Conversión de unidades · Units</span><span class="zh">${base.join(", ")}. En esta pregunta: ${zh.join("; ")}</span><span class="en">${baseEn.join(", ")}. Here: ${en.join("; ")}</span>`;
 }
 
 /* ---------- accounts, comments, synced progress (Firebase) ---------- */

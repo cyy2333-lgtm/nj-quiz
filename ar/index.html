@@ -13700,7 +13700,7 @@ function unitNote(q){
     sort(ft).forEach(([v,raw])=>{ const mtr=v*0.3048; zh.push(`${raw} قدم ≈ ${fmtN(mtr)} م`); en.push(`${raw} ft ≈ ${fmtN(mtr)} m`); }); }
   if(inch.size){ base.push("1 بوصة = 2.54 سم"); baseEn.push("1 in = 2.54 cm");
     sort(inch).forEach(([v,raw])=>{ const cm=v*2.54; zh.push(`${raw} بوصة ≈ ${fmtN(cm)} سم`); en.push(`${raw} in ≈ ${fmtN(cm)} cm`); }); }
-  return `<span class="ulabel">تحويل الوحدات Units</span><span class="zh">${base.join("، ")}. في هذا السؤال: ${zh.join(" / ")}</span><span class="en">${baseEn.join(", ")}. Here: ${en.join(" / ")}</span>`;
+  return `<span class="ulabel">تحويل الوحدات Units</span><span class="zh">${base.join("، ")}. في هذا السؤال: ${zh.join("؛ ")}</span><span class="en">${baseEn.join(", ")}. Here: ${en.join("; ")}</span>`;
 }
 
 /* ---------- accounts, comments, synced progress (Firebase) ---------- */
