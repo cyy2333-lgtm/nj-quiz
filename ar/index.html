@@ -143,6 +143,10 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 .abox h2{font-family:var(--display);font-size:24px;margin:0 0 6px}
 .asub{font-size:13px;margin:0 0 14px}
 .asub span{color:var(--muted)}
+.areason{margin:0 0 12px;background:var(--accent);color:var(--accent-ink);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700}
+.lbtn{position:relative}
+.signed-out .mode[data-start="wrong"]::after,.signed-out .mode[data-start="fav"]::after,.signed-out .lbtn[data-list="wrong"]::after,.signed-out .lbtn[data-list="fav"]::after{content:"🔒";position:absolute;top:10px;right:12px;font-size:13px}
+[dir="rtl"] .signed-out .mode::after,[dir="rtl"] .signed-out .lbtn::after{right:auto;left:12px}
 .aclose{position:absolute;top:10px;right:12px;border:0;background:none;font-size:24px;line-height:1;cursor:pointer;color:var(--muted)}
 .gbtn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;padding:11px;font-weight:700;cursor:pointer}
 .gbtn svg{width:20px;height:20px}
@@ -182,6 +186,12 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 .cmrow{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted)}
 .cmlogin{width:100%}
 #qNote{margin-top:12px}
+#qSeen{margin-top:14px}
+.seenbtn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 8px 7px 14px;font:inherit;font-size:13px;cursor:pointer;transition:background .12s,border-color .12s}
+.seenbtn:hover{border-color:var(--accent)}
+.seenbtn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
+.seenbtn b{min-width:24px;height:22px;padding:0 7px;border-radius:999px;background:var(--bg);color:var(--ink);display:inline-grid;place-items:center;font-size:12px}
+.seenbtn b:empty{display:none}
 #qNote:empty{display:none}
 .notebox{background:#fff8e1;border:1px solid #f1d27a;border-radius:12px;padding:10px 12px;display:grid;gap:6px}
 .notebox .nh{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;font-size:13px;color:#6b5200}
@@ -317,6 +327,14 @@ a.wopt{text-decoration:none;color:var(--ink)}
 .pop-g b{display:block;margin-bottom:4px;color:var(--accent-text)}
 .pop-g .en{display:block;margin-top:6px;color:var(--muted);font-size:13px}
 .lang-en .pop-g .zhd{display:none}
+.glossbox{margin-top:22px}
+.glossbox>summary{list-style:none;display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:13px 16px;cursor:pointer;box-shadow:var(--shadow)}
+.glossbox>summary::-webkit-details-marker{display:none}
+.glossbox>summary::after{content:"";width:9px;height:9px;border-right:2px solid var(--muted);border-bottom:2px solid var(--muted);transform:rotate(45deg);margin-inline-start:auto;transition:transform .15s}
+.glossbox[open]>summary::after{transform:rotate(-135deg)}
+.glossbox .gt{font-weight:700;font-size:16px}
+.glossbox .gn{background:var(--accent);color:var(--accent-ink);border-radius:999px;padding:1px 9px;font-size:12px;font-weight:700}
+.glossbox .glossary{margin-top:8px}
 .glossary{display:grid;gap:8px}
 .glossary details{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:10px 14px}
 .glossary summary{cursor:pointer;font-weight:700}
@@ -445,9 +463,10 @@ a.wopt{text-decoration:none;color:var(--ink)}
     <div class="topics" id="topicChips"></div>
     <div class="qnav"><button class="btn ghost grow" data-start="all">جميع الأسئلة بالترتيب All questions</button></div>
 
-    <h2 class="sec">المصطلحات Glossary</h2>
-    <p class="note" style="margin:0 2px 8px">اضغط على أي مصطلح تحته خط منقط في السؤال لعرض معناه. Tap any dotted-underlined term in a question to see what it means.</p>
-    <div class="glossary" id="glossList"></div>
+    <details class="glossbox">
+      <summary><span class="gt">المصطلحات Glossary</span><span class="gn" id="glossN"></span></summary>
+      <div class="glossary" id="glossList"></div>
+    </details>
 
     <h2 class="sec">لوحة المجتمع · Community board</h2>
     <p class="note" style="margin:0 2px 8px">شاركنا اقتراحاتك، أو تجربتك في الاختبار النظري أو اختبار القيادة في كل مركز. Share suggestions, or how your knowledge or road test went at each test center.</p>
@@ -501,6 +520,7 @@ a.wopt{text-decoration:none;color:var(--ink)}
       <div class="unitnote hide" id="qUnits"></div>
       <div class="choices" id="qChoices"></div>
       <div id="qExplain"></div>
+      <div id="qSeen"></div>
       <div id="qNote"></div>
       <div id="qComments"></div>
     </div>
@@ -543,6 +563,7 @@ a.wopt{text-decoration:none;color:var(--ink)}
   <div class="wbox abox">
     <button class="aclose" id="authClose" aria-label="إغلاق Close">×</button>
     <h2 id="authTitle">تسجيل الدخول / إنشاء حساب · Log in / Sign up</h2>
+    <p class="areason hide" id="aReason"></p>
     <p class="asub">بعد تسجيل الدخول يمكنك التعليق على الأسئلة، وتتم مزامنة قائمة الأخطاء والمفضلة بين الهاتف والكمبيوتر. لا يلزم تسجيل الدخول للتدريب نفسه.<br><span>Log in to comment and sync your progress across devices. Practice never requires an account.</span></p>
     <button class="gbtn" id="authGoogle"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.5l6.7-6.7C35.6 2.4 30.2 0 24 0 14.6 0 6.6 5.4 2.7 13.3l7.8 6C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.1 24.6c0-1.6-.1-3.1-.4-4.6H24v9h12.4c-.5 2.9-2.2 5.3-4.6 6.9l7.4 5.8c4.3-4 6.9-9.9 6.9-17.1z"/><path fill="#FBBC05" d="M10.5 28.7c-.5-1.4-.8-3-.8-4.7s.3-3.3.8-4.7l-7.8-6C1 16.6 0 20.2 0 24s1 7.4 2.7 10.7l7.8-6z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.4-5.8c-2.1 1.4-4.8 2.2-8.5 2.2-6.3 0-11.6-4.1-13.5-9.8l-7.8 6C6.6 42.6 14.6 48 24 48z"/></svg>المتابعة باستخدام حساب Google · Continue with Google</button>
     <div class="aor"><span>أو باستخدام البريد الإلكتروني · or with email</span></div>
@@ -13564,7 +13585,7 @@ function render(){
   else { sg.innerHTML=""; sg.classList.add('hide'); }
   $('qText').innerHTML=`<div class="en">${gloss(q.q.en)}</div><div class="zh">${gloss(q.q.zh||q.q.en)}</div>`;
   const un=unitNote(q), ue=$('qUnits'); ue.innerHTML=un; ue.classList.toggle('hide',!un);
-  renderNote(q); $('qComments').innerHTML=""; loadComments(q);
+  renderSeen(q); renderNote(q); $('qComments').innerHTML=""; loadComments(q);
   const ch=$('qChoices'); ch.innerHTML="";
   it.order.forEach((oi,pos)=>{
     const o=q.options[oi];
@@ -13748,7 +13769,17 @@ async function fbOnLogin(u){
     setSync("account"); refreshHome(); if(Q&&!$('vQuiz').classList.contains('hide')) updateTools();
   }catch(e){ console.warn("load progress failed",e); }
 }
+// the wrong-answer book and favorites need an account. Answers are still recorded on this device,
+// so mistakes made before logging in show up once the person logs in. If accounts can't load, nothing is locked.
+let fbAuthKnown=false;
+function gate(){
+  if(fbUser||fbFailed) return true;
+  if(!fb||!fbAuthKnown){ toast("جارٍ الاتصال بخدمة الحسابات، يُرجى الانتظار · Connecting…"); return false; }
+  openAuth("login","سجّل الدخول لاستخدام قائمة الأخطاء والمفضلة · Log in to use wrong answers and favorites");
+  return false;
+}
 function updateAcct(){
+  document.body.classList.toggle('signed-out',fbAuthKnown&&!fbUser);
   const lbl=$('acctLabel');
   lbl.textContent = fbUser ? displayName(fbUser) : "تسجيل الدخول Log in";
   $('acctBtn').classList.toggle('in',!!fbUser);
@@ -13756,12 +13787,14 @@ function updateAcct(){
 window.addEventListener('njfb-ready',()=>{
   fb=window.NJFB;
   fb.onUser(async u=>{
+    fbAuthKnown=true;
     fbUser=u||null; isAdmin=false;
     if(u&&u.email&&u.emailVerified) isAdmin=(await sha256(u.email.toLowerCase()))===ADMIN_HASH;
     updateAcct();
     if(u){ fbOnLogin(u); } else { setSync("local"); }
     const open=document.querySelector('#qComments .cm'); if(open&&Q) loadComments(Q.list[Q.i].q);
     if(B.loaded) loadBoard();
+    if(Q&&!$('vQuiz').classList.contains('hide')) renderSeen(Q.list[Q.i].q);
   });
 },{once:true});
 window.addEventListener('njfb-failed',()=>{ fbFailed=true; },{once:true});
@@ -13778,8 +13811,9 @@ function setAuthMode(m){
   $('aForgot').classList.toggle('hide',m!=="login");
   $('aErr').textContent="";
 }
-function openAuth(mode){
+function openAuth(mode,reason){
   if(fbFailed){ toast("خدمة الحسابات غير متاحة مؤقتًا، يُرجى المحاولة لاحقًا · Accounts unavailable"); return; }
+  const rs=$('aReason'); rs.textContent=reason||""; rs.classList.toggle('hide',!reason);
   setAuthMode(mode||"login"); $('authDlg').classList.remove('hide'); setTimeout(()=>$('aEmail').focus(),50);
 }
 function closeAuth(){ $('authDlg').classList.add('hide'); }
@@ -13821,6 +13855,33 @@ $('acctBtn').addEventListener('click',e=>{
   const rf=$('mRefresh'); if(rf) rf.addEventListener('click',async()=>{ const u=await fb.refresh(); fbUser=u; closeMenu(); toast(u.emailVerified?"تم التحقق من البريد الإلكتروني، يمكنك التعليق الآن · Verified":"لم يتم رصد التحقق بعد، يُرجى الضغط على الرابط في الرسالة · Not verified yet"); });
 });
 document.addEventListener('click',e=>{ if(!e.target.closest('#acctMenu')&&!e.target.closest('#acctBtn')) closeMenu(); });
+
+/* "I got this on my test" button: anyone can see the count, logging in is needed to add yourself */
+async function renderSeen(q){
+  const id=q.id, box=$('qSeen');
+  box.innerHTML=`<button class="seenbtn" id="seenBtn" aria-pressed="false" title="اضغط إذا ظهر هذا السؤال في اختبارك الحقيقي · Tap if this question was on your real test"><span aria-hidden="true">🎯</span><span>ظهر في اختباري · I got this on my test</span><b id="seenN"></b></button>`;
+  const btn=$('seenBtn'), cur=()=>Q&&Q.list[Q.i]&&Q.list[Q.i].q.id===id;
+  btn.addEventListener('click',async()=>{
+    if(fbFailed){ toast("خدمة الحسابات غير متاحة مؤقتًا، يُرجى المحاولة لاحقًا · Accounts unavailable"); return; }
+    if(!fb||!fbAuthKnown){ toast("جارٍ الاتصال بخدمة الحسابات، يُرجى الانتظار · Connecting…"); return; }
+    if(!fbUser){ openAuth("login","سجّل الدخول لتحديد الأسئلة التي ظهرت في اختبارك · Log in to mark questions from your test"); return; }
+    if(!canPost(fbUser)){ toast("أكّد بريدك الإلكتروني أولاً (اضغط على حسابك في الأعلى لإعادة إرسال الرسالة) · Verify your email first"); return; }
+    const on=btn.getAttribute('aria-pressed')!=="true"; btn.disabled=true;
+    try{
+      await fb.seenSet(id,on);
+      btn.setAttribute('aria-pressed',String(on));
+      const n=Math.max(0,(parseInt($('seenN').textContent)||0)+(on?1:-1)); $('seenN').textContent=n||"";
+      if(on){ toast("تم التسجيل، شكراً لمشاركتك! · Thanks for sharing!"); tone([660,880],0.1,"sine",0.08); }
+    }catch(e){ console.warn(e); toast("تعذّر الحفظ، حاول لاحقاً · Could not save"); }
+    btn.disabled=false;
+  });
+  if(!fb){ if(!fbFailed) window.addEventListener('njfb-ready',()=>{ if(cur()) renderSeen(q); },{once:true}); return; }
+  try{
+    const [n,mine]=await Promise.all([fb.seenCount(id), fbUser?fb.seenMine(id):Promise.resolve(false)]);
+    if(!cur()) return;
+    $('seenN').textContent=n||""; btn.setAttribute('aria-pressed',String(mine));
+  }catch(e){ console.warn(e); }
+}
 
 /* personal notes under each question (kept on this device, synced to the account when logged in) */
 function fitNote(ta){ ta.style.height="auto"; ta.style.height=Math.max(ta.scrollHeight+2,76)+"px"; }
@@ -13967,18 +14028,20 @@ document.addEventListener('keydown',e=>{
   else if(e.key==="Escape") closePop();
 },true);
 window.addEventListener('scroll',closePop,{passive:true});
+$('glossN').textContent=GLOSS.length;
 $('glossList').innerHTML=GLOSS.map(g=>`<details><summary>${esc(g[2])}</summary><p>${esc(g[3])}</p><p class="en">${esc(g[4])}</p></details>`).join("");
 
 /* ---------- wiring ---------- */
-document.querySelectorAll('[data-start]').forEach(b=>b.addEventListener('click',()=>start(b.dataset.start)));
-document.querySelectorAll('[data-list]').forEach(b=>b.addEventListener('click',()=>showList(b.dataset.list)));
+const GATED={wrong:1,fav:1};
+document.querySelectorAll('[data-start]').forEach(b=>b.addEventListener('click',()=>{ if(GATED[b.dataset.start]&&!gate()) return; start(b.dataset.start); }));
+document.querySelectorAll('[data-list]').forEach(b=>b.addEventListener('click',()=>{ if(GATED[b.dataset.list]&&!gate()) return; showList(b.dataset.list); }));
 $('homeBtn').addEventListener('click',goHome);
 $('qHome').addEventListener('click',goHome);
-$('qReview').addEventListener('click',()=>{ clearTimeout(autoT); showList('wrong',true); });
+$('qReview').addEventListener('click',()=>{ if(!gate()) return; clearTimeout(autoT); showList('wrong',true); });
 $('backBtn').addEventListener('click',()=>{ if(Q&&Q.answers.filter(a=>a!=null).length>0&&Q.mode==="exam"){ finish(); } else goHome(); });
 $('nextBtn').addEventListener('click',next);
 $('prevBtn').addEventListener('click',prev);
-$('favBtn').addEventListener('click',()=>{ if(!Q) return; const id=Q.list[Q.i].q.id; const on=toggleFav(id); $('favBtn').setAttribute('aria-pressed',String(on)); toast(on?"تم الحفظ في المفضلة ★":"أُزيل من المفضلة"); if(on) tone([880],0.12,"sine",0.1); });
+$('favBtn').addEventListener('click',()=>{ if(!Q||!gate()) return; const id=Q.list[Q.i].q.id; const on=toggleFav(id); $('favBtn').setAttribute('aria-pressed',String(on)); toast(on?"تم الحفظ في المفضلة ★":"أُزيل من المفضلة"); if(on) tone([880],0.12,"sine",0.1); });
 $('oAutoRemove').addEventListener('change',()=>setTimeout(refreshHome));
 [["oShuffle","shuffle"],["oShuffleOpt","shuffleOpt"],["oAuto","auto"],["oSound","sound"],["oAutoRemove","autoRemove"]].forEach(([id,k])=>{
   const el=$(id); el.checked=!!S.prefs[k]; el.addEventListener('change',()=>{S.prefs[k]=el.checked; saveLocal();});
@@ -14074,6 +14137,10 @@ try{
     listRange:async(from,to)=>{ const s=await F.getDocs(F.query(F.collection(db,"comments"),F.where("qid",">=",from),F.where("qid","<",to),F.limit(200))); return s.docs.map(cmOf); },
     addComment:(qid,text,name)=>F.addDoc(F.collection(db,"comments"),{qid,text,name,uid:auth.currentUser.uid,createdAt:F.serverTimestamp()}),
     delComment:id=>F.deleteDoc(F.doc(db,"comments",id)),
+    // "I got this question on my real test": one doc per person per question, counted with an aggregate query
+    seenCount:async qid=>(await F.getCountFromServer(F.query(F.collection(db,"seen"),F.where("qid","==",qid)))).data().count,
+    seenMine:async qid=>auth.currentUser?(await F.getDoc(F.doc(db,"seen",qid+"_"+auth.currentUser.uid))).exists():false,
+    seenSet:(qid,on)=>{ const ref=F.doc(db,"seen",qid+"_"+auth.currentUser.uid); return on?F.setDoc(ref,{qid,uid:auth.currentUser.uid,createdAt:F.serverTimestamp()}):F.deleteDoc(ref); },
     loadProgress:async uid=>{ const s=await F.getDoc(F.doc(db,"users",uid)); return s.exists()?s.data():null; },
     saveProgress:(uid,data)=>F.setDoc(F.doc(db,"users",uid),data)
   };
