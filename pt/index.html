@@ -667,6 +667,11 @@ h2.sec{font-weight:400;font-size:24px;letter-spacing:.02em}
 [dir="rtl"] #setDlg h2,[dir="rtl"] #setDlg .opt-row label{text-align:right}
 header{background:var(--bg)}
 
+.edmark{display:flex;align-items:baseline;gap:10px;margin:0 0 2px}
+.edmark b{font-weight:300;font-size:34px;letter-spacing:.04em;line-height:1}
+.edmark span{font-size:13px;color:inherit;opacity:.7;letter-spacing:.06em}
+.hero-title{margin-top:10px}
+
 </style>
 </head>
 <body class="lang-both">
@@ -674,7 +679,7 @@ header{background:var(--bg)}
   <div class="hbar">
     <button class="brand" id="homeBtn" aria-label="Voltar ao início / Home">
       <span class="logo" aria-hidden="true">NJ</span>
-      <span><b><span class="uz">Prova teórica de direção de Nova Jersey</span><span class="ue">NJ Permit Quiz</span> <i class="new26"><span class="uz">2026 atualizado</span><span class="ue">2026</span></i></b></span>
+      <span><b><span class="uz">Prova teórica de direção de Nova Jersey</span><span class="ue">NJ Permit Quiz</span></b></span>
     </button>
     <button class="themebtn" id="themeBtn" aria-label="Modo escuro / claro / Dark / light mode"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button>
     <button class="themebtn" id="setBtn" aria-label="Configurações / Settings" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
@@ -690,8 +695,7 @@ header{background:var(--bg)}
   <section id="vHome">
     <div class="hero">
       <div class="hero-top">
-        <div class="plate" aria-hidden="true"><small>NEW JERSEY</small><b>2026</b><small>Garden State</small></div>
-        <p class="hero-ed"><b><span class="uz">Versão 2026</span><span class="ue">2026 edition</span></b></p>
+        <p class="edmark"><b>2026</b><span><span class="uz">Atualizado</span><span class="ue">Latest edition</span></span></p>
       </div>
       <h1 class="hero-title"><span class="uz">Prova teórica de direção de Nova Jersey</span><span class="ue">NJ permit practice test</span></h1>
       <p class="hero-sub"><span class="uz">527 questões, todas grátis</span><span class="ue">527 questions, all free</span></p>
@@ -14217,7 +14221,7 @@ function unlockComments(){ const c=document.querySelector('#qComments .cm'); if(
 async function loadComments(q){
   const box=$('qComments');
   const locked = !(Q && Q.list[Q.i] && Q.list[Q.i].q.id===q.id && Q.answers[Q.i]!=null);
-  box.innerHTML=`<div class="cm${locked?" locked":""}"><div class="cmh"><span class="uz">Comentários</span><span class="ue">Comments</span> <span class="cmn" id="cmN"></span></div><p class="cmlock">Responda primeiro para ver os comentários (sem spoilers) / Answer first to see comments</p><div class="cmlist" id="cmList"><p class="cmempty">Carregando… / Loading…</p></div><div id="cmForm"></div></div>`;
+  box.innerHTML=`<div class="cm${locked?" locked":""}"><div class="cmh"><span class="uz">Comentários</span><span class="ue">Comments</span> <span class="cmn" id="cmN"></span></div><div class="cmlist" id="cmList"><p class="cmempty">Carregando… / Loading…</p></div><div id="cmForm"></div></div>`;
   renderCmForm(q);
   if(!fb){ $('cmList').innerHTML=`<p class="cmempty">${fbFailed?"O serviço de comentários está indisponível no momento / Comments unavailable":"Conectando… / Connecting…"}</p>`; if(!fbFailed) window.addEventListener('njfb-ready',()=>{ if(Q&&Q.list[Q.i].q.id===q.id) loadComments(q); },{once:true}); return; }
   try{
