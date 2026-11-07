@@ -320,6 +320,14 @@ a.wopt{text-decoration:none;color:var(--ink)}
 .btn{border:0;border-radius:12px;padding:12px 18px;font-weight:700;cursor:pointer;background:var(--accent);color:var(--accent-ink);font-size:16px}
 .btn.ghost{background:var(--surface);color:var(--ink);border:1px solid var(--line);font-weight:500}
 .btn.grow{flex:1}
+.lists{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.lbtn{display:grid;justify-items:center;align-content:start;gap:3px;padding:14px 6px 12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;color:var(--ink);cursor:pointer;font:inherit;box-shadow:var(--shadow);transition:border-color .12s,transform .1s}
+.lbtn:hover{border-color:var(--accent)}
+.lbtn:active{transform:scale(.97)}
+.lbtn i{width:38px;height:38px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;margin-bottom:4px}
+.lbtn i svg{width:19px;height:19px}
+.lbtn b{font-size:15px;font-weight:700;line-height:1.25;text-align:center}
+.lbtn small{font-size:12px;color:var(--muted);line-height:1.25;text-align:center}
 .btn:disabled{opacity:.4;cursor:default}
 .star{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:var(--surface);cursor:pointer;display:grid;place-items:center;flex:none}
 .star svg{width:22px;height:22px;transition:transform .2s}
@@ -414,10 +422,10 @@ a.wopt{text-decoration:none;color:var(--ink)}
       <button class="mode m-wr" data-start="wrong"><div class="t">Mis errores</div><div class="e">WRONG ANSWERS</div><div class="c"><b id="cWr">0</b>preguntas · <span id="cWrRule">Se quitan de Mis errores al acertarlas 2 veces seguidas</span></div></button>
       <button class="mode m-fv" data-start="fav"><div class="t">Favoritos</div><div class="e">FAVORITES</div><div class="c"><b id="cFv">0</b>preguntas · toque la estrella junto a una pregunta para guardarla</div></button>
     </div>
-    <div class="qnav">
-      <button class="btn ghost grow" data-list="wrong">Ver Mis errores · Review list</button>
-      <button class="btn ghost grow" data-list="fav">Ver Favoritos · Favorites list</button>
-      <button class="btn ghost grow" data-list="notes">Mis notas · My notes</button>
+    <div class="lists">
+      <button class="lbtn" data-list="wrong"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg></i><b>Mis errores</b><small>Wrong answers</small></button>
+      <button class="lbtn" data-list="fav"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></i><b>Favoritos</b><small>Favorites</small></button>
+      <button class="lbtn" data-list="notes"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg></i><b>Mis notas</b><small>My notes</small></button>
     </div>
 
     <h2 class="sec">Por tema · By topic</h2>
