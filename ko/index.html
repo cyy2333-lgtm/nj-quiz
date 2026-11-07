@@ -196,8 +196,6 @@ a.wopt{text-decoration:none;color:var(--ink)}
 .wopt.cur{border-color:var(--accent)}
 .wopt.wen{margin-top:6px;padding:10px 16px;border-style:dashed}
 .wopt.wen b{font-size:15px}
-.zhonly{font-style:normal}
-html:not([lang="zh-CN"]) .zhonly{display:none}
 .entog{cursor:pointer;margin-inline-start:auto}
 .entog .sw{width:34px;height:20px}
 .entog .sw::after{top:2px;left:2px;width:16px;height:16px}
@@ -493,13 +491,13 @@ html:not([lang="zh-CN"]) .zhonly{display:none}
     <h1 id="wTitle">NJ 운전면허 필기시험 문제<small>Free NJ Permit Test Practice 2026</small></h1>
     <p class="wsub">문제 언어를 선택하세요 · Choose your language</p>
     <!-- every bilingual version is the same size; the page's own version is moved to the top by script.
-         Chinese here is written as entities so the language builds leave it alone; .zhonly shows only on the Chinese page -->
+         Chinese here is written as entities so the language builds leave it alone -->
     <div class="wopts">
       <a class="sitelang wopt" data-site="zh" href="/" lang="zh"><b>&#20013;&#25991; + English</b><span>&#20013;&#33521;&#21452;&#35821; &#183; Chinese &amp; English</span></a>
-      <a class="sitelang wopt" data-site="es" href="/es/" lang="es"><b>Español + English</b><span>Bilingüe español e inglés<i class="zhonly"> &#183; &#35199;&#33521;&#21452;&#35821;</i></span></a>
-      <a class="sitelang wopt" data-site="pt" href="/pt/" lang="pt"><b>Português + English</b><span>Bilíngue português e inglês<i class="zhonly"> &#183; &#33889;&#33521;&#21452;&#35821;</i></span></a>
-      <a class="sitelang wopt" data-site="ko" href="/ko/" lang="ko"><b>한국어 + English</b><span>한국어·영어 이중 언어<i class="zhonly"> &#183; &#38889;&#33521;&#21452;&#35821;</i></span></a>
-      <a class="sitelang wopt" data-site="ar" href="/ar/" lang="ar" dir="rtl"><b>العربية + English</b><span>ثنائي اللغة: العربية والإنجليزية<i class="zhonly"> &#183; &#38463;&#33521;&#21452;&#35821;</i></span></a>
+      <a class="sitelang wopt" data-site="es" href="/es/" lang="es"><b>Español + English</b><span>Bilingüe español e inglés</span></a>
+      <a class="sitelang wopt" data-site="pt" href="/pt/" lang="pt"><b>Português + English</b><span>Bilíngue português e inglês</span></a>
+      <a class="sitelang wopt" data-site="ko" href="/ko/" lang="ko"><b>한국어 + English</b><span>한국어·영어 이중 언어</span></a>
+      <a class="sitelang wopt" data-site="ar" href="/ar/" lang="ar" dir="rtl"><b>العربية + English</b><span>ثنائي اللغة: العربية والإنجليزية</span></a>
       <button class="wopt wen" data-wlang="en" lang="en"><b>English only</b><span>Questions in English only</span></button>
     </div>
     <p class="wnote">들어간 뒤에도 「영어 원문」 스위치로 언제든 영어를 끄거나 켤 수 있습니다 · Turn the English original on or off anytime with the “Show English” switch.</p>
