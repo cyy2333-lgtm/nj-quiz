@@ -2,6 +2,7 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="utf-8">
+<script>try{var p=(JSON.parse(localStorage.getItem("njquiz.v1")||"{}").prefs)||{};if(p.theme==="dark"||p.theme==="light")document.documentElement.setAttribute("data-theme",p.theme)}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>اختبار رخصة القيادة نيوجيرسي بالعربية 2026 مجاني | Free NJ Permit Practice Test 2026 (Latest)</title>
 <meta name="description" content="2026 أحدث إصدار، مجاني Free! 527 سؤالًا تدريبيًا لامتحان القيادة النظري في نيوجيرسي بالعربية والإنجليزية، بدون تسجيل، وفق أحدث دليل NJ Driver Manual الصادر في سبتمبر 2026، مع إمكانية فتح الدليل الرسمي PDF مباشرة: الأسئلة الأكثر تكرارًا، والأسئلة الصعبة، واختبار تجريبي من 50 سؤالًا، ورسوم توضيحية وإشارات المرور. ويمكن أداء الاختبار الرسمي نفسه باللغة العربية. Free bilingual (English/Arabic) NJ permit practice test with 527 questions based on the 2026 New Jersey Driver Manual.">
@@ -124,6 +125,11 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 @media (max-width:440px){.h26badge{width:60px;height:60px}.h26badge b{font-size:22px}}
 .acct{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:5px 12px 5px 8px;font-size:13px;cursor:pointer;max-width:160px;flex:none}
 .acct svg{width:18px;height:18px;flex:none}
+.themebtn{display:grid;place-items:center;width:34px;height:34px;flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:50%;cursor:pointer;padding:0}
+.themebtn:hover{border-color:var(--accent)}
+.themebtn svg{width:18px;height:18px}
+.themebtn .i-sun,.dark-on .themebtn .i-moon{display:none}
+.dark-on .themebtn .i-sun{display:block}
 .acct span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .acct.in{border-color:var(--accent-text);color:var(--accent-text);font-weight:700}
 .acctmenu{position:fixed;z-index:85;width:min(300px,calc(100vw - 32px));background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 10px 30px rgba(0,0,0,.18);padding:12px 14px;display:grid;gap:4px}
@@ -362,7 +368,13 @@ a.wopt{text-decoration:none;color:var(--ink)}
   .modes{grid-template-columns:1fr}
   .brand small{display:none}
   .brand{min-width:0}
-  .brand b{font-size:18px;white-space:nowrap}
+  .brand>span{min-width:0}
+  .brand b{font-size:17px;line-height:1.2}
+  .hbar{gap:8px}
+  /* phones: title with the theme and account buttons on top, language switch as a full-width second row */
+  .themebtn{order:1} .acct{order:2}
+  #langSeg{order:3;flex:1 1 100%}
+  #langSeg button{flex:1}
   .seg button{padding:5px 9px}
   .qtext .en{font-size:17px}
 }
@@ -376,13 +388,14 @@ a.wopt{text-decoration:none;color:var(--ink)}
   <div class="hbar">
     <button class="brand" id="homeBtn" aria-label="الصفحة الرئيسية Home">
       <svg class="shield" viewBox="0 0 34 38" aria-hidden="true"><path d="M2 3h30v15c0 9-7 15-15 18C9 33 2 27 2 18z" fill="#f4a6c1" stroke="#111" stroke-width="2"/><text x="17" y="22" text-anchor="middle" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="14" fill="#111">NJ</text></svg>
-      <span><b>أسئلة اختبار رخصة القيادة NJ <i class="new26">2026 الأحدث</i></b><small>Latest 2026 Driver Manual · عربي–English</small></span>
+      <span><b>أسئلة اختبار رخصة القيادة في نيوجيرسي <i class="new26">2026 الأحدث</i></b><small>Latest 2026 Driver Manual · عربي–English</small></span>
     </button>
     <div class="seg" role="group" aria-label="اللغة Language" id="langSeg">
       <button data-lang="both" aria-pressed="true">AR+EN</button>
       <button data-lang="zh" aria-pressed="false">العربية</button>
       <button data-lang="en" aria-pressed="false">EN</button>
     </div>
+    <button class="themebtn" id="themeBtn" aria-label="الوضع الداكن / الفاتح · Dark / light mode"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button>
     <button class="acct" id="acctBtn" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span id="acctLabel">تسجيل الدخول Log in</span></button>
   </div>
   <nav class="sitelangs" aria-label="Language versions">
@@ -455,6 +468,7 @@ a.wopt{text-decoration:none;color:var(--ink)}
 
     <h2 class="sec">الإعدادات Settings</h2>
     <div class="opts">
+      <div class="opt-row"><label for="oDark">الوضع الداكن<small>Dark mode · خلفية سوداء مع وردي فاتح</small></label><input type="checkbox" class="sw" id="oDark"></div>
       <div class="opt-row"><label for="oEn">إظهار النص الإنجليزي الأصلي<small>يعرض السؤال الأصلي بالإنجليزية. عند الإيقاف تظهر العربية فقط · Off = Arabic only</small></label><input type="checkbox" class="sw entsw" id="oEn" checked></div>
       <div class="opt-row"><label for="oShuffle">ترتيب عشوائي للأسئلة<small>Shuffle question order</small></label><input type="checkbox" class="sw" id="oShuffle" checked></div>
       <div class="opt-row"><label for="oShuffleOpt">ترتيب عشوائي للخيارات<small>Shuffle answer choices (باستثناء أسئلة «جميع ما سبق»)</small></label><input type="checkbox" class="sw" id="oShuffleOpt" checked></div>
@@ -509,7 +523,7 @@ a.wopt{text-decoration:none;color:var(--ink)}
   <div class="wbox">
     <svg class="wshield" viewBox="0 0 34 38" aria-hidden="true"><path d="M2 3h30v15c0 9-7 15-15 18C9 33 2 27 2 18z" fill="#f4a6c1" stroke="#111" stroke-width="2"/><text x="17" y="22" text-anchor="middle" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="14" fill="#111">NJ</text></svg>
     <div><span class="new26 big">2026 أحدث إصدار · LATEST</span></div>
-    <h1 id="wTitle">أسئلة اختبار رخصة القيادة NJ<small>Free NJ Permit Test Practice 2026</small></h1>
+    <h1 id="wTitle">أسئلة اختبار رخصة القيادة في نيوجيرسي<small>Free NJ Permit Test Practice 2026</small></h1>
     <p class="wsub">اختر لغة الأسئلة · Choose your language</p>
     <!-- every bilingual version is the same size; the page's own version is moved to the top by script.
          Chinese here is written as entities so the language builds leave it alone -->
@@ -14008,6 +14022,15 @@ refreshHome();
     a.href=hrefFor(code); if(code===CUR) a.setAttribute('aria-current','page');
   });
 })();
+/* dark / light mode: follows the system until the person picks one */
+const darkMQ=window.matchMedia?matchMedia("(prefers-color-scheme: dark)"):null;
+const isDark=()=>{ const t=document.documentElement.getAttribute("data-theme"); return t?t==="dark":!!(darkMQ&&darkMQ.matches); };
+function paintTheme(){ const d=isDark(); document.body.classList.toggle("dark-on",d); $('oDark').checked=d; $('themeBtn').setAttribute("aria-pressed",String(d)); }
+function setTheme(dark){ const t=dark?"dark":"light"; document.documentElement.setAttribute("data-theme",t); S.prefs.theme=t; saveLocal(); paintTheme(); }
+$('themeBtn').addEventListener('click',()=>setTheme(!isDark()));
+$('oDark').addEventListener('change',e=>setTheme(e.target.checked));
+if(darkMQ&&darkMQ.addEventListener) darkMQ.addEventListener("change",paintTheme);
+paintTheme();
 /* first visit: ask for a language before entering */
 if(!S.prefs.langChosen){
   const w=$('welcome'); w.classList.remove('hide');
