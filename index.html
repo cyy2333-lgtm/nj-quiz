@@ -379,6 +379,9 @@ a.wopt{text-decoration:none;color:var(--ink)}
 .lang-both .item .zh{opacity:.8}
 .item .q{font-weight:500}
 .item .a{font-size:14px;color:var(--good);margin-top:6px}
+.item .a>.zh{display:inline}
+.item .a{color:#4e9a6e}
+.dark-on .item .a{color:#9fd8b6}
 .item .meta{display:flex;gap:10px;align-items:center;margin-top:8px;font-size:12px;color:var(--muted)}
 .item .meta .sp{flex:1}
 .item .mini{border:1px solid var(--line);background:none;border-radius:8px;padding:3px 9px;cursor:pointer;font-size:12px}
@@ -13977,14 +13980,13 @@ function finish(){
     <svg class="ring" viewBox="0 0 150 150"><circle cx="75" cy="75" r="${R}" fill="none" stroke="var(--line)" stroke-width="12"/>
     <circle cx="75" cy="75" r="${R}" fill="none" stroke="${pass?'var(--good)':'var(--bad)'}" stroke-width="12" stroke-linecap="round" stroke-dasharray="${C*pct} ${C}" transform="rotate(-90 75 75)"/>
     <text x="75" y="82" text-anchor="middle" font-size="36" font-weight="700" fill="var(--ink)">${right}/${total}</text></svg>
-    <div class="verdict ${pass?'pass':'fail'}">${isExam?(pass?"通过 PASS":"未通过 FAIL"):(pass?"很棒 GREAT":"继续加油 KEEP GOING")}</div>
-    <div style="color:var(--muted);margin-top:4px">${isExam?"答对 40 题及格 Need 40 of 50":"正确率 "+Math.round(pct*100)+"%"}，最高连对 ${Q.best}</div>
+    <div class="verdict ${pass?'pass':'fail'}">${isExam?(pass?'<span class="uz">通过</span><span class="ue">Pass</span>':'<span class="uz">未通过</span><span class="ue">Not passed</span>'):(pass?'<span class="uz">很棒</span><span class="ue">Great job</span>':'<span class="uz">继续加油</span><span class="ue">Keep going</span>')}</div>
     <div class="rbtns">
       ${wrongs.length?'<button class="btn" id="rRetry">重做本轮错题 ('+wrongs.length+')</button>':''}
       <button class="btn ghost" id="rAgain">再来一轮</button>
       <button class="btn ghost" id="rHome">返回首页</button>
     </div></div>
-    ${wrongs.length?'<h2 class="sec">本轮错题 Missed</h2><div class="list">'+wrongs.map(itemHTML).join("")+'</div>':''}`;
+    ${wrongs.length?'<h2 class="sec"><span class="uz">本轮错题</span><span class="ue">Missed</span></h2><div class="list">'+wrongs.map(itemHTML).join("")+'</div>':''}`;
   show('vResult');
   if(pass&&!reduceMotion()){ const r=v.querySelector('.ring').getBoundingClientRect(); for(let k=0;k<3;k++) setTimeout(()=>burst(r.left+r.width/2+(k-1)*60,r.top+r.height/2,8),k*180); tone([523,659,784,1046],0.3,"triangle",0.14); }
   const m=Q.mode,a=Q.arg;
