@@ -22,6 +22,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@chinese-fonts/dyh@3.0.0/dist/SmileySans-Oblique/result.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Regular/result.css" media="print" onload="this.media='all'">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Bold/result.css" media="print" onload="this.media='all'">
 <style>
 /* Look: a friendly flashcard app. White cards with soft gray borders and a chunky bottom "ledge" so buttons feel pressable;
    light pink is the one accent, green/red only mean right/wrong, yellow marks "tricky". Rounded Nunito for Latin text and numbers. */
@@ -31,6 +34,7 @@
   --good:#2f9e44; --good-deep:#237a34; --good-soft:#e8f7eb; --bad:#e5484d; --bad-deep:#b8363a; --bad-soft:#fdeeee;
   --shadow:none;
   --display:"Nunito","Noto Sans SC",sans-serif;
+  --head:"Smiley Sans Oblique","Nunito","HarmonyOS Sans SC","Noto Sans SC",sans-serif;
   --body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
   color-scheme:light;
 }
@@ -52,7 +56,7 @@
 }
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
-body{background:var(--bg);color:var(--ink);font-family:"Nunito",var(--body);font-size:16px;line-height:1.5;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--ink);font-family:"Nunito","HarmonyOS Sans SC",var(--body);font-size:16px;line-height:1.5;-webkit-tap-highlight-color:transparent}
 button{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--sign);outline-offset:2px}
 .wrap{max-width:720px;margin:0 auto;padding:0 16px 48px}
@@ -492,13 +496,82 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
 .gbtn,.atabs button{border:2px solid var(--line);border-radius:14px;font-weight:800}
 .gbtn{box-shadow:0 3px 0 var(--ledge)}
 .notebox,.mynote{border-width:2px;border-radius:16px}
+
+/* ---------- design pass 2: headline type, hero, progress, icon cards ---------- */
+.brand b,h2.sec,.mode .t,.glossbox .gt,.wbox h1,.abox h2,.qtop .title,.verdict,.lbtn b{font-family:var(--head);font-weight:400;letter-spacing:.2px}
+.brand b{font-size:23px}
+h2.sec{font-size:26px;margin:34px 2px 14px}
+.hero{position:relative;overflow:hidden;background:var(--accent);color:#1d1d1f;border-radius:28px;padding:26px 22px 22px;margin:18px 0 14px}
+.hero::after{content:"NJ";position:absolute;right:-14px;bottom:-56px;font-family:var(--head);font-size:200px;line-height:1;color:rgba(255,255,255,.38);pointer-events:none}
+.hero>*{position:relative;z-index:1}
+.hero-pills{display:flex;gap:8px;flex-wrap:wrap}
+.pill{background:#fff;color:#1d1d1f;border-radius:999px;padding:4px 12px;font-size:13px;font-weight:800}
+.pill.hot{background:#ef3b2d;color:#fff}
+.hero-title{font-family:var(--head);font-weight:400;font-size:44px;line-height:1.08;margin:16px 0 12px;letter-spacing:.5px}
+.hero-title span{display:table;margin-top:8px;background:#1d1d1f;color:var(--accent);padding:2px 12px 4px;border-radius:12px;transform:rotate(-1.5deg);font-size:.82em}
+.hero-sub{margin:0;font-size:16px;font-weight:700;max-width:30em}
+.hero-en{margin:4px 0 0;font-size:14px;opacity:.75}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.btn.big{font-size:17px;padding:14px 22px;border-radius:18px}
+.hero .btn{background:#1d1d1f;color:#fff;box-shadow:0 4px 0 #000}
+.hero .btn:active{box-shadow:0 0 0 #000}
+.hero .btn.ghost{background:#fff;color:#1d1d1f;border-color:#fff;box-shadow:0 4px 0 var(--accent-deep)}
+.progress{display:flex;align-items:center;gap:16px;border:2px solid var(--line);border-radius:24px;padding:14px 18px;background:var(--surface)}
+.pring{position:relative;width:78px;height:78px;flex:none}
+.pring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.pring circle{fill:none;stroke-width:9}
+.pr-bg{stroke:var(--line)}
+.pr-fg{stroke:var(--accent);stroke-linecap:round;transition:stroke-dashoffset .6s ease}
+.pring b{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--display);font-weight:900;font-size:18px}
+.pstats{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.pstats>div{display:grid;gap:2px}
+.pstats b{font-family:var(--display);font-weight:900;font-size:24px;line-height:1.1;font-variant-numeric:tabular-nums}
+.pstats b small{font-size:14px;color:var(--muted);font-weight:800;margin-left:1px}
+.pstats span{font-size:12px;color:var(--muted);font-weight:600}
+.sync{margin:8px 4px 0}
+.mode{padding:16px 16px 14px}
+.mode .t{font-size:24px;line-height:1.15}
+.mode .t::before{display:none}
+.mode .mi{width:46px;height:46px;border-radius:15px;background:var(--stripe,var(--accent));color:#1d1d1f;display:grid;place-items:center;margin-bottom:12px;box-shadow:inset 0 -3px 0 rgba(0,0,0,.12)}
+.mode .mi svg{width:24px;height:24px}
+.mode .e{margin-top:2px;opacity:.85}
+.m-hf{--stripe:var(--accent)}
+.m-wr{--stripe:#ff8a8d}
+.m-ex{background:#1d1d1f;color:#fff;border-color:#1d1d1f;box-shadow:0 4px 0 #000}
+.m-ex .e,.m-ex .c{color:#b9b9bd}
+.m-ex .mi{--stripe:var(--accent)}
+.m-ex:hover{border-color:#1d1d1f}
+.m-ex:active{box-shadow:0 0 0 #000}
+.dark-on .m-ex{background:var(--accent);color:#1d1d1f;border-color:var(--accent);box-shadow:0 4px 0 var(--accent-deep)}
+.dark-on .m-ex .e,.dark-on .m-ex .c{color:#4a3a40}
+.dark-on .m-ex .mi{--stripe:#1d1d1f;color:var(--accent)}
+.lbtn b{font-size:19px}
+.hero26{margin-top:22px;background:var(--surface);border:2px solid var(--line)}
+.qtop .title{font-size:21px}
+.verdict{font-size:40px}
+@media (max-width:440px){
+  .hero{padding:22px 18px 20px;border-radius:24px}
+  .hero-title{font-size:36px}
+  .hero::after{font-size:160px;bottom:-44px}
+  .hero-cta .btn{flex:1}
+  .progress{padding:12px 14px;gap:12px}
+  .pring{width:66px;height:66px}
+  .pstats b{font-size:20px}
+  .modes{gap:10px}
+  .mode{padding:14px 12px 12px}
+  .mode .t{font-size:21px}
+  .mode .mi{width:40px;height:40px;border-radius:13px;margin-bottom:10px}
+  .mode .e{font-size:11px}
+  .mode .c{font-size:12px}
+  .mode .c b{font-size:20px}
+}
+
 @media (hover:none){ .kbd{display:none} }
 /* phones: the header scrolls away so questions get the whole screen */
 @media (max-width:440px){ header{position:static} }
 
 @media (max-width:440px){
   .stats{grid-template-columns:repeat(2,1fr)}
-  .modes{grid-template-columns:1fr}
   .brand small{display:none}
   .brand{min-width:0}
   .brand>span{min-width:0}
@@ -539,6 +612,41 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
 <main class="wrap">
   <!-- HOME -->
   <section id="vHome">
+    <div class="hero">
+      <div class="hero-pills"><span class="pill hot">2026 最新版</span><span class="pill">依据 2026 年 9 月新手册</span></div>
+      <h1 class="hero-title">新泽西州驾照笔试<span>中英双语题库</span></h1>
+      <p class="hero-sub">527 道练习题，覆盖高频考点、易错陷阱和 50 题模拟考，全部免费。</p>
+      <p class="hero-en">Free NJ permit practice test, English + 中文</p>
+      <div class="hero-cta">
+        <button class="btn big" data-start="hf">开始练习 Start</button>
+        <button class="btn ghost big" data-start="exam">模拟考试 Mock test</button>
+      </div>
+    </div>
+    <!--__TRNOTES__-->
+    <div class="progress">
+      <div class="pring"><svg viewBox="0 0 80 80" aria-hidden="true"><circle class="pr-bg" cx="40" cy="40" r="33"/><circle class="pr-fg" id="pRing" cx="40" cy="40" r="33"/></svg><b id="pPct">0%</b></div>
+      <div class="pstats">
+        <div><b><span id="sDone">0</span><small>/<span id="sTotal">0</span></small></b><span>已练习 Practiced</span></div>
+        <div><b id="sAcc">–</b><span>正确率 Accuracy</span></div>
+        <div><b id="sBest">–</b><span>模考最高 Best mock</span></div>
+      </div>
+    </div>
+    <div class="sync" id="syncNote">记录保存在本机浏览器 Saved on this device</div>
+
+    <h2 class="sec">练习模式 Practice</h2>
+    <div class="modes">
+      <button class="mode m-hf" data-start="hf"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></i><div class="t">高频必考</div><div class="e">HIGH FREQUENCY</div><div class="c"><b id="cHf">0</b>题，历年反复出现的考点</div></button>
+      <button class="mode m-tr" data-start="tricky"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5L22 20H2z"/><path d="M12 10v4.5"/><path d="M12 17.6v.1"/></svg></i><div class="t">易错陷阱</div><div class="e">ERROR-PRONE</div><div class="c"><b id="cTr">0</b>题，易混数字、例外、新旧变化</div></button>
+      <button class="mode m-ex wide" data-start="exam"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4V2.8h6V4"/><path d="M9 12.5l2 2 4-4"/></svg></i><div class="t">模拟考试</div><div class="e">MOCK TEST / 50 QUESTIONS / PASS 40</div><div class="c">按真实考试：随机 50 题，答对 40 题（80%）及格</div></button>
+      <button class="mode m-wr" data-start="wrong"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg></i><div class="t">错题本</div><div class="e">WRONG ANSWERS</div><div class="c"><b id="cWr">0</b>题，<span id="cWrRule">在错题本中连续答对 2 次自动移出</span></div></button>
+      <button class="mode m-fv" data-start="fav"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></i><div class="t">收藏夹</div><div class="e">FAVORITES</div><div class="c"><b id="cFv">0</b>题，点题目旁的星标收藏</div></button>
+    </div>
+    <div class="lists">
+      <button class="lbtn" data-list="wrong"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg></i><b>错题列表</b><small>Wrong answers</small></button>
+      <button class="lbtn" data-list="fav"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></i><b>收藏列表</b><small>Favorites</small></button>
+      <button class="lbtn" data-list="notes"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg></i><b>我的笔记</b><small>My notes</small></button>
+    </div>
+
     <div class="hero26">
       <div class="h26badge"><b>2026</b><span>最新版<br>LATEST</span></div>
       <div class="h26text">
@@ -551,29 +659,6 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
         <small>官方手册来自新泽西州 MVC 官网（约 40 MB） Official PDFs from nj.gov</small>
       </div>
     </div>
-    <!--__TRNOTES__-->
-    <div class="stats">
-      <div class="stat"><div class="n" id="sTotal">0</div><div class="l">题库总数 Questions</div></div>
-      <div class="stat"><div class="n" id="sDone">0</div><div class="l">已练习 Practiced</div></div>
-      <div class="stat"><div class="n" id="sAcc">–</div><div class="l">正确率 Accuracy</div></div>
-      <div class="stat"><div class="n" id="sBest">–</div><div class="l">模考最高 Best mock</div></div>
-    </div>
-    <div class="sync" id="syncNote">记录保存在本机浏览器 Saved on this device</div>
-
-    <h2 class="sec">练习模式 Practice</h2>
-    <div class="modes">
-      <button class="mode m-hf" data-start="hf"><div class="t">高频必考</div><div class="e">HIGH FREQUENCY</div><div class="c"><b id="cHf">0</b>题，历年反复出现的考点</div></button>
-      <button class="mode m-tr" data-start="tricky"><div class="t">易错陷阱</div><div class="e">ERROR-PRONE</div><div class="c"><b id="cTr">0</b>题，易混数字、例外、新旧变化</div></button>
-      <button class="mode m-ex wide" data-start="exam"><div class="t">模拟考试</div><div class="e">MOCK TEST / 50 QUESTIONS / PASS 40</div><div class="c">按真实考试：随机 50 题，答对 40 题（80%）及格</div></button>
-      <button class="mode m-wr" data-start="wrong"><div class="t">错题本</div><div class="e">WRONG ANSWERS</div><div class="c"><b id="cWr">0</b>题，<span id="cWrRule">在错题本中连续答对 2 次自动移出</span></div></button>
-      <button class="mode m-fv" data-start="fav"><div class="t">收藏夹</div><div class="e">FAVORITES</div><div class="c"><b id="cFv">0</b>题，点题目旁的星标收藏</div></button>
-    </div>
-    <div class="lists">
-      <button class="lbtn" data-list="wrong"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg></i><b>错题列表</b><small>Wrong answers</small></button>
-      <button class="lbtn" data-list="fav"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></i><b>收藏列表</b><small>Favorites</small></button>
-      <button class="lbtn" data-list="notes"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg></i><b>我的笔记</b><small>My notes</small></button>
-    </div>
-
     <h2 class="sec">按主题 By topic</h2>
     <div class="topics" id="topicChips"></div>
     <div class="qnav"><button class="btn ghost grow" data-start="all">全部题目顺序练习 All questions</button></div>
@@ -13627,6 +13712,7 @@ function refreshHome(){
   let c=0,t=0; ids.forEach(id=>{c+=S.done[id].c; t+=S.done[id].c+S.done[id].w;});
   $('sAcc').textContent=t?Math.round(c/t*100)+'%':'–';
   $('sBest').textContent=S.best?S.best.score+'/50':'–';
+  { const p=ALL.length?ids.length/ALL.length:0, C=2*Math.PI*33, ring=$('pRing'); ring.style.strokeDasharray=C; ring.style.strokeDashoffset=C*(1-p); $('pPct').textContent=Math.round(p*100)+'%'; }
   $('cHf').textContent=ALL.filter(q=>q.hf).length;
   $('cTr').textContent=ALL.filter(q=>q.tricky).length;
   $('cWr').textContent=ALL.filter(q=>isWrong(q.id)).length;
