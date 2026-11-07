@@ -192,10 +192,16 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .trnote,:root:not([data-theme="light"]) .tag.trn{background:#3a2f0e;color:#f3d98b;border-color:#8a6d16} :root:not([data-theme="light"]) .trnotes summary{color:#f3d98b} }
 :root[data-theme="dark"] .trnote,:root[data-theme="dark"] .tag.trn{background:#3a2f0e;color:#f3d98b;border-color:#8a6d16}
 :root[data-theme="dark"] .trnotes summary{color:#f3d98b}
-.wother{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
-.wother a.wopt{text-decoration:none;color:var(--ink);border-color:var(--line)}
-.wother a.wopt:first-child{border-color:var(--line)}
-@media (max-width:440px){ .wother{grid-template-columns:1fr} }
+a.wopt{text-decoration:none;color:var(--ink)}
+.wopt.cur{border-color:var(--accent)}
+.wopt.wen{margin-top:6px;padding:10px 16px;border-style:dashed}
+.wopt.wen b{font-size:15px}
+.zhonly{font-style:normal}
+html:not([lang="zh-CN"]) .zhonly{display:none}
+.entog{cursor:pointer;margin-inline-start:auto}
+.entog .sw{width:34px;height:20px}
+.entog .sw::after{top:2px;left:2px;width:16px;height:16px}
+.entog .sw:checked::after{transform:translateX(14px)}
 .sitelangs{max-width:720px;margin:0 auto;padding:0 16px 8px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
 .sitelangs::-webkit-scrollbar{display:none}
 .sitelangs a{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:5px 12px;font-size:13px;text-decoration:none;white-space:nowrap}
@@ -233,7 +239,6 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 .wopt:active{transform:scale(.98)}
 .wopt b{font-size:18px}
 .wopt span{font-size:13px;color:var(--muted)}
-.wopt:first-child{border-color:var(--accent)}
 .wnote{font-size:12px;color:var(--muted);margin-top:14px}
 @media (prefers-reduced-motion: reduce){.welcome.out{animation:none}}
 .qtools{display:flex;gap:8px;margin:-2px 0 12px;flex-wrap:wrap}
@@ -432,6 +437,7 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 
     <h2 class="sec">Configurações · Settings</h2>
     <div class="opts">
+      <div class="opt-row"><label for="oEn">Mostrar o original em inglês<small>Mostra a questão original em inglês. Desligado = só português · Off = Portuguese only</small></label><input type="checkbox" class="sw entsw" id="oEn" checked></div>
       <div class="opt-row"><label for="oShuffle">Embaralhar questões<small>Shuffle question order</small></label><input type="checkbox" class="sw" id="oShuffle" checked></div>
       <div class="opt-row"><label for="oShuffleOpt">Embaralhar alternativas<small>Shuffle answer choices (exceto questões do tipo “Todas as anteriores”)</small></label><input type="checkbox" class="sw" id="oShuffleOpt" checked></div>
       <div class="opt-row"><label for="oAuto">Avançar automaticamente após acertar<small>Auto-advance after a correct answer</small></label><input type="checkbox" class="sw" id="oAuto" checked></div>
@@ -454,6 +460,7 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
     <div class="qtools">
       <button class="qtool" id="qHome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Página inicial · Home</button>
       <button class="qtool" id="qReview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h10"/></svg>Revisar erros · Review<span class="qbadge" id="qWrongN">0</span></button>
+      <label class="qtool entog"><input type="checkbox" class="sw entsw" id="qEn" checked>Mostrar inglês · Show English</label>
     </div>
     <div class="card" id="qCard">
       <div class="tags" id="qTags"></div>
@@ -485,19 +492,17 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
     <div><span class="new26 big">Versão 2026 · LATEST</span></div>
     <h1 id="wTitle">Prova teórica de direção NJ<small>Free NJ Permit Test Practice 2026</small></h1>
     <p class="wsub">Escolha o idioma das questões · Choose your language</p>
+    <!-- every bilingual version is the same size; the page's own version is moved to the top by script.
+         Chinese here is written as entities so the language builds leave it alone; .zhonly shows only on the Chinese page -->
     <div class="wopts">
-      <button class="wopt" data-wlang="both"><b>Português + English</b><span>English + Português · Recomendado Recommended</span></button>
-      <button class="wopt" data-wlang="zh"><b>Português</b><span>Somente questões em português</span></button>
-      <button class="wopt" data-wlang="en"><b>English</b><span>Questions in English only</span></button>
+      <a class="sitelang wopt" data-site="zh" href="/" lang="zh"><b>&#20013;&#25991; + English</b><span>&#20013;&#33521;&#21452;&#35821; &#183; Chinese &amp; English</span></a>
+      <a class="sitelang wopt" data-site="es" href="/es/" lang="es"><b>Español + English</b><span>Bilingüe español e inglés<i class="zhonly"> &#183; &#35199;&#33521;&#21452;&#35821;</i></span></a>
+      <a class="sitelang wopt" data-site="pt" href="/pt/" lang="pt"><b>Português + English</b><span>Bilíngue português e inglês<i class="zhonly"> &#183; &#33889;&#33521;&#21452;&#35821;</i></span></a>
+      <a class="sitelang wopt" data-site="ko" href="/ko/" lang="ko"><b>한국어 + English</b><span>한국어·영어 이중 언어<i class="zhonly"> &#183; &#38889;&#33521;&#21452;&#35821;</i></span></a>
+      <a class="sitelang wopt" data-site="ar" href="/ar/" lang="ar" dir="rtl"><b>العربية + English</b><span>ثنائي اللغة: العربية والإنجليزية<i class="zhonly"> &#183; &#38463;&#33521;&#21452;&#35821;</i></span></a>
+      <button class="wopt wen" data-wlang="en" lang="en"><b>English only</b><span>Questions in English only</span></button>
     </div>
-    <div class="wother" aria-label="Other languages">
-      <a class="sitelang wopt" data-site="zh" href="/" lang="zh"><b>&#20013;&#25991; + English</b><span>&#20013;&#33521;&#21452;&#35821;&#39064;&#24211;</span></a>
-      <a class="sitelang wopt" data-site="es" href="/es/" lang="es"><b>Español + English</b><span>Preguntas en español</span></a>
-      <a class="sitelang wopt" data-site="pt" href="/pt/" lang="pt"><b>Português + English</b><span>Questões em português</span></a>
-      <a class="sitelang wopt" data-site="ko" href="/ko/" lang="ko"><b>한국어 + English</b><span>한국어 문제</span></a>
-      <a class="sitelang wopt" data-site="ar" href="/ar/" lang="ar" dir="rtl"><b>العربية + English</b><span>أسئلة باللغة العربية</span></a>
-    </div>
-    <p class="wnote">Você pode mudar isso a qualquer momento no canto superior direito · You can change this anytime at the top right.</p>
+    <p class="wnote">Você pode ocultar ou mostrar o original em inglês a qualquer momento com a chave “Mostrar inglês” · Turn the English original on or off anytime with the “Show English” switch.</p>
   </div>
 </div>
 
@@ -13442,8 +13447,11 @@ function setLang(l){
   S.prefs.lang=l; saveLocal();
   document.body.classList.remove('lang-both','lang-zh','lang-en'); document.body.classList.add('lang-'+l);
   document.querySelectorAll('#langSeg button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===l)));
+  document.querySelectorAll('.entsw').forEach(c=>c.checked=(l!=="zh"));
 }
 document.querySelectorAll('#langSeg button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
+// "show English original" switches: off = translation only, on = bilingual
+document.querySelectorAll('.entsw').forEach(c=>c.addEventListener('change',()=>setLang(c.checked?"both":"zh")));
 
 /* ---------- views ---------- */
 function show(v){['vHome','vQuiz','vResult','vList'].forEach(id=>$(id).classList.toggle('hide',id!==v)); window.scrollTo(0,0);}
@@ -13948,8 +13956,9 @@ refreshHome();
   document.querySelectorAll('a.sitelang').forEach(a=>{
     const code=a.dataset.site; a.href=hrefFor(code);
     if(code===CUR){
-      if(a.classList.contains('hl')){ a.setAttribute('aria-current','page'); a.addEventListener('click',e=>e.preventDefault()); }
-      else a.remove();   // the welcome screen already offers this page's own options
+      a.setAttribute('aria-current','page'); a.addEventListener('click',e=>e.preventDefault());
+      // on the welcome screen this page's own bilingual box goes first and simply enters the site
+      if(a.classList.contains('wopt')){ a.classList.add('cur'); a.dataset.wlang="both"; a.parentNode.prepend(a); }
       return;
     }
     a.addEventListener('click',e=>{ e.preventDefault(); go(code); });
