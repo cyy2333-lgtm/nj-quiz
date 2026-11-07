@@ -162,6 +162,9 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 .cmn{display:inline-grid;place-items:center;min-width:20px;height:20px;padding:0 6px;border-radius:999px;background:var(--line);color:var(--ink);font-size:12px;margin-left:4px}
 .cmn:empty{display:none}
 .cmlist{display:grid;gap:8px;max-height:360px;overflow:auto}
+.cmlock{display:none;margin:0;font-size:13px;color:var(--muted)}
+.cm.locked .cmlock{display:block}
+.cm.locked .cmlist,.cm.locked #cmForm{display:none}
 .cmi{background:var(--bg);border-radius:10px;padding:8px 12px}
 .cmi p{margin:4px 0 0;font-size:14px;white-space:pre-wrap;overflow-wrap:anywhere}
 .cmmeta{display:flex;gap:8px;align-items:center;font-size:12px;color:var(--muted)}
@@ -172,6 +175,14 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 #cmText{width:100%;font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 11px;resize:vertical}
 .cmrow{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted)}
 .cmlogin{width:100%}
+.board{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:12px}
+.board .cm{border-top:1px solid var(--line)}
+.board .cmlist{max-height:480px}
+.bchips{display:flex;flex-wrap:wrap;gap:6px}
+#bCenters .chip{padding:5px 11px;font-size:13px}
+.bgl{font-size:12px;color:var(--muted);margin:10px 0 6px}
+.chip[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink);border-color:var(--accent);font-weight:700}
+.cmtag{background:var(--line);color:var(--ink);border-radius:999px;padding:1px 8px;font-size:11px}
 @media (max-width:440px){ .acct span{display:none} .acct{padding:6px} }
 .tag.trn{background:#fff4d6;border-color:#e0a800;color:#7a5600}
 .trnote{margin-top:8px;padding:8px 10px;border-radius:8px;background:#fff4d6;color:#5c4100;font-size:13px;line-height:1.5}
@@ -401,6 +412,18 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
     <h2 class="sec">المصطلحات Glossary</h2>
     <p class="note" style="margin:0 2px 8px">اضغط على أي مصطلح تحته خط منقط في السؤال لعرض معناه. Tap any dotted-underlined term in a question to see what it means.</p>
     <div class="glossary" id="glossList"></div>
+
+    <h2 class="sec">لوحة المجتمع · Community board</h2>
+    <p class="note" style="margin:0 2px 8px">شاركنا اقتراحاتك، أو تجربتك في الاختبار النظري أو اختبار القيادة في كل مركز. Share suggestions, or how your knowledge or road test went at each test center.</p>
+    <div class="board" id="board">
+      <div class="bchips"><button class="chip" data-bt="tip" aria-pressed="true">الاقتراحات · Suggestions</button><button class="chip" data-bt="ctr" aria-pressed="false">مراكز الاختبار · Test centers</button></div>
+      <div id="bCenters" class="hide">
+        <div class="bchips"><button class="chip" data-ctr="" aria-pressed="true">كل المراكز · All centers</button></div>
+        <div class="bgl">مواقع اختبار القيادة · Road test sites</div><div class="bchips" id="bRoad"></div>
+        <div class="bgl">الاختبار النظري واختبار النظر (Licensing Centers) · Knowledge &amp; vision test</div><div class="bchips" id="bLic"></div>
+      </div>
+      <div class="cm"><div class="cmh"><span id="bTitle">الاقتراحات · Suggestions</span> <span class="cmn" id="bN"></span></div><div class="cmlist" id="bList"><p class="cmempty">جارٍ التحميل… Loading…</p></div><div id="bForm"></div></div>
+    </div>
 
     <h2 class="sec">اللغة Language</h2>
     <nav class="langlinks" aria-label="Language versions">
@@ -13496,7 +13519,7 @@ function render(){
   else { sg.innerHTML=""; sg.classList.add('hide'); }
   $('qText').innerHTML=`<div class="en">${gloss(q.q.en)}</div><div class="zh">${gloss(q.q.zh||q.q.en)}</div>`;
   const un=unitNote(q), ue=$('qUnits'); ue.innerHTML=un; ue.classList.toggle('hide',!un);
-  $('qComments').innerHTML="";
+  $('qComments').innerHTML=""; loadComments(q);
   const ch=$('qChoices'); ch.innerHTML="";
   it.order.forEach((oi,pos)=>{
     const o=q.options[oi];
@@ -13524,7 +13547,7 @@ function paintAnswered(chosen,animate){
     if(oi===q.answer&&ok&&animate){ b.classList.add('pop'); const c=document.createElement('span'); c.className='check'; c.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>'; b.appendChild(c); }
     if(oi===chosen&&!ok&&animate) b.classList.add('shake');
   });
-  commentsButton(q);
+  unlockComments();
   const ex=q.explain||{};
   const showEx = !ok || !(S.prefs.auto&&animate);
   if(showEx||!ok){
@@ -13691,6 +13714,7 @@ window.addEventListener('njfb-ready',()=>{
     updateAcct();
     if(u){ fbOnLogin(u); } else { setSync("local"); }
     const open=document.querySelector('#qComments .cm'); if(open&&Q) loadComments(Q.list[Q.i].q);
+    if(B.loaded) loadBoard();
   });
 },{once:true});
 window.addEventListener('njfb-failed',()=>{ fbFailed=true; },{once:true});
@@ -13751,43 +13775,110 @@ $('acctBtn').addEventListener('click',e=>{
 });
 document.addEventListener('click',e=>{ if(!e.target.closest('#acctMenu')&&!e.target.closest('#acctBtn')) closeMenu(); });
 
-/* comments under each question (loaded on demand to keep reads low) */
-function commentsButton(q){
-  const box=$('qComments'); if(box.querySelector('.cm')) return;
-  box.innerHTML=`<button class="qtool cmopen" id="cmOpen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/></svg>ناقش هذا السؤال Discuss</button>`;
-  $('cmOpen').addEventListener('click',()=>loadComments(q));
+/* comments under each question */
+function cmItemHTML(c,tag){
+  return `<div class="cmi" data-id="${esc(c.id)}"><div class="cmmeta"><b>${esc(c.name)}</b>${tag?`<span class="cmtag">${esc(tag)}</span>`:""}<span>${new Date(c.t).toLocaleDateString()}</span>${(fbUser&&(c.uid===fbUser.uid||isAdmin))?`<button class="cmdel" data-id="${esc(c.id)}">حذف Delete</button>`:""}</div><p>${esc(c.text)}</p></div>`;
 }
+function bindDel(list,reload){
+  list.querySelectorAll('.cmdel').forEach(b=>b.addEventListener('click',async()=>{
+    if(b.dataset.armed!=="1"){ b.dataset.armed="1"; b.textContent="اضغط مرة أخرى للتأكيد Confirm"; setTimeout(()=>{ b.dataset.armed=""; b.textContent="حذف Delete"; },3000); return; }
+    try{ await fb.delComment(b.dataset.id); toast("تم الحذف · Deleted"); reload(); }catch(err){ toast("تعذّر الحذف · Could not delete"); }
+  }));
+}
+function cmFormHTML(id,ph){
+  return `<label class="cmlabel" for="${id}Text">التعليق باسم ${esc(displayName(fbUser))} · Comment as ${esc(displayName(fbUser))}</label><textarea id="${id}Text" maxlength="500" rows="3" placeholder="${ph}"></textarea><div class="cmrow"><span id="${id}Count">0/500</span><button class="btn" id="${id}Send">نشر Post</button></div>`;
+}
+function bindCmForm(id,qid,reload){
+  const ta=$(id+'Text'), send=$(id+'Send');
+  ta.addEventListener('input',()=>$(id+'Count').textContent=ta.value.length+"/500");
+  ta.addEventListener('keydown',e=>e.stopPropagation());
+  send.addEventListener('click',async()=>{
+    const t=ta.value.trim(); if(!t) return;
+    send.disabled=true;
+    try{ await fb.addComment(qid(),t.slice(0,500),displayName(fbUser).slice(0,30)); toast("تم النشر · Posted"); reload(); }
+    catch(err){ console.warn(err); toast("تعذّر النشر، يُرجى التأكد من التحقق من بريدك الإلكتروني · Could not post"); send.disabled=false; }
+  });
+}
+// comments sit under every question; before answering they stay folded so they can't give the answer away
+function unlockComments(){ const c=document.querySelector('#qComments .cm'); if(c) c.classList.remove('locked'); }
 async function loadComments(q){
   const box=$('qComments');
-  box.innerHTML=`<div class="cm"><div class="cmh">التعليقات Comments <span class="cmn" id="cmN"></span></div><div class="cmlist" id="cmList"><p class="cmempty">جارٍ التحميل… Loading…</p></div><div id="cmForm"></div></div>`;
+  const locked = !(Q && Q.list[Q.i] && Q.list[Q.i].q.id===q.id && Q.answers[Q.i]!=null);
+  box.innerHTML=`<div class="cm${locked?" locked":""}"><div class="cmh">التعليقات Comments <span class="cmn" id="cmN"></span></div><p class="cmlock">أجب أولاً لرؤية التعليقات (حتى لا تنكشف الإجابة) · Answer first to see comments</p><div class="cmlist" id="cmList"><p class="cmempty">جارٍ التحميل… Loading…</p></div><div id="cmForm"></div></div>`;
   renderCmForm(q);
   if(!fb){ $('cmList').innerHTML=`<p class="cmempty">${fbFailed?"خدمة التعليقات غير متاحة مؤقتًا · Comments unavailable":"جارٍ الاتصال… Connecting…"}</p>`; if(!fbFailed) window.addEventListener('njfb-ready',()=>{ if(Q&&Q.list[Q.i].q.id===q.id) loadComments(q); },{once:true}); return; }
   try{
     const list=(await fb.listComments(q.id)).sort((a,b)=>b.t-a.t);
     if(!Q||Q.list[Q.i].q.id!==q.id) return;
     $('cmN').textContent=list.length;
-    $('cmList').innerHTML = list.length ? list.map(c=>`<div class="cmi" data-id="${esc(c.id)}"><div class="cmmeta"><b>${esc(c.name)}</b><span>${new Date(c.t).toLocaleDateString()}</span>${(fbUser&&(c.uid===fbUser.uid||isAdmin))?`<button class="cmdel" data-id="${esc(c.id)}">حذف Delete</button>`:""}</div><p>${esc(c.text)}</p></div>`).join("")
+    $('cmList').innerHTML = list.length ? list.map(c=>cmItemHTML(c)).join("")
       : `<p class="cmempty">لا توجد تعليقات بعد، كن أول من يعلّق · No comments yet</p>`;
-    $('cmList').querySelectorAll('.cmdel').forEach(b=>b.addEventListener('click',async()=>{
-      if(b.dataset.armed!=="1"){ b.dataset.armed="1"; b.textContent="اضغط مرة أخرى للتأكيد Confirm"; setTimeout(()=>{ b.dataset.armed=""; b.textContent="حذف Delete"; },3000); return; }
-      try{ await fb.delComment(b.dataset.id); toast("تم الحذف · Deleted"); loadComments(q); }catch(err){ toast("تعذّر الحذف · Could not delete"); }
-    }));
+    bindDel($('cmList'),()=>loadComments(q));
   }catch(err){ console.warn(err); $('cmList').innerHTML=`<p class="cmempty">تعذّر تحميل التعليقات · Could not load comments</p>`; }
 }
-function renderCmForm(q){
-  const f=$('cmForm');
-  if(!fbUser){ f.innerHTML=`<button class="btn ghost grow cmlogin" id="cmLogin">سجّل الدخول للتعليق · Log in to comment</button>`; $('cmLogin').addEventListener('click',()=>openAuth("login")); return; }
-  if(!canPost(fbUser)){ f.innerHTML=`<p class="cmempty">يُرجى التحقق من بريدك الإلكتروني قبل التعليق (اضغط على الحساب في أعلى الصفحة لإعادة إرسال رسالة التحقق) · Verify your email to comment</p>`; return; }
-  f.innerHTML=`<label class="cmlabel" for="cmText">التعليق باسم ${esc(displayName(fbUser))} · Comment as ${esc(displayName(fbUser))}</label><textarea id="cmText" maxlength="500" rows="3" placeholder="شارك فهمك أو طريقتك في التذكر (500 حرف كحد أقصى) · Share a tip (max 500)"></textarea><div class="cmrow"><span id="cmCount">0/500</span><button class="btn" id="cmSend">نشر Post</button></div>`;
-  const ta=$('cmText'); ta.addEventListener('input',()=>$('cmCount').textContent=ta.value.length+"/500");
-  ta.addEventListener('keydown',e=>e.stopPropagation());
-  $('cmSend').addEventListener('click',async()=>{
-    const t=ta.value.trim(); if(!t) return;
-    $('cmSend').disabled=true;
-    try{ await fb.addComment(q.id,t.slice(0,500),displayName(fbUser).slice(0,30)); toast("تم النشر · Posted"); loadComments(q); }
-    catch(err){ console.warn(err); toast("تعذّر النشر، يُرجى التأكد من التحقق من بريدك الإلكتروني · Could not post"); $('cmSend').disabled=false; }
-  });
+// login / verify prompt shared by both comment areas; returns true when the person can post
+function cmGate(f,id){
+  if(!fbUser){ f.innerHTML=`<button class="btn ghost grow cmlogin" id="${id}Login">سجّل الدخول للتعليق · Log in to comment</button>`; $(id+'Login').addEventListener('click',()=>openAuth("login")); return false; }
+  if(!canPost(fbUser)){ f.innerHTML=`<p class="cmempty">يُرجى التحقق من بريدك الإلكتروني قبل التعليق (اضغط على الحساب في أعلى الصفحة لإعادة إرسال رسالة التحقق) · Verify your email to comment</p>`; return false; }
+  return true;
 }
+function renderCmForm(q){
+  const f=$('cmForm'); if(!cmGate(f,'cm')) return;
+  f.innerHTML=cmFormHTML('cm',"شارك فهمك أو طريقتك في التذكر (500 حرف كحد أقصى) · Share a tip (max 500)");
+  bindCmForm('cm',()=>q.id,()=>loadComments(q));
+}
+
+/* ---------- home community board: suggestions + test-center experiences ---------- */
+// sites as listed on nj.gov/mvc/locations/facilitylocations.htm (REAL ID-only offices left out)
+const ROAD_SITES=["Bakers Basin","Cape May","Cherry Hill","Delanco","Eatontown","Kilmer (Edison)","Lodi","Mays Landing","Miller Air Park","Newark","Rahway","Randolph","Salem","Wayne","Winslow (Ancora)"];
+const LIC_SITES=["Bakers Basin","Bayonne","Camden","Cardiff","Delanco","Eatontown","Edison","Elizabeth","Flemington","Freehold","Lodi","Manahawkin","Newark","Newton","North Bergen","Oakland","Paterson","Rahway","Randolph","Rio Grande","Runnemede","Salem","South Plainfield","Toms River","Vineland","Washington","Wayne","West Deptford"];
+const siteSlug=s=>s.toLowerCase().replace(/\s*\(.*\)/,"").replace(/[^a-z]/g,"").slice(0,15);
+const BQ={}; // qid -> label; qids stay within the 20-character limit in the database rules
+ROAD_SITES.forEach(n=>BQ["c:r:"+siteSlug(n)]="اختبار القيادة · "+n);
+LIC_SITES.forEach(n=>BQ["c:k:"+siteSlug(n)]="الاختبار النظري · "+n);
+const B={tab:"tip",ctr:"",loaded:false,seq:0};
+const siteChips=(arr,p)=>arr.map(n=>`<button class="chip" data-ctr="${p}${siteSlug(n)}" aria-pressed="false">${esc(n)}</button>`).join("");
+$('bRoad').innerHTML=siteChips(ROAD_SITES,"c:r:");
+$('bLic').innerHTML=siteChips(LIC_SITES,"c:k:");
+$('board').addEventListener('click',e=>{
+  const t=e.target.closest('[data-bt]'), c=e.target.closest('[data-ctr]');
+  if(t){ B.tab=t.dataset.bt; }
+  else if(c){ B.ctr=c.dataset.ctr; }
+  else return;
+  $('board').querySelectorAll('[data-bt]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.bt===B.tab)));
+  $('board').querySelectorAll('[data-ctr]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.ctr===B.ctr)));
+  $('bCenters').classList.toggle('hide',B.tab!=="ctr");
+  loadBoard();
+});
+const boardQid=()=>B.tab==="tip"?"b:tip":B.ctr; // "" = every center
+async function loadBoard(){
+  B.loaded=true; const seq=++B.seq, L=$('bList');
+  $('bTitle').textContent = B.tab==="tip" ? "الاقتراحات · Suggestions" : (B.ctr ? BQ[B.ctr] : "كل المراكز · All centers");
+  $('bN').textContent="";
+  renderBoardForm();
+  if(!fb){ L.innerHTML=`<p class="cmempty">${fbFailed?"خدمة التعليقات غير متاحة مؤقتًا · Comments unavailable":"جارٍ الاتصال… Connecting…"}</p>`; return; }
+  L.innerHTML=`<p class="cmempty">جارٍ التحميل… Loading…</p>`;
+  try{
+    const qid=boardQid();
+    const list=(qid ? await fb.listComments(qid) : await fb.listRange("c:","c;")).sort((a,b)=>b.t-a.t);
+    if(seq!==B.seq) return;
+    $('bN').textContent=list.length;
+    L.innerHTML = list.length ? list.map(c=>cmItemHTML(c, qid?"":BQ[c.qid])).join("")
+      : `<p class="cmempty">${B.tab==="tip"?"لا توجد اقتراحات بعد. كن أول من يكتب · No suggestions yet":"لا توجد تجارب هنا بعد. اكتب أول تجربة · No posts yet"}</p>`;
+    bindDel(L,loadBoard);
+  }catch(err){ console.warn(err); if(seq===B.seq) L.innerHTML=`<p class="cmempty">تعذّر تحميل التعليقات · Could not load comments</p>`; }
+}
+function renderBoardForm(){
+  const f=$('bForm'); if(!cmGate(f,'b')) return;
+  if(B.tab==="ctr"&&!B.ctr){ f.innerHTML=`<p class="cmempty">اختر مركزاً من الأعلى للنشر · Pick a test center above to post</p>`; return; }
+  f.innerHTML=cmFormHTML('b', B.tab==="tip"
+    ? "هل لديك اقتراح للموقع أو للأسئلة؟ يمكنك أيضاً إبلاغنا عن إجابة خاطئة (500 حرف كحد أقصى) · Suggestions (max 500)"
+    : "الممتحن، المسار، وقت الانتظار، نصائح… (500 حرف كحد أقصى) · Examiner, route, wait time, tips…");
+  bindCmForm('b',boardQid,loadBoard);
+}
+// load the board only when it scrolls into view, to keep database reads low
+if('IntersectionObserver' in window){ const io=new IntersectionObserver(es=>{ if(es.some(x=>x.isIntersecting)){ io.disconnect(); if(!B.loaded) loadBoard(); } },{rootMargin:"200px"}); io.observe($('board')); }
+else loadBoard();
 
 /* ---------- glossary popover ---------- */
 let popEl=null;
@@ -13896,6 +13987,7 @@ try{
   });
   const auth=A.getAuth(app); auth.useDeviceLanguage();
   const db=F.getFirestore(app);
+  const cmOf=d=>{const x=d.data(); return {id:d.id,qid:x.qid,text:x.text,name:x.name,uid:x.uid,t:x.createdAt&&x.createdAt.toMillis?x.createdAt.toMillis():Date.now()};};
   window.NJFB={
     onUser:cb=>A.onAuthStateChanged(auth,cb),
     google:()=>A.signInWithPopup(auth,new A.GoogleAuthProvider()),
@@ -13905,7 +13997,9 @@ try{
     resend:()=>A.sendEmailVerification(auth.currentUser),
     refresh:async()=>{ await A.reload(auth.currentUser); await auth.currentUser.getIdToken(true); return auth.currentUser; },
     logout:()=>A.signOut(auth),
-    listComments:async qid=>{ const s=await F.getDocs(F.query(F.collection(db,"comments"),F.where("qid","==",qid),F.limit(100))); return s.docs.map(d=>{const x=d.data(); return {id:d.id,qid:x.qid,text:x.text,name:x.name,uid:x.uid,t:x.createdAt&&x.createdAt.toMillis?x.createdAt.toMillis():Date.now()};}); },
+    listComments:async qid=>{ const s=await F.getDocs(F.query(F.collection(db,"comments"),F.where("qid","==",qid),F.limit(100))); return s.docs.map(cmOf); },
+    // every comment whose qid starts with a prefix (e.g. all test-center posts)
+    listRange:async(from,to)=>{ const s=await F.getDocs(F.query(F.collection(db,"comments"),F.where("qid",">=",from),F.where("qid","<",to),F.limit(200))); return s.docs.map(cmOf); },
     addComment:(qid,text,name)=>F.addDoc(F.collection(db,"comments"),{qid,text,name,uid:auth.currentUser.uid,createdAt:F.serverTimestamp()}),
     delComment:id=>F.deleteDoc(F.doc(db,"comments",id)),
     loadProgress:async uid=>{ const s=await F.getDoc(F.doc(db,"users",uid)); return s.exists()?s.data():null; },
