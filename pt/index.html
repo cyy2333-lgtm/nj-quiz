@@ -175,6 +175,17 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 #cmText{width:100%;font:inherit;font-size:15px;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:9px 11px;resize:vertical}
 .cmrow{display:flex;justify-content:space-between;align-items:center;font-size:12px;color:var(--muted)}
 .cmlogin{width:100%}
+#qNote{margin-top:12px}
+#qNote:empty{display:none}
+.notebox{background:#fff8e1;border:1px solid #f1d27a;border-radius:12px;padding:10px 12px;display:grid;gap:6px}
+.notebox .nh{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;font-size:13px;color:#6b5200}
+.notebox .nh span{font-size:12px;opacity:.8}
+.notebox textarea{width:100%;resize:vertical;border:0;background:transparent;font:inherit;font-size:14px;color:var(--ink);line-height:1.5;outline:none;padding:0}
+.mynote{margin-top:8px;background:#fff8e1;border:1px solid #f1d27a;border-radius:10px;padding:8px 10px;font-size:13px;white-space:pre-wrap;overflow-wrap:anywhere}
+.mynote b{display:block;font-size:12px;color:#6b5200;margin-bottom:2px}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .notebox,:root:not([data-theme="light"]) .mynote{background:#33290f;border-color:#6d5a1c} :root:not([data-theme="light"]) .notebox .nh,:root:not([data-theme="light"]) .mynote b{color:#f3d98b} }
+:root[data-theme="dark"] .notebox,:root[data-theme="dark"] .mynote{background:#33290f;border-color:#6d5a1c}
+:root[data-theme="dark"] .notebox .nh,:root[data-theme="dark"] .mynote b{color:#f3d98b}
 .board{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px;display:grid;gap:12px}
 .board .cm{border-top:1px solid var(--line)}
 .board .cmlist{max-height:480px}
@@ -406,6 +417,7 @@ a.wopt{text-decoration:none;color:var(--ink)}
     <div class="qnav">
       <button class="btn ghost grow" data-list="wrong">Ver lista de erros · Review list</button>
       <button class="btn ghost grow" data-list="fav">Ver lista de favoritos · Favorites list</button>
+      <button class="btn ghost grow" data-list="notes">Minhas anotações · My notes</button>
     </div>
 
     <h2 class="sec">Por tema · By topic</h2>
@@ -467,6 +479,7 @@ a.wopt{text-decoration:none;color:var(--ink)}
       <div class="unitnote hide" id="qUnits"></div>
       <div class="choices" id="qChoices"></div>
       <div id="qExplain"></div>
+      <div id="qNote"></div>
       <div id="qComments"></div>
     </div>
     <div class="qnav">
@@ -13067,7 +13080,7 @@ function gloss(text,inOption){
 
 /* ---------- state & storage ---------- */
 const LS_KEY="njquiz.v1";
-const blank=()=>({wrong:{},fav:{},done:{},best:null,prefs:{lang:"both",shuffle:true,shuffleOpt:true,auto:true,sound:true,autoRemove:true}});
+const blank=()=>({wrong:{},fav:{},done:{},notes:{},best:null,prefs:{lang:"both",shuffle:true,shuffleOpt:true,auto:true,sound:true,autoRemove:true}});
 const REMOVE_AFTER=2; // correct answers inside the wrong-answer list before an item leaves it
 let S=blank();
 try{const raw=localStorage.getItem(LS_KEY); if(raw){const o=JSON.parse(raw); S=Object.assign(blank(),o); S.prefs=Object.assign(blank().prefs,o.prefs||{});}}catch(e){}
@@ -13085,6 +13098,9 @@ function wrongCorrect(id){
   return S.prefs.autoRemove!==false ? REMOVE_AFTER-ok : -1;
 }
 function unWrong(id){if(S.wrong[id]){S.wrong[id]=Object.assign({},S.wrong[id],{on:false,t:Date.now()}); changed();}}
+// notes[id]={x:text,t:time}; an empty x marks a deleted note so it syncs across devices
+const noteOf=id=>(S.notes&&S.notes[id]&&S.notes[id].x)||"";
+function setNote(id,x){ S.notes[id]={x,t:Date.now()}; changed(); }
 function toggleFav(id){const on=!isFav(id); S.fav[id]={t:Date.now(),on}; changed(); return on;}
 function record(id,ok){const d=S.done[id]||{c:0,w:0}; ok?d.c++:d.w++; S.done[id]=d; changed();}
 
@@ -13095,7 +13111,7 @@ async function push(){
   if(!cloud) return;
   if(pushing){pushAgain=true;return;}
   pushing=true;
-  try{await cloud.set({wrong:S.wrong,fav:S.fav,done:S.done,best:S.best,v:1});}catch(e){ if(e&&e.code==="invalid_argument"){cloud=null; setSync("local");} }
+  try{await cloud.set({wrong:S.wrong,fav:S.fav,done:S.done,notes:S.notes,best:S.best,v:1});}catch(e){ if(e&&e.code==="invalid_argument"){cloud=null; setSync("local");} }
   pushing=false; if(pushAgain){pushAgain=false; push();}
 }
 function mergeMap(a,b){const out=Object.assign({},a); for(const k in b){ if(!out[k]||(b[k].t||0)>(out[k].t||0)) out[k]=b[k]; } return out;}
@@ -13119,7 +13135,7 @@ function setSync(mode){
     if(snap==="timeout"){setSync("local");return;}
     if(snap&&snap.exists){
       const d=snap.data()||{};
-      S.wrong=mergeMap(S.wrong,d.wrong||{}); S.fav=mergeMap(S.fav,d.fav||{}); S.done=mergeDone(S.done,d.done||{});
+      S.wrong=mergeMap(S.wrong,d.wrong||{}); S.fav=mergeMap(S.fav,d.fav||{}); S.done=mergeDone(S.done,d.done||{}); S.notes=mergeMap(S.notes,d.notes||{});
       if(d.best&&(!S.best||d.best.score>S.best.score)) S.best=d.best;
       saveLocal();
     }
@@ -13476,7 +13492,7 @@ function refreshHome(){
 
 /* ---------- quiz engine ---------- */
 let Q=null; // {mode,title,list:[{q,order}],i,answers:[],combo,best,right}
-const MODE_TITLE={hf:"Mais cobradas · High frequency",tricky:"Pegadinhas · Error-prone",exam:"Simulado · Mock test",wrong:"Meus erros · Wrong answers",fav:"Favoritos · Favorites",all:"Todas as questões · All"};
+const MODE_TITLE={hf:"Mais cobradas · High frequency",tricky:"Pegadinhas · Error-prone",exam:"Simulado · Mock test",wrong:"Meus erros · Wrong answers",fav:"Favoritos · Favorites",notes:"Minhas anotações · My notes",all:"Todas as questões · All"};
 const hasAbove=q=>q.options.some(o=>/above|\u4ee5\u4e0a|both|all of these|none of these/i.test((o.en||"")+(o.zh||"")));
 function buildOrder(q){ const idx=[0,1,2,3]; return (S.prefs.shuffleOpt&&!hasAbove(q))?shuffle(idx):idx; }
 function start(mode,arg,customList){
@@ -13486,6 +13502,7 @@ function start(mode,arg,customList){
   else if(mode==="tricky") pool=ALL.filter(q=>q.tricky);
   else if(mode==="wrong") pool=ALL.filter(q=>isWrong(q.id));
   else if(mode==="fav") pool=ALL.filter(q=>isFav(q.id));
+  else if(mode==="notes") pool=ALL.filter(q=>noteOf(q.id).trim());
   else if(mode==="topic") pool=ALL.filter(q=>q.topic===arg);
   else if(mode==="exam") pool=examPool();
   else pool=ALL.slice();
@@ -13525,7 +13542,7 @@ function render(){
   else { sg.innerHTML=""; sg.classList.add('hide'); }
   $('qText').innerHTML=`<div class="en">${gloss(q.q.en)}</div><div class="zh">${gloss(q.q.zh||q.q.en)}</div>`;
   const un=unitNote(q), ue=$('qUnits'); ue.innerHTML=un; ue.classList.toggle('hide',!un);
-  $('qComments').innerHTML=""; loadComments(q);
+  renderNote(q); $('qComments').innerHTML=""; loadComments(q);
   const ch=$('qChoices'); ch.innerHTML="";
   it.order.forEach((oi,pos)=>{
     const o=q.options[oi];
@@ -13622,6 +13639,7 @@ function itemHTML(q){
     <div class="a">✓ ${bi(q.options[q.answer])}</div>
     ${q.explain?`<div style="font-size:13px;color:var(--muted);margin-top:4px">${bi(q.explain)}</div>`:""}
     ${q.trNote?`<div class="trnote">⚠ ${esc(q.trNote)}</div>`:""}
+    ${noteOf(q.id).trim()?`<div class="mynote"><b>✎ Minha anotação · My note</b>${esc(noteOf(q.id))}</div>`:""}
     ${sourceHTML(q)}
     <div class="meta">${isWrong(q.id)?`<span style="color:var(--bad)">Errou ${S.wrong[q.id].n} vez(es)</span>${(S.prefs.autoRemove!==false&&S.wrong[q.id].ok)?`<span style="color:var(--good)">Acertos ${S.wrong[q.id].ok}/${REMOVE_AFTER}</span>`:""}`:""}<span>${esc(TOPICS[q.topic].zh)}</span><span class="sp"></span>
     <button class="mini" data-act="fav">${isFav(q.id)?"★ Favoritada":"☆ Favoritar"}</button>
@@ -13635,15 +13653,16 @@ function bindItems(root){
   }));
 }
 function showList(kind,fromQuiz){
-  const qs=ALL.filter(q=>kind==="wrong"?isWrong(q.id):isFav(q.id));
+  const qs=ALL.filter(q=>kind==="wrong"?isWrong(q.id):kind==="notes"?!!noteOf(q.id).trim():isFav(q.id));
+  if(kind==="notes") qs.sort((a,b)=>S.notes[b.id].t-S.notes[a.id].t);
   if(kind==="wrong") qs.sort((a,b)=>S.wrong[b.id].n-S.wrong[a.id].n);
   const resume = fromQuiz && Q;
   const v=$('vList');
   v.innerHTML=`<div class="qtop"><button class="iconbtn" id="lBack" aria-label="${resume?"Voltar às questões · Back to quiz":"Voltar · Back"}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg></button>
-    <div class="title">${kind==="wrong"?"Meus erros · Wrong answers":"Favoritos · Favorites"}</div><div class="count">${qs.length}</div></div>
+    <div class="title">${kind==="wrong"?"Meus erros · Wrong answers":kind==="notes"?"Minhas anotações · My notes":"Favoritos · Favorites"}</div><div class="count">${qs.length}</div></div>
     ${resume?`<div class="qtools"><button class="qtool" id="lResume">Continuar a prática anterior · Resume (${Q.i+1}/${Q.list.length})</button><button class="qtool" id="lHome">Página inicial · Home</button></div>`:""}
     ${qs.length?`<div class="qnav"><button class="btn grow" id="lStart">Praticar estas ${qs.length} questões</button></div><div class="list">${qs.map(itemHTML).join("")}</div>`
-      :`<div class="empty">${kind==="wrong"?"Nenhum erro ainda. As questões que você errar aparecerão aqui automaticamente.":"Nenhum favorito ainda. Ao responder, toque na estrela no canto inferior esquerdo para favoritar."}</div>`}`;
+      :`<div class="empty">${kind==="wrong"?"Nenhum erro ainda. As questões que você errar aparecerão aqui automaticamente.":kind==="notes"?"Você ainda não tem anotações. Ao praticar, toque em “Escrever anotação” abaixo da questão para registrar o que quiser lembrar.":"Nenhum favorito ainda. Ao responder, toque na estrela no canto inferior esquerdo para favoritar."}</div>`}`;
   show('vList');
   const back=()=>{ if(resume&&Q){ show('vQuiz'); render(); } else goHome(); };
   $('lBack').addEventListener('click',back);
@@ -13696,13 +13715,13 @@ function fbSchedule(){ if(!fb||!fbUser) return; clearTimeout(fbPushT); fbPushT=s
 async function fbPush(){
   if(!fb||!fbUser) return; if(fbPushing){fbAgain=true;return;}
   fbPushing=true;
-  try{ await fb.saveProgress(fbUser.uid,{wrong:S.wrong,fav:S.fav,done:S.done,best:S.best||null,v:1,updated:Date.now()}); }catch(e){ console.warn("sync failed",e); }
+  try{ await fb.saveProgress(fbUser.uid,{wrong:S.wrong,fav:S.fav,done:S.done,notes:S.notes,best:S.best||null,v:1,updated:Date.now()}); }catch(e){ console.warn("sync failed",e); }
   fbPushing=false; if(fbAgain){fbAgain=false; fbPush();}
 }
 async function fbOnLogin(u){
   try{
     const d=await fb.loadProgress(u.uid);
-    if(d){ S.wrong=mergeMap(S.wrong,d.wrong||{}); S.fav=mergeMap(S.fav,d.fav||{}); S.done=mergeDone(S.done,d.done||{}); if(d.best&&(!S.best||d.best.score>S.best.score)) S.best=d.best; saveLocal(); }
+    if(d){ S.wrong=mergeMap(S.wrong,d.wrong||{}); S.fav=mergeMap(S.fav,d.fav||{}); S.notes=mergeMap(S.notes,d.notes||{}); S.done=mergeDone(S.done,d.done||{}); if(d.best&&(!S.best||d.best.score>S.best.score)) S.best=d.best; saveLocal(); }
     await fbPush();
     setSync("account"); refreshHome(); if(Q&&!$('vQuiz').classList.contains('hide')) updateTools();
   }catch(e){ console.warn("load progress failed",e); }
@@ -13780,6 +13799,21 @@ $('acctBtn').addEventListener('click',e=>{
   const rf=$('mRefresh'); if(rf) rf.addEventListener('click',async()=>{ const u=await fb.refresh(); fbUser=u; closeMenu(); toast(u.emailVerified?"E-mail verificado; você já pode comentar · Verified":"A verificação ainda não foi detectada; clique no link do e-mail · Not verified yet"); });
 });
 document.addEventListener('click',e=>{ if(!e.target.closest('#acctMenu')&&!e.target.closest('#acctBtn')) closeMenu(); });
+
+/* personal notes under each question (kept on this device, synced to the account when logged in) */
+function fitNote(ta){ ta.style.height="auto"; ta.style.height=Math.max(ta.scrollHeight+2,76)+"px"; }
+function renderNote(q,open){
+  const box=$('qNote');
+  if(!open && !noteOf(q.id).trim()){
+    box.innerHTML=`<button class="qtool noteadd" id="noteAdd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg>Escrever anotação · Add a note</button>`;
+    $('noteAdd').addEventListener('click',()=>{ renderNote(q,true); $('noteText').focus(); });
+    return;
+  }
+  box.innerHTML=`<div class="notebox"><div class="nh"><b>✎ Minha anotação · My note</b><span id="noteSt">Salva automaticamente, só você pode ver · Saved automatically, only you can see it</span></div><textarea id="noteText" maxlength="2000" placeholder="Escreva o que entendeu, truques para memorizar ou o que costuma confundir · Your own notes or memory tricks"></textarea></div>`;
+  const ta=$('noteText'); ta.value=noteOf(q.id); fitNote(ta);
+  ta.addEventListener('input',()=>{ fitNote(ta); setNote(q.id, ta.value.trim()?ta.value:""); $('noteSt').textContent="Salvo · Saved"; });
+  ta.addEventListener('keydown',e=>e.stopPropagation());
+}
 
 /* comments under each question */
 function cmItemHTML(c,tag){
