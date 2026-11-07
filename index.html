@@ -31,7 +31,7 @@
 :root{
   --bg:#fff5f8; --surface:#ffffff; --soft:#fdf0f5; --ink:#000; --muted:#77767b; --line:#e9e5e7; --ledge:#dcd7da;
   --accent:#f8c8d8; --accent-deep:#e7a7be; --accent-ink:#000; --accent-text:#000; --sign:#ffcc33; --sign-ink:#3d2e00;
-  --good:#2f9e44; --good-deep:#237a34; --good-soft:#e8f7eb; --bad:#e5484d; --bad-deep:#b8363a; --bad-soft:#fdeeee;
+  --good:#7cc49a; --good-deep:#5fae80; --good-soft:#eef8f1; --bad:#e5484d; --bad-deep:#b8363a; --bad-soft:#fdeeee;
   --shadow:none;
   --display:"Nunito","Noto Sans SC",sans-serif;
   --head:"Smiley Sans Oblique","Nunito","HarmonyOS Sans SC","Noto Sans SC",sans-serif;
@@ -42,7 +42,7 @@
   :root:not([data-theme="light"]){
     --bg:#000; --surface:#141414; --soft:#1f1a1c; --ink:#fff; --muted:#a3a3a3; --line:#2b2b2b; --ledge:#2b2b2b;
     --accent:#f7cadb; --accent-deep:#c99cad; --accent-ink:#000; --accent-text:#f6b3cb; --sign:#ffcc33; --sign-ink:#3d2e00;
-    --good:#4cc767; --good-deep:#2f8f45; --good-soft:#15291a; --bad:#ff6369; --bad-deep:#b8363a; --bad-soft:#331718;
+    --good:#7fc69c; --good-deep:#5a9b76; --good-soft:#17261d; --bad:#ff6369; --bad-deep:#b8363a; --bad-soft:#331718;
     --shadow:none;
     color-scheme:dark;
   }
@@ -50,7 +50,7 @@
 :root[data-theme="dark"]{
   --bg:#000; --surface:#141414; --soft:#1f1a1c; --ink:#fff; --muted:#a3a3a3; --line:#2b2b2b; --ledge:#2b2b2b;
   --accent:#f7cadb; --accent-deep:#c99cad; --accent-ink:#000; --accent-text:#f6b3cb; --sign:#ffcc33; --sign-ink:#3d2e00;
-  --good:#4cc767; --good-deep:#2f8f45; --good-soft:#15291a; --bad:#ff6369; --bad-deep:#b8363a; --bad-soft:#331718;
+  --good:#7fc69c; --good-deep:#5a9b76; --good-soft:#17261d; --bad:#ff6369; --bad-deep:#b8363a; --bad-soft:#331718;
   --shadow:none;
   color-scheme:dark;
 }
@@ -638,6 +638,9 @@ h2.sec{font-weight:400;font-size:24px;letter-spacing:.02em}
 .lang-both .choice .tx .en{font-weight:400}
 .choice .k{font-weight:500}
 .explain .h{font-weight:500}
+.explain .h{color:#4e9a6e}
+.dark-on .explain .h{color:#9fd8b6}
+.choice.right .k{color:#fff}
 .verdict{font-weight:300}
 .btn,.btn.ghost{font-weight:500;letter-spacing:.03em}
 .plate small,.plate b{font-family:"Nunito",sans-serif}
@@ -13376,7 +13379,7 @@ const MANUAL_ZH="https://www.nj.gov/mvc/pdf/license/chinesemanual.pdf";
 function sourceHTML(q){
   const s=source(q); if(!s) return "";
   const p=parseInt(s.page,10), href=MANUAL_EN+(p?`#page=${p+2}`:"");
-  return `<div class="src"><a class="srclink" href="${href}" target="_blank" rel="noopener"><span class="uz">2026 官方手册 第${esc(s.page)}页</span><span class="ue">2026 manual, p. ${esc(s.page)}</span> ↗</a>${q.scene?`<span class="note">情景图是依据手册条文绘制的示意图 Diagram drawn from the manual's rules</span>`:""}</div>`;
+  return `<div class="src"><a class="srclink" href="${href}" target="_blank" rel="noopener"><span class="uz">2026 官方手册 第${esc(s.page)}页</span><span class="ue">2026 manual, p. ${esc(s.page)}</span></a>${q.scene?`<span class="note">情景图是依据手册条文绘制的示意图 Diagram drawn from the manual's rules</span>`:""}</div>`;
 }
 
 /* ---------- glossary ---------- */
