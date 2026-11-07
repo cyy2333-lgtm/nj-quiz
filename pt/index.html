@@ -21,7 +21,7 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"NJ Permit Quiz · Prova teórica de direção de New Jersey em português","url":"https://njpermitquiz.com/pt/","inLanguage":["en","pt"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Nunito:wght@600;700;800;900&family=Noto+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Light/result.css" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Regular/result.css" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/harmonyos-sans-webfont-splitted@1.2.1/dist/HarmonyOS_Sans_SC/Medium/result.css" media="print" onload="this.media='all'">
@@ -29,8 +29,8 @@
 /* Look: a friendly flashcard app. White cards with soft gray borders and a chunky bottom "ledge" so buttons feel pressable;
    light pink is the one accent, green/red only mean right/wrong, yellow marks "tricky". Rounded Nunito for Latin text and numbers. */
 :root{
-  --bg:#ffffff; --surface:#ffffff; --soft:#fdf1f5; --ink:#000; --muted:#77767b; --line:#e9e5e7; --ledge:#dcd7da;
-  --accent:#f4a6c1; --accent-deep:#de85a6; --accent-ink:#000; --accent-text:#000; --sign:#ffcc33; --sign-ink:#3d2e00;
+  --bg:#fff5f8; --surface:#ffffff; --soft:#fdf0f5; --ink:#000; --muted:#77767b; --line:#e9e5e7; --ledge:#dcd7da;
+  --accent:#f8c8d8; --accent-deep:#e7a7be; --accent-ink:#000; --accent-text:#000; --sign:#ffcc33; --sign-ink:#3d2e00;
   --good:#2f9e44; --good-deep:#237a34; --good-soft:#e8f7eb; --bad:#e5484d; --bad-deep:#b8363a; --bad-soft:#fdeeee;
   --shadow:none;
   --display:"Nunito","Noto Sans SC",sans-serif;
@@ -41,7 +41,7 @@
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     --bg:#000; --surface:#141414; --soft:#1f1a1c; --ink:#fff; --muted:#a3a3a3; --line:#2b2b2b; --ledge:#2b2b2b;
-    --accent:#f6b3cb; --accent-deep:#c98aa2; --accent-ink:#000; --accent-text:#f6b3cb; --sign:#ffcc33; --sign-ink:#3d2e00;
+    --accent:#f7cadb; --accent-deep:#c99cad; --accent-ink:#000; --accent-text:#f6b3cb; --sign:#ffcc33; --sign-ink:#3d2e00;
     --good:#4cc767; --good-deep:#2f8f45; --good-soft:#15291a; --bad:#ff6369; --bad-deep:#b8363a; --bad-soft:#331718;
     --shadow:none;
     color-scheme:dark;
@@ -49,7 +49,7 @@
 }
 :root[data-theme="dark"]{
   --bg:#000; --surface:#141414; --soft:#1f1a1c; --ink:#fff; --muted:#a3a3a3; --line:#2b2b2b; --ledge:#2b2b2b;
-  --accent:#f6b3cb; --accent-deep:#c98aa2; --accent-ink:#000; --accent-text:#f6b3cb; --sign:#ffcc33; --sign-ink:#3d2e00;
+  --accent:#f7cadb; --accent-deep:#c99cad; --accent-ink:#000; --accent-text:#f6b3cb; --sign:#ffcc33; --sign-ink:#3d2e00;
   --good:#4cc767; --good-deep:#2f8f45; --good-soft:#15291a; --bad:#ff6369; --bad-deep:#b8363a; --bad-soft:#331718;
   --shadow:none;
   color-scheme:dark;
@@ -508,7 +508,6 @@ h2.sec{font-size:26px;margin:34px 2px 14px}
 .pill{background:#fff;color:#000;border-radius:999px;padding:4px 12px;font-size:13px;font-weight:800}
 .pill.hot{background:#ef3b2d;color:#fff}
 .hero-title{font-family:var(--head);font-weight:400;font-size:44px;line-height:1.08;margin:16px 0 12px;letter-spacing:.5px}
-.hero-title span{display:table;margin-top:8px;background:#000;color:var(--accent);padding:2px 12px 4px;border-radius:12px;transform:rotate(-1.5deg);font-size:.82em}
 .hero-sub{margin:0;font-size:16px;font-weight:700;max-width:30em}
 .hero-en{margin:4px 0 0;font-size:14px;opacity:.75}
 .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
@@ -611,7 +610,6 @@ h2.sec{font-size:26px;margin:34px 2px 14px}
 .hero-ed b{font-size:15px;font-weight:800}
 .hero-ed span{font-size:13px;opacity:.8}
 .hero-title{font-size:46px;margin:20px 0 12px;text-wrap:balance;word-break:keep-all}
-.hero-title span{display:none}
 .mode .e{font-family:inherit;font-size:13px;font-weight:700;letter-spacing:0;text-transform:none}
 @media (max-width:440px){
   .hero-title{font-size:38px}
@@ -647,25 +645,43 @@ h2.sec{font-weight:400;font-size:24px;letter-spacing:.02em}
 .plate small,.plate b{font-family:"Nunito",sans-serif}
 @media (max-width:440px){ .mode .c b,.pstats b{font-size:24px} h2.sec{font-size:22px} .brand b{font-size:16px} }
 
+/* interface labels show one language: the page's own in bilingual and native modes, English in English mode.
+   Question content keeps both languages. */
+.ue{display:none}
+.lang-en .ue{display:inline}
+.lang-en .uz{display:none}
+.sync{display:none}
+.mode .c .uz{margin-left:2px}
+.modes.three{grid-template-columns:repeat(3,1fr);margin-top:12px}
+.m-nt{--stripe:#a8dcc8}
+.modes.three .mode .t{white-space:nowrap}
+@media (max-width:440px){ .modes.three{gap:8px} .modes.three .mode{padding:12px 10px 10px} .modes.three .mode .t{font-size:17px} }
+.qref{margin-top:8px;font-size:12px;color:var(--muted)}
+.qref:empty{display:none}
+
+.logo{flex:none;font-family:"DM Serif Display",Georgia,"Times New Roman",serif;font-weight:400;font-size:32px;line-height:1;letter-spacing:-.03em;color:var(--ink)}
+.logo.big{display:block;font-size:72px;margin:0 auto 4px}
+#setDlg .opts{margin-top:14px;border:0;padding:0 2px}
+#setDlg h2{margin:0;text-align:left}
+#setDlg .opt-row label{text-align:left}
+[dir="rtl"] #setDlg h2,[dir="rtl"] #setDlg .opt-row label{text-align:right}
+header{background:var(--bg)}
+
 </style>
 </head>
 <body class="lang-both">
 <header>
   <div class="hbar">
     <button class="brand" id="homeBtn" aria-label="Voltar ao início / Home">
-      <svg class="shield" viewBox="0 0 34 38" aria-hidden="true"><path d="M2 3h30v15c0 9-7 15-15 18C9 33 2 27 2 18z" fill="#f4a6c1" stroke="#111" stroke-width="2"/><text x="17" y="22" text-anchor="middle" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="14" fill="#111">NJ</text></svg>
-      <span><b>Prova teórica de direção de Nova Jersey <i class="new26">2026 atualizado</i></b><small>Latest 2026 Driver Manual / Português–English</small></span>
+      <span class="logo" aria-hidden="true">NJ</span>
+      <span><b><span class="uz">Prova teórica de direção de Nova Jersey</span><span class="ue">NJ Permit Quiz</span> <i class="new26"><span class="uz">2026 atualizado</span><span class="ue">2026</span></i></b></span>
     </button>
-    <div class="seg" role="group" aria-label="Idioma / Language" id="langSeg">
-      <button data-lang="both" aria-pressed="true">PT+EN</button>
-      <button data-lang="zh" aria-pressed="false">Português</button>
-      <button data-lang="en" aria-pressed="false">EN</button>
-    </div>
     <button class="themebtn" id="themeBtn" aria-label="Modo escuro / claro / Dark / light mode"><svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg></button>
-    <button class="acct" id="acctBtn" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span id="acctLabel">Entrar / Log in</span></button>
+    <button class="themebtn" id="setBtn" aria-label="Configurações / Settings" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></button>
+    <button class="acct" id="acctBtn" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span id="acctLabel"><span class="uz">Entrar</span><span class="ue">Log in</span></span></button>
   </div>
   <nav class="sitelangs" aria-label="Language versions">
-    <a class="sitelang hl" data-site="zh" href="/" lang="zh">&#20013;&#25991;</a><a class="sitelang hl" data-site="es" href="/es/" lang="es">Español</a><a class="sitelang hl" data-site="pt" href="/pt/" lang="pt">Português</a><a class="sitelang hl" data-site="ko" href="/ko/" lang="ko">한국어</a><a class="sitelang hl" data-site="ar" href="/ar/" lang="ar" dir="rtl">العربية</a>
+    <a class="sitelang hl" data-site="zh" href="/" lang="zh">&#20013;&#25991;</a><a class="sitelang hl" data-site="en" href="#" lang="en">English</a><a class="sitelang hl" data-site="es" href="/es/" lang="es">Español</a><a class="sitelang hl" data-site="pt" href="/pt/" lang="pt">Português</a><a class="sitelang hl" data-site="ko" href="/ko/" lang="ko">한국어</a><a class="sitelang hl" data-site="ar" href="/ar/" lang="ar" dir="rtl">العربية</a>
   </nav>
 </header>
 
@@ -675,64 +691,58 @@ h2.sec{font-weight:400;font-size:24px;letter-spacing:.02em}
     <div class="hero">
       <div class="hero-top">
         <div class="plate" aria-hidden="true"><small>NEW JERSEY</small><b>2026</b><small>Garden State</small></div>
-        <p class="hero-ed"><b>Versão 2026</b><span>Segundo o novo manual de setembro de 2026</span></p>
+        <p class="hero-ed"><b><span class="uz">Versão 2026</span><span class="ue">2026 edition</span></b></p>
       </div>
-      <h1 class="hero-title">Prova teórica de direção de Nova Jersey</h1>
-      <p class="hero-sub">527 questões de prática: temas frequentes, pegadinhas e simulado de 50 questões. Tudo grátis.</p>
-      <p class="hero-en">Free NJ permit practice test, English + Português</p>
+      <h1 class="hero-title"><span class="uz">Prova teórica de direção de Nova Jersey</span><span class="ue">NJ permit practice test</span></h1>
+      <p class="hero-sub"><span class="uz">527 questões, todas grátis</span><span class="ue">527 questions, all free</span></p>
       <div class="hero-cta">
-        <button class="btn big" data-start="hf">Começar Start</button>
-        <button class="btn ghost big" data-start="exam">Simulado / Mock test</button>
+        <button class="btn big" data-start="hf"><span class="uz">Começar</span><span class="ue">Start</span></button>
+        <button class="btn ghost big" data-start="exam"><span class="uz">Simulado</span><span class="ue">Mock test</span></button>
       </div>
     </div>
     <details class="trnotes"><summary>&#9888; Notas sobre a tradu&#231;&#227;o oficial em portugu&#234;s</summary><ul><li>Este site segue o manual oficial em portugu&#234;s do MVC. Quando a tradu&#231;&#227;o contradiz o original em ingl&#234;s (o texto que prevalece), seguimos o original e indicamos isso na explica&#231;&#227;o da quest&#227;o com &#171;Nota sobre o manual&#187;.</li><li>A probationary license aparece no manual como &#171;licen&#231;a provis&#243;ria&#187; e tamb&#233;m como &#171;carteira de habilita&#231;&#227;o probat&#243;ria&#187;. Aqui usamos &#171;licen&#231;a provis&#243;ria&#187;.</li><li>Os t&#237;tulos dos cap&#237;tulos 6, 7 e 9 s&#227;o diferentes no &#237;ndice e no cabe&#231;alho das p&#225;ginas. Aqui usamos os t&#237;tulos do &#237;ndice.</li><li>A lei &#171;Move Over&#187; &#233; chamada no manual de &#171;Lei de Ceder a Passagem&#187;, nome que pode ser confundido com dar a prefer&#234;ncia. Na verdade, ela obriga a mudar para uma faixa n&#227;o adjacente a ve&#237;culos de emerg&#234;ncia ou avariados parados.</li><li>N&#227;o encontramos no manual um termo para &#171;implied consent&#187;; usamos &#171;Lei do Consentimento Impl&#237;cito&#187;.</li></ul></details>
     <div class="progress">
       <div class="pring"><svg viewBox="0 0 80 80" aria-hidden="true"><circle class="pr-bg" cx="40" cy="40" r="33"/><circle class="pr-fg" id="pRing" cx="40" cy="40" r="33"/></svg><b id="pPct">0%</b></div>
       <div class="pstats">
-        <div><b><span id="sDone">0</span><small>/<span id="sTotal">0</span></small></b><span>Praticadas / Practiced</span></div>
-        <div><b id="sAcc">–</b><span>Taxa de acerto / Accuracy</span></div>
-        <div><b id="sBest">–</b><span>Melhor simulado / Best mock</span></div>
+        <div><b><span id="sDone">0</span><small>/<span id="sTotal">0</span></small></b><span><span class="uz">Praticadas</span><span class="ue">Practiced</span></span></div>
+        <div><b id="sAcc">–</b><span><span class="uz">Taxa de acerto</span><span class="ue">Accuracy</span></span></div>
+        <div><b id="sBest">–</b><span><span class="uz">Melhor simulado</span><span class="ue">Best mock</span></span></div>
       </div>
     </div>
     <div class="sync" id="syncNote">Progresso salvo neste navegador / Saved on this device</div>
 
-    <h2 class="sec">Modos de prática / Practice</h2>
+    <h2 class="sec"><span class="uz">Modos de prática</span><span class="ue">Practice</span></h2>
     <div class="modes">
-      <button class="mode m-hf" data-start="hf"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></i><div class="t">Mais cobradas</div><div class="e">High frequency</div><div class="c"><b id="cHf">0</b>questões, temas que caem com frequência nas provas</div></button>
-      <button class="mode m-tr" data-start="tricky"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5L22 20H2z"/><path d="M12 10v4.5"/><path d="M12 17.6v.1"/></svg></i><div class="t">Pegadinhas</div><div class="e">Error-prone</div><div class="c"><b id="cTr">0</b>questões, números fáceis de confundir, exceções e mudanças nas regras</div></button>
-      <button class="mode m-ex wide" data-start="exam"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4V2.8h6V4"/><path d="M9 12.5l2 2 4-4"/></svg></i><div class="t">Simulado</div><div class="e">Mock test, 50 questions, pass with 40</div><div class="c">Como na prova real: 50 questões aleatórias; aprovação com 40 acertos (80%)</div></button>
-      <button class="mode m-wr" data-start="wrong"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg></i><div class="t">Meus erros</div><div class="e">Wrong answers</div><div class="c"><b id="cWr">0</b>questões,<span id="cWrRule">Removida dos erros após 2 acertos seguidos</span></div></button>
-      <button class="mode m-fv" data-start="fav"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></i><div class="t">Favoritos</div><div class="e">Favorites</div><div class="c"><b id="cFv">0</b>questões, toque na estrela ao lado da questão para favoritar</div></button>
+      <button class="mode m-hf" data-start="hf"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></i><div class="t"><span class="uz">Mais cobradas</span><span class="ue">High frequency</span></div><div class="c"><b id="cHf">0</b><span class="uz">questões</span><span class="ue"> questions</span></div></button>
+      <button class="mode m-tr" data-start="tricky"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5L22 20H2z"/><path d="M12 10v4.5"/><path d="M12 17.6v.1"/></svg></i><div class="t"><span class="uz">Pegadinhas</span><span class="ue">Error-prone</span></div><div class="c"><b id="cTr">0</b><span class="uz">questões</span><span class="ue"> questions</span></div></button>
+      <button class="mode m-ex wide" data-start="exam"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 4V2.8h6V4"/><path d="M9 12.5l2 2 4-4"/></svg></i><div class="t"><span class="uz">Simulado</span><span class="ue">Mock test</span></div><div class="c"><span class="uz">50 questões, aprovação com 40</span><span class="ue">50 questions, pass with 40</span></div></button>
     </div>
-    <div class="lists">
-      <button class="lbtn" data-list="wrong"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 6h12M8 12h12M8 18h12"/><path d="M3.5 6h.01M3.5 12h.01M3.5 18h.01"/></svg></i><b>Meus erros</b><small>Wrong answers</small></button>
-      <button class="lbtn" data-list="fav"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></i><b>Favoritos</b><small>Favorites</small></button>
-      <button class="lbtn" data-list="notes"><i><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg></i><b>Minhas anotações</b><small>My notes</small></button>
+    <div class="modes three">
+      <button class="mode m-wr" data-list="wrong"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg></i><div class="t"><span class="uz">Meus erros</span><span class="ue">Wrong answers</span></div><div class="c"><b id="cWr">0</b><span class="uz">questões</span><span class="ue"> questions</span><span id="cWrRule" hidden></span></div></button>
+      <button class="mode m-fv" data-list="fav"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></i><div class="t"><span class="uz">Favoritos</span><span class="ue">Favorites</span></div><div class="c"><b id="cFv">0</b><span class="uz">questões</span><span class="ue"> questions</span></div></button>
+      <button class="mode m-nt" data-list="notes"><i class="mi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg></i><div class="t"><span class="uz">Minhas anotações</span><span class="ue">My notes</span></div><div class="c"><b id="cNt">0</b><span class="uz">questões</span><span class="ue"> questions</span></div></button>
     </div>
 
     <div class="hero26">
-      <div class="h26badge"><b>2026</b><span>Atualizado<br>Latest</span></div>
+      <div class="h26badge"><b>2026</b><span>Atualizado</span></div>
       <div class="h26text">
-        <b>Com base no Manual do Motorista de New Jersey mais recente (setembro de 2026)</b>
-        <span>Updated for the latest 2026 NJ Driver Manual (Sept 2026). Todas as respostas desatualizadas dos bancos de questões antigos foram atualizadas conforme as novas regras.</span>
+        <b><span class="uz">Manual oficial do motorista</span><span class="ue">Official driver manual</span></b>
         <div class="h26links">
-          <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/drivermanual.pdf" target="_blank" rel="noopener">Manual em inglês / English PDF</a>
-          <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/2026%20Driver%20Manual_Portuguese%209-21-26.pdf" target="_blank" rel="noopener">Manual em português PDF</a>
+          <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/drivermanual.pdf" target="_blank" rel="noopener">English PDF</a>
+          <a class="h26btn" href="https://www.nj.gov/mvc/pdf/license/2026%20Driver%20Manual_Portuguese%209-21-26.pdf" target="_blank" rel="noopener">Português PDF</a>
         </div>
-        <small>Manuais oficiais do site do MVC de New Jersey (cerca de 40 MB) / Official PDFs from nj.gov</small>
       </div>
     </div>
-    <h2 class="sec">Por tema / By topic</h2>
+    <h2 class="sec"><span class="uz">Por tema</span><span class="ue">By topic</span></h2>
     <div class="topics" id="topicChips"></div>
-    <div class="qnav"><button class="btn ghost grow" data-start="all">Praticar todas as questões em ordem / All questions</button></div>
+    <div class="qnav"><button class="btn ghost grow" data-start="all"><span class="uz">Praticar todas as questões em ordem</span><span class="ue">All questions in order</span></button></div>
 
     <details class="glossbox">
-      <summary><span class="gt">Glossário / Glossary</span><span class="gn" id="glossN"></span></summary>
+      <summary><span class="gt"><span class="uz">Glossário</span><span class="ue">Glossary</span></span><span class="gn" id="glossN"></span></summary>
       <div class="glossary" id="glossList"></div>
     </details>
 
-    <h2 class="sec">Mural da comunidade / Community board</h2>
-    <p class="note" style="margin:0 2px 8px">Deixe sugestões ou conte como foi sua prova teórica ou prática em cada centro. Share suggestions, or how your knowledge or road test went at each test center.</p>
+    <h2 class="sec"><span class="uz">Mural da comunidade</span><span class="ue">Community board</span></h2>
     <div class="board" id="board">
       <div class="bchips"><button class="chip" data-bt="tip" aria-pressed="true">Sugestões / Suggestions</button><button class="chip" data-bt="ctr" aria-pressed="false">Centros de exame / Test centers</button></div>
       <div id="bCenters" class="hide">
@@ -743,18 +753,7 @@ h2.sec{font-weight:400;font-size:24px;letter-spacing:.02em}
       <div class="cm"><div class="cmh"><span id="bTitle">Sugestões / Suggestions</span> <span class="cmn" id="bN"></span></div><div class="cmlist" id="bList"><p class="cmempty">Carregando… / Loading…</p></div><div id="bForm"></div></div>
     </div>
 
-    <h2 class="sec">Configurações / Settings</h2>
-    <div class="opts">
-      <div class="opt-row"><label for="oDark">Modo escuro<small>Dark mode / fundo preto com rosa-claro</small></label><input type="checkbox" class="sw" id="oDark"></div>
-      <div class="opt-row"><label for="oEn">Mostrar o original em inglês<small>Mostra a questão original em inglês. Desligado = só português / Off = Portuguese only</small></label><input type="checkbox" class="sw entsw" id="oEn" checked></div>
-      <div class="opt-row"><label for="oShuffle">Embaralhar questões<small>Shuffle question order</small></label><input type="checkbox" class="sw" id="oShuffle" checked></div>
-      <div class="opt-row"><label for="oShuffleOpt">Embaralhar alternativas<small>Shuffle answer choices (exceto questões do tipo “Todas as anteriores”)</small></label><input type="checkbox" class="sw" id="oShuffleOpt" checked></div>
-      <div class="opt-row"><label for="oAuto">Avançar automaticamente após acertar<small>Auto-advance after a correct answer</small></label><input type="checkbox" class="sw" id="oAuto" checked></div>
-      <div class="opt-row"><label for="oSound">Efeitos sonoros<small>Sound effects</small></label><input type="checkbox" class="sw" id="oSound" checked></div>
-      <div class="opt-row"><label for="oAutoRemove">Remover dos erros após 2 acertos<small>Auto-remove from wrong answers after 2 correct tries. Desativado, a remoção é feita manualmente na lista de erros / Off = remove manually</small></label><input type="checkbox" class="sw" id="oAutoRemove" checked></div>
-      <div class="opt-row"><label>Apagar todo o progresso<small>Clear progress, wrong answers and favorites</small></label><button class="linkbtn" id="resetBtn">Limpar / Reset</button></div>
-    </div>
-    <p class="note">As questões foram elaboradas com base no New Jersey Driver Manual 2026 da Comissão de Veículos Motorizados de New Jersey (MVC), no formato das provas aplicadas nos últimos anos. Respostas desatualizadas de bancos de questões antigos (como as penalidades por dirigir sob influência de álcool e o prazo para comunicar mudança de endereço) foram atualizadas conforme o manual de 2026 e marcadas como “Pegadinha”. Este site é uma ferramenta de prática e não tem vínculo com o MVC; em caso de dúvida, prevalecem o manual oficial e a legislação. <a href="../privacy.html" style="color:inherit">Política de Privacidade / Privacy Policy</a></p>
+    <p class="note"><span class="uz">Baseado no New Jersey Driver Manual 2026. Este site não é afiliado à MVC; vale o manual oficial.</span><span class="ue">Based on the 2026 New Jersey Driver Manual. Not affiliated with the MVC; the official manual prevails.</span> <a href="../privacy.html" style="color:inherit"><span class="uz">Política de Privacidade</span><span class="ue">Privacy policy</span></a></p>
   </section>
 
   <!-- QUIZ -->
@@ -767,14 +766,15 @@ h2.sec{font-weight:400;font-size:24px;letter-spacing:.02em}
     </div>
     <div class="bar"><i id="qBar" style="width:0"></i></div>
     <div class="qtools">
-      <button class="qtool" id="qHome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Página inicial / Home</button>
-      <button class="qtool" id="qReview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h10"/></svg>Revisar erros / Review<span class="qbadge" id="qWrongN">0</span></button>
-      <label class="qtool entog"><input type="checkbox" class="sw entsw" id="qEn" checked>Mostrar inglês / Show English</label>
+      <button class="qtool" id="qHome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg><span class="uz">Página inicial</span><span class="ue">Home</span></button>
+      <button class="qtool" id="qReview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h10"/></svg><span class="uz">Revisar erros</span><span class="ue">Review</span><span class="qbadge" id="qWrongN">0</span></button>
+      <label class="qtool entog"><input type="checkbox" class="sw entsw" id="qEn" checked><span class="uz">Mostrar o original em inglês</span><span class="ue">Show English</span></label>
     </div>
     <div class="card" id="qCard">
       <div class="tags" id="qTags"></div>
       <div class="signbox hide" id="qSign"></div>
       <div class="qtext" id="qText"></div>
+      <div class="qref" id="qRef"></div>
       <div class="unitnote hide" id="qUnits"></div>
       <div class="choices" id="qChoices"></div>
       <div id="qExplain"></div>
@@ -784,8 +784,8 @@ h2.sec{font-weight:400;font-size:24px;letter-spacing:.02em}
     </div>
     <div class="qnav">
       <button class="star" id="favBtn" aria-pressed="false" aria-label="Favoritar / Favorite"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8-4.3-4.1 5.9-.9z"/></svg></button>
-      <button class="btn ghost" id="prevBtn">Anterior</button>
-      <button class="btn grow" id="nextBtn" disabled>Próxima / Next</button>
+      <button class="btn ghost" id="prevBtn"><span class="uz">Anterior</span><span class="ue">Back</span></button>
+      <button class="btn grow" id="nextBtn" disabled><span class="uz">Próxima</span><span class="ue">Next</span></button>
     </div>
     <div class="kbd">Teclado: 1–4 / A–D para responder / Enter próxima / F favoritar</div>
   </section>
@@ -799,7 +799,7 @@ h2.sec{font-weight:400;font-size:24px;letter-spacing:.02em}
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <div class="welcome hide" id="welcome" role="dialog" aria-modal="true" aria-labelledby="wTitle">
   <div class="wbox">
-    <svg class="wshield" viewBox="0 0 34 38" aria-hidden="true"><path d="M2 3h30v15c0 9-7 15-15 18C9 33 2 27 2 18z" fill="#f4a6c1" stroke="#111" stroke-width="2"/><text x="17" y="22" text-anchor="middle" font-family="Barlow Condensed,Arial Narrow,sans-serif" font-weight="700" font-size="14" fill="#111">NJ</text></svg>
+    <span class="logo big" aria-hidden="true">NJ</span>
     <div><span class="new26 big">Versão 2026 / Latest</span></div>
     <h1 id="wTitle">Prova teórica de direção de Nova Jersey<small>Free NJ Permit Test Practice 2026</small></h1>
     <p class="wsub">Escolha o idioma das questões / Choose your language</p>
@@ -814,6 +814,23 @@ h2.sec{font-weight:400;font-size:24px;letter-spacing:.02em}
       <button class="wopt wen" data-wlang="en" lang="en"><b>English only</b><span>Questions in English only</span></button>
     </div>
     <p class="wnote">Você pode ocultar ou mostrar o original em inglês a qualquer momento com a chave “Mostrar inglês” / Turn the English original on or off anytime with the “Show English” switch.</p>
+  </div>
+</div>
+
+<div class="welcome hide" id="setDlg" role="dialog" aria-modal="true" aria-labelledby="setTitle">
+  <div class="wbox abox">
+    <button class="aclose" id="setClose" aria-label="Fechar / Close">×</button>
+    <h2 id="setTitle"><span class="uz">Configurações</span><span class="ue">Settings</span></h2>
+    <div class="opts">
+      <div class="opt-row"><label for="oDark"><span class="uz">Modo escuro</span><span class="ue">Dark mode</span></label><input type="checkbox" class="sw" id="oDark"></div>
+      <div class="opt-row"><label for="oEn"><span class="uz">Mostrar o original em inglês</span><span class="ue">Show English</span></label><input type="checkbox" class="sw entsw" id="oEn" checked></div>
+      <div class="opt-row"><label for="oShuffle"><span class="uz">Embaralhar questões</span><span class="ue">Shuffle questions</span></label><input type="checkbox" class="sw" id="oShuffle" checked></div>
+      <div class="opt-row"><label for="oShuffleOpt"><span class="uz">Embaralhar alternativas</span><span class="ue">Shuffle answers</span></label><input type="checkbox" class="sw" id="oShuffleOpt" checked></div>
+      <div class="opt-row"><label for="oAuto"><span class="uz">Avançar automaticamente após acertar</span><span class="ue">Auto-advance when correct</span></label><input type="checkbox" class="sw" id="oAuto" checked></div>
+      <div class="opt-row"><label for="oSound"><span class="uz">Efeitos sonoros</span><span class="ue">Sound</span></label><input type="checkbox" class="sw" id="oSound" checked></div>
+      <div class="opt-row"><label for="oAutoRemove"><span class="uz">Remover dos erros após 2 acertos</span><span class="ue">Remove after 2 correct</span></label><input type="checkbox" class="sw" id="oAutoRemove" checked></div>
+      <div class="opt-row"><label><span class="uz">Apagar todo o progresso</span><span class="ue">Clear all progress</span></label><button class="linkbtn" id="resetBtn"><span class="uz">Limpar</span><span class="ue">Reset</span></button></div>
+    </div>
   </div>
 </div>
 
@@ -13478,7 +13495,7 @@ const sndWrong=()=>tone([196,147],0.25,"sawtooth",0.06);
 /* ---------- juice ---------- */
 function burst(x,y,combo){
   if(reduceMotion()) return;
-  const colors=["#f4a6c1","#ffd1df","#000","#ffe4ec","#f6e7a4","#ffffff"];
+  const colors=["#f8c8d8","#ffd1df","#000","#ffe4ec","#f6e7a4","#ffffff"];
   const n=14+Math.min(combo,10)*2;
   for(let i=0;i<n;i++){
     const p=document.createElement('i'); p.className='particle';
@@ -13763,6 +13780,13 @@ function setLang(l){
   document.body.classList.remove('lang-both','lang-zh','lang-en'); document.body.classList.add('lang-'+l);
   document.querySelectorAll('#langSeg button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.lang===l)));
   document.querySelectorAll('.entsw').forEach(c=>c.checked=(l!=="zh"));
+  paintSiteLangs();
+}
+// the language row marks "English" while the page is in English-only mode, otherwise the page's own language
+function paintSiteLangs(){
+  const cur=document.documentElement.dataset.site; if(!cur) return;
+  const en=S.prefs.lang==="en";
+  document.querySelectorAll('a.sitelang.hl').forEach(a=>{ const on=en?a.dataset.site==="en":a.dataset.site===cur; if(on) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
 }
 document.querySelectorAll('#langSeg button').forEach(b=>b.addEventListener('click',()=>setLang(b.dataset.lang)));
 // "show English original" switches: off = translation only, on = bilingual
@@ -13783,11 +13807,12 @@ function refreshHome(){
   $('cWr').textContent=ALL.filter(q=>isWrong(q.id)).length;
   $('cWrRule').textContent = S.prefs.autoRemove!==false ? `Removida dos erros após ${REMOVE_AFTER} acertos seguidos` : "Remoção automática desativada; remova manualmente na lista de erros";
   $('cFv').textContent=ALL.filter(q=>isFav(q.id)).length;
+  $("cNt").textContent=ALL.filter(q=>noteOf(q.id).trim()).length;
   const tc=$('topicChips'); tc.innerHTML="";
   Object.keys(TOPICS).forEach(k=>{
     const n=ALL.filter(q=>q.topic===k).length; if(!n) return;
     const b=document.createElement('button'); b.className='chip';
-    b.innerHTML=`${esc(TOPICS[k].zh)} <span>${esc(TOPICS[k].en)} ${n}</span>`;
+    b.innerHTML=`<span class="uz">${esc(TOPICS[k].zh)}</span><span class="ue">${esc(TOPICS[k].en)}</span> <span>${n}</span>`;
     b.addEventListener('click',()=>start('topic',k)); tc.appendChild(b);
   });
 }
@@ -13831,12 +13856,12 @@ function render(){
   $('qBar').style.width=((Q.i+(ans!=null?1:0))/Q.list.length*100)+'%';
   updateCombo();
   const tags=[];
-  if(q.hf) tags.push('<span class="tag hf">Mais cobrada / HF</span>');
-  if(q.tricky) tags.push('<span class="tag tr">Pegadinha / Tricky</span>');
+  if(q.hf) tags.push('<span class="tag hf"><span class="uz">Mais cobrada</span><span class="ue">Frequent</span></span>');
+  if(q.tricky) tags.push('<span class="tag tr"><span class="uz">Pegadinha</span><span class="ue">Tricky</span></span>');
   if(q.trNote) tags.push(`<span class="tag trn">⚠ ${esc(window.__TRTAG||"")}</span>`);
   tags.push(`<span class="tag">${esc(TOPICS[q.topic].zh)}</span>`);
   if(isWrong(q.id)) tags.push(`<span class="tag" style="color:var(--bad);border-color:var(--bad)">Errada ${S.wrong[q.id].n} vez(es)</span>`);
-  const src=source(q); if(src) tags.push(`<span class="tag ref">Fonte: manual, cap. ${src.ch}, ${esc(q.ref)}</span>`);
+  const src=source(q); $("qRef").innerHTML = src ? `Fonte: manual, cap. ${src.ch}, ${esc(q.ref)}` : "";
   $('qTags').innerHTML=tags.join("");
   const sg=$('qSign');
   if(q.scene){ sg.innerHTML=sceneSVG(q.scene); sg.classList.remove('hide'); sg.classList.add('wide','scene'); }
@@ -13856,7 +13881,7 @@ function render(){
   $('qExplain').innerHTML="";
   if(ans!=null) paintAnswered(ans,false);
   $('nextBtn').disabled = ans==null;
-  $('nextBtn').textContent = Q.i===Q.list.length-1 ? "Concluir / Finish" : "Próxima / Next";
+  $('nextBtn').innerHTML = Q.i===Q.list.length-1 ? '<span class="uz">Concluir</span><span class="ue">Finish</span>' : '<span class="uz">Próxima</span><span class="ue">Next</span>';
   $('prevBtn').disabled = Q.i===0;
   const fb=$('favBtn'); fb.setAttribute('aria-pressed',String(isFav(q.id)));
 }
@@ -13876,7 +13901,7 @@ function paintAnswered(chosen,animate){
   const ex=q.explain||{};
   const showEx = !ok || !(S.prefs.auto&&animate);
   if(showEx||!ok){
-    $('qExplain').innerHTML=`<div class="explain ${ok?"":"bad"}"><div class="h">${ok?"✓ Resposta correta / Correct":"✗ A resposta correta é "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]+" Correct answer: "+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]}</div>${ex.zh?`<div class="zh">${gloss(ex.zh)}</div>`:""}${ex.en?`<div class="en">${gloss(ex.en)}</div>`:""}${q.trNote?`<div class="trnote">⚠ ${esc(q.trNote)}</div>`:""}${sourceHTML(q)}</div>`;
+    $('qExplain').innerHTML=`<div class="explain ${ok?"":"bad"}"><div class="h">${ok?'<span class="uz">✓ Resposta correta</span><span class="ue">✓ Correct</span>':'<span class="uz">✗ A resposta correta é '+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]+'</span><span class="ue">✗ Correct answer: '+"ABCD"[Q.list[Q.i].order.indexOf(q.answer)]+'</span>'}</div>${ex.zh?`<div class="zh">${gloss(ex.zh)}</div>`:""}${ex.en?`<div class="en">${gloss(ex.en)}</div>`:""}${q.trNote?`<div class="trnote">⚠ ${esc(q.trNote)}</div>`:""}${sourceHTML(q)}</div>`;
   }
 }
 let autoT=null;
@@ -14002,7 +14027,7 @@ function unitNote(q){
     sort(ft).forEach(([v,raw])=>{ const mtr=v*0.3048; zh.push(`${raw} pés ≈ ${fmtN(mtr)} m`); en.push(`${raw} ft ≈ ${fmtN(mtr)} m`); }); }
   if(inch.size){ base.push("1 polegada = 2,54 cm"); baseEn.push("1 in = 2.54 cm");
     sort(inch).forEach(([v,raw])=>{ const cm=v*2.54; zh.push(`${raw} polegadas ≈ ${fmtN(cm)} cm`); en.push(`${raw} in ≈ ${fmtN(cm)} cm`); }); }
-  return `<span class="ulabel">Conversão de unidades / Units</span><span class="zh">${base.join(", ")}. Nesta questão: ${zh.join("; ")}</span><span class="en">${baseEn.join(", ")}. Here: ${en.join("; ")}</span>`;
+  return `<span class="ulabel"><span class="uz">Conversão de unidades</span><span class="ue">Unit conversion</span></span><span class="zh">${base.join(", ")}. Nesta questão: ${zh.join("; ")}</span><span class="en">${baseEn.join(", ")}. Here: ${en.join("; ")}</span>`;
 }
 
 /* ---------- accounts, comments, synced progress (Firebase) ---------- */
@@ -14040,7 +14065,7 @@ function gate(){
 function updateAcct(){
   document.body.classList.toggle('signed-out',fbAuthKnown&&!fbUser);
   const lbl=$('acctLabel');
-  lbl.textContent = fbUser ? displayName(fbUser) : "Entrar / Log in";
+  if(fbUser) lbl.textContent=displayName(fbUser); else lbl.innerHTML='<span class="uz">Entrar</span><span class="ue">Log in</span>';
   $('acctBtn').classList.toggle('in',!!fbUser);
 }
 window.addEventListener('njfb-ready',()=>{
@@ -14079,6 +14104,12 @@ function closeAuth(){ $('authDlg').classList.add('hide'); }
 $('tabLogin').addEventListener('click',()=>setAuthMode("login"));
 $('tabSignup').addEventListener('click',()=>setAuthMode("signup"));
 $('authClose').addEventListener('click',closeAuth);
+/* settings dialog behind the gear in the header */
+function closeSet(){ $('setDlg').classList.add('hide'); }
+$('setBtn').addEventListener('click',()=>{ $('setDlg').classList.remove('hide'); });
+$('setClose').addEventListener('click',closeSet);
+$('setDlg').addEventListener('click',e=>{ if(e.target.id==="setDlg") closeSet(); });
+document.addEventListener('keydown',e=>{ if(e.key==="Escape") closeSet(); });
 $('authDlg').addEventListener('click',e=>{ if(e.target.id==="authDlg") closeAuth(); });
 $('authGoogle').addEventListener('click',async()=>{
   if(!fb){ $('aErr').textContent="Carregando, aguarde / Loading…"; return; }
@@ -14118,7 +14149,7 @@ document.addEventListener('click',e=>{ if(!e.target.closest('#acctMenu')&&!e.tar
 /* "I got this on my test" button: anyone can see the count, logging in is needed to add yourself */
 async function renderSeen(q){
   const id=q.id, box=$('qSeen');
-  box.innerHTML=`<button class="seenbtn" id="seenBtn" aria-pressed="false" title="Toque se esta questão caiu na sua prova real / Tap if this question was on your real test"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg><span>Caiu na minha prova / I got this on my test</span><b id="seenN"></b></button>`;
+  box.innerHTML=`<button class="seenbtn" id="seenBtn" aria-pressed="false" title="Toque se esta questão caiu na sua prova real / Tap if this question was on your real test"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg><span class="uz">Caiu na minha prova</span><span class="ue">On my test</span><b id="seenN"></b></button>`;
   const btn=$('seenBtn'), cur=()=>Q&&Q.list[Q.i]&&Q.list[Q.i].q.id===id;
   btn.addEventListener('click',async()=>{
     if(fbFailed){ toast("O serviço de contas está indisponível no momento; tente novamente mais tarde / Accounts unavailable"); return; }
@@ -14147,7 +14178,7 @@ function fitNote(ta){ ta.style.height="auto"; ta.style.height=Math.max(ta.scroll
 function renderNote(q,open){
   const box=$('qNote');
   if(!open && !noteOf(q.id).trim()){
-    box.innerHTML=`<button class="qtool noteadd" id="noteAdd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg>Escrever anotação / Add a note</button>`;
+    box.innerHTML=`<button class="qtool noteadd" id="noteAdd"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M14 6l4 4"/></svg><span class="uz">Escrever anotação</span><span class="ue">Add a note</span></button>`;
     $('noteAdd').addEventListener('click',()=>{ renderNote(q,true); $('noteText').focus(); });
     return;
   }
@@ -14186,7 +14217,7 @@ function unlockComments(){ const c=document.querySelector('#qComments .cm'); if(
 async function loadComments(q){
   const box=$('qComments');
   const locked = !(Q && Q.list[Q.i] && Q.list[Q.i].q.id===q.id && Q.answers[Q.i]!=null);
-  box.innerHTML=`<div class="cm${locked?" locked":""}"><div class="cmh">Comentários / Comments <span class="cmn" id="cmN"></span></div><p class="cmlock">Responda primeiro para ver os comentários (sem spoilers) / Answer first to see comments</p><div class="cmlist" id="cmList"><p class="cmempty">Carregando… / Loading…</p></div><div id="cmForm"></div></div>`;
+  box.innerHTML=`<div class="cm${locked?" locked":""}"><div class="cmh"><span class="uz">Comentários</span><span class="ue">Comments</span> <span class="cmn" id="cmN"></span></div><p class="cmlock">Responda primeiro para ver os comentários (sem spoilers) / Answer first to see comments</p><div class="cmlist" id="cmList"><p class="cmempty">Carregando… / Loading…</p></div><div id="cmForm"></div></div>`;
   renderCmForm(q);
   if(!fb){ $('cmList').innerHTML=`<p class="cmempty">${fbFailed?"O serviço de comentários está indisponível no momento / Comments unavailable":"Conectando… / Connecting…"}</p>`; if(!fbFailed) window.addEventListener('njfb-ready',()=>{ if(Q&&Q.list[Q.i].q.id===q.id) loadComments(q); },{once:true}); return; }
   try{
@@ -14330,15 +14361,18 @@ refreshHome();
   const hrefFor=code=>BASE+(code==="zh"?"":code+"/");
   const go=code=>{ S.prefs.langChosen=true; S.prefs.lang="both"; saveLocal(); location.href=hrefFor(code); };
   document.querySelectorAll('a.sitelang').forEach(a=>{
-    const code=a.dataset.site; a.href=hrefFor(code);
+    const code=a.dataset.site;
+    if(code==="en"){ a.href="#"; a.addEventListener('click',e=>{ e.preventDefault(); setLang("en"); }); return; }
+    a.href=hrefFor(code);
     if(code===CUR){
-      a.setAttribute('aria-current','page'); a.addEventListener('click',e=>e.preventDefault());
+      a.setAttribute('aria-current','page'); a.addEventListener('click',e=>{ e.preventDefault(); if(S.prefs.lang==="en") setLang("both"); });
       // on the welcome screen this page's own bilingual box goes first and simply enters the site
       if(a.classList.contains('wopt')){ a.classList.add('cur'); a.dataset.wlang="both"; a.parentNode.prepend(a); }
       return;
     }
     a.addEventListener('click',e=>{ e.preventDefault(); go(code); });
   });
+  document.documentElement.dataset.site=CUR; paintSiteLangs();
   document.querySelectorAll('.langlinks a').forEach(a=>{
     const code=(a.getAttribute('href').match(/^\/(es|pt|ko|ar)\/$/)||[])[1]||"zh";
     a.href=hrefFor(code); if(code===CUR) a.setAttribute('aria-current','page');
