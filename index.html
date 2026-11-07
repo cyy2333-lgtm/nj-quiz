@@ -190,11 +190,10 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 .cmlogin{width:100%}
 #qNote{margin-top:12px}
 #qSeen{margin-top:14px}
-.seenbtn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 8px 7px 14px;font:inherit;font-size:13px;cursor:pointer;transition:background .12s,border-color .12s}
+.seenbtn{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font:inherit;font-size:13px;cursor:pointer;transition:background .12s,border-color .12s}
 .seenbtn:hover{border-color:var(--accent)}
 .seenbtn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
-.seenbtn b{min-width:24px;height:22px;padding:0 7px;border-radius:999px;background:var(--bg);color:var(--ink);display:inline-grid;place-items:center;font-size:12px}
-.seenbtn b:empty{display:none}
+.seenbtn b{font-weight:500}
 #qNote:empty{display:none}
 .notebox{background:#fff8e1;border:1px solid #f1d27a;border-radius:12px;padding:10px 12px;display:grid;gap:6px}
 .notebox .nh{display:flex;gap:8px;align-items:baseline;flex-wrap:wrap;font-size:13px;color:#6b5200}
@@ -471,7 +470,6 @@ h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:
 .afield input,#cmText{background:var(--surface);border:2px solid var(--line);border-radius:14px}
 .afield input:focus,#cmText:focus{outline:0;border-color:var(--accent)}
 .seenbtn{box-shadow:0 2px 0 var(--ledge)}
-.seenbtn b{background:var(--soft)}
 .seenbtn svg{width:16px;height:16px;flex:none}
 .star{border:2px solid var(--line);border-radius:14px;width:48px;height:48px;box-shadow:0 4px 0 var(--ledge);margin-bottom:4px}
 .star:active{transform:translateY(4px);box-shadow:none}
@@ -672,6 +670,34 @@ header{background:var(--bg)}
 .edmark span{font-size:13px;color:inherit;opacity:.7;letter-spacing:.06em}
 .hero-title{margin-top:10px}
 
+.compose{border:2px solid var(--line);border-radius:16px;background:var(--surface);padding:10px 12px 8px;display:grid;gap:6px;transition:border-color .12s}
+.compose:focus-within{border-color:var(--accent)}
+.compose textarea{width:100%;border:0;background:transparent;font:inherit;font-size:15px;line-height:1.5;color:var(--ink);resize:none;outline:none;padding:0;min-height:66px}
+.compose textarea::placeholder{color:var(--muted);opacity:.8}
+.compose-foot{display:flex;align-items:center;gap:10px;font-size:12px;color:var(--muted)}
+.compose-foot .cnt{margin-inline-start:auto;font-variant-numeric:tabular-nums}
+.btn.small{padding:7px 16px;font-size:14px;border-radius:12px;box-shadow:0 3px 0 var(--accent-deep);margin-bottom:3px}
+.btn.small:active:not(:disabled){transform:translateY(3px);box-shadow:0 0 0 var(--accent-deep)}
+.cm{gap:12px}
+.cmh{display:flex;align-items:center;gap:8px;font-size:16px}
+.board{padding:16px;gap:14px}
+.board .cm{padding-top:14px}
+.cmi{padding:10px 14px}
+.cmi p{margin-top:6px}
+.cmmeta{gap:10px}
+.cmtag{background:var(--surface);border:1px solid var(--line)}
+.bgl{margin:8px 0 4px}
+.cmlogin{width:auto;justify-self:start}
+
+.cmtr{margin-inline-start:auto;border:0;background:none;color:var(--muted);cursor:pointer;padding:3px;border-radius:7px;display:inline-grid;place-items:center}
+.cmtr svg{width:15px;height:15px}
+.cmtr:hover{color:var(--ink)}
+.cmtr.on{color:var(--ink);background:var(--accent)}
+.cmtr:disabled{opacity:.5}
+.cmdel{margin-left:4px}
+[dir="rtl"] .cmdel{margin-right:4px}
+.cmi[data-tr="1"] p{font-style:normal}
+
 </style>
 </head>
 <body class="lang-both">
@@ -748,13 +774,13 @@ header{background:var(--bg)}
 
     <h2 class="sec"><span class="uz">留言板</span><span class="ue">Community board</span></h2>
     <div class="board" id="board">
-      <div class="bchips"><button class="chip" data-bt="tip" aria-pressed="true">建议与反馈 Suggestions</button><button class="chip" data-bt="ctr" aria-pressed="false">考场体验 Test centers</button></div>
-      <div id="bCenters" class="hide">
-        <div class="bchips"><button class="chip" data-ctr="" aria-pressed="true">全部考场 All centers</button></div>
-        <div class="bgl">路考场 Road test sites</div><div class="bchips" id="bRoad"></div>
-        <div class="bgl">笔试、视力考场（驾照中心）Knowledge &amp; vision test / Licensing Centers</div><div class="bchips" id="bLic"></div>
+      <div class="bchips"><button class="chip" data-bt="ctr" aria-pressed="true"><span class="uz">考场体验</span><span class="ue">Test centers</span></button><button class="chip" data-bt="tip" aria-pressed="false"><span class="uz">建议与反馈</span><span class="ue">Suggestions</span></button></div>
+      <div id="bCenters">
+        <div class="bchips"><button class="chip" data-ctr="" aria-pressed="true"><span class="uz">全部考场</span><span class="ue">All centers</span></button></div>
+        <div class="bgl"><span class="uz">路考场</span><span class="ue">Road test sites</span></div><div class="bchips" id="bRoad"></div>
+        <div class="bgl"><span class="uz">笔试、视力考场</span><span class="ue">Knowledge &amp; vision test centers</span></div><div class="bchips" id="bLic"></div>
       </div>
-      <div class="cm"><div class="cmh"><span id="bTitle">建议与反馈 Suggestions</span> <span class="cmn" id="bN"></span></div><div class="cmlist" id="bList"><p class="cmempty">加载中… Loading…</p></div><div id="bForm"></div></div>
+      <div class="cm"><div class="cmh"><span id="bTitle"><span class="uz">全部考场</span><span class="ue">All centers</span></span> <span class="cmn" id="bN"></span></div><div class="cmlist" id="bList"><p class="cmempty"><span class="uz">加载中…</span><span class="ue">Loading…</span></p></div><div id="bForm"></div></div>
     </div>
 
     <p class="note"><span class="uz">依据 2026 版《New Jersey Driver Manual》编写。本站与 MVC 无关，以官方手册为准。</span><span class="ue">Based on the 2026 New Jersey Driver Manual. Not affiliated with the MVC; the official manual prevails.</span> <a href="privacy.html" style="color:inherit"><span class="uz">隐私政策</span><span class="ue">Privacy policy</span></a></p>
@@ -13350,7 +13376,7 @@ const MANUAL_ZH="https://www.nj.gov/mvc/pdf/license/chinesemanual.pdf";
 function sourceHTML(q){
   const s=source(q); if(!s) return "";
   const p=parseInt(s.page,10), href=MANUAL_EN+(p?`#page=${p+2}`:"");
-  return `<div class="src"><b>出处 Source</b><span class="zh">《2026 新泽西驾驶手册》第 ${s.ch} 章「${esc(s.zh)}」第 ${esc(s.page)} 页</span><span class="en">2026 New Jersey Driver Manual, Ch. ${s.ch} “${esc(s.en)}”, p. ${esc(s.page)}</span><a class="srclink" href="${href}" target="_blank" rel="noopener">打开官方手册第 ${esc(s.page)} 页 Open manual at p. ${esc(s.page)} ↗</a>${q.scene?`<span class="note">情景图是依据手册条文绘制的示意图 Diagram drawn from the manual's rules</span>`:""}</div>`;
+  return `<div class="src"><a class="srclink" href="${href}" target="_blank" rel="noopener"><span class="uz">2026 官方手册 第${esc(s.page)}页</span><span class="ue">2026 manual, p. ${esc(s.page)}</span> ↗</a>${q.scene?`<span class="note">情景图是依据手册条文绘制的示意图 Diagram drawn from the manual's rules</span>`:""}</div>`;
 }
 
 /* ---------- glossary ---------- */
@@ -14151,8 +14177,17 @@ document.addEventListener('click',e=>{ if(!e.target.closest('#acctMenu')&&!e.tar
 /* "I got this on my test" button: anyone can see the count, logging in is needed to add yourself */
 async function renderSeen(q){
   const id=q.id, box=$('qSeen');
-  box.innerHTML=`<button class="seenbtn" id="seenBtn" aria-pressed="false" title="真实笔试中考到过这道题就点一下 Tap if this question was on your real test"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg><span class="uz">我考到过这题</span><span class="ue">On my test</span><b id="seenN"></b></button>`;
+  box.innerHTML=`<button class="seenbtn" id="seenBtn" aria-pressed="false" title="真实笔试中考到过这道题就点一下 Tap if this question was on your real test"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg><span id="seenTxt"><span class="uz">我考到过这题</span><span class="ue">I got this on my test</span></span></button>`;
   const btn=$('seenBtn'), cur=()=>Q&&Q.list[Q.i]&&Q.list[Q.i].q.id===id;
+  let count=0;
+  const paint=(mine)=>{
+    btn.setAttribute('aria-pressed',String(mine));
+    const others=Math.max(0,count-(mine?1:0));
+    let zh, en;
+    if(mine) { zh = others ? `你和 <b>${others}</b> 人考到过这题` : "你考到过这题"; en = others ? `You and <b>${others}</b> other${others>1?"s":""} got this on your test` : "You got this on your test"; }
+    else     { zh = count ? `<b>${count}</b> 人考到过这题` : "我考到过这题"; en = count ? `<b>${count}</b> ${count>1?"people":"person"} got this on their test` : "I got this on my test"; }
+    $('seenTxt').innerHTML=`<span class="uz">${zh}</span><span class="ue">${en}</span>`;
+  };
   btn.addEventListener('click',async()=>{
     if(fbFailed){ toast("账号服务暂时无法连接，请稍后再试 Accounts unavailable"); return; }
     if(!fb||!fbAuthKnown){ toast("正在连接账号服务，请稍候 Connecting…"); return; }
@@ -14161,8 +14196,7 @@ async function renderSeen(q){
     const on=btn.getAttribute('aria-pressed')!=="true"; btn.disabled=true;
     try{
       await fb.seenSet(id,on);
-      btn.setAttribute('aria-pressed',String(on));
-      const n=Math.max(0,(parseInt($('seenN').textContent)||0)+(on?1:-1)); $('seenN').textContent=n||"";
+      count=Math.max(0,count+(on?1:-1)); paint(on);
       if(on){ toast("已记录，谢谢分享！ Thanks for sharing!"); tone([660,880],0.1,"sine",0.08); }
     }catch(e){ console.warn(e); toast("没有保存成功，请稍后再试 Could not save"); }
     btn.disabled=false;
@@ -14171,7 +14205,7 @@ async function renderSeen(q){
   try{
     const [n,mine]=await Promise.all([fb.seenCount(id), fbUser?fb.seenMine(id):Promise.resolve(false)]);
     if(!cur()) return;
-    $('seenN').textContent=n||""; btn.setAttribute('aria-pressed',String(mine));
+    count=n||0; paint(mine);
   }catch(e){ console.warn(e); }
 }
 
@@ -14192,16 +14226,43 @@ function renderNote(q,open){
 
 /* comments under each question */
 function cmItemHTML(c,tag){
-  return `<div class="cmi" data-id="${esc(c.id)}"><div class="cmmeta"><b>${esc(c.name)}</b>${tag?`<span class="cmtag">${esc(tag)}</span>`:""}<span>${new Date(c.t).toLocaleDateString()}</span>${(fbUser&&(c.uid===fbUser.uid||isAdmin))?`<button class="cmdel" data-id="${esc(c.id)}">删除 Delete</button>`:""}</div><p>${esc(c.text)}</p></div>`;
+  return `<div class="cmi" data-id="${esc(c.id)}"><div class="cmmeta"><b>${esc(c.name)}</b>${tag?`<span class="cmtag">${tag}</span>`:""}<span>${new Date(c.t).toLocaleDateString()}</span><button class="cmtr" title="${uiT("翻译","Translate")}" aria-label="${uiT("翻译","Translate")}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h11"/><path d="M8.5 2.5V5"/><path d="M11 5c-.8 4-3.6 7.2-7 9"/><path d="M5.5 9c1.2 2.5 3.4 4.4 6 5.5"/><path d="M13 21l4.5-11L22 21"/><path d="M14.6 17h5.8"/></svg></button>${(fbUser&&(c.uid===fbUser.uid||isAdmin))?`<button class="cmdel" data-id="${esc(c.id)}"><span class="uz">删除</span><span class="ue">Delete</span></button>`:""}</div><p>${esc(c.text)}</p></div>`;
+}
+/* translation: the comment is sent to Google Translate's public endpoint and shown in the page's language;
+   tapping the icon again shows the original. Results are kept in memory so a second tap costs nothing. */
+const TR_CACHE=new Map();
+const trTarget=()=>S.prefs.lang==="en"?"en":(document.documentElement.lang||"zh-CN");
+async function translateText(text,target){
+  const key=target+"|"+text; if(TR_CACHE.has(key)) return TR_CACHE.get(key);
+  const u="https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl="+encodeURIComponent(target)+"&dt=t&q="+encodeURIComponent(text);
+  const res=await fetch(u); if(!res.ok) throw new Error("translate "+res.status);
+  const j=await res.json(); const out=(j[0]||[]).map(x=>x&&x[0]||"").join("").trim();
+  if(!out) throw new Error("empty"); TR_CACHE.set(key,out); return out;
+}
+function bindTranslate(list){
+  list.querySelectorAll('.cmtr').forEach(b=>b.addEventListener('click',async()=>{
+    const item=b.closest('.cmi'), p=item.querySelector('p');
+    if(item.dataset.tr==="1"){ p.textContent=item.dataset.orig; item.dataset.tr=""; b.classList.remove('on'); b.title=b.ariaLabel=uiT("翻译","Translate"); return; }
+    b.disabled=true;
+    try{
+      const orig=item.dataset.orig||p.textContent; item.dataset.orig=orig;
+      p.textContent=await translateText(orig,trTarget()); item.dataset.tr="1"; b.classList.add('on'); b.title=b.ariaLabel=uiT("显示原文","Show original");
+    }catch(e){ console.warn(e); toast(uiT("翻译失败，请稍后再试","Translation failed, try again later")); }
+    b.disabled=false;
+  }));
 }
 function bindDel(list,reload){
+  bindTranslate(list);
   list.querySelectorAll('.cmdel').forEach(b=>b.addEventListener('click',async()=>{
-    if(b.dataset.armed!=="1"){ b.dataset.armed="1"; b.textContent="再点一次确认 Confirm"; setTimeout(()=>{ b.dataset.armed=""; b.textContent="删除 Delete"; },3000); return; }
+    if(b.dataset.armed!=="1"){ b.dataset.armed="1"; b.innerHTML='<span class="uz">再点一次确认</span><span class="ue">Tap again to confirm</span>'; setTimeout(()=>{ b.dataset.armed=""; b.innerHTML='<span class="uz">删除</span><span class="ue">Delete</span>'; },3000); return; }
     try{ await fb.delComment(b.dataset.id); toast("已删除 Deleted"); reload(); }catch(err){ toast("删除失败 Could not delete"); }
   }));
 }
+// placeholders can't hold two languages, so pick one by the current mode
+const uiT=(zh,en)=>S.prefs.lang==="en"?en:zh;
 function cmFormHTML(id,ph){
-  return `<label class="cmlabel" for="${id}Text">以 ${esc(displayName(fbUser))} 的身份评论 Comment as ${esc(displayName(fbUser))}</label><textarea id="${id}Text" maxlength="500" rows="3" placeholder="${ph}"></textarea><div class="cmrow"><span id="${id}Count">0/500</span><button class="btn" id="${id}Send">发表 Post</button></div>`;
+  const name=esc(displayName(fbUser));
+  return `<div class="compose"><textarea id="${id}Text" maxlength="500" rows="3" placeholder="${ph}" aria-label="${ph}"></textarea><div class="compose-foot"><span class="cnt" id="${id}Count">0/500</span><button class="btn small" id="${id}Send"><span class="uz">发表</span><span class="ue">Post</span></button></div></div>`;
 }
 function bindCmForm(id,qid,reload){
   const ta=$(id+'Text'), send=$(id+'Send');
@@ -14219,27 +14280,27 @@ function unlockComments(){ const c=document.querySelector('#qComments .cm'); if(
 async function loadComments(q){
   const box=$('qComments');
   const locked = !(Q && Q.list[Q.i] && Q.list[Q.i].q.id===q.id && Q.answers[Q.i]!=null);
-  box.innerHTML=`<div class="cm${locked?" locked":""}"><div class="cmh"><span class="uz">讨论</span><span class="ue">Comments</span> <span class="cmn" id="cmN"></span></div><div class="cmlist" id="cmList"><p class="cmempty">加载中… Loading…</p></div><div id="cmForm"></div></div>`;
+  box.innerHTML=`<div class="cm${locked?" locked":""}"><div class="cmh"><span class="uz">讨论</span><span class="ue">Comments</span> <span class="cmn" id="cmN"></span></div><div class="cmlist" id="cmList"><p class="cmempty"><span class="uz">加载中…</span><span class="ue">Loading…</span></p></div><div id="cmForm"></div></div>`;
   renderCmForm(q);
-  if(!fb){ $('cmList').innerHTML=`<p class="cmempty">${fbFailed?"评论服务暂时无法连接 Comments unavailable":"正在连接… Connecting…"}</p>`; if(!fbFailed) window.addEventListener('njfb-ready',()=>{ if(Q&&Q.list[Q.i].q.id===q.id) loadComments(q); },{once:true}); return; }
+  if(!fb){ $('cmList').innerHTML=`<p class="cmempty">${fbFailed?'<span class="uz">评论服务暂时无法连接</span><span class="ue">Comments unavailable</span>':'<span class="uz">正在连接…</span><span class="ue">Connecting…</span>'}</p>`; if(!fbFailed) window.addEventListener('njfb-ready',()=>{ if(Q&&Q.list[Q.i].q.id===q.id) loadComments(q); },{once:true}); return; }
   try{
     const list=(await fb.listComments(q.id)).sort((a,b)=>b.t-a.t);
     if(!Q||Q.list[Q.i].q.id!==q.id) return;
     $('cmN').textContent=list.length;
     $('cmList').innerHTML = list.length ? list.map(c=>cmItemHTML(c)).join("")
-      : `<p class="cmempty">还没有评论，来说第一句吧 No comments yet</p>`;
+      : `<p class="cmempty"><span class="uz">还没有评论，来说第一句吧</span><span class="ue">No comments yet</span></p>`;
     bindDel($('cmList'),()=>loadComments(q));
-  }catch(err){ console.warn(err); $('cmList').innerHTML=`<p class="cmempty">评论加载失败 Could not load comments</p>`; }
+  }catch(err){ console.warn(err); $('cmList').innerHTML=`<p class="cmempty"><span class="uz">评论加载失败</span><span class="ue">Could not load comments</span></p>`; }
 }
 // login / verify prompt shared by both comment areas; returns true when the person can post
 function cmGate(f,id){
-  if(!fbUser){ f.innerHTML=`<button class="btn ghost grow cmlogin" id="${id}Login">登录后发表评论 Log in to comment</button>`; $(id+'Login').addEventListener('click',()=>openAuth("login")); return false; }
-  if(!canPost(fbUser)){ f.innerHTML=`<p class="cmempty">请先验证邮箱再发表评论（点右上角账号可重发验证邮件） Verify your email to comment</p>`; return false; }
+  if(!fbUser){ f.innerHTML=`<button class="btn ghost grow cmlogin" id="${id}Login"><span class="uz">登录后发表评论</span><span class="ue">Log in to comment</span></button>`; $(id+'Login').addEventListener('click',()=>openAuth("login")); return false; }
+  if(!canPost(fbUser)){ f.innerHTML=`<p class="cmempty"><span class="uz">请先验证邮箱再发表评论</span><span class="ue">Verify your email to comment</span></p>`; return false; }
   return true;
 }
 function renderCmForm(q){
   const f=$('cmForm'); if(!cmGate(f,'cm')) return;
-  f.innerHTML=cmFormHTML('cm',"分享你的理解或记忆方法（最多 500 字） Share a tip (max 500)");
+  f.innerHTML=cmFormHTML('cm',uiT("分享你的理解或记忆方法","Share a tip or a memory trick"));
   bindCmForm('cm',()=>q.id,()=>loadComments(q));
 }
 
@@ -14249,9 +14310,9 @@ const ROAD_SITES=["Bakers Basin","Cape May","Cherry Hill","Delanco","Eatontown",
 const LIC_SITES=["Bakers Basin","Bayonne","Camden","Cardiff","Delanco","Eatontown","Edison","Elizabeth","Flemington","Freehold","Lodi","Manahawkin","Newark","Newton","North Bergen","Oakland","Paterson","Rahway","Randolph","Rio Grande","Runnemede","Salem","South Plainfield","Toms River","Vineland","Washington","Wayne","West Deptford"];
 const siteSlug=s=>s.toLowerCase().replace(/\s*\(.*\)/,"").replace(/[^a-z]/g,"").slice(0,15);
 const BQ={}; // qid -> label; qids stay within the 20-character limit in the database rules
-ROAD_SITES.forEach(n=>BQ["c:r:"+siteSlug(n)]="路考 Road: "+n);
-LIC_SITES.forEach(n=>BQ["c:k:"+siteSlug(n)]="笔试 Knowledge: "+n);
-const B={tab:"tip",ctr:"",loaded:false,seq:0};
+ROAD_SITES.forEach(n=>BQ["c:r:"+siteSlug(n)]=`<span class="uz">路考</span><span class="ue">Road test</span>: ${esc(n)}`);
+LIC_SITES.forEach(n=>BQ["c:k:"+siteSlug(n)]=`<span class="uz">笔试</span><span class="ue">Knowledge test</span>: ${esc(n)}`);
+const B={tab:"ctr",ctr:"",loaded:false,seq:0};
 const siteChips=(arr,p)=>arr.map(n=>`<button class="chip" data-ctr="${p}${siteSlug(n)}" aria-pressed="false">${esc(n)}</button>`).join("");
 $('bRoad').innerHTML=siteChips(ROAD_SITES,"c:r:");
 $('bLic').innerHTML=siteChips(LIC_SITES,"c:k:");
@@ -14268,27 +14329,27 @@ $('board').addEventListener('click',e=>{
 const boardQid=()=>B.tab==="tip"?"b:tip":B.ctr; // "" = every center
 async function loadBoard(){
   B.loaded=true; const seq=++B.seq, L=$('bList');
-  $('bTitle').textContent = B.tab==="tip" ? "建议与反馈 Suggestions" : (B.ctr ? BQ[B.ctr] : "全部考场 All centers");
+  $('bTitle').innerHTML = B.tab==="tip" ? '<span class="uz">建议与反馈</span><span class="ue">Suggestions</span>' : (B.ctr ? BQ[B.ctr] : '<span class="uz">全部考场</span><span class="ue">All centers</span>');
   $('bN').textContent="";
   renderBoardForm();
-  if(!fb){ L.innerHTML=`<p class="cmempty">${fbFailed?"评论服务暂时无法连接 Comments unavailable":"正在连接… Connecting…"}</p>`; return; }
-  L.innerHTML=`<p class="cmempty">加载中… Loading…</p>`;
+  if(!fb){ L.innerHTML=`<p class="cmempty">${fbFailed?'<span class="uz">评论服务暂时无法连接</span><span class="ue">Comments unavailable</span>':'<span class="uz">正在连接…</span><span class="ue">Connecting…</span>'}</p>`; return; }
+  L.innerHTML=`<p class="cmempty"><span class="uz">加载中…</span><span class="ue">Loading…</span></p>`;
   try{
     const qid=boardQid();
     const list=(qid ? await fb.listComments(qid) : await fb.listRange("c:","c;")).sort((a,b)=>b.t-a.t);
     if(seq!==B.seq) return;
     $('bN').textContent=list.length;
     L.innerHTML = list.length ? list.map(c=>cmItemHTML(c, qid?"":BQ[c.qid])).join("")
-      : `<p class="cmempty">${B.tab==="tip"?"还没有建议，欢迎第一个留言 No suggestions yet":"这里还没有体验分享，来写第一条吧 No posts yet"}</p>`;
+      : `<p class="cmempty">${B.tab==="tip"?'<span class="uz">还没有建议，欢迎第一个留言</span><span class="ue">No suggestions yet</span>':'<span class="uz">这里还没有体验分享，来写第一条吧</span><span class="ue">No posts yet</span>'}</p>`;
     bindDel(L,loadBoard);
-  }catch(err){ console.warn(err); if(seq===B.seq) L.innerHTML=`<p class="cmempty">评论加载失败 Could not load comments</p>`; }
+  }catch(err){ console.warn(err); if(seq===B.seq) L.innerHTML=`<p class="cmempty"><span class="uz">评论加载失败</span><span class="ue">Could not load comments</span></p>`; }
 }
 function renderBoardForm(){
   const f=$('bForm'); if(!cmGate(f,'b')) return;
-  if(B.tab==="ctr"&&!B.ctr){ f.innerHTML=`<p class="cmempty">先在上面点选一个考场再发表 Pick a test center above to post</p>`; return; }
+  if(B.tab==="ctr"&&!B.ctr){ f.innerHTML=`<p class="cmempty"><span class="uz">先在上面点选一个考场再发表</span><span class="ue">Pick a test center above to post</span></p>`; return; }
   f.innerHTML=cmFormHTML('b', B.tab==="tip"
-    ? "对网站或题库有什么建议？发现错题也可以告诉我们（最多 500 字） Suggestions, or a wrong answer you spotted (max 500)"
-    : "考官、路线、排队时间、注意事项…（最多 500 字） Examiner, route, wait time, tips… (max 500)");
+    ? uiT("对网站的建议，或发现的错题","Suggestions, or a wrong answer you spotted")
+    : uiT("考官、路线、排队时间、注意事项…","Examiner, route, wait time, tips…"));
   bindCmForm('b',boardQid,loadBoard);
 }
 // load the board only when it scrolls into view, to keep database reads low
@@ -14340,7 +14401,7 @@ $('oAutoRemove').addEventListener('change',()=>setTimeout(refreshHome));
 });
 let resetArm=0;
 $('resetBtn').addEventListener('click',()=>{
-  if(Date.now()-resetArm>3000){ resetArm=Date.now(); $('resetBtn').textContent="再点一次确认 Tap again"; setTimeout(()=>$('resetBtn').textContent="清空 Reset",3000); return; }
+  if(Date.now()-resetArm>3000){ resetArm=Date.now(); $('resetBtn').innerHTML='<span class="uz">再点一次确认</span><span class="ue">Tap again</span>'; setTimeout(()=>$('resetBtn').innerHTML='<span class="uz">清空</span><span class="ue">Reset</span>',3000); return; }
   const now=Date.now(); const off=m=>{const o={}; for(const k in m) o[k]=Object.assign({},m[k],{on:false,t:now}); return o;};
   S.wrong=off(S.wrong); S.fav=off(S.fav); S.done={}; S.best=null; changed(); refreshHome(); $('resetBtn').textContent="清空 Reset"; toast("记录已清空");
 });
