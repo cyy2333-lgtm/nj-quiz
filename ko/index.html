@@ -21,37 +21,38 @@
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"NJ Permit Quiz · 뉴저지 운전면허 필기시험 문제","url":"https://njpermitquiz.com/ko/","inLanguage":["en","ko"]}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
-/* Layout idea: one phone-width column like a highway guide sign stack; green guide-sign accent, warning-yellow for "tricky". */
+/* Look: a friendly flashcard app. White cards with soft gray borders and a chunky bottom "ledge" so buttons feel pressable;
+   light pink is the one accent, green/red only mean right/wrong, yellow marks "tricky". Rounded Nunito for Latin text and numbers. */
 :root{
-  --bg:#fff4f7; --surface:#ffffff; --ink:#111111; --muted:#666666; --line:#f6d3df;
-  --accent:#f4a6c1; --accent-ink:#111111; --accent-text:#111111; --sign:#f2c300; --sign-ink:#1a1400;
-  --good:#17985a; --good-soft:#dcf5e7; --bad:#d23b3b; --bad-soft:#fbe3e3;
-  --shadow:0 1px 2px rgba(0,0,0,.06),0 6px 20px rgba(0,0,0,.07);
-  --display:"Barlow Condensed","Arial Narrow","Noto Sans SC",sans-serif;
+  --bg:#ffffff; --surface:#ffffff; --soft:#fdf1f5; --ink:#1d1d1f; --muted:#77767b; --line:#e9e5e7; --ledge:#dcd7da;
+  --accent:#f4a6c1; --accent-deep:#de85a6; --accent-ink:#1d1d1f; --accent-text:#1d1d1f; --sign:#ffcc33; --sign-ink:#3d2e00;
+  --good:#2f9e44; --good-deep:#237a34; --good-soft:#e8f7eb; --bad:#e5484d; --bad-deep:#b8363a; --bad-soft:#fdeeee;
+  --shadow:none;
+  --display:"Nunito","Noto Sans SC",sans-serif;
   --body:"Noto Sans KR","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
   color-scheme:light;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
-    --bg:#0b0b0b; --surface:#181818; --ink:#f5f5f5; --muted:#a3a3a3; --line:#2e2e2e;
-    --accent:#f6b3cb; --accent-ink:#111111; --accent-text:#f6b3cb; --sign:#f2c300; --sign-ink:#1a1400;
-    --good:#3ccf86; --good-soft:#123826; --bad:#ff6b6b; --bad-soft:#3d1a1a;
-    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.3);
+    --bg:#121212; --surface:#1b1b1d; --soft:#231c20; --ink:#f4f4f5; --muted:#a1a1a6; --line:#313134; --ledge:#313134;
+    --accent:#f6b3cb; --accent-deep:#c98aa2; --accent-ink:#151515; --accent-text:#f6b3cb; --sign:#ffcc33; --sign-ink:#3d2e00;
+    --good:#4cc767; --good-deep:#2f8f45; --good-soft:#15291a; --bad:#ff6369; --bad-deep:#b8363a; --bad-soft:#331718;
+    --shadow:none;
     color-scheme:dark;
   }
 }
 :root[data-theme="dark"]{
-  --bg:#0b0b0b; --surface:#181818; --ink:#f5f5f5; --muted:#a3a3a3; --line:#2e2e2e;
-  --accent:#f6b3cb; --accent-ink:#111111; --accent-text:#f6b3cb; --sign:#f2c300; --sign-ink:#1a1400;
-  --good:#3ccf86; --good-soft:#123826; --bad:#ff6b6b; --bad-soft:#3d1a1a;
-  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.3);
+  --bg:#121212; --surface:#1b1b1d; --soft:#231c20; --ink:#f4f4f5; --muted:#a1a1a6; --line:#313134; --ledge:#313134;
+  --accent:#f6b3cb; --accent-deep:#c98aa2; --accent-ink:#151515; --accent-text:#f6b3cb; --sign:#ffcc33; --sign-ink:#3d2e00;
+  --good:#4cc767; --good-deep:#2f8f45; --good-soft:#15291a; --bad:#ff6369; --bad-deep:#b8363a; --bad-soft:#331718;
+  --shadow:none;
   color-scheme:dark;
 }
 *{box-sizing:border-box}
 html,body{margin:0;min-height:100%}
-body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5;-webkit-tap-highlight-color:transparent}
+body{background:var(--bg);color:var(--ink);font-family:"Nunito",var(--body);font-size:16px;line-height:1.5;-webkit-tap-highlight-color:transparent}
 button{font:inherit;color:inherit}
 :focus-visible{outline:3px solid var(--sign);outline-offset:2px}
 .wrap{max-width:720px;margin:0 auto;padding:0 16px 48px}
@@ -145,7 +146,7 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 .asub span{color:var(--muted)}
 .areason{margin:0 0 12px;background:var(--accent);color:var(--accent-ink);border-radius:10px;padding:8px 12px;font-size:14px;font-weight:700}
 .lbtn{position:relative}
-.signed-out .mode[data-start="wrong"]::after,.signed-out .mode[data-start="fav"]::after,.signed-out .lbtn[data-list="wrong"]::after,.signed-out .lbtn[data-list="fav"]::after{content:"🔒";position:absolute;top:10px;right:12px;font-size:13px}
+.signed-out .mode[data-start="wrong"]::after,.signed-out .mode[data-start="fav"]::after,.signed-out .lbtn[data-list="wrong"]::after,.signed-out .lbtn[data-list="fav"]::after{content:"";position:absolute;top:10px;right:12px;width:16px;height:16px;background:var(--muted);-webkit-mask:var(--lock) center/contain no-repeat;mask:var(--lock) center/contain no-repeat}
 [dir="rtl"] .signed-out .mode::after,[dir="rtl"] .signed-out .lbtn::after{right:auto;left:12px}
 .aclose{position:absolute;top:10px;right:12px;border:0;background:none;font-size:24px;line-height:1;cursor:pointer;color:var(--muted)}
 .gbtn{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:12px;padding:11px;font-weight:700;cursor:pointer}
@@ -381,6 +382,122 @@ a.wopt{text-decoration:none;color:var(--ink)}
 .item .mini{border:1px solid var(--line);background:none;border-radius:8px;padding:3px 9px;cursor:pointer;font-size:12px}
 .empty{text-align:center;color:var(--muted);padding:40px 10px}
 .hide{display:none!important}
+
+/* ---------- skin: chunky, friendly, pressable ---------- */
+:root{--lock:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M7 10V7a5 5 0 0 1 10 0v3h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2zm2 0h6V7a3 3 0 0 0-6 0z'/%3E%3C/svg%3E")}
+body{-webkit-font-smoothing:antialiased}
+header{background:var(--surface);border-bottom:2px solid var(--line)}
+.brand b{font-family:var(--display);font-weight:900;font-size:21px;letter-spacing:0}
+.seg{border:2px solid var(--line);padding:2px}
+.seg button{font-weight:700}
+.iconbtn,.themebtn,.acct{border:2px solid var(--line)}
+.acct{font-weight:700}
+h2.sec{font-family:var(--display);font-size:19px;font-weight:900;letter-spacing:0;text-transform:none;color:var(--ink);margin:30px 2px 12px}
+/* buttons */
+.btn{border-radius:16px;padding:13px 20px;font-weight:800;letter-spacing:.2px;box-shadow:0 4px 0 var(--accent-deep);transition:transform .06s,box-shadow .06s;margin-bottom:4px}
+.btn:active:not(:disabled){transform:translateY(4px);box-shadow:0 0 0 var(--accent-deep)}
+.btn.ghost{background:var(--surface);border:2px solid var(--line);box-shadow:0 4px 0 var(--ledge);font-weight:800}
+.btn.ghost:active:not(:disabled){box-shadow:0 0 0 var(--ledge)}
+.btn:disabled{opacity:1;background:var(--line);color:var(--muted);box-shadow:0 4px 0 var(--ledge)}
+.chip,.qtool,.seenbtn,.h26btn,.langlinks a,.sitelangs a{border-width:2px;font-weight:700}
+.chip{box-shadow:0 2px 0 var(--ledge)}
+.chip:active{transform:translateY(2px);box-shadow:none}
+/* home */
+.hero26{border:2px solid transparent;border-radius:20px;padding:16px;background:var(--soft)}
+[dir="rtl"] .hero26{border:2px solid transparent}
+.h26badge{border-radius:16px;background:#ef3b2d;box-shadow:0 4px 0 #b9271c}
+.h26badge b{font-family:var(--display);font-weight:900}
+.h26text b{font-weight:800}
+.new26{background:#ef3b2d;border-radius:8px}
+.stats{gap:10px}
+.stat{border:2px solid var(--line);border-radius:16px;padding:12px 14px}
+.stat .n{font-family:var(--display);font-weight:900;font-size:28px}
+.stat .l{font-weight:600}
+.modes{gap:12px}
+.mode{border:2px solid var(--line);border-radius:20px;padding:16px;box-shadow:0 4px 0 var(--ledge);transition:transform .06s,box-shadow .06s,border-color .12s}
+.mode::before{display:none}
+.mode:hover{transform:none;border-color:var(--stripe,var(--accent))}
+.mode:active{transform:translateY(4px);box-shadow:0 0 0 var(--ledge)}
+.mode .t{font-weight:900;font-size:18px;display:flex;align-items:center;gap:8px}
+.mode .t::before{content:"";width:12px;height:12px;border-radius:4px;background:var(--stripe,var(--accent));flex:none}
+.mode .e{font-family:var(--display);font-weight:800;font-size:12px;letter-spacing:.6px}
+.mode .c b{font-family:var(--display);font-weight:900}
+.m-ex{--stripe:#7cc4f0} .m-fv{--stripe:#ffb648} .m-wr{--stripe:var(--bad)} .m-tr{--stripe:var(--sign)}
+[dir="rtl"] .mode{padding:16px}
+.lbtn{border:2px solid var(--line);border-radius:20px;box-shadow:0 4px 0 var(--ledge);transition:transform .06s,box-shadow .06s}
+.lbtn:active{transform:translateY(4px);box-shadow:0 0 0 var(--ledge)}
+.lbtn b{font-weight:800}
+.glossbox>summary,.board,.opts,.glossary details,.item,.wopt,.abox{border:2px solid var(--line);box-shadow:none}
+.glossbox>summary{border-radius:18px;box-shadow:0 4px 0 var(--ledge)}
+.glossbox .gt{font-weight:900}
+.opts,.board{border-radius:20px}
+.opt-row{border-bottom:2px solid var(--line)}
+.opt-row label{font-weight:700}
+.opt-row small{font-weight:400}
+.sw{background:var(--ledge)}
+/* quiz */
+.qtop .title{font-weight:900;font-size:17px}
+.qtop .count{font-family:var(--display);font-weight:800}
+.bar{height:14px;background:var(--line);border-radius:99px;margin:4px 0 16px}
+.bar i{background:var(--accent);position:relative}
+.bar i::after{content:"";position:absolute;left:8px;right:8px;top:3px;height:4px;border-radius:99px;background:rgba(255,255,255,.45)}
+.combo{font-family:var(--display);font-weight:900;border-radius:10px;padding:2px 10px}
+.qtool{background:var(--surface)}
+.card{border:2px solid var(--line);border-radius:24px;padding:20px;box-shadow:none}
+.tag{border-radius:8px;font-weight:700;padding:2px 9px;border-width:2px}
+.qtext .en{font-size:19px;font-weight:700;line-height:1.45}
+.qtext .zh,.lang-both .qtext .zh{font-weight:500}
+.choice{border:2px solid var(--line);border-radius:16px;padding:13px 14px;box-shadow:0 3px 0 var(--ledge);transition:transform .06s,box-shadow .06s,border-color .12s,background .12s}
+.choice:hover:not(:disabled){border-color:var(--accent);background:var(--soft)}
+.choice:active:not(:disabled){transform:translateY(3px);box-shadow:0 0 0 var(--ledge)}
+.choice .k{border-radius:10px;font-family:var(--display);font-weight:900;font-size:15px}
+.choice .tx{font-weight:600}
+.lang-both .choice .tx .zh{font-weight:500}
+.choice.right{border-color:var(--good);background:var(--good-soft);box-shadow:0 3px 0 var(--good-deep)}
+.choice.wrong{border-color:var(--bad);background:var(--bad-soft);box-shadow:0 3px 0 var(--bad-deep)}
+.choice.reveal{border-style:solid;border-color:var(--good);box-shadow:0 3px 0 var(--good)}
+.choice.dim{opacity:.5;box-shadow:none}
+.check{box-shadow:0 2px 0 var(--good-deep)}
+.explain{border:0;border-radius:18px;background:var(--good-soft);padding:14px 16px}
+.explain .h{color:var(--good);font-family:var(--display);font-weight:900;font-size:17px;margin-bottom:4px}
+.explain.bad{background:var(--bad-soft)}
+.explain.bad .h{color:var(--bad)}
+[dir="rtl"] .explain{border:0}
+.unitnote{background:var(--soft);border:0;border-radius:14px;padding:10px 14px}
+.unitnote .ulabel{font-weight:900}
+.cmi{background:var(--soft);border-radius:14px}
+.afield input,#cmText{background:var(--surface);border:2px solid var(--line);border-radius:14px}
+.afield input:focus,#cmText:focus{outline:0;border-color:var(--accent)}
+.seenbtn{box-shadow:0 2px 0 var(--ledge)}
+.seenbtn b{background:var(--soft)}
+.seenbtn svg{width:16px;height:16px;flex:none}
+.star{border:2px solid var(--line);border-radius:14px;width:48px;height:48px;box-shadow:0 4px 0 var(--ledge);margin-bottom:4px}
+.star:active{transform:translateY(4px);box-shadow:none}
+.star[aria-pressed="true"] path{fill:#ffb648;stroke:#e09a2c}
+/* the previous / next bar stays at the bottom of the screen while answering */
+#vQuiz .qnav{position:sticky;bottom:0;z-index:5;background:var(--bg);margin:14px -16px 0;padding:12px 16px 14px;border-top:2px solid var(--line)}
+.floaty{font-family:var(--display);font-weight:900}
+.toast{font-weight:700;border-radius:14px}
+.verdict{font-family:var(--display);font-weight:900}
+.result{border:2px solid var(--line);border-radius:24px;background:var(--surface)}
+.item{border-radius:18px}
+.item .mini{border-width:2px;border-radius:10px;font-weight:700}
+/* welcome + login */
+.wbox h1{font-family:var(--display);font-weight:900}
+.wopt{border-radius:18px;box-shadow:0 4px 0 var(--ledge);transition:transform .06s,box-shadow .06s,border-color .12s}
+.wopt:active{transform:translateY(4px);box-shadow:none}
+.wopt.cur{border-color:var(--accent);box-shadow:0 4px 0 var(--accent-deep);background:var(--soft)}
+.wopt b{font-weight:900}
+.wopt.wen{border-style:solid;box-shadow:none}
+.abox{border-radius:24px}
+.abox h2{font-family:var(--display);font-weight:900}
+.gbtn,.atabs button{border:2px solid var(--line);border-radius:14px;font-weight:800}
+.gbtn{box-shadow:0 3px 0 var(--ledge)}
+.notebox,.mynote{border-width:2px;border-radius:16px}
+@media (hover:none){ .kbd{display:none} }
+/* phones: the header scrolls away so questions get the whole screen */
+@media (max-width:440px){ header{position:static} }
+
 @media (max-width:440px){
   .stats{grid-template-columns:repeat(2,1fr)}
   .modes{grid-template-columns:1fr}
@@ -479,11 +596,6 @@ a.wopt{text-decoration:none;color:var(--ink)}
       </div>
       <div class="cm"><div class="cmh"><span id="bTitle">건의 사항 Suggestions</span> <span class="cmn" id="bN"></span></div><div class="cmlist" id="bList"><p class="cmempty">불러오는 중… Loading…</p></div><div id="bForm"></div></div>
     </div>
-
-    <h2 class="sec">언어 Language</h2>
-    <nav class="langlinks" aria-label="Language versions">
-      <a href="/" lang="zh">&#20013;&#25991; + English</a><a href="/es/" lang="es">Español</a><a href="/pt/" lang="pt">Português</a><a href="/ko/" lang="ko">한국어</a><a href="/ar/" lang="ar" dir="rtl">العربية</a>
-    </nav>
 
     <h2 class="sec">설정 Settings</h2>
     <div class="opts">
@@ -13859,7 +13971,7 @@ document.addEventListener('click',e=>{ if(!e.target.closest('#acctMenu')&&!e.tar
 /* "I got this on my test" button: anyone can see the count, logging in is needed to add yourself */
 async function renderSeen(q){
   const id=q.id, box=$('qSeen');
-  box.innerHTML=`<button class="seenbtn" id="seenBtn" aria-pressed="false" title="실제 필기시험에 나온 문제라면 눌러 주세요 · Tap if this question was on your real test"><span aria-hidden="true">🎯</span><span>시험에 나왔어요 · I got this on my test</span><b id="seenN"></b></button>`;
+  box.innerHTML=`<button class="seenbtn" id="seenBtn" aria-pressed="false" title="실제 필기시험에 나온 문제라면 눌러 주세요 · Tap if this question was on your real test"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></svg><span>시험에 나왔어요 · I got this on my test</span><b id="seenN"></b></button>`;
   const btn=$('seenBtn'), cur=()=>Q&&Q.list[Q.i]&&Q.list[Q.i].q.id===id;
   btn.addEventListener('click',async()=>{
     if(fbFailed){ toast("계정 서비스에 일시적으로 연결할 수 없습니다. 잠시 후 다시 시도하세요 · Accounts unavailable"); return; }
