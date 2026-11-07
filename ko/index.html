@@ -181,9 +181,19 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
 @media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .trnote,:root:not([data-theme="light"]) .tag.trn{background:#3a2f0e;color:#f3d98b;border-color:#8a6d16} :root:not([data-theme="light"]) .trnotes summary{color:#f3d98b} }
 :root[data-theme="dark"] .trnote,:root[data-theme="dark"] .tag.trn{background:#3a2f0e;color:#f3d98b;border-color:#8a6d16}
 :root[data-theme="dark"] .trnotes summary{color:#f3d98b}
+.wother{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.wother a.wopt{text-decoration:none;color:var(--ink);border-color:var(--line)}
+.wother a.wopt:first-child{border-color:var(--line)}
+@media (max-width:440px){ .wother{grid-template-columns:1fr} }
+.sitelangs{max-width:720px;margin:0 auto;padding:0 16px 8px;display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.sitelangs::-webkit-scrollbar{display:none}
+.sitelangs a{flex:none;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:5px 12px;font-size:13px;text-decoration:none;white-space:nowrap}
+.sitelangs a:hover{border-color:var(--accent)}
+.sitelangs a[aria-current="page"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
 .langlinks{display:flex;flex-wrap:wrap;gap:8px}
 .langlinks a{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:7px 14px;font-size:14px;text-decoration:none}
 .langlinks a:hover{border-color:var(--accent)}
+.langlinks a[aria-current="page"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:700}
 /* right-to-left pages (Arabic) */
 [dir="rtl"] .mode{padding:14px 18px 14px 14px}
 [dir="rtl"] .mode::before{left:auto;right:0}
@@ -342,6 +352,9 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
     </div>
     <button class="acct" id="acctBtn" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span id="acctLabel">로그인 Log in</span></button>
   </div>
+  <nav class="sitelangs" aria-label="Language versions">
+    <a class="sitelang hl" data-site="zh" href="/" lang="zh">&#20013;&#25991;</a><a class="sitelang hl" data-site="es" href="/es/" lang="es">Español</a><a class="sitelang hl" data-site="pt" href="/pt/" lang="pt">Português</a><a class="sitelang hl" data-site="ko" href="/ko/" lang="ko">한국어</a><a class="sitelang hl" data-site="ar" href="/ar/" lang="ar" dir="rtl">العربية</a>
+  </nav>
 </header>
 
 <main class="wrap">
@@ -453,6 +466,13 @@ h2.sec{font-family:var(--display);font-size:15px;letter-spacing:1.5px;text-trans
       <button class="wopt" data-wlang="both"><b>한국어 + English</b><span>English + 한국어 · 추천 Recommended</span></button>
       <button class="wopt" data-wlang="zh"><b>한국어</b><span>한국어 문제만 표시</span></button>
       <button class="wopt" data-wlang="en"><b>English</b><span>Questions in English only</span></button>
+    </div>
+    <div class="wother" aria-label="Other languages">
+      <a class="sitelang wopt" data-site="zh" href="/" lang="zh"><b>&#20013;&#25991; + English</b><span>&#20013;&#33521;&#21452;&#35821;&#39064;&#24211;</span></a>
+      <a class="sitelang wopt" data-site="es" href="/es/" lang="es"><b>Español + English</b><span>Preguntas en español</span></a>
+      <a class="sitelang wopt" data-site="pt" href="/pt/" lang="pt"><b>Português + English</b><span>Questões em português</span></a>
+      <a class="sitelang wopt" data-site="ko" href="/ko/" lang="ko"><b>한국어 + English</b><span>한국어 문제</span></a>
+      <a class="sitelang wopt" data-site="ar" href="/ar/" lang="ar" dir="rtl"><b>العربية + English</b><span>أسئلة باللغة العربية</span></a>
     </div>
     <p class="wnote">나중에 오른쪽 위에서 언제든지 바꿀 수 있습니다 · You can change this anytime at the top right.</p>
   </div>
@@ -13828,6 +13848,26 @@ document.addEventListener('keydown',e=>{
 
 setLang(S.prefs.lang||"both");
 refreshHome();
+/* site language versions: /, /es/, /pt/, /ko/, /ar/ */
+(function(){
+  const m=location.pathname.match(/^(.*?\/)(es|pt|ko|ar)\/(index\.html)?$/);
+  const CUR=m?m[2]:"zh", BASE=m?m[1]:location.pathname.replace(/[^\/]*$/,"");
+  const hrefFor=code=>BASE+(code==="zh"?"":code+"/");
+  const go=code=>{ S.prefs.langChosen=true; S.prefs.lang="both"; saveLocal(); location.href=hrefFor(code); };
+  document.querySelectorAll('a.sitelang').forEach(a=>{
+    const code=a.dataset.site; a.href=hrefFor(code);
+    if(code===CUR){
+      if(a.classList.contains('hl')){ a.setAttribute('aria-current','page'); a.addEventListener('click',e=>e.preventDefault()); }
+      else a.remove();   // the welcome screen already offers this page's own options
+      return;
+    }
+    a.addEventListener('click',e=>{ e.preventDefault(); go(code); });
+  });
+  document.querySelectorAll('.langlinks a').forEach(a=>{
+    const code=(a.getAttribute('href').match(/^\/(es|pt|ko|ar)\/$/)||[])[1]||"zh";
+    a.href=hrefFor(code); if(code===CUR) a.setAttribute('aria-current','page');
+  });
+})();
 /* first visit: ask for a language before entering */
 if(!S.prefs.langChosen){
   const w=$('welcome'); w.classList.remove('hide');
