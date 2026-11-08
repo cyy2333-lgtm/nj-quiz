@@ -713,6 +713,13 @@ header{background:var(--bg)}
 [dir="rtl"] .cmdel{margin-right:4px}
 .cmi[data-tr="1"] p{font-style:normal}
 
+.book{background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:14px;display:grid;gap:10px}
+.bkhint{margin:0;font-size:13px;color:var(--muted)}
+.bknote{margin:0;font-size:12px;color:var(--muted)}
+#bkList .chip{padding:5px 11px;font-size:13px;display:inline-flex;align-items:center;gap:4px;text-decoration:none;color:inherit}
+#bkList .chip svg,.bkmini svg{width:12px;height:12px;opacity:.6}
+.bkmini{display:inline-flex;align-items:center;gap:3px;margin-inline-start:8px;font-size:13px;font-weight:500;color:var(--ink);text-decoration:none;background:var(--accent);border-radius:999px;padding:2px 10px}
+
 </style>
 </head>
 <body class="lang-both">
@@ -778,6 +785,14 @@ header{background:var(--bg)}
         </div>
       </div>
     </div>
+    <h2 class="sec"><span class="uz">预约考试</span><span class="ue">Book a test</span></h2>
+    <div class="book" id="book">
+      <div class="bchips"><button class="chip" data-bk="15" aria-pressed="false"><span class="uz">办许可证</span><span class="ue">Permit</span></button><button class="chip" data-bk="19" aria-pressed="true"><span class="uz">笔试</span><span class="ue">Knowledge test</span></button><button class="chip" data-bk="252" aria-pressed="false"><span class="uz">路考</span><span class="ue">Road test</span></button></div>
+      <p class="bkhint" id="bkHint"></p>
+      <div class="bchips" id="bkList"></div>
+      <p class="bknote"><span class="uz">点考场名，直接打开 MVC 官方预约页面</span><span class="ue">Each center opens its official MVC booking page</span></p>
+    </div>
+
     <div class="sechead"><h2 class="sec"><span class="uz">按主题</span><span class="ue">By topic</span></h2><a class="seclink" href="topics/"><span class="uz">全部题目与答案</span><span class="ue">All questions and answers</span></a></div>
     <div class="topics" id="topicChips"></div>
     <div class="qnav"><button class="btn ghost grow" data-start="all"><span class="uz">全部题目顺序练习</span><span class="ue">All questions in order</span></button></div>
@@ -14320,6 +14335,29 @@ function renderCmForm(q){
   bindCmForm('cm',()=>q.id,()=>loadComments(q));
 }
 
+/* ---------- booking: each center links straight to its page in the official MVC appointment system ----------
+   ids come from telegov.njportal.com/njmvc/AppointmentWizard/<type>/<location> (type 15 permit, 19 knowledge test, 252 car road test) */
+const BOOK_URL="https://telegov.njportal.com/njmvc/AppointmentWizard/";
+const BOOK_IDS={
+  15:{"Bakers Basin":186,"Bayonne":187,"Camden":189,"Cardiff":208,"Delanco":191,"Eatontown":192,"Edison":194,"Elizabeth":264,"Flemington":195,"Freehold":197,"Lodi":198,"Newark":200,"Newton":449,"North Bergen":201,"Oakland":203,"Paterson":204,"Rahway":206,"Randolph":207,"Rio Grande":188,"Runnemede":501,"Salem":190,"South Plainfield":193,"Toms River":196,"Vineland":199,"Washington":450,"Wayne":202,"West Deptford":205},
+  19:{"Bakers Basin":267,"Bayonne":268,"Camden":270,"Cardiff":289,"Delanco":272,"Eatontown":273,"Edison":275,"Elizabeth":290,"Flemington":276,"Freehold":278,"Lodi":279,"Newark":281,"Newton":487,"North Bergen":282,"Oakland":284,"Paterson":285,"Rahway":287,"Randolph":288,"Rio Grande":269,"Salem":271,"South Plainfield":274,"Toms River":277,"Vineland":280,"Washington":461,"Wayne":283,"West Deptford":286},
+  252:{"Bakers Basin":412,"Cherry Hill":413,"Delanco":414,"Eatontown":415,"Kilmer (Edison)":416,"Lodi":417,"Mays Landing":418,"Miller Air Park":419,"Newark":420,"Rahway":421,"Randolph":422,"Salem":423,"Wayne":424}
+};
+const BOOK_HINT={
+  15:'<span class="uz">考笔试前要先办许可证，带齐 6 点身份证件</span><span class="ue">Get your permit before the knowledge test; bring your 6 points of ID</span>',
+  19:'<span class="uz">办好许可证后，预约笔试和视力检查</span><span class="ue">After getting your permit, book the knowledge and vision test</span>',
+  252:'<span class="uz">笔试通过、练车满规定时间后预约路考</span><span class="ue">Book the road test after passing the knowledge test and your practice period</span>'
+};
+const ARROW='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7"/><path d="M9 7h8v8"/></svg>';
+const bookUrl=(type,name)=>BOOK_IDS[type]&&BOOK_IDS[type][name]?BOOK_URL+type+"/"+BOOK_IDS[type][name]:"";
+function paintBook(type){
+  document.querySelectorAll('#book [data-bk]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.bk===String(type))));
+  $('bkHint').innerHTML=BOOK_HINT[type];
+  $('bkList').innerHTML=Object.keys(BOOK_IDS[type]).map(name=>`<a class="chip bklink" href="${bookUrl(type,name)}" target="_blank" rel="noopener">${esc(name)}${ARROW}</a>`).join("");
+}
+document.querySelectorAll('#book [data-bk]').forEach(b=>b.addEventListener('click',()=>paintBook(b.dataset.bk)));
+paintBook(19);
+
 /* ---------- home community board: suggestions + test-center experiences ---------- */
 // sites as listed on nj.gov/mvc/locations/facilitylocations.htm (REAL ID-only offices left out)
 const ROAD_SITES=["Bakers Basin","Cape May","Cherry Hill","Delanco","Eatontown","Kilmer (Edison)","Lodi","Mays Landing","Miller Air Park","Newark","Rahway","Randolph","Salem","Wayne","Winslow (Ancora)"];
@@ -14345,7 +14383,10 @@ $('board').addEventListener('click',e=>{
 const boardQid=()=>B.tab==="tip"?"b:tip":B.ctr; // "" = every center
 async function loadBoard(){
   B.loaded=true; const seq=++B.seq, L=$('bList');
+  const ctrName=B.ctr?[...ROAD_SITES,...LIC_SITES].find(n=>B.ctr.endsWith(":"+siteSlug(n))):"";
+  const ctrBook=B.ctr?bookUrl(B.ctr.startsWith("c:r:")?252:19,ctrName):"";
   $('bTitle').innerHTML = B.tab==="tip" ? '<span class="uz">建议与反馈</span><span class="ue">Suggestions</span>' : (B.ctr ? BQ[B.ctr] : '<span class="uz">全部考场</span><span class="ue">All centers</span>');
+  if(ctrBook) $('bTitle').insertAdjacentHTML('beforeend',` <a class="bkmini" href="${ctrBook}" target="_blank" rel="noopener"><span class="uz">预约这个考场</span><span class="ue">Book this center</span>${ARROW}</a>`);
   $('bN').textContent="";
   renderBoardForm();
   if(!fb){ L.innerHTML=`<p class="cmempty">${fbFailed?'<span class="uz">评论服务暂时无法连接</span><span class="ue">Comments unavailable</span>':'<span class="uz">正在连接…</span><span class="ue">Connecting…</span>'}</p>`; return; }
