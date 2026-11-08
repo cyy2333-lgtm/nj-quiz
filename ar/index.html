@@ -720,6 +720,24 @@ header{background:var(--bg)}
 #bkList .chip svg,.bkmini svg{width:12px;height:12px;opacity:.6}
 .bkmini{display:inline-flex;align-items:center;gap:3px;margin-inline-start:8px;font-size:13px;font-weight:500;color:var(--ink);text-decoration:none;background:var(--accent);border-radius:999px;padding:2px 10px}
 
+.rate{display:grid;gap:6px;margin-bottom:10px}
+.ratehd{font-size:13px;color:var(--muted)}
+.raterow,.ratesum>div{display:flex;align-items:center;gap:10px}
+.ratelbl{min-width:96px;font-size:14px}
+.stars{display:inline-flex;gap:2px}
+.stars button{border:0;background:none;padding:2px;font-size:22px;line-height:1;color:var(--line);cursor:pointer;transition:transform .08s}
+.stars button:active{transform:scale(.85)}
+.stars button.on,.stars i.on{color:#f5b32a}
+.stars.ro i{font-style:normal;color:var(--line);font-size:14px}
+.stars.ro i.on{color:#f5b32a}
+.ratenote{margin:0;font-size:12px;color:var(--muted)}
+.ratesum{background:var(--soft);border-radius:14px;padding:10px 14px;display:grid;gap:4px}
+.ratesum b{font-weight:500;font-size:14px}
+.rateline{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12px;color:var(--muted);margin-top:4px}
+.rateline .stars.ro i{font-size:12px}
+#bCenters .chip .cs{margin-inline-start:5px;font-size:11px;color:#c48a0a;font-weight:500}
+.dark-on #bCenters .chip .cs{color:#f5b32a}
+
 </style>
 </head>
 <body class="lang-both">
@@ -810,7 +828,7 @@ header{background:var(--bg)}
         <div class="bgl"><span class="uz">مواقع اختبار القيادة</span><span class="ue">Road test sites</span></div><div class="bchips" id="bRoad"></div>
         <div class="bgl"><span class="uz">مراكز الاختبار النظري وفحص النظر</span><span class="ue">Knowledge &amp; vision test centers</span></div><div class="bchips" id="bLic"></div>
       </div>
-      <div class="cm"><div class="cmh"><span id="bTitle"><span class="uz">كل المراكز</span><span class="ue">All centers</span></span> <span class="cmn" id="bN"></span></div><div class="cmlist" id="bList"><p class="cmempty"><span class="uz">جارٍ التحميل…</span><span class="ue">Loading…</span></p></div><div id="bForm"></div></div>
+      <div class="cm"><div class="cmh"><span id="bTitle"><span class="uz">كل المراكز</span><span class="ue">All centers</span></span> <span class="cmn" id="bN"></span></div><div id="bSum"></div><div class="cmlist" id="bList"><p class="cmempty"><span class="uz">جارٍ التحميل…</span><span class="ue">Loading…</span></p></div><div id="bForm"></div></div>
     </div>
 
     <p class="note"><span class="uz">مبني على دليل New Jersey Driver Manual لعام 2026. هذا الموقع غير تابع لهيئة MVC، والمرجع هو الدليل الرسمي.</span><span class="ue">Based on the 2026 New Jersey Driver Manual. Not affiliated with the MVC; the official manual prevails.</span> <a href="../privacy.html" style="color:inherit"><span class="uz">سياسة الخصوصية</span><span class="ue">Privacy policy</span></a></p>
@@ -14259,7 +14277,7 @@ function renderNote(q,open){
 
 /* comments under each question */
 function cmItemHTML(c,tag){
-  return `<div class="cmi" data-id="${esc(c.id)}"><div class="cmmeta"><b>${esc(c.name)}</b>${tag?`<span class="cmtag">${tag}</span>`:""}<span>${new Date(c.t).toLocaleDateString()}</span><button class="cmtr" title="${uiT("ترجمة","Translate")}" aria-label="${uiT("ترجمة","Translate")}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h11"/><path d="M8.5 2.5V5"/><path d="M11 5c-.8 4-3.6 7.2-7 9"/><path d="M5.5 9c1.2 2.5 3.4 4.4 6 5.5"/><path d="M13 21l4.5-11L22 21"/><path d="M14.6 17h5.8"/></svg></button>${(fbUser&&(c.uid===fbUser.uid||isAdmin))?`<button class="cmdel" data-id="${esc(c.id)}"><span class="uz">حذف</span><span class="ue">Delete</span></button>`:""}</div><p>${esc(c.text)}</p></div>`;
+  return `<div class="cmi" data-id="${esc(c.id)}"><div class="cmmeta"><b>${esc(c.name)}</b>${tag?`<span class="cmtag">${tag}</span>`:""}<span>${new Date(c.t).toLocaleDateString()}</span><button class="cmtr" title="${uiT("ترجمة","Translate")}" aria-label="${uiT("ترجمة","Translate")}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h11"/><path d="M8.5 2.5V5"/><path d="M11 5c-.8 4-3.6 7.2-7 9"/><path d="M5.5 9c1.2 2.5 3.4 4.4 6 5.5"/><path d="M13 21l4.5-11L22 21"/><path d="M14.6 17h5.8"/></svg></button>${(fbUser&&(c.uid===fbUser.uid||isAdmin))?`<button class="cmdel" data-id="${esc(c.id)}"><span class="uz">حذف</span><span class="ue">Delete</span></button>`:""}</div>${rateLineHTML(c.r)}<p>${esc(c.text)}</p></div>`;
 }
 /* translation: the comment is sent to Google Translate's public endpoint and shown in the page's language;
    tapping the icon again shows the original. Results are kept in memory so a second tap costs nothing. */
@@ -14297,14 +14315,14 @@ function cmFormHTML(id,ph){
   const name=esc(displayName(fbUser));
   return `<div class="compose"><textarea id="${id}Text" maxlength="500" rows="3" placeholder="${ph}" aria-label="${ph}"></textarea><div class="compose-foot"><span class="cnt" id="${id}Count">0/500</span><button class="btn small" id="${id}Send"><span class="uz">نشر</span><span class="ue">Post</span></button></div></div>`;
 }
-function bindCmForm(id,qid,reload){
+function bindCmForm(id,qid,reload,extra){
   const ta=$(id+'Text'), send=$(id+'Send');
   ta.addEventListener('input',()=>$(id+'Count').textContent=ta.value.length+"/500");
   ta.addEventListener('keydown',e=>e.stopPropagation());
   send.addEventListener('click',async()=>{
     const t=ta.value.trim(); if(!t) return;
     send.disabled=true;
-    try{ await fb.addComment(qid(),t.slice(0,500),displayName(fbUser).slice(0,30)); toast(uiT("تم النشر","Posted")); reload(); }
+    try{ await fb.addComment(qid(),t.slice(0,500),displayName(fbUser).slice(0,30),extra?extra():null); toast(uiT("تم النشر","Posted")); reload(); }
     catch(err){ console.warn(err); toast(uiT("تعذّر النشر، يُرجى التأكد من التحقق من بريدك الإلكتروني","Could not post")); send.disabled=false; }
   });
 }
@@ -14383,13 +14401,60 @@ $('board').addEventListener('click',e=>{
   loadBoard();
 });
 const boardQid=()=>B.tab==="tip"?"b:tip":B.ctr; // "" = every center
+/* ---------- test-center ratings ---------- */
+const RATE_KEYS=[
+  ["o",'<span class="uz">التجربة العامة</span><span class="ue">Overall</span>'],
+  ["s",'<span class="uz">تعامل الموظفين</span><span class="ue">Staff</span>'],
+  ["w",'<span class="uz">وقت الانتظار</span><span class="ue">Wait time</span>']
+];
+const starRow=(v,max=5)=>{ const full=Math.floor(v+0.25); let h=""; for(let i=1;i<=max;i++) h+=`<i class="${i<=full?"on":""}">★</i>`; return h; };
+function rateInputHTML(){
+  return `<div class="rate" id="bRate"><div class="ratehd"><span class="uz">قيّم هذا المركز (اختياري)</span><span class="ue">Rate this center (optional)</span></div>`
+    + RATE_KEYS.map(([k,label])=>`<div class="raterow" data-k="${k}"><span class="ratelbl">${label}</span><span class="stars">${[1,2,3,4,5].map(v=>`<button type="button" data-v="${v}" aria-label="${v}">★</button>`).join("")}</span></div>`).join("")
+    + `<p class="ratenote"><span class="uz">وقت الانتظار: نجوم أكثر تعني انتظارًا أقصر</span><span class="ue">Wait time: more stars means a shorter wait</span></p></div>`;
+}
+function bindRateInput(){
+  const val={};
+  document.querySelectorAll('#bRate .raterow').forEach(row=>{
+    const k=row.dataset.k, bs=row.querySelectorAll('button');
+    const paint=v=>bs.forEach(b=>b.classList.toggle('on',+b.dataset.v<=v));
+    bs.forEach(b=>b.addEventListener('click',()=>{ const v=+b.dataset.v; if(val[k]===v){ delete val[k]; paint(0); } else { val[k]=v; paint(v); } }));
+  });
+  return ()=>Object.assign({},val);
+}
+// averages over the posts that carry a rating
+function rateSummary(list){
+  const sum={o:0,s:0,w:0}, cnt={o:0,s:0,w:0}; let people=0;
+  for(const c of list){ if(!c.r) continue; people++; for(const k of ["o","s","w"]){ const v=c.r[k]; if(Number.isInteger(v)&&v>=1&&v<=5){ sum[k]+=v; cnt[k]++; } } }
+  const avg={}; for(const k of ["o","s","w"]) avg[k]=cnt[k]?sum[k]/cnt[k]:0;
+  return {avg,people};
+}
+function rateSummaryHTML(list){
+  const {avg,people}=rateSummary(list); if(!people) return "";
+  return `<div class="ratesum">` + RATE_KEYS.filter(([k])=>avg[k]).map(([k,label])=>`<div><span class="ratelbl">${label}</span><span class="stars ro">${starRow(avg[k])}</span><b>${avg[k].toFixed(1)}</b></div>`).join("")
+    + `<p class="ratenote">${people} <span class="uz">تقييمات</span><span class="ue">${people>1?"ratings":"rating"}</span></p></div>`;
+}
+function rateLineHTML(r){
+  if(!r) return "";
+  return `<div class="rateline">` + RATE_KEYS.filter(([k])=>Number.isInteger(r[k])).map(([k,label])=>`<span>${label} <span class="stars ro">${starRow(r[k])}</span></span>`).join("") + `</div>`;
+}
+// overall average on each center chip, from the "all centers" list
+function paintCenterScores(list){
+  const by={}; for(const c of list){ if(c.r&&Number.isInteger(c.r.o)){ (by[c.qid]=by[c.qid]||[]).push(c.r.o); } }
+  document.querySelectorAll('#bCenters [data-ctr]').forEach(b=>{
+    const id=b.dataset.ctr; let sc=b.querySelector('.cs'); const a=by[id];
+    if(!id||!a){ if(sc) sc.remove(); return; }
+    if(!sc){ sc=document.createElement('span'); sc.className='cs'; b.appendChild(sc); }
+    sc.textContent='★'+(a.reduce((x,y)=>x+y,0)/a.length).toFixed(1);
+  });
+}
 async function loadBoard(){
   B.loaded=true; const seq=++B.seq, L=$('bList');
   const ctrName=B.ctr?[...ROAD_SITES,...LIC_SITES].find(n=>B.ctr.endsWith(":"+siteSlug(n))):"";
   const ctrBook=B.ctr?bookUrl(B.ctr.startsWith("c:r:")?252:19,ctrName):"";
   $('bTitle').innerHTML = B.tab==="tip" ? '<span class="uz">الاقتراحات</span><span class="ue">Suggestions</span>' : (B.ctr ? BQ[B.ctr] : '<span class="uz">كل المراكز</span><span class="ue">All centers</span>');
   if(ctrBook) $('bTitle').insertAdjacentHTML('beforeend',` <a class="bkmini" href="${ctrBook}" target="_blank" rel="noopener"><span class="uz">احجز في هذا المركز</span><span class="ue">Book this center</span>${ARROW}</a>`);
-  $('bN').textContent="";
+  $('bN').textContent=""; $('bSum').innerHTML="";
   renderBoardForm();
   if(!fb){ L.innerHTML=`<p class="cmempty">${fbFailed?'<span class="uz">خدمة التعليقات غير متاحة مؤقتًا</span><span class="ue">Comments unavailable</span>':'<span class="uz">جارٍ الاتصال…</span><span class="ue">Connecting…</span>'}</p>`; return; }
   L.innerHTML=`<p class="cmempty"><span class="uz">جارٍ التحميل…</span><span class="ue">Loading…</span></p>`;
@@ -14398,6 +14463,8 @@ async function loadBoard(){
     const list=(qid ? await fb.listComments(qid) : await fb.listRange("c:","c;")).sort((a,b)=>b.t-a.t);
     if(seq!==B.seq) return;
     $('bN').textContent=list.length;
+    if(B.tab==="ctr"&&!qid) paintCenterScores(list);
+    $('bSum').innerHTML = B.tab==="ctr"&&qid ? rateSummaryHTML(list) : "";
     L.innerHTML = list.length ? list.map(c=>cmItemHTML(c, qid?"":BQ[c.qid])).join("")
       : `<p class="cmempty">${B.tab==="tip"?'<span class="uz">لا توجد اقتراحات بعد. كن أول من يكتب</span><span class="ue">No suggestions yet</span>':'<span class="uz">لا توجد تجارب هنا بعد. اكتب أول تجربة</span><span class="ue">No posts yet</span>'}</p>`;
     bindDel(L,loadBoard);
@@ -14409,7 +14476,9 @@ function renderBoardForm(){
   f.innerHTML=cmFormHTML('b', B.tab==="tip"
     ? uiT("اقتراحات للموقع، أو إجابة خاطئة لاحظتها","Suggestions, or a wrong answer you spotted")
     : uiT("الممتحن، المسار، وقت الانتظار، نصائح…","Examiner, route, wait time, tips…"));
-  bindCmForm('b',boardQid,loadBoard);
+  let getRate=null;
+  if(B.tab==="ctr"&&B.ctr){ f.insertAdjacentHTML('afterbegin',rateInputHTML()); getRate=bindRateInput(); }
+  bindCmForm('b',boardQid,loadBoard,getRate);
 }
 // load the board only when it scrolls into view, to keep database reads low
 if('IntersectionObserver' in window){ const io=new IntersectionObserver(es=>{ if(es.some(x=>x.isIntersecting)){ io.disconnect(); if(!B.loaded) loadBoard(); } },{rootMargin:"200px"}); io.observe($('board')); }
@@ -14543,7 +14612,7 @@ try{
   });
   const auth=A.getAuth(app); auth.useDeviceLanguage();
   const db=F.getFirestore(app);
-  const cmOf=d=>{const x=d.data(); return {id:d.id,qid:x.qid,text:x.text,name:x.name,uid:x.uid,t:x.createdAt&&x.createdAt.toMillis?x.createdAt.toMillis():Date.now()};};
+  const cmOf=d=>{const x=d.data(); return {id:d.id,qid:x.qid,text:x.text,name:x.name,uid:x.uid,r:x.r||null,t:x.createdAt&&x.createdAt.toMillis?x.createdAt.toMillis():Date.now()};};
   window.NJFB={
     onUser:cb=>A.onAuthStateChanged(auth,cb),
     google:()=>A.signInWithPopup(auth,new A.GoogleAuthProvider()),
@@ -14556,7 +14625,7 @@ try{
     listComments:async qid=>{ const s=await F.getDocs(F.query(F.collection(db,"comments"),F.where("qid","==",qid),F.limit(100))); return s.docs.map(cmOf); },
     // every comment whose qid starts with a prefix (e.g. all test-center posts)
     listRange:async(from,to)=>{ const s=await F.getDocs(F.query(F.collection(db,"comments"),F.where("qid",">=",from),F.where("qid","<",to),F.limit(200))); return s.docs.map(cmOf); },
-    addComment:(qid,text,name)=>F.addDoc(F.collection(db,"comments"),{qid,text,name,uid:auth.currentUser.uid,createdAt:F.serverTimestamp()}),
+    addComment:(qid,text,name,r)=>F.addDoc(F.collection(db,"comments"),Object.assign({qid,text,name,uid:auth.currentUser.uid,createdAt:F.serverTimestamp()},r&&Object.keys(r).length?{r}:{})),
     delComment:id=>F.deleteDoc(F.doc(db,"comments",id)),
     // "I got this question on my real test": one doc per person per question, counted with an aggregate query
     seenCount:async qid=>(await F.getCountFromServer(F.query(F.collection(db,"seen"),F.where("qid","==",qid)))).data().count,
