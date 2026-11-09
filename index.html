@@ -13903,6 +13903,7 @@ const MODE_TITLE_OF=()=>({hf:uiT("高频必考","High frequency"),tricky:uiT("�
 const hasAbove=q=>q.options.some(o=>/above|\u4ee5\u4e0a|both|all of these|none of these/i.test((o.en||"")+(o.zh||"")));
 function buildOrder(q){ const idx=[0,1,2,3]; return (S.prefs.shuffleOpt&&!hasAbove(q))?shuffle(idx):idx; }
 function start(mode,arg,customList){
+  stat("start");
   let pool;
   if(customList) pool=customList;
   else if(mode==="hf") pool=ALL.filter(q=>q.hf);
@@ -13990,6 +13991,7 @@ function choose(oi,btn,ev){
   const q=Q.list[Q.i].q, ok=oi===q.answer;
   Q.answers[Q.i]=oi;
   record(q.id,ok);
+  statN++; if(statN===10) stat("q10",1); if(statN===50) stat("q50",1);
   if(ok){
     Q.combo++; Q.right++; Q.best=Math.max(Q.best,Q.combo);
     const r=(Array.from(document.querySelectorAll('#qChoices .choice')).find(b=>+b.dataset.oi===oi)||btn).getBoundingClientRect();
@@ -14018,6 +14020,7 @@ function finish(){
   const isExam=Q.mode==="exam";
   if(isExam&&answered===total&&(!S.best||right>S.best.score)){S.best={score:right,t:Date.now()}; changed();}
   const pct=total?right/total:0, pass=isExam?right>=40:pct>=.8;
+  if(isExam&&answered===total){ stat("exam"); if(pass) stat("pass"); }
   const R=60,C=2*Math.PI*R;
   const v=$('vResult');
   v.innerHTML=`<div class="card result">
@@ -14111,6 +14114,16 @@ function unitNote(q){
 
 /* ---------- accounts, comments, synced progress (Firebase) ---------- */
 let fb=null, fbUser=null, fbPushT=null, fbPushing=false, fbAgain=false, fbFailed=false;
+/* anonymous usage totals (live site only): how many opened the app, started practice, answered 10 / 50 questions,
+   finished or passed a mock test. Only daily totals per site language are stored, never who did it. */
+const STAT_ON=location.hostname==="njpermitquiz.com", statQ=[], statOnce={};
+let statN=0;
+const statId=()=>{ let d; try{ d=new Date().toLocaleDateString("en-CA",{timeZone:"America/New_York"}); }catch(e){ d=new Date().toISOString().slice(0,10); }
+  const m=location.pathname.match(/^\/(es|pt|ko|hi|ar)\//); return d+"_"+(m?m[1]:"zh"); };
+function stat(k,once){
+  if(!STAT_ON) return; if(once){ if(statOnce[k]) return; statOnce[k]=1; }
+  if(fb&&fb.bump) fb.bump(statId(),k).catch(()=>{}); else statQ.push(k);
+}
 const ADMIN_HASH="da02fc9c94ea8f277be79c1e7deb63dc8dbf9d5583a7127106d66b9964ad6a35";
 let isAdmin=false;
 async function sha256(s){ try{ const b=await crypto.subtle.digest("SHA-256",new TextEncoder().encode(s)); return [...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,"0")).join(""); }catch(e){ return ""; } }
@@ -14149,6 +14162,7 @@ function updateAcct(){
 }
 window.addEventListener('njfb-ready',()=>{
   fb=window.NJFB;
+  statQ.splice(0).forEach(k=>stat(k));
   fb.onUser(async u=>{
     fbAuthKnown=true;
     fbUser=u||null; isAdmin=false;
@@ -14584,6 +14598,8 @@ paintTheme();
     S.prefs.langChosen=true; saveLocal(); history.replaceState(null,"",location.pathname);
     setTimeout(()=>{ t&&TOPICS[t] ? start('topic',t) : start(m); },0);
   } }
+/* usage totals: every app open, and a first open on this device */
+stat("open"); try{ if(!localStorage.getItem("njquiz.counted")){ localStorage.setItem("njquiz.counted","1"); stat("new"); } }catch(e){}
 /* first visit: ask for a language before entering */
 if(!S.prefs.langChosen){
   const w=$('welcome'); w.classList.remove('hide');
@@ -14632,7 +14648,9 @@ try{
     seenMine:async qid=>auth.currentUser?(await F.getDoc(F.doc(db,"seen",qid+"_"+auth.currentUser.uid))).exists():false,
     seenSet:(qid,on)=>{ const ref=F.doc(db,"seen",qid+"_"+auth.currentUser.uid); return on?F.setDoc(ref,{qid,uid:auth.currentUser.uid,createdAt:F.serverTimestamp()}):F.deleteDoc(ref); },
     loadProgress:async uid=>{ const s=await F.getDoc(F.doc(db,"users",uid)); return s.exists()?s.data():null; },
-    saveProgress:(uid,data)=>F.setDoc(F.doc(db,"users",uid),data)
+    saveProgress:(uid,data)=>F.setDoc(F.doc(db,"users",uid),data),
+    // anonymous usage totals: one doc per day and site language, counters only
+    bump:(id,k)=>F.setDoc(F.doc(db,"stats",id),{[k]:F.increment(1)},{merge:true})
   };
   window.dispatchEvent(new Event("njfb-ready"));
 }catch(e){ console.warn("Firebase unavailable",e); window.dispatchEvent(new Event("njfb-failed")); }
