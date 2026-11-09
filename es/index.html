@@ -12,6 +12,7 @@
 <link rel="alternate" hreflang="es" href="https://njpermitquiz.com/es/">
 <link rel="alternate" hreflang="pt" href="https://njpermitquiz.com/pt/">
 <link rel="alternate" hreflang="ko" href="https://njpermitquiz.com/ko/">
+<link rel="alternate" hreflang="hi" href="https://njpermitquiz.com/hi/">
 <link rel="alternate" hreflang="ar" href="https://njpermitquiz.com/ar/">
 <link rel="canonical" href="https://njpermitquiz.com/es/">
 <meta property="og:type" content="website">
@@ -752,7 +753,7 @@ header{background:var(--bg)}
     <button class="acct" id="acctBtn" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg><span id="acctLabel"><span class="uz">Iniciar sesión</span><span class="ue">Log in</span></span></button>
   </div>
   <nav class="sitelangs" aria-label="Language versions">
-    <a class="sitelang hl" data-site="zh" href="/" lang="zh">&#20013;&#25991;</a><a class="sitelang hl" data-site="en" href="#" lang="en">English</a><a class="sitelang hl" data-site="es" href="/es/" lang="es">Español</a><a class="sitelang hl" data-site="pt" href="/pt/" lang="pt">Português</a><a class="sitelang hl" data-site="ko" href="/ko/" lang="ko">한국어</a><a class="sitelang hl" data-site="ar" href="/ar/" lang="ar" dir="rtl">العربية</a>
+    <a class="sitelang hl" data-site="zh" href="/" lang="zh">&#20013;&#25991;</a><a class="sitelang hl" data-site="en" href="#" lang="en">English</a><a class="sitelang hl" data-site="es" href="/es/" lang="es">Español</a><a class="sitelang hl" data-site="pt" href="/pt/" lang="pt">Português</a><a class="sitelang hl" data-site="ko" href="/ko/" lang="ko">한국어</a><a class="sitelang hl" data-site="hi" href="/hi/" lang="hi">हिन्दी</a><a class="sitelang hl" data-site="ar" href="/ar/" lang="ar" dir="rtl">العربية</a>
   </nav>
 </header>
 
@@ -888,6 +889,7 @@ header{background:var(--bg)}
       <a class="sitelang wopt" data-site="es" href="/es/" lang="es"><b>Español + English</b><span>Bilingüe español e inglés</span></a>
       <a class="sitelang wopt" data-site="pt" href="/pt/" lang="pt"><b>Português + English</b><span>Bilíngue português e inglês</span></a>
       <a class="sitelang wopt" data-site="ko" href="/ko/" lang="ko"><b>한국어 + English</b><span>한국어·영어 이중 언어</span></a>
+      <a class="sitelang wopt" data-site="hi" href="/hi/" lang="hi"><b>हिन्दी + English</b><span>हिन्दी और अंग्रेज़ी, दोनों भाषाओं में</span></a>
       <a class="sitelang wopt" data-site="ar" href="/ar/" lang="ar" dir="rtl"><b>العربية + English</b><span>ثنائي اللغة: العربية والإنجليزية</span></a>
       <button class="wopt wen" data-wlang="en" lang="en"><b>English only</b><span>Questions in English only</span></button>
     </div>
@@ -14545,9 +14547,9 @@ document.addEventListener('keydown',e=>{
 
 setLang(S.prefs.lang||"both");
 refreshHome();
-/* site language versions: /, /es/, /pt/, /ko/, /ar/ */
+/* site language versions: /, /es/, /pt/, /ko/, /hi/, /ar/ */
 (function(){
-  const m=location.pathname.match(/^(.*?\/)(es|pt|ko|ar)\/(index\.html)?$/);
+  const m=location.pathname.match(/^(.*?\/)(es|pt|ko|hi|ar)\/(index\.html)?$/);
   const CUR=m?m[2]:"zh", BASE=m?m[1]:location.pathname.replace(/[^\/]*$/,"");
   const hrefFor=code=>BASE+(code==="zh"?"":code+"/");
   const go=code=>{ S.prefs.langChosen=true; S.prefs.lang="both"; saveLocal(); location.href=hrefFor(code); };
@@ -14565,7 +14567,7 @@ refreshHome();
   });
   document.documentElement.dataset.site=CUR; paintSiteLangs();
   document.querySelectorAll('.langlinks a').forEach(a=>{
-    const code=(a.getAttribute('href').match(/^\/(es|pt|ko|ar)\/$/)||[])[1]||"zh";
+    const code=(a.getAttribute('href').match(/^\/(es|pt|ko|hi|ar)\/$/)||[])[1]||"zh";
     a.href=hrefFor(code); if(code===CUR) a.setAttribute('aria-current','page');
   });
 })();
