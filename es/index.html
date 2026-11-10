@@ -522,6 +522,13 @@ h2.sec{font-size:26px;margin:34px 2px 14px}
 .hero-sub{margin:0;font-size:16px;font-weight:700;max-width:30em}
 .hero-en{margin:4px 0 0;font-size:14px;opacity:.75}
 .hero-cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}
+.resume{display:flex;align-items:center;gap:10px;width:100%;margin-top:12px;padding:12px 14px;border:0;border-radius:16px;background:var(--surface);color:var(--ink);font:inherit;font-size:14px;text-align:start;cursor:pointer}
+.resume .rl{font-weight:500}
+.resume .rd{flex:1;display:flex;gap:6px;justify-content:flex-end;color:var(--muted);font-size:13px;min-width:0;white-space:nowrap}
+.resume .rt{overflow:hidden;text-overflow:ellipsis;min-width:0}
+.resume .rd b{font-weight:500;flex:none}
+.resume svg{width:16px;height:16px;flex:none;opacity:.6}
+[dir="rtl"] .resume svg{transform:scaleX(-1)}
 .btn.big{font-size:17px;padding:14px 22px;border-radius:18px}
 .hero .btn{background:#000;color:#fff;box-shadow:0 4px 0 #000}
 .hero .btn:active{box-shadow:0 0 0 #000}
@@ -770,6 +777,7 @@ header{background:var(--bg)}
         <button class="btn big" data-start="hf"><span class="uz">Empezar</span><span class="ue">Start</span></button>
         <button class="btn ghost big" data-start="exam"><span class="uz">Examen simulado</span><span class="ue">Mock test</span></button>
       </div>
+      <button class="resume hide" id="resumeBtn"><span class="rl"><span class="uz">Continuar donde lo dejó</span><span class="ue">Continue where you left off</span></span><span class="rd" id="resumeTxt"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
     </div>
     <details class="trnotes"><summary>&#9888; Notas sobre la traducci&#243;n oficial al espa&#241;ol</summary><ul><li>Este sitio sigue el manual oficial en espa&#241;ol de la MVC. Cuando la traducci&#243;n contradice el original en ingl&#233;s (el texto que prevalece), seguimos el original y lo se&#241;alamos en la explicaci&#243;n de la pregunta con &#171;Nota sobre el manual&#187;.</li><li>La licencia probatoria aparece en el manual como &#171;licencia de prueba&#187; y tambi&#233;n como &#171;licencia de principiante&#187;. Aqu&#237; usamos siempre &#171;licencia de prueba&#187; (probationary license).</li><li>La ley &#171;Move Over&#187; aparece con dos nombres: el t&#237;tulo dice &#171;Hacerse a un lado&#187; y el texto dice &#171;Ceda el Paso&#187;.</li><li>La &#171;Safe Passing Law&#187; aparece como &#171;Ley de Adelantamiento Seguro&#187; y como &#171;Ley de Paso Seguro&#187;.</li><li>El manual traduce &#171;primary offense&#187; como &#171;delito grave&#187;, lo cual es un error: es una infracci&#243;n primaria (la polic&#237;a puede detenerlo solo por eso), no un delito grave.</li></ul></details>
     <div class="progress">
@@ -846,6 +854,7 @@ header{background:var(--bg)}
     <div class="bar"><i id="qBar" style="width:0"></i></div>
     <div class="qtools">
       <button class="qtool" id="qHome"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg><span class="uz">Inicio</span><span class="ue">Home</span></button>
+      <button class="qtool hide" id="qRestart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12a8 8 0 1 0 2.4-5.7"/><path d="M4 4v4h4"/></svg><span class="uz">Empezar de nuevo</span><span class="ue">Restart</span></button>
       <button class="qtool" id="qReview"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16M4 12h16M4 19h10"/></svg><span class="uz">Repasar errores</span><span class="ue">Review</span><span class="qbadge" id="qWrongN">0</span></button>
       <label class="qtool entog"><input type="checkbox" class="sw entsw" id="qEn" checked><span class="uz">Mostrar el original en inglés</span><span class="ue">Show English</span></label>
     </div>
@@ -13878,6 +13887,9 @@ document.querySelectorAll('.entsw').forEach(c=>c.addEventListener('change',()=>s
 function show(v){['vHome','vQuiz','vResult','vList'].forEach(id=>$(id).classList.toggle('hide',id!==v)); window.scrollTo(0,0);}
 function refreshHome(){
   $('sTotal').textContent=ALL.length;
+  { const s=lastSess(), rb=$('resumeBtn');
+    if(s){ $('resumeTxt').innerHTML=`<span class="rt">${esc(sessTitle(s))}</span><b>${Math.min((s.i|0)+1,s.ids.length)}/${s.ids.length}</b>`; rb.classList.remove('hide'); }
+    else rb.classList.add('hide'); }
   const ids=Object.keys(S.done).filter(id=>BYID[id]);
   $('sDone').textContent=ids.length;
   let c=0,t=0; ids.forEach(id=>{c+=S.done[id].c; t+=S.done[id].c+S.done[id].w;});
@@ -13904,8 +13916,39 @@ let Q=null; // {mode,title,list:[{q,order}],i,answers:[],combo,best,right}
 const MODE_TITLE_OF=()=>({hf:uiT("Preguntas frecuentes","High frequency"),tricky:uiT("Preguntas engañosas","Error-prone"),exam:uiT("Examen simulado","Mock test"),wrong:uiT("Mis errores","Wrong answers"),fav:uiT("Favoritos","Favorites"),notes:uiT("Mis notas","My notes"),all:uiT("Todas las preguntas","All")});
 const hasAbove=q=>q.options.some(o=>/above|\u4ee5\u4e0a|both|all of these|none of these/i.test((o.en||"")+(o.zh||"")));
 function buildOrder(q){ const idx=[0,1,2,3]; return (S.prefs.shuffleOpt&&!hasAbove(q))?shuffle(idx):idx; }
-function start(mode,arg,customList){
+/* ---------- each practice round keeps its place (per mode / topic), so a refresh or a later visit continues it ---------- */
+const SESS_KEY="njquiz.sess";
+const sessKey=(mode,arg)=>mode+":"+(arg||"");
+function loadSess(){ try{ const o=JSON.parse(localStorage.getItem(SESS_KEY)||"{}"); return o&&typeof o==="object"?o:{}; }catch(e){ return {}; } }
+function putSess(all){ try{ localStorage.setItem(SESS_KEY,JSON.stringify(all)); }catch(e){} }
+function saveSess(){
+  if(!Q||Q.mode==="retry") return;
+  const all=loadSess();
+  all[sessKey(Q.mode,Q.arg)]={mode:Q.mode,arg:Q.arg||null,ids:Q.list.map(it=>it.q.id),ord:Q.list.map(it=>it.order.join("")),
+    i:Q.i,a:Q.list.map((it,k)=>Q.answers[k]==null?null:Q.answers[k]),combo:Q.combo,best:Q.best,right:Q.right,t:Date.now()};
+  putSess(all);
+}
+function dropSess(mode,arg){ const all=loadSess(); delete all[sessKey(mode,arg)]; putSess(all); }
+const sessTitle=s=>s.mode==="topic"?(TOPICS[s.arg]?uiT(TOPICS[s.arg].zh,TOPICS[s.arg].en):""):MODE_TITLE_OF()[s.mode];
+function lastSess(){
+  const all=loadSess();
+  return Object.values(all).filter(s=>s&&Array.isArray(s.ids)&&s.ids.length&&sessTitle(s)&&s.a&&s.a.some(x=>x!=null)).sort((a,b)=>b.t-a.t)[0]||null;
+}
+function resumeSess(s){
+  if(!s||!Array.isArray(s.ids)||!sessTitle(s)) return false;
+  const list=[], answers=[];
+  s.ids.forEach((id,k)=>{ const q=BYID[id]; if(!q) return; const o=String((s.ord||[])[k]||"").split("").map(Number);
+    list.push({q,order:o.length===q.options.length?o:buildOrder(q)}); answers.push((s.a||[])[k]==null?null:s.a[k]); });
+  if(!list.length) return false;
+  let i=Math.min(Math.max(0,s.i|0),list.length-1);
+  if(answers[i]!=null&&i<list.length-1&&answers[i+1]==null) i++;   // stopped right after answering: go on to the next one
+  Q={mode:s.mode,arg:s.arg,title:sessTitle(s),list,i,answers,combo:s.combo|0,best:s.best|0,right:s.right|0};
+  show('vQuiz'); render(); return true;
+}
+function start(mode,arg,customList,fresh){
   stat("start");
+  if(!customList&&!fresh){ const s=loadSess()[sessKey(mode,arg)];
+    if(s&&s.a&&s.a.some(x=>x!=null)&&resumeSess(s)){ toast(uiT("Volvió a donde lo dejó","Picked up where you left off")); return; } }
   let pool;
   if(customList) pool=customList;
   else if(mode==="hf") pool=ALL.filter(q=>q.hf);
@@ -13936,6 +13979,8 @@ function render(){
   const it=Q.list[Q.i], q=it.q, ans=Q.answers[Q.i];
   $('qTitle').textContent=Q.title;
   $('qCount').textContent=`${Q.i+1}/${Q.list.length}`;
+  $('qRestart').classList.toggle('hide',Q.mode==="retry"||!Q.answers.some(x=>x!=null));
+  saveSess();
   $('qBar').style.width=((Q.i+(ans!=null?1:0))/Q.list.length*100)+'%';
   updateCombo();
   const tags=[];
@@ -13993,6 +14038,7 @@ function choose(oi,btn,ev){
   const q=Q.list[Q.i].q, ok=oi===q.answer;
   Q.answers[Q.i]=oi;
   record(q.id,ok);
+  $('qRestart').classList.remove('hide');
   statN++; if(statN===10) stat("q10",1); if(statN===50) stat("q50",1);
   if(ok){
     Q.combo++; Q.right++; Q.best=Math.max(Q.best,Q.combo);
@@ -14012,6 +14058,7 @@ function choose(oi,btn,ev){
   $('qBar').style.width=((Q.i+1)/Q.list.length*100)+'%';
   $('nextBtn').disabled=false;
   clearTimeout(autoT);
+  saveSess();
   if(ok&&S.prefs.auto) autoT=setTimeout(()=>{ if(Q&&Q.answers[Q.i]!=null&&!$('vQuiz').classList.contains('hide')) next(); },950);
 }
 function next(){ clearTimeout(autoT); if(!Q) return; if(Q.i<Q.list.length-1){Q.i++; render();} else finish(); }
@@ -14023,6 +14070,7 @@ function finish(){
   if(isExam&&answered===total&&(!S.best||right>S.best.score)){S.best={score:right,t:Date.now()}; changed();}
   const pct=total?right/total:0, pass=isExam?right>=40:pct>=.8;
   if(isExam&&answered===total){ stat("exam"); if(pass) stat("pass"); }
+  if(Q.mode!=="retry") dropSess(Q.mode,Q.arg);
   const R=60,C=2*Math.PI*R;
   const v=$('vResult');
   v.innerHTML=`<div class="card result">
@@ -14534,6 +14582,8 @@ document.querySelectorAll('[data-start]').forEach(b=>b.addEventListener('click',
 document.querySelectorAll('[data-list]').forEach(b=>b.addEventListener('click',()=>{ if(GATED[b.dataset.list]&&!gate()) return; showList(b.dataset.list); }));
 $('homeBtn').addEventListener('click',goHome);
 $('qHome').addEventListener('click',goHome);
+$('qRestart').addEventListener('click',()=>{ if(!Q) return; const m=Q.mode, a=Q.arg; dropSess(m,a); start(m,a,null,true); });
+$('resumeBtn').addEventListener('click',()=>{ const s=lastSess(); if(!(s&&resumeSess(s))) refreshHome(); });
 $('qReview').addEventListener('click',()=>{ if(!gate()) return; clearTimeout(autoT); showList('wrong',true); });
 $('backBtn').addEventListener('click',()=>{ if(Q&&Q.answers.filter(a=>a!=null).length>0&&Q.mode==="exam"){ finish(); } else goHome(); });
 $('nextBtn').addEventListener('click',next);
@@ -14547,7 +14597,7 @@ let resetArm=0;
 $('resetBtn').addEventListener('click',()=>{
   if(Date.now()-resetArm>3000){ resetArm=Date.now(); $('resetBtn').innerHTML='<span class="uz">Toque de nuevo para confirmar</span><span class="ue">Tap again</span>'; setTimeout(()=>$('resetBtn').innerHTML='<span class="uz">Borrar</span><span class="ue">Reset</span>',3000); return; }
   const now=Date.now(); const off=m=>{const o={}; for(const k in m) o[k]=Object.assign({},m[k],{on:false,t:now}); return o;};
-  S.wrong=off(S.wrong); S.fav=off(S.fav); S.done={}; S.best=null; changed(); refreshHome(); $('resetBtn').innerHTML='<span class="uz">Borrar</span><span class="ue">Reset</span>'; toast(uiT("Progreso borrado","Progress cleared"));
+  S.wrong=off(S.wrong); S.fav=off(S.fav); S.done={}; S.best=null; changed(); putSess({}); refreshHome(); $('resetBtn').innerHTML='<span class="uz">Borrar</span><span class="ue">Reset</span>'; toast(uiT("Progreso borrado","Progress cleared"));
 });
 document.addEventListener('keydown',e=>{
   if($('vQuiz').classList.contains('hide')||!Q||e.metaKey||e.ctrlKey||e.altKey) return;
